@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>SA Contract Layout</layout>
+        <sections>
+            <label><!-- Actions --></label>
+            <section>Actions</section>
+        </sections>
+        <sections>
+            <label><!-- Contract Details --></label>
+            <section>Contract Details</section>
+        </sections>
+        <sections>
+            <label><!-- Proposal Process --></label>
+            <section>Proposal Process</section>
+        </sections>
+        <sections>
+            <label><!-- Qualification Details --></label>
+            <section>Qualification Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SA Quote Layout</layout>
+        <sections>
+            <label><!-- Actions --></label>
+            <section>Actions</section>
+        </sections>
+        <sections>
+            <label><!-- Proposal Process --></label>
+            <section>Proposal Process</section>
+        </sections>
+        <sections>
+            <label><!-- Qualification Details --></label>
+            <section>Qualification Details</section>
+        </sections>
+        <sections>
+            <label><!-- Quote Details --></label>
+            <section>Quote Details</section>
+        </sections>
+        <sections>
+            <label><!-- Test --></label>
+            <section>Test</section>
+        </sections>
+        <sections>
+            <label><!-- test --></label>
+            <section>test</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Test CPQ Diogo Godoy</layout>
+        <sections>
+            <label><!-- Actions --></label>
+            <section>Actions</section>
+        </sections>
+        <sections>
+            <label><!-- Proposal Process --></label>
+            <section>Proposal Process</section>
+        </sections>
+        <sections>
+            <label><!-- Qualification Details --></label>
+            <section>Qualification Details</section>
+        </sections>
+        <sections>
+            <label><!-- Quote Details --></label>
+            <section>Quote Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Configure --></label>
+        <name>Configure</name>
+    </quickActions>
+</CustomObjectTranslation>

@@ -1,0 +1,167 @@
+<apex:page controller="BulkPIUEditController">
+
+<script>
+<!--added for checkAll SelectBox function.-->
+ function selectAllCheckboxes(obj,receivedInputID,productName){
+        
+    var inputCheckBox = document.getElementsByTagName("input");  
+             
+    <apex:variable var="tableCount" value="{!0}"/>
+           
+    <apex:repeat value="{!assetDetails}" var="key">
+          
+          if('{!key}' == productName){
+          
+          <apex:variable var="count" value="{!0}"/>
+          
+              <apex:repeat value="{!assetDetails[key]}" var="listValue">
+              
+                  var checkBoxId = '{!tableCount}'+':table:'+'{!count}'+':'+receivedInputID;               
+                  
+                  for(var i=0; i<inputCheckBox.length; i++){          
+                     if(inputCheckBox[i].id.indexOf(checkBoxId) != -1){ 
+                      inputCheckBox[i].checked = obj.checked;
+                                             }
+                   }
+                 
+                 <apex:variable var="count" value="{!count+1}"/>
+                
+              </apex:repeat>  
+
+            }
+            <apex:variable var="tableCount" value="{!tableCount+1}"/>
+            
+    </apex:repeat>
+          
+} 
+
+<!--added for onChange Function-->
+function checkCheckbox(obj,objectId){
+var res = obj.id.replace(objectId, "checkDone");
+document.getElementById(res).checked = "true";
+}  
+
+function checkprimary(cid,pid,flgsel,obj,objectId){
+var res = obj.id.replace(objectId, "checkDone");
+document.getElementById(res).checked = "true";
+callcheckprimary(cid,pid,flgsel);
+}
+
+
+function checkPrimaryCheckbox(obj,objectId,productName){
+
+var res = obj.id.replace(objectId, "checkDone");
+document.getElementById(res).checked = "true";
+
+var inputCheckBox = document.getElementsByTagName("input");  
+             
+    <apex:variable var="tableCount" value="{!0}"/>
+           
+    <apex:repeat value="{!assetDetails}" var="key">
+          
+          if('{!key}' == productName){
+          
+          <apex:variable var="count" value="{!0}"/>
+          
+              <apex:repeat value="{!assetDetails[key]}" var="listValue">
+              
+                  var checkBoxId = '{!tableCount}'+':table:'+'{!count}'+':'+objectId;               
+
+                  for(var i=0; i<inputCheckBox.length; i++){   
+       
+                     if(inputCheckBox[i].id.indexOf(checkBoxId) != -1 && inputCheckBox[i].id != obj.id){ 
+                      if(obj.checked){
+                      inputCheckBox[i].disabled = true;
+                      } else{
+                      inputCheckBox[i].disabled = false;
+                      }
+                      }
+                   }
+                 
+                 <apex:variable var="count" value="{!count+1}"/>
+                
+              </apex:repeat>  
+
+            }
+            <apex:variable var="tableCount" value="{!tableCount+1}"/>
+            
+    </apex:repeat>
+}
+  
+</script>
+
+<apex:form id="piucontactsfrm">
+<apex:ActionFunction name="callcheckprimary" action="{!updateContactList}" rerender="piuctsblk" status="status1">
+    <apex:param name="p1" assignTo="{!schangedcId}" value="" />
+    <apex:param name="p2" assignTo="{!sproduct}" value="" />
+    <apex:param name="p3" assignTo="{!schangedflg}" value="" />
+</apex:ActionFunction>
+
+   <apex:PageBlock title="Contacts to Product In Use" id="piuctsblk">
+   <apex:actionStatus id="status1" >
+    <apex:facet name="start" >
+       <img src="/img/loading.gif" />                    
+    </apex:facet>
+   </apex:actionStatus>
+   
+   
+<apex:pagemessages />
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Update" action="{!getAssetSelected}"/>
+             <apex:commandButton value="Cancel" action="{!courseCancelDetailPage}"/>
+        </apex:pageBlockButtons>     
+ <div style="overflow: auto;">
+    <apex:repeat value="{!assetDetails}" var="outerKey">
+              <br/><h3><apex:outputText value="{!productIdWithName[outerKey]}" /></h3><br/><br/>
+                  <apex:pageBlockTable value="{!assetDetails[outerKey]}"  var="innerKey" id="table" > 
+
+
+
+
+<apex:column > 
+<apex:facet name="header">
+ <apex:inputCheckbox onclick="selectAllCheckboxes(this,'checkDone','{!outerKey}')"> 
+   <!-- <apex:actionSupport event="onclick"  action="{!selectedProductContact}" immediate="true" rerender="table" > -->
+     <apex:param value="{!outerKey}" name="SelectedProductName"/>
+     <!-- </apex:actionSupport> -->
+    </apex:inputCheckbox>
+ </apex:facet>
+<apex:inputCheckbox value="{!innerKey.selected}" id="checkDone"/> 
+</apex:column>
+
+<apex:column headervalue="Contact Name"  width="300px" value="{!innerKey.ass.Contact.name}" /> 
+
+
+<apex:column headerValue="Usage" width="300px">
+<apex:inputField value="{!innerKey.ass.Usage__c}" id="usage" onchange="checkCheckbox(this,'usage')"/>
+</apex:column>
+
+
+<apex:column headerValue="Status" width="300px" >
+<apex:inputField value="{!innerKey.ass.Status__c}" id="status" onchange="checkCheckbox(this,'status')"/>
+</apex:column>
+
+
+<apex:column headerValue="Third Party LMS" width="300px">
+<apex:inputField value="{!innerKey.ass.Third_Party_LMS__c}" id="lms" onchange="checkCheckbox(this,'lms')"/>
+</apex:column>
+
+
+<apex:column headerValue="Primary" width="300px">
+<!--<apex:inputCheckbox value="{!innerKey.ass.Primary__c}" id="primary" onchange="checkPrimaryCheckbox(this,'primary','{!innerKey.ass.Contact.name}')"/>--> 
+<!--<apex:ActionRegion >-->
+<apex:inputCheckbox value="{!innerKey.ass.Primary__c}" id="primary" onchange="checkprimary('{!innerKey.ass.contactid}','{!outerKey}','{!innerKey.ass.Primary__c}',this,'primary')"> 
+</apex:inputCheckbox>
+<!--<script>document.getElementById('{!$Component.primary}').disabled = {!AND(innerKey.ass.Primary__c==false,CONTAINS(primcntmap,innerKey.ass.contactid))}; </script>-->
+<!--</apex:ActionRegion>-->
+</apex:column>
+</apex:pageBlockTable>
+
+</apex:repeat>
+</div>
+
+</apex:pageBlock>  
+
+</apex:form>  
+
+</apex:page>

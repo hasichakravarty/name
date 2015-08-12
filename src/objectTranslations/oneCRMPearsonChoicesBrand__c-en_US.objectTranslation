@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>oneCRMPearsonChoicesBrand</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>oneCRMPearsonChoicesBrand</value>
+    </caseValues>
+    <fields>
+        <label><!-- Offer Type Sequence --></label>
+        <name>Offer_Type_Sequence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Type --></label>
+        <name>Offer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- PearsonChoicesBrandValues --></label>
+        <name>PearsonChoicesBrandValues__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,405 @@
+<apex:page controller="OrderHeaderController1" id="theForm" doctype="html-5.0" tabStyle="Opportunity" sidebar="false">
+<script type="text/javascript">
+function getvalue() {
+    var selectedaddress;
+    try {
+        var radiogroup = document.getElementsByName("address");
+        for (var a = 0; a < radiogroup.length; a++) {
+                       if (radiogroup[a].checked) {
+                selectedaddress = radiogroup[a].value;
+                break;
+            }
+         }
+       var add1=document.getElementById('theForm:form2:thePgBlock:add1').value;
+       var add2=document.getElementById('theForm:form2:thePgBlock:add2').value;
+       var add3=document.getElementById('theForm:form2:thePgBlock:add3').value;
+       var add4=document.getElementById('theForm:form2:thePgBlock:add4').value;
+       var add5=document.getElementById('theForm:form2:thePgBlock:add5').value;
+       var add6=document.getElementById('theForm:form2:thePgBlock:add6').value;
+       var add7=document.getElementById('theForm:form2:thePgBlock:add7').value;
+       var add8=document.getElementById('theForm:form2:thePgBlock:add8').value;
+       passvalue(selectedaddress,add1,add2,add3,add4,add5,add6,add7,add8);
+       }catch(e){alert("Error"+e);}
+       return null;
+    }
+
+//Davi Borges 18/06/2015 functionality to avoid multiple clicks by the user
+var isClicked = false;
+function checkDoubleSubmit(obj){
+            if (isClicked) {
+                return false;
+            }else {
+                isClicked = true;
+                obj.className = 'btnDisabled';//only shows the button as disabled.
+                return true;
+            }
+}
+
+function changeValue(input, textid) 
+{ 
+  document.getElementById(textid).value = input; 
+  //alert('23456');
+  refreshAddSection();
+  return false;
+
+}
+
+
+</script>
+<style>
+.right {
+    position: absolute;
+    right: 10px;
+    width: 500px;
+    height:30px;    
+    background-color: white;
+       
+}
+.right1{
+    position: absolute;
+    right: 10px;
+    width: 500px;
+    height:30px; 
+    top:70px;   
+    background-color: white; 
+      
+}
+.popupBackground{
+        background-color:black;
+        opacity: 0.20;
+        filter: alpha(opacity = 20);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9998;
+    }
+.custPopup1{
+        background-color: white;
+        border-width: 2px;
+        border-style: solid;
+        z-index: 9999;
+        left: 50%;
+        padding:10px;
+        position: absolute;
+        /* These are the 3 css properties you will need to change so the popup 
+        displays in the center of the screen. First set the width. Then set 
+        margin-left to negative half of what the width is. You can add 
+        the height property for a fixed size pop up if you want.*/
+        width: 50%;
+        margin-left: -350px;
+        top:50px;
+    }
+.custPopupDup{
+        background-color: white;
+        border-width: 2px;
+        border-style: solid;
+        z-index: 9999;
+        left: 65%;
+        padding:10px;
+        position: absolute;
+        /* These are the 3 css properties you will need to change so the popup 
+        displays in the center of the screen. First set the width. Then set 
+        margin-left to negative half of what the width is. You can add 
+        the height property for a fixed size pop up if you want.*/
+        width: 17%;
+        margin-left: -350px;
+        top:50%;
+    }
+
+</style>
+
+<apex:form >
+
+
+<!--apex:actionFunction name="passvalue" action="{!setselectedaddress1}" rerender="form2"> 
+
+<apex:param name="firstParam" assignTo="{!selectedaddress}" value="" />
+<apex:param name="addline1" assignTo="{!addressline1}" value="" />
+<apex:param name="addline2" assignTo="{!addressline2}" value="" />
+<apex:param name="addline3" assignTo="{!addressline3}" value="" />
+<apex:param name="addline4" assignTo="{!addressline4}" value="" />
+<apex:param name="addline5" assignTo="{!mailingcity}" value="" />
+<apex:param name="addline6" assignTo="{!mailingstate}" value="" />
+<apex:param name="addline7" assignTo="{!mailingcountry}" value="" />
+<apex:param name="addline8" assignTo="{!mailingpostalcode}" value=""/>
+</apex:actionFunction-->
+<apex:actionFunction name="rerenderthePgBlock" rerender="thePgBlock" />
+</apex:form>
+<apex:form id="form2">
+<apex:outputLabel value="Sample Order Header"  style="font-size:small;font-weight: bold"/>
+<apex:pageBlock >
+<apex:outputLabel value="Warehouse Instructions:" style="position:absolute;right:518px;" for="warehouse"/>
+<apex:inputTextarea value="{!warehouseinstruction}" styleClass="right" id="warehouse"/><br/>
+<apex:outputLabel value="Order Notes:" style="position:absolute;right:518px;top: 70px;" for="ordefield"/>
+<apex:inputTextarea value="{!ordernotes}" styleClass="right1" id="ordefield"/>
+<table>
+<tr><td><h4><apex:outputLabel value="Account:" for="accountlink"></apex:outputLabel></h4>&nbsp;&nbsp;<apex:outputLink target="_blank" value="/{!RelatedAccount.id}">{!RelatedAccount.name}</apex:outputLink></td></tr>
+<tr><td></td></tr>
+<tr><td><h4><apex:outputLabel value="Primary Selling Account:" for="accountlink"></apex:outputLabel></h4><apex:outputLink target="_blank" value="/{!opppriacc.id}">{!opppriacc.name}</apex:outputLink></td></tr>
+<tr><td></td></tr>
+<tr><td><h4><apex:outputLabel value="Account Address:" for="accountlink"></apex:outputLabel></h4>{!RelatedAccount.BillingStreet},{!RelatedAccount.BillingCity},{!RelatedAccount.BillingState},{!RelatedAccount.BillingCountry},{!RelatedAccount.BillingPostalCode}</td></tr>
+<tr><td></td></tr>
+</table>
+</apex:pageBlock>
+<apex:outputLabel value="Sample Order Contacts "  style="font-size:small;font-weight: bold"/>
+
+
+<apex:pageBlock id="block">
+
+<apex:pageBlockTable value="{!ordercontactlist}" var="lineitem" id="table">
+<apex:column headerValue="Action">
+<apex:commandButton action="{!removecontact}" image="{!URLFOR($Resource.RemoveOppty)}" style="height:15px;width:15px;" rerender="table">
+<apex:param name="removeSampledId" value="{!lineitem.con.id}" assignTo="{!removeconid}"/></apex:commandbutton>
+</apex:column>
+<apex:column value="{!lineitem.con.name}" headerValue="Contact"/>
+<apex:column value="{!lineitem.contactrole}" headerValue="Opportunity Role"/>
+<apex:column headerValue="Future Ship Date" style="width:125px">
+<apex:input type="date"  value="{!lineitem.futureshipdate}" id="date1" style="width:125px"></apex:input>
+</apex:column>
+<apex:column headerValue="Cancel By Date" style="width:125px">
+<apex:input type="date" value="{!lineitem.canceldate}" style="width:125px"></apex:input>
+</apex:column>
+<apex:column headerValue="Shipping Instructions" style="width:250px">
+<apex:inputText value="{!lineitem.shippinginstructions}" style="width:250px"></apex:inputText>
+</apex:column>
+<apex:column headerValue="Address" value="{!lineitem.address}"/>
+<apex:column headerValue="Address Override">
+<apex:actionRegion >
+
+<apex:commandLink action="{!initiateaddressselction}" value="Address Override" id="theCommandLink" rerender="popupAddPanel" > 
+<apex:param name="contactid" value="{!lineitem.con.id}" assignTo="{!conid}"/>
+
+</apex:commandlink>
+</apex:actionRegion>
+
+</apex:column>
+<apex:column headerValue="DNS">
+<apex:outputField value="{!lineitem.con.Do_Not_Send_Samples__c}"/>
+</apex:column>
+<apex:column headerValue="Email" value="{!lineitem.email}"/>
+
+<apex:column >
+<apex:outputpanel id="popupAddPanel">
+<apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displaypopup}" id="addrblock"/>
+<apex:outputpanel styleClass="custPopup1" layout="block" rendered="{!displaypopup}" id="adrblock">
+
+<apex:actionRegion >
+
+<apex:outputLabel value="Address Selection:"></apex:outputLabel>&nbsp;&nbsp;&nbsp;{!lineitem.con.name}
+<table width="100%">
+<tr><td width="50%">
+<div>
+
+<apex:variable value="{!lineitem.isContMailing}" var="test" rendered="{!IF(lineitem.isContMailing , true,false)}" >
+   <input type="radio" name="{!lineitem.isContMailing}" value="{!lineitem.isContMailing}" onchange="changeValue('Mailing','{!$Component.ContactIdValue}');" checked = "true">Contact Mailing Address</input>
+</apex:variable>
+
+<apex:variable value="{!lineitem.isContMailing}" var="test" rendered="{!IF(lineitem.isContMailing , false,true)}" >
+   <input type="radio" name="{!lineitem.isContMailing}" value="{!lineitem.isContMailing}" onchange="changeValue('Mailing','{!$Component.ContactIdValue}');" >Contact Mailing Address</input>
+</apex:variable>
+
+
+<table>
+<tr><td>{!lineitem.con.mailingstreet}&nbsp;{!lineitem.con.mailingcity}</td></tr>
+<tr><td>{!lineitem.con.mailingstate}&nbsp;{!lineitem.con.mailingcountry}&nbsp;{!lineitem.con.mailingpostalcode}</td></tr>
+</table>
+</div>
+<br/>
+<br/>
+<div>
+<apex:variable value="{!lineitem.isContOther}" var="test" rendered="{!IF(lineitem.isContOther , true,false)}" >
+<input type="radio" name="{!lineitem.isContOther}" value="{!lineitem.isContOther}" onchange="changeValue('Other','{!$Component.ContactIdValue}');" checked = "true">Contact Other Address</input>
+</apex:variable>
+
+<apex:variable value="{!lineitem.isContOther}" var="test" rendered="{!IF(lineitem.isContOther , false,true)}" >
+<input type="radio" name="{!lineitem.isContOther}" value="{!lineitem.isContOther}" onchange="changeValue('Other','{!$Component.ContactIdValue}');">Contact Other Address</input>
+</apex:variable>
+
+
+<table>
+<tr><td>{!lineitem.con.otherstreet}&nbsp;{!lineitem.con.othercity}</td></tr>
+<tr><td>{!lineitem.con.otherstate}&nbsp;{!lineitem.con.othercountry}&nbsp;{!lineitem.con.otherpostalcode}</td></tr>
+</table>
+</div>
+<br/>
+<br/>
+<apex:variable value="{!lineitem.isAccountPhysical}" var="test" rendered="{!IF(lineitem.isAccountPhysical , true,false)}" >
+
+<input type="radio" name="{!lineitem.isAccountPhysical}" value="{!lineitem.isAccountPhysical}" onchange="changeValue('Account','{!$Component.ContactIdValue}');" checked = "true">Account Physical Address<br/></input>
+</apex:variable>
+
+<apex:variable value="{!lineitem.isAccountPhysical}" var="test" rendered="{!IF(lineitem.isAccountPhysical , false,true)}" >
+
+<input type="radio" name="{!lineitem.isAccountPhysical}" value="{!lineitem.isAccountPhysical}" onchange="changeValue('Account','{!$Component.ContactIdValue}');" >Account Physical Address<br/></input>
+</apex:variable>
+
+<table>
+<tr><td>{!lineitem.con.account.shippingstreet}&nbsp;{!lineitem.con.account.shippingcity}</td></tr>
+<tr><td>{!lineitem.con.account.shippingstate}&nbsp;{!lineitem.con.account.shippingcountry}&nbsp;{!lineitem.con.account.shippingpostalcode}</td></tr>
+</table>
+</td>
+<td>
+<apex:variable value="{!lineitem.isCustom}" var="test" rendered="{!IF(lineitem.isCustom , true,false)}" >
+
+<input type="radio" name="{!lineitem.isCustom}" value="{!lineitem.isCustom}" onchange="changeValue('Custom','{!$Component.ContactIdValue}');" checked ="true">Custom Address<br/></input>
+</apex:variable>
+
+<apex:variable value="{!lineitem.isCustom}" var="test" rendered="{!IF(lineitem.isCustom , false,true)}" >
+
+<input type="radio" name="{!lineitem.isCustom}" value="{!lineitem.isCustom}" onchange="changeValue('Custom','{!$Component.ContactIdValue}');">Custom Address<br/></input>
+</apex:variable>
+
+
+<apex:pageBlock mode="maindetail" id="thePgBlock">
+<apex:panelGrid columns="2" id="theGrid" frame="none" cellspacing="10px">
+<apex:outputLabel value="Address Line 1    " ></apex:outputLabel>
+<apex:inputText value="{!lineitem.addressline1}" id="add1"/>
+<apex:outputLabel value="Address Line 2 " ></apex:outputLabel>
+<apex:inputText value="{!lineitem.addressline2}" id="add2" />
+<apex:outputLabel value="Address Line 3 " ></apex:outputLabel>
+<apex:inputText value="{!lineitem.addressline3}" id="add3" />
+<apex:outputLabel value="Address Line 4 " ></apex:outputLabel>
+<apex:inputText value="{!lineitem.addressline4}" id="add4" />
+<apex:outputLabel value="City" ></apex:outputLabel>
+<apex:inputText value="{!lineitem.mailingcity}" id="add5" />
+<apex:outputLabel value="State" ></apex:outputLabel>
+<apex:inputText value="{!lineitem.mailingstate}" id="add6"/>
+<apex:outputLabel value="Country" ></apex:outputLabel>
+<apex:inputText value="{!lineitem.mailingcountry}" id="add7"/>
+<apex:outputLabel value="Postal Code" ></apex:outputLabel>
+<apex:inputText value="{!lineitem.mailingpostalcode}" id="add8"/>
+</apex:panelgrid>
+</apex:pageBlock>
+</td>
+</tr>
+</table>
+<div align="center">
+<apex:commandButton value="Select" action="{!setselectedaddress1}" id="d1" reRender="block" >
+<apex:param name="fromOnclick1" assignTo="{!fromOnclick}" value="false" />
+</apex:commandButton>
+<apex:commandButton value="Cancel" action="{!hideselectedaddress}" reRender="block" id="d2"/>
+</div>
+
+     <apex:inputHidden value="{!lineitem.selectedValue}" id="ContactIdValue" />
+</apex:actionRegion>
+
+</apex:outputpanel>
+
+</apex:outputpanel>
+
+
+
+</apex:column>
+
+
+
+</apex:pageBlockTable>
+
+<apex:actionFunction name="refreshAddSection" action="{!setselectedaddress1}" rerender="adrblock"> 
+<apex:param name="fromOnclick1" assignTo="{!fromOnclick}" value="true" />
+</apex:actionFunction>
+
+
+
+ <div class="topbottom"> 
+                    <apex:commandLink value="Previous" action="{!Previous}"  rendered="{!DisablePrevious}" rerender="table,block,next" id="previous"
+                                                status="status"  />&nbsp;&nbsp; 
+                    <apex:commandLink value="Next" action="{!Next}" rendered="{!DisableNext}" reRender="table,block,previous" id="next"
+                                                status="status"  />&nbsp;&nbsp; 
+                    <apex:actionStatus id="status" startText="Please Wait..."/>
+ </div>
+</apex:pageBlock>
+<apex:outputLabel value="Sample Order Line Items "  style="font-size:small;font-weight: bold"/> 
+<apex:pageBlock id="myBlock" >
+<apex:pageMessages id="theError4"/>
+<apex:pageBlockTable value="{!OrderLineItemcoll}" var="lineitem" id="table">
+<apex:column headerValue="Action">
+<apex:commandButton action="{!removeproduct}" image="{!URLFOR($Resource.RemoveOppty)}" style="height:15px;width:15px;" rerender="table">
+<apex:param name="removeSampledId" value="{!lineitem.productdetials.id}" assignTo="{!removeprodid}"/></apex:commandbutton>
+</apex:column>
+<apex:column headerValue="Product" value="{!lineitem.productdetials.name}"/>
+<apex:column headerValue="Duplicate Override">
+<apex:actionRegion >
+<div align="Center">
+<apex:commandButton rendered="{!lineitem.hasDuplicate}" value="Verify" action="{!duplicateProcess}"  rerender="popupDupPanel">
+<apex:param name="productId" value="{!lineitem.productdetials.id}" assignTo="{!currentProduct}"/>
+
+</apex:commandbutton>
+</div>
+
+</apex:actionRegion>
+</apex:column>
+<apex:column headerValue="Qty">
+<apex:input type="number" value="{!lineitem.Quantity}" style="width:50px"></apex:input>
+</apex:column>
+<apex:column headerValue="Author" value="{!lineitem.productdetials.Author__c}" style="width:200px"/>
+<apex:column headerValue="ISBN13" value="{!lineitem.productdetials.ISBN__c}" style="width:90px"/>
+<apex:column headerValue="Ship Method" style="width:100px">
+  <apex:selectList value="{!lineitem.shippingmethod}" size="1" style="width:100px">
+  <apex:selectOptions value="{!options}" ></apex:selectOptions>
+  </apex:selectList>
+</apex:column>
+<apex:column headerValue="Res"> 
+<apex:outputText value="{!lineitem.restriction}" />
+</apex:column>
+<apex:column headerValue="Sub" style="width:90px">
+<apex:inputCheckbox value="{!lineitem.freecopysub}" disabled="true" style="align:centre"/>
+</apex:column>
+<apex:column headerValue="Digital Sample" style="width:90px">
+<apex:inputCheckbox value="{!lineitem.dgprod}" disabled="true" />
+</apex:column>
+
+<!--Added for Dupicate Logic-->
+<apex:column >
+
+<apex:outputpanel id="popupDupPanel">
+
+ <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!lineitem.showDuplicatePop}" id="testpopup1" />
+        <apex:outputPanel styleClass="custPopup1" layout="block" rendered="{!lineitem.showDuplicatePop}" id="testpopup" >
+        <apex:actionRegion >
+        <apex:pageBlockTable value="{!mapProdDopWrap[lineitem.productdetials.id]}" var="dupItem" id="table1">
+            <apex:column headerValue="Contact">
+            <apex:outputText value="{!dupItem.contName}" style="width:50px"></apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Process Duplicate?">
+              <apex:selectRadio value="{!dupItem.optionChoosed}" title="Do you want to Process Duplicate">
+            <apex:selectOptions value="{!dupItem.listOptions}"/>
+            </apex:selectRadio>
+        </apex:column>
+
+        </apex:pageBlockTable>
+        
+
+                    <div align="center">
+                    <apex:commandButton action="{!hidePopup}"  value="Save" reRender="myBlock">
+                    </apex:commandButton>
+
+                     <apex:commandButton value="Cancel" action="{!cancelPopup}" reRender="myBlock">
+                      </apex:commandButton>
+
+                    </div>
+        </apex:actionRegion>
+
+
+        </apex:outputPanel>
+                </apex:outputPanel>
+
+
+</apex:column>
+<!--End of Dupicate Logic-->
+
+
+</apex:pageBlockTable>
+
+
+<apex:outputPanel id="ButonPane"> 
+<div align="right">
+<apex:commandButton rendered="{!duplicateCheckDone}" action="{!initiateapproval}" value="Submit Sample Order" onclick="return checkDoubleSubmit(this)"/>
+</div>
+</apex:outputPanel>     
+</apex:pageBlock>
+</apex:form>
+
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Read</contactAccessLevel>
+    <description>Marketing Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>NA Marketing Manager - Creative</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>Director_of_Marketing_Creative</parentRole>
+</Role>

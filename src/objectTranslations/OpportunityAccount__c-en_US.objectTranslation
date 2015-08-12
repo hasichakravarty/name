@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Opportunity Account</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Opportunity Accounts</value>
+    </caseValues>
+    <fields>
+        <help><!-- Account affiliated with the opportunity. --></help>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Affiliated Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Describes the type of affiliation between the opportunity and account. --></help>
+        <label><!-- AffiliationType --></label>
+        <name>AffiliationType__c</name>
+        <picklistValues>
+            <masterLabel>Bookstore</masterLabel>
+            <translation><!-- Bookstore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buying Consortium</masterLabel>
+            <translation><!-- Buying Consortium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campus</masterLabel>
+            <translation><!-- Campus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivery Partner</masterLabel>
+            <translation><!-- Delivery Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diocese</masterLabel>
+            <translation><!-- Diocese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Funding Source</masterLabel>
+            <translation><!-- Funding Source --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pathway institution</masterLabel>
+            <translation><!-- Pathway institution --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- A detailed description of the affiliation between account and opportunity. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity affiliated to the account. --></help>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Opportunity Affiliations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Other Affiliation Type --></label>
+        <name>Other_Affiliation_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the dollar value this account will be contributing to the total dollar value amount --></help>
+        <label><!-- Revenue Split --></label>
+        <name>Revenue_Split__c</name>
+    </fields>
+    <layouts>
+        <layout>Opportunity Account Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- If &apos;Other&apos; is selected for Affiliation Type, an &apos;Other Affiliation Type&apos; must be provided --></errorMessage>
+        <name>OtherAffiliationTypeRequired</name>
+    </validationRules>
+</CustomObjectTranslation>

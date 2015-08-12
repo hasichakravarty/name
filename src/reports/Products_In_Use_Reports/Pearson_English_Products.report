@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>NAME</field>
+    </columns>
+    <columns>
+        <field>ACTIVE</field>
+    </columns>
+    <columns>
+        <field>Product2.Book_Type__c</field>
+    </columns>
+    <columns>
+        <field>Product2.Category__c</field>
+    </columns>
+    <columns>
+        <field>Product2.Sub_Category__c</field>
+    </columns>
+    <columns>
+        <field>Product2.ProductType__c</field>
+    </columns>
+    <columns>
+        <field>Product2.Product_Series__c</field>
+    </columns>
+    <currency>AUD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Product2.Product_Series__c</column>
+            <operator>equals</operator>
+            <value>PEARSON ENGLISH</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Pearson English Products</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ProductList</reportType>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

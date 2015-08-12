@@ -1,0 +1,14 @@
+<apex:page standardController="Account" extensions="caseRecords">
+<apex:form >
+ <apex:pageBlock >
+  <apex:pageblockTable value="{!caselist}" var="c">
+    <apex:column headerValue="Action">
+     <apex:commandlink value="Edit" target="_blank" action="{!caseEdit}">
+     <apex:param name="caseid" assignto="{!caseid}" value="{!c.Id}"></apex:param></apex:commandlink>
+    </apex:column>
+    <apex:column headervalue="CaseNumber">
+       <apex:outputtext value="{!c.caseNumber}"></apex:outputtext>
+    </apex:column>
+  </apex:pageblockTable>
+ </apex:pageBlock></apex:form>
+</apex:page>

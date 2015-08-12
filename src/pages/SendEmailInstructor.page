@@ -1,0 +1,39 @@
+<apex:page controller="SendEmailInstructor" tabstyle="opportunity">
+ 
+<script>
+function checkAll(cb)
+{
+    var inputElem = document.getElementsByTagName("input");
+    for(var i=0; i<inputElem.length; i++)
+    {
+        if(inputElem[i].id.indexOf("checkedone")!=-1)
+        inputElem[i].checked = cb.checked;
+    }
+}    
+</script>
+ <apex:form >
+  <apex:pagemessages />
+  <apex:pageblock title="Select Contacts" rendered="{!If(listWithContactValues.size>0,true,false)}">
+  <apex:pageBlockButtons >
+    <apex:commandButton value="Continue" action="{!addContactToList1}"/> 
+    <apex:commandButton value="Cancel" action="{!cancel}"/>   
+   </apex:pageBlockButtons>  
+   <apex:pageblocksection title="Select Contacts" columns="1">  
+      
+     <apex:pageblocktable value="{!ContactValues}" var="conVal">
+     <apex:column >
+      <apex:facet name="header">                        
+      <apex:inputCheckbox onclick="checkAll(this)"/>                    
+      </apex:facet>
+             <apex:inputcheckbox value="{!conVal.selectBox}" id="checkedone"/>  
+      </apex:column>        
+      <apex:column value="{!conVal.contactList.Name}"/>  
+      <apex:column value="{!conVal.contactList.Email}"/>        
+      <apex:column headerValue="Opportunity Contact Role" value="{!mapWithContactRoleAndID[conVal.contactList.Id]}"/>
+      <apex:column headerValue="Address" value="{!conVal.contactList.MailingStreet},{!conVal.contactList.MailingCity},{!conVal.contactList.MailingState},{!conVal.contactList.MailingCountry},{!conVal.contactList.MailingPostalCode}"/>
+     </apex:pageblocktable>
+     
+  </apex:pageblocksection>     
+  </apex:pageblock>
+ </apex:form>
+</apex:page>

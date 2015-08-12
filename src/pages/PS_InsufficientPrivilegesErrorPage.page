@@ -1,0 +1,6 @@
+<apex:page >
+ <div align="center">
+  <b>Insufficient Privileges. You do not have permissions to create orders using the "New" button. Please contact your administrator for more information.
+</b>
+</div>  
+</apex:page>

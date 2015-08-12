@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Case Creator notification of commission man. adj request approve/reject result</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Commission Manual Adjustment Approval Dispisition2</name>
+    <style>none</style>
+    <subject>Your Adjustment Request STATUS has been UPDATED</subject>
+    <type>text</type>
+</EmailTemplate>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Accept__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Accept the quote/proposal</description>
+        <externalId>false</externalId>
+        <formula>IF (ISPICKVAL(Apttus_Proposal__Approval_Stage__c, &quot;Presented&quot;), HYPERLINK(&quot;/apex/Apttus_QPConfig__ProposalAccept?id=&quot;&amp;Id, IMAGE(&quot;/resource/Apttus_QPConfig__Button_Accept&quot;, &quot;Accept&quot;),&quot;_self&quot;), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Accept</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AutoActivateOrder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the order associated with the quote/proposal will be automatically activated when the quote/proposal is accepted.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether the order associated with the quote/proposal will be automatically activated when the quote/proposal is accepted.</inlineHelpText>
+        <label>Auto Activate Order ?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AutoCreateBill__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether billing schedules would be created for the order associated with the quote/proposal when the quote/proposal is accepted.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether billing schedules would be created for the order associated with the quote/proposal when the quote/proposal is accepted.</inlineHelpText>
+        <label>Auto Create Bill ?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AutoCreateRevenue__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether revenue schedules would be created for the order associated with the quote/proposal when the quote/proposal is accepted.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates whether revenue schedules would be created for the order associated with the quote/proposal when the quote/proposal is accepted.</inlineHelpText>
+        <label>Auto Create Revenue ?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BillToAccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the bill to account associated with the quote/proposal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the bill to account associated with the quote/proposal</inlineHelpText>
+        <label>Bill To</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Quotes (Bill To)</relationshipLabel>
+        <relationshipName>QuotesBillTo</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BillingPreferenceId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated billing preference</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated billing preference</inlineHelpText>
+        <label>Billing Preference</label>
+        <referenceTo>Apttus_Config2__BillingPreference__c</referenceTo>
+        <relationshipLabel>Quotes</relationshipLabel>
+        <relationshipName>Quotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ConfigurationFinalizedDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date when the configuration was finalized for the quote/proposal</description>
+        <externalId>false</externalId>
+        <label>Configuration Finalized Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ConfigurationSyncDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date when the configuration was synchronized for the quote/proposal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when the configuration was synchronized for the quote/proposal</inlineHelpText>
+        <label>Configuration Sync Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Configure__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Configure products for the quote/proposal</description>
+        <externalId>false</externalId>
+        <formula>IF ( LEN( PriceListId__c ) &gt; 0 , HYPERLINK(&quot;/apex/Apttus_QPConfig__ProposalConfiguration?id=&quot; &amp;Id, IMAGE(&quot;/resource/Apttus_QPConfig__Button_Configure&quot;, &quot;Configure Products&quot;),&quot;_self&quot;), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Configure Products</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LocationId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated account location</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the associated account location</inlineHelpText>
+        <label>Location</label>
+        <referenceTo>Apttus_Config2__AccountLocation__c</referenceTo>
+        <relationshipLabel>Quotes</relationshipLabel>
+        <relationshipName>Proposals</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PODate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The purchase order date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The purchase order date</inlineHelpText>
+        <label>PO Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PONumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The purchase order number</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The purchase order number</inlineHelpText>
+        <label>PO Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PaymentTermId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the payment term associated with the quote/proposal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the payment term associated with the quote/proposal</inlineHelpText>
+        <label>Payment Term</label>
+        <referenceTo>Apttus_Config2__PaymentTerm__c</referenceTo>
+        <relationshipLabel>Quotes</relationshipLabel>
+        <relationshipName>Quotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PriceListId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the associated price list</description>
+        <externalId>false</externalId>
+        <label>Price List</label>
+        <referenceTo>Apttus_Config2__PriceList__c</referenceTo>
+        <relationshipLabel>Quotes/Proposals</relationshipLabel>
+        <relationshipName>Proposals</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PricingDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The pricing date, The product list price is determined based on this date.</description>
+        <externalId>false</externalId>
+        <label>Pricing Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ReadyForActivationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date the order is ready for activation. The order is activated on this date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the order is ready for activation. The order is activated on this date.</inlineHelpText>
+        <label>Ready For Activation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ReadyForBillingDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the order is ready for billing. The billing schedules are created on this date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the order is ready for billing. The billing schedules are created on this date.</inlineHelpText>
+        <label>Ready For Billing Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ReadyForFulfillmentDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date the order is ready for fulfillment. The order is fulfilled on this date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the order is ready for fulfillment. The order is fulfilled on this date.</inlineHelpText>
+        <label>Ready For Fulfillment Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ReadyForRevRecDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date when the order is ready for revenue recognition. The revenue schedules are created on this date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the order is ready for revenue recognition. The revenue schedules are created on this date.</inlineHelpText>
+        <label>Ready For Revenue Recognition Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ShipToAccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the ship to account associated with the quote/proposal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of the ship to account associated with the quote/proposal</inlineHelpText>
+        <label>Ship To</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Quotes (Ship To)</relationshipLabel>
+        <relationshipName>QuotesShipTo</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SyncWithOpportunity__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Synchronize the quote/proposal with the associated opportunity</description>
+        <externalId>false</externalId>
+        <formula>IF ( AND(LEN(Apttus_Proposal__Opportunity__c ) &gt; 0, Apttus_Proposal__Primary__c) , HYPERLINK(&quot;/apex/Apttus_QPConfig__ProposalSyncWithOpportunity?id=&quot; &amp;Id, IMAGE(&quot;/resource/Apttus_QPConfig__Button_SynchronizeWithOpportunity&quot;, &quot;Sync with Opportunity&quot;),&quot;_self&quot;), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Synchronize with Opportunity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <webLinks>
+        <fullName>RepriceQuote</fullName>
+        <availability>online</availability>
+        <description>Reprice quote</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Reprice Quote</masterLabel>
+        <openType>sidebar</openType>
+        <page>RepriceQuote</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

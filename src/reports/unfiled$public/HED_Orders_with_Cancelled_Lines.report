@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Orders__r$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Orders__r$TargetSystem__c</field>
+    </columns>
+    <columns>
+        <field>Account.Orders__r.Order_Line_Items__r$Product__c</field>
+    </columns>
+    <columns>
+        <field>Account.Orders__r.Order_Line_Items__r$ItemQuantity__c</field>
+    </columns>
+    <columns>
+        <field>Account.Orders__r.Order_Line_Items__r$StatusReason__c</field>
+    </columns>
+    <columns>
+        <field>Account.Orders__r$Salesperson__c</field>
+    </columns>
+    <currency>AUD</currency>
+    <description>HED Orders with Cancelled Lines</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Orders__r$TargetSystem__c</column>
+            <operator>equals</operator>
+            <value>HED</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Orders__r$Status__c</column>
+            <operator>equals</operator>
+            <value>Order Data Retrieved by ESB</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Orders__r.Order_Line_Items__r$StatusReason__c</column>
+            <operator>equals</operator>
+            <value>Cancelled</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>HED Orders with Cancelled Lines</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Orders_with_Order_Line_Items__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Account.Orders__r$Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

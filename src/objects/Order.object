@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Activate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Approve</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Deactivate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>PS_OverideOrderNewButton</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewReduction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ReduceOrder</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Abbreviated_Name__c</fullName>
+        <description>Concatenate the shipping contact name</description>
+        <externalId>false</externalId>
+        <formula>IF( NOT( ISBLANK( ShipToContact.LastName  &amp; ShipToContact.FirstName)), LEFT(ShipToContact.LastName  &amp;  &apos;, &apos; &amp; ShipToContact.FirstName, 30),   null  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Abbreviated Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AccountNumber</fullName>
+    </fields>
+    <fields>
+        <fullName>ActivatedById</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ActivatedDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>BillToContactId</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BillingAddress</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Cancel_After_Date__c</fullName>
+        <description>Date the Order&apos;s line items with a Back Order status will be cancelled</description>
+        <externalId>false</externalId>
+        <label>Cancel After Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Category1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Category2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ChargeCode__c</fullName>
+        <description>Code that is taken from user record</description>
+        <externalId>false</externalId>
+        <label>Historical Charge Code</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CompanyAuthorizedById</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CompanyAuthorizedDate</fullName>
+        <inlineHelpText>Please search for and add the person who should be charged with this sample order, if different than the person entering the sample order</inlineHelpText>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Main contact referenced to on order (if applicable)</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContractEndDate</fullName>
+    </fields>
+    <fields>
+        <fullName>ContractId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContractName</fullName>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CustomerAuthorizedById</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CustomerAuthorizedDate</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Order Notes_old</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Division_ID__c</fullName>
+        <description>Division ID is the last two characters of CompanyAuthorizedBy.Sales_force__c</description>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(TEXT(CompanyAuthorizedBy.Sales_Force__c))), RIGHT(TEXT(CompanyAuthorizedBy.Sales_Force__c), 2), null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Division ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Do_Not_Ship_Before_Date__c</fullName>
+        <description>The Date the Order will be sent to the warehouse for fulfillment</description>
+        <externalId>false</externalId>
+        <label>Do Not Ship Before Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Editable_Create_Date__c</fullName>
+        <description>Editable created date for order&apos;s legacy creation date.</description>
+        <externalId>false</externalId>
+        <label>Editable Create Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EffectiveDate</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EndDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>External_Order_Number__c</fullName>
+        <displayFormat>Order-{0000000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>External Order Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>IsReductionOrder</fullName>
+    </fields>
+    <fields>
+        <fullName>Legacy_Order_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Field used to populate the legacy order number</inlineHelpText>
+        <label>Legacy Order #</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OrderReferenceNumber</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Order_Address_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Order Address Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact Mailing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Order_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Order Notes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Order_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(  Legacy_Order_Number__c  )),  Legacy_Order_Number__c ,  OrderNumber )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Order #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ordered_Item_Rollup__c</fullName>
+        <description>Rollup summary of the number of order items that shows on the order header</description>
+        <externalId>false</externalId>
+        <label>Ordered Item Rollup</label>
+        <summarizedField>OrderItem.OrderedQuantity__c</summarizedField>
+        <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>OriginalOrderId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Override_Delivery_Address_Line1__c</fullName>
+        <description>Address Line 1 of the Order&apos;s Override Address. Override Address for an Order will be populated when the Sample is not being shipped to the Order&apos;s Account&apos;s Shipping Address</description>
+        <externalId>false</externalId>
+        <label>Override Delivery Address Line1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Override_Delivery_Address_Line2__c</fullName>
+        <description>Address Line 2 of the Order&apos;s Override Address. Override Address for an Order will be populated when the Sample is not being shipped to the Order&apos;s Account&apos;s Shipping Address</description>
+        <externalId>false</externalId>
+        <label>Override Delivery Address Line2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Override_Delivery_Address_Line3__c</fullName>
+        <description>Address Line 3 of the Order&apos;s Override Address . Override Address for an Order will be populated when the Sample is not being shipped to the Order&apos;s Account&apos;s Shipping Address</description>
+        <externalId>false</externalId>
+        <label>Override Delivery Address Line3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Override_Delivery_Address_Line4__c</fullName>
+        <description>Address Line 4 of the Order&apos;s Override Address. Override Address for an Order will be populated when the Sample is not being shipped to the Order&apos;s Account&apos;s Shipping Address</description>
+        <externalId>false</externalId>
+        <label>Override Delivery Address Line4</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Override_Delivery_City__c</fullName>
+        <description>The City of the Order&apos;s Override Address&apos;s. Override Address for an Order will be populated when the Sample is not being shipped to the Order&apos;s Account&apos;s Shipping Address</description>
+        <externalId>false</externalId>
+        <label>Override Delivery City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Override_Delivery_Country__c</fullName>
+        <description>The Country of the Order&apos;s Override Address&apos;s. Override Address for an Order will be populated when the Sample is not being shipped to the Order&apos;s Account&apos;s Shipping Address</description>
+        <externalId>false</externalId>
+        <label>Override Delivery Country</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Override_Delivery_Postal_Code__c</fullName>
+        <description>The Postal Code of the Order&apos;s Override Address&apos;s. Override Address for an Order will be populated when the Sample is not being shipped to the Order&apos;s Account&apos;s Shipping Address</description>
+        <externalId>false</externalId>
+        <label>Override Delivery Postal Code</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Override_Delivery_State__c</fullName>
+        <description>The State of the Order&apos;s Override Address&apos;s. Override Address for an Order will be populated when the Sample is not being shipped to the Order&apos;s Account&apos;s Shipping Address</description>
+        <externalId>false</externalId>
+        <label>Override Delivery State</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Override_Schedule_Delivery_Date__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Entered in the order and put in a future ship date, and check box when the customer requests it earlier</description>
+        <externalId>false</externalId>
+        <label>Override Schedule Delivery Date</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>POBox_Indicator__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates if the Order&apos;s override address is a PO Box address.</description>
+        <externalId>false</externalId>
+        <label>POBox Indicator</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Packing_Instructions__c</fullName>
+        <description>Instructions for the warehouse concerning packing of the order (i.e. minimize number of boxes)</description>
+        <externalId>false</externalId>
+        <label>Packing Instructions</label>
+        <length>300</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>PoDate</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>PoNumber</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>PublisherDivisionID__c</fullName>
+        <description>Publisher division that is pulled from user record</description>
+        <externalId>false</externalId>
+        <label>Publisher Division ID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QuoteId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Rush_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates if the Order needs to be routed to the warehouse for fulfillment in the Priority Order Pick List</description>
+        <externalId>false</externalId>
+        <label>Rush Flag</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ShipToContactId</fullName>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ShippingAddress</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Shipping_Instructions__c</fullName>
+        <description>Instructions passed to the order shipping carrier (appears on the shipping label for UPS, Fedex, USPS) - ex. Leave at front/back door</description>
+        <externalId>false</externalId>
+        <label>Shipping Instructions</label>
+        <length>300</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>TotalAmount</fullName>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Home Office Sample</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conferences</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Facing Events</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal Meetings</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rep Sample</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Order type</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Add On</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>isTemporary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Davi Borges 13072015 - This is a hidden field that is used to indicate that the order is temporary. This field will not be necessary when we move to a solution that does not require the creation of &quot;cancelled&quot; orders.</description>
+        <externalId>false</externalId>
+        <label>isTemporary</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <listViews>
+        <fullName>AllActivatedOrders</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ORDERS.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>A</value>
+        </filters>
+        <label>All Activated Orders</label>
+    </listViews>
+    <listViews>
+        <fullName>AllDraftOrders</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ORDERS.STATUS_CODE</field>
+            <operation>equals</operation>
+            <value>D</value>
+        </filters>
+        <label>All Draft Orders</label>
+    </listViews>
+    <listViews>
+        <fullName>AllOrders</fullName>
+        <columns>ORDERS.ORDER_NUMBER</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ORDERS.CREATED_DATE</field>
+            <operation>greaterThan</operation>
+            <value>5/30/2015 12:00 AM</value>
+        </filters>
+        <label>All Orders</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>My_Orders</fullName>
+        <columns>ORDERS.ORDER_NUMBER</columns>
+        <columns>SALES.ACCOUNT.NAME</columns>
+        <columns>ORDERS.TOTAL_AMOUNT</columns>
+        <columns>ORDERS.EFFECTIVE_DATE</columns>
+        <columns>ORDERS.STATUS</columns>
+        <columns>CONTRACT.CONTRACT_NUMBER</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Orders</label>
+    </listViews>
+    <searchLayouts>
+        <customTabListAdditionalFields>ORDERS.ORDER_NUMBER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SALES.ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ORDERS.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ORDERS.TOTAL_AMOUNT</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ORDERS.ORDER_NUMBER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CONTRACT.OWNERALIAS</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ORDERS.ORDER_NUMBER</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CONTRACT.OWNERALIAS</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ORDERS.ORDER_NUMBER</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Prevent_Change_of_Record</fullName>
+        <active>false</active>
+        <description>This is used to prevent change of record except for Status Field</description>
+        <errorConditionFormula>AND(! ISNEW(), OR(ISCHANGED(Order_Number__c),ISCHANGED(Type),ISCHANGED( AccountId),ISCHANGED(Contact__c),ISCHANGED(PublisherDivisionID__c),ISCHANGED(Description),ISCHANGED(Packing_Instructions__c),ISCHANGED(Override_Delivery_Address_Line1__c),ISCHANGED(Override_Delivery_Address_Line2__c),ISCHANGED(Override_Delivery_Address_Line3__c),ISCHANGED(Override_Delivery_Address_Line4__c),ISCHANGED(Override_Delivery_City__c),ISCHANGED(Override_Delivery_Country__c),ISCHANGED(Override_Delivery_Postal_Code__c),ISCHANGED(Override_Delivery_State__c),ISCHANGED(Cancel_After_Date__c),ISCHANGED(Do_Not_Ship_Before_Date__c),ISCHANGED(Do_Not_Ship_Before_Date__c),ISCHANGED(POBox_Indicator__c),ISCHANGED(POBox_Indicator__c),ISCHANGED(POBox_Indicator__c),ISCHANGED(Override_Delivery_State__c),ISCHANGED(POBox_Indicator__c),ISCHANGED(Rush_Flag__c)))</errorConditionFormula>
+        <errorMessage>You are only allowed to change the Status Field</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Oasis_Order</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Oasis Order</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://myoasis.pearson.com/ordering/oaLogin.aspx?applink=dpsnap&amp;Account_PO_Number= +{!Order.Legacy_Order_Number__c}+&amp;system=F,G,A</url>
+    </webLinks>
+</CustomObject>

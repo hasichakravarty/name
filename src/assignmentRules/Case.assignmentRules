@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>Global-Case Assignment Rule</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>CTIMGI_Contracts_Team</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>RecordType.Name == &apos;Cancellation Request&apos; &amp;&amp;  ISNEW()</formula>
+            <template>CTIMGI_Email_Templates/Cancellation_Transfer</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CTIMGI_Accounts_to_be_Reassigned</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Request Account Handover</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Market__c</field>
+                <operation>equals</operation>
+                <value>ZA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>NA_Accounts_to_be_Reassigned</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Request Account Handover</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Market__c</field>
+                <operation>equals</operation>
+                <value>NA</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CTIMGI_Campus_Transfer_Requests</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>RecordType.Name == &apos;Change Request&apos; &amp;&amp; ISNEW() &amp;&amp; ISPICKVAL(Type, &apos;Change Campus&apos;)</formula>
+            <template>CTIMGI_Email_Templates/Change_Campus_initiation</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CTIMGI_Contracts_Team</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(RecordType.Name == &apos;Change Request&apos;, ISPICKVAL(Type, &apos;Change Sponsor&apos;) ) &amp;&amp;  ISNEW()</formula>
+            <template>CTIMGI_Email_Templates/Notification_on_change_sponsor</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Sales_Admin_Team</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>(1 OR 2 OR 3) AND 4 AND 5</booleanFilter>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Request Account Update</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Request Account Access</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Request Account Handover</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>General</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>User.Market__c</field>
+                <operation>equals</operation>
+                <value>US</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>South_Africa_Accounts_to_be_reassigned</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND (2 OR 3 OR 4) AND 5</booleanFilter>
+            <criteriaItems>
+                <field>User.Market__c</field>
+                <operation>equals</operation>
+                <value>ZA</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Request Account Update</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Request Account Access</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Request Account Handover</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>General</value>
+            </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CTIMGI_Accommodation_Requests</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(  RecordType.Name == &apos;Change Request&apos;, ISPICKVAL(Type, &apos;Change Accommodation&apos;) ) &amp;&amp;  ISNEW()</formula>
+            <template>CTIMGI_Email_Templates/Notification_on_Transfer_Accommodation_Requests</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CTIMGI_Bursary_Applications</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Loan/Bursary Request</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Bursary Request</value>
+            </criteriaItems>
+            <template>CTIMGI_Email_Templates/Notification_on_Bursary_request</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>CTIMGI_Loan_Applications</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <booleanFilter>1 AND 2</booleanFilter>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Loan/Bursary Request</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Type</field>
+                <operation>equals</operation>
+                <value>Loan Request</value>
+            </criteriaItems>
+            <template>CTIMGI_Email_Templates/Notification_on_loan_request</template>
+        </ruleEntry>
+        <ruleEntry>
+            <formula>( RecordType.Name == &apos;Cancellation Request&apos;|| RecordType.Name = &apos;Change Request&apos; ||  RecordType.Name == &apos;Finance workflow&apos;  ||  RecordType.Name == &apos;General&apos;  ||  RecordType.Name == &apos;Loan/Bursary Request&apos; )   &amp;&amp;   NOT(ISNEW())</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>South_Africa_Accounts_to_be_reassigned</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Contact.Market__c</field>
+                <operation>equals</operation>
+                <value>ZA</value>
+            </criteriaItems>
+            <template>CTIMGI_Email_Templates/US_Field_Sales_Join_Account_Team</template>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

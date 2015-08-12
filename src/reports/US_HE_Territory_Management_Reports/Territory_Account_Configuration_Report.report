@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.AccountTerritory2Associations$Territory2Model</field>
+    </columns>
+    <columns>
+        <field>Account.AccountTerritory2Associations$DeveloperName</field>
+    </columns>
+    <columns>
+        <field>Account.AccountTerritory2Associations$LastModifiedDate</field>
+    </columns>
+    <columns>
+        <field>Account.AccountTerritory2Associations*Territory2$Territory_Code__c</field>
+    </columns>
+    <columns>
+        <field>Account$Primary_Selling_Account__c</field>
+    </columns>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Market__c</field>
+    </columns>
+    <columns>
+        <field>Account$Line_of_Business__c</field>
+    </columns>
+    <columns>
+        <field>Account$Geography__c</field>
+    </columns>
+    <columns>
+        <field>Account$Territory_Code_s__c</field>
+    </columns>
+    <currency>USD</currency>
+    <format>Tabular</format>
+    <name>Territory Account Configuration Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Territories__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account.AccountTerritory2Associations$LastModifiedDate</dateColumn>
+        <interval>INTERVAL_CURRENTQ</interval>
+    </timeFrameFilter>
+</Report>

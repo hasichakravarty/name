@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <customSettingsVisibility>Protected</customSettingsVisibility>
+    <description>Stores the metadata id of the account id field of the accountcontact object.</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>AccountID__c</fullName>
+        <description>Contains the metadata id for the account field on the accountcontact.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contains the metadata id for the account field on the accountcontact.</inlineHelpText>
+        <label>AccountID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountNameID__c</fullName>
+        <description>Contains the metadata id of the account field on the custom AccountContact object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contains the metadata id of the account field on the custom AccountContact object.</inlineHelpText>
+        <label>AccountNameID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>URL_AccountContact</label>
+</CustomObject>

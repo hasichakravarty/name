@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>CTI_Letterhead</letterhead>
+    <name>CTI Registration Confirmation</name>
+    <style>freeForm</style>
+    <subject>Registration Confirmation</subject>
+    <textOnly>Confirmation of Registration
+
+Date: {!Outbound_Notification__c.CreatedDate}
+
+For student: {!Outbound_Notification__c.Contact_First_Name__c} {!Outbound_Notification__c.Contact_Last_Name__c}
+Student number: {!Outbound_Notification__c.Pearson_Account_Number__c}
+
+I confirm that {!Outbound_Notification__c.Contact_First_Name__c} {!Outbound_Notification__c.Contact_Last_Name__c} (ID number {!Outbound_Notification__c.Pearson_Account_Number__c} ) has been provisionally accepted at {!Outbound_Notification__c.Campus__c} as a full-time student for the {!Outbound_Notification__c.Academic_Start_Date_Year__c} academic year to study towards the {!Outbound_Notification__c.Qualification__c} degree programme.
+
+{!Outbound_Notification__c.Contact_First_Name__c} {!Outbound_Notification__c.Contact_Last_Name__c} has provisionally met all the requirements for the {!Outbound_Notification__c.Qualification__c} programme at {!Outbound_Notification__c.Campus__c}.
+
+Course details
+Course name: {!Outbound_Notification__c.Qualification__c}
+Course fee: {!Outbound_Notification__c.Opportunity_Amount__c}
+Expected start date: {!Outbound_Notification__c.Academic_Start_Date__c}
+
+The student number must be quoted in all future correspondence. Please note that the above-mentioned course fee is the {!Outbound_Notification__c.Earlybird__c} fee and that it will increase by 8%-15% in {!Outbound_Notification__c.Academic_Start_Date_Year__c}. To secure the {!Outbound_Notification__c.Earlybird__c} fee, an early-bird payment is required on or before {!Outbound_Notification__c.Academic_Start_Date__c}.
+
+An official Proof of Registration letter can be requested from your campus.
+
+If you require any further information please do not hesitate to contact me.
+
+Kind Regards
+{!Outbound_Notification__c.Sender_Name__c}
+{!Outbound_Notification__c.Campus__c}
+{!Outbound_Notification__c.Sender_Email__c}
+
+CTI and MGI are part of Pearson, the world’s leading learning company. Pearson is the corporate owner, not a registered provider nor conferrer of qualifications. CTI and MGI are registered PHEI and offer separate qualifications in South Africa. CTI Education Group (PTY) Ltd. is registered with the Department of Higher Education and Training as a private higher education institution under the Higher Education Act, 101, of 1997. Registration Certificate number: 2004/HE07/004. www.cti.ac.za. Midrand Graduate Institute (PTY) Ltd. T/A MGI is registered with the Department of Higher Education and Training as a private higher education institution under the Higher Education Act, 101, of 1997. Registration Certificate number: 2001/HE07/008. www.mgi.ac.za.</textOnly>
+    <type>html</type>
+</EmailTemplate>

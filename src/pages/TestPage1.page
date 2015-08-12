@@ -1,0 +1,20 @@
+<apex:page sidebar="false" controller="WrapTestClass">
+<apex:form >
+<apex:pageblock >
+<apex:pageblocksection >
+<apex:pageblocktable value="{!testingrecords}" var="tr">
+<apex:column headervalue="Action">
+<apex:inputcheckbox value="{!tr.ischecked}"/>
+</apex:column>
+<apex:column headerValue="Name">
+{!tr.TName}
+</apex:column>
+<apex:column headerValue="City">
+{!tr.TCity}
+</apex:column>
+</apex:pageblocktable>
+</apex:pageblocksection>
+</apex:pageblock>
+<apex:commandButton value="SELECT" action="{!selRecDisplay}"/>
+</apex:form>
+</apex:page>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>CORE - This object provides the ability to link multiple attendees internal &amp; external to a call record.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Call__c</fullName>
+        <description>CORE - The call to which the attendee is linked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The call to which the attendee is linked</inlineHelpText>
+        <label>Call</label>
+        <referenceTo>Call__c</referenceTo>
+        <relationshipLabel>Call Attendees</relationshipLabel>
+        <relationshipName>Call_Attendees</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Client__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>CORE - Client contact attending call</description>
+        <externalId>false</externalId>
+        <label>Client</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Call Attendances</relationshipLabel>
+        <relationshipName>Call_Attendees</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pearson_Employee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>CORE - Other Pearson Employee attending call</description>
+        <externalId>false</externalId>
+        <label>Pearson Employee</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Call_Attendees</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Call Attendee</label>
+    <nameField>
+        <displayFormat>CA-{00000}</displayFormat>
+        <label>Call Attendee No</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Call Attendees</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>MayNotAddOwnerOfCallToAttendee</fullName>
+        <active>true</active>
+        <errorConditionFormula>Call__r.OwnerId__c ==  Pearson_Employee__c</errorConditionFormula>
+        <errorDisplayField>Pearson_Employee__c</errorDisplayField>
+        <errorMessage>The Call Owner is not required to be added as an attendee.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OneAttendeeSelectionMandatory</fullName>
+        <active>true</active>
+        <description>At least one kind of attendee must be selected in order to save a record</description>
+        <errorConditionFormula>AND(ISBLANK(Pearson_Employee__c), ISBLANK(Client__c))</errorConditionFormula>
+        <errorMessage>At lease one attendee must be selected in order to save this record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OneTypeOfAttendeeSelectionMandatory</fullName>
+        <active>true</active>
+        <description>Only one kind of attendee can be selected in order to save a record</description>
+        <errorConditionFormula>AND(NOT(ISBLANK(Pearson_Employee__c)), NOT(ISBLANK(Client__c)))</errorConditionFormula>
+        <errorMessage>Only one kind of attendee can be selected in order to save a record</errorMessage>
+    </validationRules>
+</CustomObject>

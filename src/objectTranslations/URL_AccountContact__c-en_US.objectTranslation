@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>URL_AccountContact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>URL_AccountContact</value>
+    </caseValues>
+    <fields>
+        <help><!-- Contains the metadata id for the account field on the accountcontact. --></help>
+        <label><!-- AccountID --></label>
+        <name>AccountID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contains the metadata id of the account field on the custom AccountContact object. --></help>
+        <label><!-- AccountNameID --></label>
+        <name>AccountNameID__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

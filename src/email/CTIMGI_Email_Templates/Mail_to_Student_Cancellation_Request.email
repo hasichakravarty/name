@@ -1,0 +1,9 @@
+Case ID: {!Case.CaseNumber} 
+
+Dear {!Case.Contact}
+
+We have received your request to Cancel your enrollment for {!Case.Products_in_Use__c}.
+
+Our Finance Team will be in touch regarding any outstanding payments due or refunds due.
+ 
+For reference, please refer to our Terms and Conditions.

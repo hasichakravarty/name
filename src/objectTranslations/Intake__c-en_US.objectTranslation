@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Intake</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Intakes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Enrollments --></label>
+        <name>Enrollments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Period --></label>
+        <name>Period__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6</masterLabel>
+            <translation><!-- 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7</masterLabel>
+            <translation><!-- 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autumn</masterLabel>
+            <translation><!-- Autumn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spring</masterLabel>
+            <translation><!-- Spring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Summer</masterLabel>
+            <translation><!-- Summer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Winter</masterLabel>
+            <translation><!-- Winter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Period Type --></label>
+        <name>Semester_Study_Period_Term_Trimester__c</name>
+        <picklistValues>
+            <masterLabel>Quarter</masterLabel>
+            <translation><!-- Quarter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semester</masterLabel>
+            <translation><!-- Semester --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study Period</masterLabel>
+            <translation><!-- Study Period --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Term</masterLabel>
+            <translation><!-- Term --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trimester</masterLabel>
+            <translation><!-- Trimester --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- University Course --></label>
+        <name>University_Course__c</name>
+        <relationshipLabel><!-- Intakes --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Intake Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

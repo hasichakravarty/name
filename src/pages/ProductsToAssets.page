@@ -1,0 +1,232 @@
+<!-- Project: Convert Assets from Product Info.                 -->
+<!-- Created By: Comity Designs [Developer: Rashi Girdhar]      -->
+<!-- VisualForce Page: ProductsToAssets                         -->
+<!-- Description: VF page for the product                       -->
+<!-- Classes Utilized: ProductsToAssets.cls, AssetWrapper.cls   -->
+
+<apex:page controller="ProductsToAssets" id="thePage" tabStyle="Asset" sidebar="false">
+    <!-- Style for Page Messages -->
+    <style>
+        .Messages { color: red; font-weight: strong;}
+        .StatusPicklist { }
+    </style>
+    
+    <!-- Javascript -->
+    <script>
+        // Script to provide pop-up on 'Cancel' button click
+        function confirmCancel() {
+            var isCancel = confirm("Are you sure you wish to cancel?");
+            if (isCancel) return true;
+      
+            return false;
+        }
+    </script>
+    
+    <!-- Section Header -->
+    <apex:sectionHeader title="Convert Products into Products In Use: Product Name + Opportunity Name" />
+    <!-- Steps for the end users -->
+    <h1>Steps:</h1>
+    <ol>
+        <li>Review converted Products In Use before clicking 'Convert'.</li>
+        <li>Perform any necessary cleanup to remove potential duplicates.</li>
+        <li>Only then convert Products to Products In Use.</li>
+    </ol>
+    
+    <!-- Form with Page Blocks and Sections -->
+    <apex:form >
+        <!-- Page Block providing the user with Editable Table to insert Converted Assets --> 
+        <!-- SMG: concatenated the Asset name to include Product Name + Opportunity Name -->  
+        <apex:pageBlock title="Products In Use = Product Name + Opportunity Name">
+        
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!convert}" value="Convert" />
+                <apex:commandButton action="{!cancel}" value="Cancel" onclick="return confirmCancel()" immediate="true"/>
+               <!--   <apex:commandButton action="{!toggleView}" value="{!toggleButtonHeader}" immediate="true"/> -->
+            </apex:pageBlockButtons>
+            
+            <apex:messages styleClass="Messages"/>
+            
+            <apex:pageBlockSection id="editableView" title="{!sectionHeader}" columns="1" rendered="true" collapsible="false" >
+                <apex:pageBlockTable value="{!assetW}" var="val">
+                
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputLabel >
+                                <apex:commandLink action="{!selectAll}" value="Select All" /><br/>
+                                <apex:commandLink action="{!deselectAll}" value="Deselect All" />
+                            </apex:outputLabel>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!val.isAssetSelected}"/>
+                    </apex:column>
+                    
+                    <!--SMG Commented this column since val.asset.Name is now concatenated Opportunity Name + Product Name for the Asset Name column -->
+                    <!-- <apex:column >
+                        <apex:facet name="header">Product Name</apex:facet>
+                        <apex:outputLink value="/{!val.oliID}" >{!val.asset.Name}</apex:outputLink>
+                    </apex:column> -->
+                    
+                    <apex:column >
+                        <apex:facet name="header">Price</apex:facet>
+                        <apex:outputField value="{!val.asset.Price}" />
+                    </apex:column> 
+                    
+                    <apex:column >
+                        <apex:facet name="header">Quantity</apex:facet>
+                        <apex:outputField value="{!val.asset.Quantity}" />
+                    </apex:column>
+                    
+                    <!-- SMG: Asset Name is a concatenated Product Name + Opportunity Product Name -->
+                    <apex:column >
+                        <apex:facet name="header">Product In Use</apex:facet>
+                        <apex:inputField value="{!val.asset.Name}" style="width: 250px;"/>
+                    </apex:column> 
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputLabel >
+                                Status <br/>
+                                <apex:inputField onchange="statusAllOnChange()" value="{!assetStatus.Status}" styleClass="StatusPicklist" />
+                            </apex:outputLabel>
+                        </apex:facet>
+                        <apex:inputField value="{!val.asset.Status}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Purchase Date</apex:facet>
+                        <apex:inputField value="{!val.asset.PurchaseDate}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Forecasted Install Date</apex:facet>
+                        <apex:inputField value="{!val.asset.InstallDate}" />
+                    </apex:column>
+                    
+                   
+                    
+                    <!--  SMG: Have to followup with business to see if there is an UsageEndDate field
+                    <apex:column >
+                        <apex:facet name="header">Usage End Date</apex:facet>
+                        <apex:inputField value="{!val.asset.UsageEndDate}" />
+                    </apex:column>
+                    -->
+                    
+                    
+                    <!-- SMG: Sales Channel field requested by Steven Brimble -->
+                    
+                    <!--  o.Forecasted_Install_Date__c -->
+                    
+                    
+                    <apex:column >
+                        <apex:facet name="header">Sales Channel</apex:facet>
+                        <apex:inputField value="{!val.asset.Sales_Channel__c}" />
+                    </apex:column> 
+                    
+                     <apex:column >
+                        <apex:facet name="header">Mode of Delivery</apex:facet>
+                        <apex:inputField value="{!val.asset.Mode_of_Delivery__c}" />
+                    </apex:column>
+                    
+                     <apex:column >
+                        <apex:facet name="header">Other Mode of Delivery</apex:facet>
+                        <apex:inputField value="{!val.asset.Other_Mode_of_Delivery__c}" />
+                    </apex:column>
+                    
+                    <!-- 
+                     <apex:column >
+                        <apex:facet name="header">Forecasted Install Date</apex:facet>
+                        <apex:inputField value="{!val.asset.Forecasted_Install_Date__c}" />
+                    </apex:column> 
+                    -->
+                    
+                    <!--  SMG: don't believe we are using serial numbers here so I commented this line of code out
+                    <apex:column >
+                        <apex:facet name="header">Serial Number</apex:facet>
+                        <apex:inputField value="{!val.asset.SerialNumber}" />
+                    </apex:column>   
+                    -->
+                               
+                </apex:pageBlockTable>
+                
+                <apex:actionFunction name="statusAllOnChange" action="{!selectAllStatus}" />
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-- Page Block - Displays Converted Assets on Account -->
+        <apex:pageBlock title="Converted Products In Use from this Opportunity">
+            
+            <!-- 
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!gotoAccount}" value="View Account page" title="View Account page" immediate="true"/>
+            </apex:pageBlockButtons>
+             -->
+
+            <apex:pageBlockSection id="displayView" columns="1" rendered="true" collapsible="false">
+                <apex:facet name="header">
+                    <h1>{!convertedAssetsCount} converted Products In Use from this Opportunity on Account: <em>{!account.Name}</em></h1>
+                </apex:facet>
+                <font color="red">
+                    <h1>Important:</h1>
+                </font>
+                <ul>
+                    <li>Be mindful of the existing converted Products In Use on the Account.</li>
+                    <li>'Update' or 'Delete' converted Products In Use to avoid duplication, if necessary.</li>
+                </ul> 
+                <hr/>
+                
+                <apex:pageBlockTable value="{!convertedAssets}" var="val2">
+                    <apex:column >
+                        <apex:facet name="header">Product In Use</apex:facet>
+                        <!-- <apex:outputField value="{!val2.Name}" /> -->
+                        <apex:outputLink value="/{!val2.Id}">{!val2.Name}</apex:outputLink>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Price</apex:facet>
+                        <apex:outputField value="{!val2.Price}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Quantity</apex:facet>
+                        <apex:outputField value="{!val2.Quantity}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Product Name</apex:facet>
+                        <apex:outputField value="{!val2.Product2.Name}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Status</apex:facet>
+                        <apex:outputField value="{!val2.Status}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Purchase Date</apex:facet>
+                        <apex:outputField value="{!val2.PurchaseDate}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Install Date</apex:facet>
+                        <apex:outputField value="{!val2.InstallDate}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Usage End Date</apex:facet>
+                        <apex:outputField value="{!val2.UsageEndDate}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Serial Number</apex:facet>
+                        <apex:outputField value="{!val2.SerialNumber}" />
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">Purchase Opportunity</apex:facet>
+                        <apex:outputField value="{!val2.Purchase_Opportunity__r.Name}" />
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

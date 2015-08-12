@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Protected</customSettingsVisibility>
+    <description>Core: Contains a list of field mappings for sObjects</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Destination_Field__c</fullName>
+        <description>Core: Field in the target object to be updated by the mapping class. To be entered in the format ObjectAPIName.FieldAPIName</description>
+        <externalId>false</externalId>
+        <label>Destination Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Destination_Object__c</fullName>
+        <externalId>false</externalId>
+        <label>Destination Object</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Source Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Object__c</fullName>
+        <externalId>false</externalId>
+        <label>Source Object</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>OpportunityToOrderFieldMapping</label>
+</CustomObject>

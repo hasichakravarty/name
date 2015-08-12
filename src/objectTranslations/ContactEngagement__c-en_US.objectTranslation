@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contact Engagement</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contact Engagements</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Contact Engagement --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Demonstrated --></label>
+        <name>Demonstrated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Demonstration Date --></label>
+        <name>Demonstration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Engagement --></label>
+        <name>Engagement__c</name>
+        <picklistValues>
+            <masterLabel>0. No interest/not applicable</masterLabel>
+            <translation><!-- 0. No interest/not applicable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1. Passive</masterLabel>
+            <translation><!-- 1. Passive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2. Promoter</masterLabel>
+            <translation><!-- 2. Promoter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3. Super User</masterLabel>
+            <translation><!-- 3. Super User --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product In Use --></label>
+        <name>Product_In_Use__c</name>
+        <relationshipLabel><!-- Contact Engagement --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Contact Engagement Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- If the &apos;Demonstrated&apos; check box is true then the Demonstration Date must be populated. --></errorMessage>
+        <name>Contact_Engagement_Date_Mandatory</name>
+    </validationRules>
+</CustomObjectTranslation>

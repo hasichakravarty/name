@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Call</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Calls</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Calls --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If left blank the call end time will default to 1 hour from the call start time --></help>
+        <label><!-- Call End Time --></label>
+        <name>Call_End_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Notes --></label>
+        <name>Call_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Objective --></label>
+        <name>Call_Objective__c</name>
+        <picklistValues>
+            <masterLabel>Introduction</masterLabel>
+            <translation><!-- Introduction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs analysis</masterLabel>
+            <translation><!-- Needs analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Presentation</masterLabel>
+            <translation><!-- Presentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product demonstration</masterLabel>
+            <translation><!-- Product demonstration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product/solution conversation</masterLabel>
+            <translation><!-- Product/solution conversation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review Meeting</masterLabel>
+            <translation><!-- Review Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service/Support</masterLabel>
+            <translation><!-- Service/Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training/set-up</masterLabel>
+            <translation><!-- Training/set-up --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Call Start Time --></label>
+        <name>Call_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Call End Time --></label>
+        <name>Next_Call_End_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Call Notes --></label>
+        <name>Next_Call_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Call Objective --></label>
+        <name>Next_Call_Objective__c</name>
+        <picklistValues>
+            <masterLabel>Introduction</masterLabel>
+            <translation><!-- Introduction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs analysis</masterLabel>
+            <translation><!-- Needs analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Presentation</masterLabel>
+            <translation><!-- Presentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product demonstration</masterLabel>
+            <translation><!-- Product demonstration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product/solution conversation</masterLabel>
+            <translation><!-- Product/solution conversation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review Meeting</masterLabel>
+            <translation><!-- Review Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service/Support</masterLabel>
+            <translation><!-- Service/Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training/set-up</masterLabel>
+            <translation><!-- Training/set-up --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Next Call Start Time --></label>
+        <name>Next_Call_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Call Objective --></label>
+        <name>Other_Call_Objective__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Next Call Objective --></label>
+        <name>Other_Next_Call_Objective__c</name>
+    </fields>
+    <fields>
+        <help><!-- If left blank this field will default to the current user --></help>
+        <label><!-- Owner --></label>
+        <name>OwnerId__c</name>
+        <relationshipLabel><!-- Calls --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Pre Call Notes --></label>
+        <name>Pre_Call_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled</masterLabel>
+            <translation><!-- Scheduled --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Call Attendees --></label>
+        <name>Total_Call_Attendees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Face to Face</masterLabel>
+            <translation><!-- Face to Face --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web/Video Conference</masterLabel>
+            <translation><!-- Web/Video Conference --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Call Layout</layout>
+        <sections>
+            <label><!-- Call Details --></label>
+            <section>Call Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Next Call Details --></label>
+            <section>Next Call Details</section>
+        </sections>
+        <sections>
+            <label><!-- Next Call Notes --></label>
+            <section>Next Call Notes</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must choose a call objective in order to close the call --></errorMessage>
+        <name>CallObjectiveMandatoryToComplete</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A Call cannot be longer than 14 days --></errorMessage>
+        <name>Cannot_Be_More_Than_14_days</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Other is selected Other Call Objective is required --></errorMessage>
+        <name>OtherCallObjectiveRequiredIfSelected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Other is selected Other Next Call Objective is required --></errorMessage>
+        <name>OtherNextCallObjectiveRequiredIfSelected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must have at least one attendee linked to complete a call --></errorMessage>
+        <name>RequiresMinOneAttendee</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Start Time must be before the End Time --></errorMessage>
+        <name>StartTimeGreaterThanEnd</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Create_Next_Call --></label>
+        <name>Create_Next_Call</name>
+    </webLinks>
+</CustomObjectTranslation>

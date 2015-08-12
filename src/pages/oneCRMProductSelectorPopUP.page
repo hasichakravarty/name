@@ -1,0 +1,55 @@
+<!-- 
+   @Author : Accenture IDC
+   @name   : oneCRMProductSelectorPopUpPicklist
+   @CreateDate :
+   @Description : Open Popup for econtains Text options 
+   @Version <1.0>
+   @reference :
+  -->
+
+<apex:page controller="oneCRMProductSelectorWizardControllerV2" sidebar="false" showheader="false">
+    <script>       
+        /* copy selected value to parent window */
+        function fillIn(name){
+            /* get Id from URL */
+            
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++){
+                hash = hashes[i].split('=');                
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            
+            var copyToId = vars["namefield"];           
+            var winMain=window.opener;
+            if (null==winMain){
+               winMain=window.parent.opener;
+            }
+            
+            var ele=winMain.document.getElementById(copyToId);
+            ele.value = '';     
+            ele.value = name.value;              
+        }
+        /* Close window*/   
+        function closeWindow(){
+            var winMain=window.opener;
+            if (null==winMain){
+                winMain=window.parent.opener;
+            }
+            winMain.closeLookupPopup();
+        }       
+    </script>
+
+    <apex:form >
+        <apex:pageBlock >
+            <apex:selectRadio value="{!selectedValueFromPopup}" layout="pageDirection" id="selectedRadioId" onchange="fillIn(this);">
+                <apex:selectOption itemLabel="True" itemValue="True"  />
+                <apex:selectOption itemLabel="False" itemValue="False" />   
+            </apex:selectRadio>
+            <apex:pageblockButtons location="top">
+            <apex:commandButton value="Insert Selected"  onClick="closeWindow();"/>
+            </apex:pageblockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

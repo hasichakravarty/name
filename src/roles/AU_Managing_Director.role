@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>AU Managing Director</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>AU Managing Director</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>ANZ_Data_Admin</parentRole>
+</Role>

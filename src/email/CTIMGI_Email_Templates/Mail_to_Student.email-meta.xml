@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Requirements 1177/ 1174. send mail to sponser and student once case cancellation request is created</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Mail to Student</name>
+    <style>none</style>
+    <subject>Reg. Case Cancellation</subject>
+    <type>text</type>
+</EmailTemplate>

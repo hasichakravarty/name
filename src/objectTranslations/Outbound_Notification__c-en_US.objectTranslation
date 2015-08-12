@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Outbound Notification</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Outbound Notifications</value>
+    </caseValues>
+    <fields>
+        <label><!-- Academic Start Date Year --></label>
+        <name>Academic_Start_Date_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Academic Start Date --></label>
+        <name>Academic_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Outbound Notifications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Campus --></label>
+        <name>Campus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conferer --></label>
+        <name>Conferer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Email --></label>
+        <name>Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact First Name --></label>
+        <name>Contact_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Last Name --></label>
+        <name>Contact_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Outbound Notification --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Current Date Year --></label>
+        <name>Current_Date_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Date --></label>
+        <name>Current_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Early Bird Date --></label>
+        <name>Early_Bird_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Early Bird Date Year --></label>
+        <name>Earlybird__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event --></label>
+        <name>Event__c</name>
+        <picklistValues>
+            <masterLabel>Interview Attendance</masterLabel>
+            <translation><!-- Interview Attendance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interview Attendance with Sponsor</masterLabel>
+            <translation><!-- Interview Attendance with Sponsor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Registration</masterLabel>
+            <translation><!-- Payment Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speak to Sponsor</masterLabel>
+            <translation><!-- Speak to Sponsor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Student Enrolment</masterLabel>
+            <translation><!-- Student Enrolment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Student Registration</masterLabel>
+            <translation><!-- Student Registration --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Method --></label>
+        <name>Method__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Amount --></label>
+        <name>Opportunity_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Outbound Notification --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Pearson Account Number --></label>
+        <name>Pearson_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Campus Bank Account Number --></label>
+        <name>Preferred_Campus_Bank_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Campus Fax --></label>
+        <name>Preferred_Campus_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Campus Phone --></label>
+        <name>Preferred_Campus_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Campus --></label>
+        <name>Preferred_Campus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Qualification --></label>
+        <name>Qualification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rich Body --></label>
+        <name>Rich_Body__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sender Email --></label>
+        <name>Sender_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sender Name --></label>
+        <name>Sender_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sender Phone --></label>
+        <name>Sender_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Confirmation</masterLabel>
+            <translation><!-- Confirmation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generic</masterLabel>
+            <translation><!-- Generic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request</masterLabel>
+            <translation><!-- Request --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type of Contact --></label>
+        <name>Type_of_Contact__c</name>
+        <picklistValues>
+            <masterLabel>Primary Contact</masterLabel>
+            <translation><!-- Primary Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sponsor</masterLabel>
+            <translation><!-- Sponsor --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Outbound Email Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

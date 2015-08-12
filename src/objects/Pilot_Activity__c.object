@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AccountContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to Account contact to enable related list on Sales Support Activity</description>
+        <externalId>false</externalId>
+        <label>Account Contact</label>
+        <referenceTo>AccountContact__c</referenceTo>
+        <relationshipName>Sales_Support_Activities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Additional_Material_Required__c</fullName>
+        <description>additional material needed, questions that require input from other Pearson people (marketing).</description>
+        <externalId>false</externalId>
+        <label>Additional Material Required</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Assistance_require__c</fullName>
+        <description>Assistance that the professor may need as part of the training, FDOC or pilot</description>
+        <externalId>false</externalId>
+        <label>Professor Assistance/Needs</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The following field identifies the contact that is related to the following pilot activity.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identify the contact associated to the account with which the Opportunity is related to that serves as the primary contact for the following pilot record</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Pilot Activities</relationshipLabel>
+        <relationshipName>Pilot_Activities_contact</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The following field identifies the contact who is associated to the following pilot activity</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Pilot Activities</relationshipLabel>
+        <relationshipName>Pilot_Activities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <description>End date of a pilot or training</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_Name__c</fullName>
+        <description>Name of person involved in Pilot, FDOC, Training</description>
+        <externalId>false</externalId>
+        <label>First Name</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Goals_for_Nomination__c</fullName>
+        <description>Goals for nominating the faculty advisor</description>
+        <externalId>false</externalId>
+        <label>Goals for Nomination</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>LMS__c</fullName>
+        <description>LMS used by faculty advisor being nominated</description>
+        <externalId>false</externalId>
+        <label>LMS</label>
+        <picklist>
+            <picklistValues>
+                <fullName>My Labs Plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Moodle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blackboard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>LTS__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>LTS for training, FDOC, pilot, faculty nomination</description>
+        <externalId>false</externalId>
+        <label>LTS</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sales_Support_Activities1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Last_Name__c</fullName>
+        <description>Last Name of person involved in FDOC, Training, Pilot or Faculty Nomination</description>
+        <externalId>false</externalId>
+        <label>Last Name</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Participants__c</fullName>
+        <description>Number of participants who will be part of the FDOC, training or pilot</description>
+        <externalId>false</externalId>
+        <label>Number of Participants</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Students__c</fullName>
+        <description>Number of students who will be part of the pilot</description>
+        <externalId>false</externalId>
+        <label>Number of Students</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to opportunity to enable related list on sales support activity</description>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>Sales_Support_Activities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Outcomes__c</fullName>
+        <description>Outcome of the training, pilot, FDOC</description>
+        <externalId>false</externalId>
+        <label>Outcomes</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Pilot_Detail__c</fullName>
+        <description>Details of pilot</description>
+        <externalId>false</externalId>
+        <label>Pilot Detail</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Pilot_Details__c</fullName>
+        <description>Details of pilot</description>
+        <externalId>false</externalId>
+        <label>Pilot Details</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Product_Issues_Feedback__c</fullName>
+        <description>Feedback on the product used in the FDOC, training or pilot</description>
+        <externalId>false</externalId>
+        <label>Product Issues/Feedback</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Product relating to the pilot, training or FDOC</description>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipName>Sales_Support_Activities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Questions_for_Marketing__c</fullName>
+        <description>Questions for marketing based on feedback from the FDOC, training or pilot</description>
+        <externalId>false</externalId>
+        <label>Questions for Marketing</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>RM_last_name__c</fullName>
+        <description>Regional manager last name</description>
+        <externalId>false</externalId>
+        <label>RM (last name)</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Relevant_Info__c</fullName>
+        <description>Information relevant to the faculty nomination, FDOC, pilot or training</description>
+        <externalId>false</externalId>
+        <label>Relevant Info</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Rep__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Rep who is involved in FDOC, pilot, training, faculty nomination</description>
+        <externalId>false</externalId>
+        <label>Rep</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sales_Support_Activities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <description>Start date of FDOC, pilot, training, faculty nomination</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Textboooks_Editions_Related__c</fullName>
+        <description>Text books/editions related to faculty being nominated</description>
+        <externalId>false</externalId>
+        <label>Textboooks/Editions Related</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <description>Title of faculty being nominated</description>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Training_Location__c</fullName>
+        <description>This field allows the user to identify where the training will take place</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please identify the location where this training is planned to take place (Street Address, Suite/Building/Room, City, State, Country, Zip Code; Virtual)</inlineHelpText>
+        <label>Training Location</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <label>Pilot Activity</label>
+    <nameField>
+        <displayFormat>PIL - {0000}</displayFormat>
+        <label>Pilot Activity</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Pilot Activities</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypes>
+        <fullName>Faculty_Advisor_Nomination</fullName>
+        <active>true</active>
+        <label>Faculty Advisor Nomination</label>
+        <picklistValues>
+            <picklist>LMS__c</picklist>
+            <values>
+                <fullName>Blackboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moodle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Labs Plus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Pilot</fullName>
+        <active>true</active>
+        <label>Pilot</label>
+        <picklistValues>
+            <picklist>LMS__c</picklist>
+            <values>
+                <fullName>Blackboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moodle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Labs Plus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

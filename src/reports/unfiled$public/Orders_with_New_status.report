@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <currency>AUD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account.Orders__r$Status__c</column>
+            <operator>equals</operator>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Owner</column>
+            <operator>equals</operator>
+            <value>Arthur baker,rhonda edwards,scott bedelph,steve worrall,angie farrier,carol duffy,michael O&apos;neill,liz hatton,deb pach,rob randall</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Orders with New status</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Orders_with_Order_Line_Items__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

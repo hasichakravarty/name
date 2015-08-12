@@ -1,0 +1,16 @@
+Case ID: {!Case.CaseNumber}
+
+Dear queue member
+
+A transfer campus request has entered the 'CTIMGI Campus Transfer Requests' queue and it is at the start of the process.
+
+The campuses involved in this request are:
+
+From:{!Case.Current_Campus__c}
+To:{!Case.Proposed_Campus__c}
+
+Please review the request, complete the actions assigned to the record and submit it for approval. It is the responsibility of the Campus Directors to approve or reject this request once it is submitted for approval.
+
+To view the record please navigate to the 'CTIMGI Campus Transfer Requests' queue and locate it using the ID at the top of this email.
+
+Alternatively please click on this link to access the record: {!Case.Link}

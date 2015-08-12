@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PearsonCourseStructureSearchTypes</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>PearsonCourseStructureSearchTypes</value>
+    </caseValues>
+    <fields>
+        <help><!-- CORE - The order that this type of course should appear relative to others on the CourseSearchGlobal page. Lower number indicates higher position --></help>
+        <label><!-- Search Sort Order --></label>
+        <name>Search_Sort_Order__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

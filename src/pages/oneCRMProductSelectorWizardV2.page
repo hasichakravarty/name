@@ -1,0 +1,1414 @@
+<apex:page controller="oneCRMProductSelectorWizardControllerV2" sidebar="false" tabstyle="Opportunity"> 
+<apex:stylesheet value="{!$Resource.oneCRMProductSelectorWizardV2CSS}" />
+<style type="text/css">
+.activeTab {
+        border-style: solid ;
+        font-weight: bold ;
+        background-image:none;
+        font-size: 120% ; 
+        height: 25px ;
+        border-color: #e5c130 ;
+        background-color: #e5c130 ;
+        color:#fff !important ;
+        border-top-left-radius: 14px ;
+        border-top-right-radius: 14px ;
+        box-shadow: 6px 1px 5px rgba(150, 150, 150, 0.5) ;
+    }
+    .inactiveTab {
+        border-style: solid;
+        background-color:#e8e8e9; 
+        color:black !important;
+        font-weight: bold;
+        background-image:none;
+        font-size: 120%; 
+        height: 25px;
+        border-color: #e5c130;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+        box-shadow: 6px 1px 5px rgba(150, 150, 150, 0.5);
+    }
+</style>    
+<script>
+var previousOnload = window.onload; 
+   window.onload = function() 
+{ 
+    if (previousOnload) 
+    { 
+        previousOnload(); 
+    } 
+    checkPrivilege();
+}
+    function theResult(errorString,opptyId,opptyProdId)
+    {
+        if(errorString == 'redirectUser') 
+        { 
+              
+        }else 
+        { 
+            if(errorString == '')
+            {
+            
+            }else
+            {
+                alert(errorString); 
+                window.location = '/'+opptyId;
+            }
+        }
+    }
+
+    
+   function lookupIconVisibily(filterbytype){
+        alert(filterbytype)
+        if(filterbytype == 'Product'){      
+            document.getElementById('j_id0:ProductSelectorForm:SearchCriteriaPb:SearchCriteriaPbSection:SearchCriteriaPbTableId:0:lookupImageId').style.visibility  = 'hidden';
+            document.getElementById('j_id0:ProductSelectorForm:SearchCriteriaPb:SearchCriteriaPbSection:SearchCriteriaPbTableId:1:lookupImageId').style.visibility  = 'hidden';
+        }else{
+            document.getElementById('j_id0:ProductSelectorForm:SearchCriteriaPb:SearchCriteriaPbSection:SearchCriteriaPbTableId:0:lookupImageId').style.visibility  = 'hidden';
+        }
+    }
+    
+    document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        refreshSearchResults1();
+    }
+};
+
+    document.onmousedown = function(evt) {
+    var status="For Security Reasons, Right Click Is Disabled";
+        evt = evt || window.event;
+      if(evt.button ==2)
+       {
+         alert(status);
+         return false;    
+       }
+    }; 
+    
+    function onChangeTest(Id,value) {
+        var Index = Id.split(':');
+        setQty(Index[4],value);
+        
+    }
+</script> 
+<script type="text/javascript">
+     
+//used to check if same parent is clicked again
+        //var oldValue;
+        if(document.addEventListener)
+            document.addEventListener('load',initialize(),false);
+        else if(document.attachEvent)
+            document.attachEvent('onload',initialize());
+    function initialize(){
+        if(document.addEventListener)
+            document.addEventListener('click',function(e){clicks(e);});
+        else if(document.attachEvent)
+            document.attachEvent('onclick',function(e){clicks(e);});
+    }
+    function getElementsByClassName(className) {
+        if (document.getElementsByClassName) 
+            return document.getElementsByClassName(className); 
+        else 
+            return document.querySelectorAll('.' + className);  
+    } 
+    function clicks(e){
+        var obj = e.srcElement ? e.srcElement : e.target;
+        switch(obj.className){
+                case 'grandparent':
+                        currentObject(obj);
+                        break;
+                case 'children':
+                        currentObject(obj);
+                        break;
+                case 'children1':
+                        currentObject(obj);
+                        break;
+                case 'children2':
+                        currentObject(obj);
+                        break;
+                case 'children3':
+                        currentObject(obj);
+                        break;
+                case 'children4':
+                        currentObject(obj);
+                        break;
+                case 'children5':
+                        currentObject(obj);
+                        break;
+    //Can be uncommented to add further depth to tree
+                /*case 'children6':
+                        currentObject(obj);
+                        break;*/
+        }
+    }
+    function currentObject(obj){
+        var results = getElementsByClassName(obj.className);           
+            if(obj.className == 'grandparent'){
+                for(i = 0 ; i < results.length ; i++){
+                        results[i].style.background="none";
+                    }
+                var thisValue = obj.getAttribute('rId');
+                //obj.style.background="lightblue";
+                if(getElementsByClassName('grandparentid')[0].value!=thisValue || getElementsByClassName('grandparentid')[0].value==thisValue){
+                    getElementsByClassName('gpChanged')[0].value=true;
+                    getElementsByClassName('parentid1')[0].value= '';
+                    getElementsByClassName('parentid2')[0].value= '';
+                    getElementsByClassName('parentid3')[0].value= '';
+                    getElementsByClassName('parentid4')[0].value= '';
+                    getElementsByClassName('parentid5')[0].value= '';
+                    getElementsByClassName('parentid6')[0].value= '';
+                }
+
+                getElementsByClassName('grandparentid')[0].value=thisValue;
+                getElementsByClassName('parentid')[0].value=thisValue;
+                getElementsByClassName('currParent')[0].value=thisValue;
+                           
+
+                showChildren();
+            }
+            else if(obj.className == 'children'){
+                getElementsByClassName('gpChanged')[0].value = false;
+                getElementsByClassName('parentid2')[0].value= '';
+                getElementsByClassName('parentid3')[0].value= '';
+                getElementsByClassName('parentid4')[0].value= '';
+                getElementsByClassName('parentid5')[0].value= '';
+                getElementsByClassName('parentid6')[0].value= '';
+                    for(i = 0 ; i < results.length ; i++){
+                        results[i].style.background="none";
+                    }
+                    var thisValue = obj.getAttribute('rId');
+                    var hasNextItem = obj.getAttribute('hasNext');
+                    getElementsByClassName('parentid1')[0].value=thisValue;
+                    getElementsByClassName('currParent')[0].value=thisValue;
+                        
+
+                    if(hasNextItem=='true'){
+                        showChildren();
+                        //oldValue=thisValue;
+                    }
+                    else if (hasNextItem=='false'){
+                        obj.style.background="lightblue";
+                        setCurrParentInClass(thisValue);
+                        //oldValue=thisValue;
+                    }
+            }
+            else if(obj.className == 'children1'){
+                getElementsByClassName('parentid3')[0].value= '';
+                getElementsByClassName('parentid4')[0].value= '';
+                getElementsByClassName('parentid5')[0].value= '';
+                getElementsByClassName('parentid6')[0].value= '';
+                for(i = 0 ; i < results.length ; i++){
+                        results[i].style.background="none";
+                    }
+                var thisValue = obj.getAttribute('rId');
+                var hasNextItem = obj.getAttribute('hasNext');
+                getElementsByClassName('parentid2')[0].value=thisValue;
+                getElementsByClassName('currParent')[0].value=thisValue;
+                           
+
+                if(hasNextItem=='true'){
+                    showChildren();
+                    //oldValue=thisValue;
+                }
+                else if(hasNextItem=='false'){
+                    obj.style.background="lightblue";
+                    setCurrParentInClass(thisValue);
+                    //oldValue=thisValue;
+                }
+            }
+            else if(obj.className == 'children2'){
+                getElementsByClassName('parentid3')[0].value= '';
+                getElementsByClassName('parentid4')[0].value= '';
+                getElementsByClassName('parentid5')[0].value= '';
+                getElementsByClassName('parentid6')[0].value= '';
+                for(i = 0 ; i < results.length ; i++){
+                        results[i].style.background="none";
+                    }
+                var thisValue = obj.getAttribute('rId');
+                var hasNextItem = obj.getAttribute('hasNext');
+                getElementsByClassName('parentid3')[0].value=thisValue;
+                getElementsByClassName('currParent')[0].value=thisValue;
+                          
+
+                if(hasNextItem=='true'){
+                    showChildren();
+                    //oldValue=thisValue;
+                }
+                else if(hasNextItem=='false'){
+                    obj.style.background="lightblue";
+                    setCurrParentInClass(thisValue);
+                    //oldValue=thisValue;
+                }
+            }
+            else if(obj.className == 'children3'){
+                getElementsByClassName('parentid4')[0].value= '';
+                getElementsByClassName('parentid5')[0].value= '';
+                getElementsByClassName('parentid6')[0].value= '';
+                for(i = 0 ; i < results.length ; i++){
+                        results[i].style.background="none";
+                    }
+                var thisValue = obj.getAttribute('rId');
+                var hasNextItem = obj.getAttribute('hasNext');
+                getElementsByClassName('parentid4')[0].value=thisValue;
+                getElementsByClassName('currParent')[0].value=thisValue;
+                                       
+                if(hasNextItem=='true'){
+                    showChildren();
+                    //oldValue=thisValue;
+                }
+                else if(hasNextItem=='false'){
+                    obj.style.background="lightblue";
+                    setCurrParentInClass(thisValue);
+                    //oldValue=thisValue;
+                }
+            }
+            else if(obj.className == 'children4'){
+                getElementsByClassName('parentid5')[0].value= '';
+                getElementsByClassName('parentid6')[0].value= '';
+                for(i = 0 ; i < results.length ; i++){
+                        results[i].style.background="none";
+                    }
+                var thisValue = obj.getAttribute('rId');
+                var hasNextItem = obj.getAttribute('hasNext');
+                getElementsByClassName('parentid5')[0].value=thisValue;
+                getElementsByClassName('currParent')[0].value=thisValue;
+                if(hasNextItem=='true'){
+                    showChildren();
+                    //oldValue=thisValue;
+                }
+                else if(hasNextItem=='false'){
+                    obj.style.background="lightblue";
+                    setCurrParentInClass(thisValue);
+                    //oldValue=thisValue;
+                }
+            }
+            else if(obj.className == 'children5'){
+                getElementsByClassName('parentid6')[0].value= '';
+                for(i = 0 ; i < results.length ; i++){
+                        results[i].style.background="none";
+                    }
+                var thisValue = obj.getAttribute('rId');
+                var hasNextItem = obj.getAttribute('hasNext');
+                getElementsByClassName('parentid6')[0].value=thisValue;
+                getElementsByClassName('currParent')[0].value=thisValue;
+                                
+                                
+
+                if(hasNextItem=='true'){
+                    showChildren();
+                    //oldValue=thisValue;
+                }
+                else if(hasNextItem=='false'){
+                    obj.style.background="lightblue";
+                    setCurrParentInClass(thisValue);
+                    //oldValue=thisValue;
+                }
+            }
+            //Can be uncommented to add further depth to tree
+            /* else if(obj.className == 'children6'){
+                    alert('objcc1---->'+getElementsByClassName('grandparentid')[0].value);  
+                    alert('objcc2---->'+getElementsByClassName('parentid')[0].value);
+                    alert('objcc3---->'+getElementsByClassName('parentid1')[0].value);  
+                        
+                }*/
+    } 
+    function completeAction(){
+        var obj = e.srcElement ? e.srcElement : e.target;
+
+        alert('obj.className--->'+e.target);    
+    }
+    
+   function getvalue(val) {
+   
+    try {
+           var prodid = val;
+           profamilydetials(prodid);
+        }catch(e){alert("Error"+e);}
+       return null;
+    } 
+    function getvalue1() {
+   
+    try {
+          selectedproducts();
+        }catch(e){alert("Error"+e);}
+       return null;
+    } 
+</script>
+<apex:stylesheet value="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"/>
+<apex:stylesheet value="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/jqueryui/dataTables.jqueryui.css"/>
+<apex:form >
+<div style="margin-left: auto;margin-right: auto;width: 30%;">
+<apex:actionStatus id="actStatusId1" >
+  <apex:facet name="start" >
+    <img src="/img/loading.gif" height="20" width="20"/>    
+    <font size="4" color="Red"><b>Loading.....Please Wait...</b></font>                
+   </apex:facet>
+</apex:actionStatus> 
+
+</div>
+<apex:actionFunction action="{!checkPermission}" name="checkPrivilege" reRender="test" oncomplete="theResult('{!errorString}','{!opptyIdForPermissionCheck}','{!opptyProdId}');" status="actStatusId1"/>
+<apex:outputText id="test1"></apex:outputText>
+<apex:actionFunction name="profamilydetials" action="{!getListProductsToSample}" reRender="ProductSelectorForm,orderpermissionerror,message123"> 
+<apex:param value="" name="Familyids" assignto="{!prodId}"/>
+<apex:param name="ModeId" value="false" assignTo="{!productMode}"/>  
+</apex:actionFunction>
+<apex:actionFunction name="selectedproducts" action="{!userselectedproducts}" reRender="popup,addToOpty"/> 
+<apex:actionFunction name="rerenderthePgBlock" rerender="thePgBlock" />
+</apex:form>
+<apex:form id="orderpermissionerror">
+<apex:pageMessage summary="You do not have access to create sample orders. Please click Cancel to continue." rendered="{!sampleorderpermission}" severity="info" strength="2" id="message123"></apex:pageMessage>  
+</apex:form>
+<apex:form id="ProductSelectorForm">
+<apex:actionRegion >
+        
+     </apex:actionRegion>
+     <apex:actionRegion >
+     <apex:actionFunction name="setCurrParentInClass"  action="{!setCurrParentInClass}" reRender="" status="taxanomyId">
+        <apex:param value="" name="setCurrParentInClass" assignTo="{!currParent}"/>
+    </apex:actionFunction> 
+    </apex:actionRegion>
+    <!-- Added For Displaying Available Course Code
+     <div id="existingCoursePanelLeft">
+       <apex:pageBlock >
+       <font size="3" color="black"><b>Available Course Codes</b></font> <br/>
+        <br/>        
+       </apex:pageBlock>
+     </div>-->
+     
+    <div>
+    
+        <apex:commandLink value="Browse" action="{!browseOnDefault}" styleClass="searchLinksAlignment" reRender="ProductSelectorForm,thpbl"  />&nbsp;&nbsp; |&nbsp;&nbsp; 
+        <apex:commandLink value="Search" action="{!serachOnDefault}" reRender="FilterList,SearchCriteriaPb,thpbl,ProductSelectorForm" styleClass="searchLinksAlignment" />
+        <apex:commandButton value=" Save and Return" action="{!createOpplineitems}" style="position:absolute;left:500px;" rendered="{!If(opportunityID != null,true,false)}"/>
+        <apex:commandButton value="Cancel" action="{!returntoopportunity }" style="position:absolute;left:600px;" rendered="{!If(opportunityID != null,true,false)}"/>
+    </div>
+   <div id="taxanomyview"  style="width: 43% !important;">
+   
+    <apex:pageblock rendered="{!notToDisplayOnSerach}" id="taxanomyviewId">
+    
+    <apex:actionStatus id="taxanomyId" >
+                        <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                        </apex:facet>
+                    </apex:actionStatus> 
+    <apex:pagemessages rendered="{!fromTaxanomy}" id="taxanomyError"/>
+     <div style="overflow: scroll; overflow-x: hidden;height: 432px;">
+    <apex:actionFunction action="{!showChildren}" name="showChildren" oncomplete="completeAction();"  reRender="childrenList"/>
+    <apex:inputText styleClass="grandparentid" value="{!grandparentid}"/>
+    <apex:inputText styleClass="parentid" value="{!parentid}"/>
+    <apex:inputText styleClass="parentid1" value="{!parentid1}"/>
+    <apex:inputText styleClass="parentid2" value="{!parentid2}"/>
+    <apex:inputText styleClass="parentid3" value="{!parentid3}"/>
+    <apex:inputText styleClass="parentid4" value="{!parentid4}"/>
+    <apex:inputText styleClass="parentid5" value="{!parentid5}"/>
+    <apex:inputText styleClass="parentid6" value="{!parentid6}"/>
+    <apex:inputText styleClass="gpChanged" value="{!isGrandParentChanged}"/>
+    <apex:inputText styleClass="currParent" value="{!currParent}"/>
+
+    <apex:repeat value="{!grndParentLst }" var="gp">
+        <div class="grandparent" rId="{!gp.Apttus_Config2__HierarchyId__r.id}" recName="{!gp.Apttus_Config2__HierarchyId__r.Name}">
+            <img class ="rightArrow"/>
+            
+         <apex:outputText value="{!gp.Apttus_Config2__HierarchyId__r.Name}" ></apex:outputText> 
+         
+        </div>
+            <apex:outputPanel id="childrenList">
+                   <apex:repeat value="{!mapChild[gp.Apttus_Config2__HierarchyId__r.id]}" var="c"  rendered="{!IF(AND(parentid==gp.Apttus_Config2__HierarchyId__r.id,mapChild!=null,gp.Apttus_Config2__HierarchyId__r.id!=null) ,true,false)}">
+                   <div  class="children"  rId="{!c.Id}" recName="{!c.Name}" hasNext="{!mapChildHasNext[c.Id]}">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <apex:outputPanel rendered="{!mapChildHasNext[c.Id]}">
+                                <apex:outputPanel rendered="{!IF(parentid1==c.Id,True,False)}">
+                                        <img class="downArrow"   />
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!IF(parentid1!=c.Id,True,False)}">
+                                       <img class="rightArrow"  />
+                                </apex:outputPanel>
+                        </apex:outputPanel>     
+                        {!c.name} 
+                    </div> 
+                        <apex:repeat value="{!mapChild[c.Id]}" var="c1"  rendered="{!IF(AND(parentid1==c.Id,mapChild!=null,c.Id!=null) ,true,false)}">
+                            <div  class="children1"  rId="{!c1.Id}" recName="{!c1.Name}" hasNext="{!mapChildHasNext[c1.Id]}" >
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <apex:outputPanel rendered="{!mapChildHasNext[c1.id]}">
+                                      <apex:outputPanel rendered="{!IF(parentid2==c1.Id,True,False)}">
+                                            <img class="downArrow"   />
+                                      </apex:outputPanel>
+                                      <apex:outputPanel rendered="{!IF(parentid2!=c1.Id,True,False)}">
+                                           <img class="rightArrow"  />
+                                      </apex:outputPanel>  
+                                </apex:outputPanel>      
+                                {!c1.name} <apex:outputText value=" - {!c1.Pearson_Course_Structure_Code__c}" rendered="{!If(c1.Type__c == 'Course',true,false)}"/>
+                            </div>
+                        
+                                <apex:repeat value="{!mapChild[c1.Id]}" var="c2"  rendered="{!IF(AND(parentid2==c1.Id,mapChild!=null,c1.Id!=null) ,true,false)}">
+                            
+                                    <div  class="children2"  rId="{!c2.Id}" recName="{!c2.Name}" hasNext="{!mapChildHasNext[c2.Id]}">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                         <apex:outputPanel rendered="{!mapChildHasNext[c2.id]}">
+                                                <apex:outputPanel rendered="{!IF(parentid3==c2.Id,True,False)}">
+                                                       <img class="downArrow"   />
+                                                </apex:outputPanel>
+                                                <apex:outputPanel rendered="{!IF(parentid3!=c2.Id,True,False)}">
+                                                        <img class="rightArrow"  />
+                                                </apex:outputPanel> 
+                                        </apex:outputPanel>    
+                                         {!c2.name} <apex:outputText value=" - {!c2.Pearson_Course_Structure_Code__c}"  rendered="{!If(c2.Type__c == 'Course',true,false)}"/>
+                                    </div>
+                                        <apex:repeat value="{!mapChild[c2.Id]}" var="c3"  rendered="{!IF(AND(parentid3==c2.Id,mapChild!=null,c2.Id!=null) ,true,false)}">
+                                            <div  class="children3"  rId="{!c3.Id}" recName="{!c3.Name}" hasNext="{!mapChildHasNext[c3.Id]}">
+                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <apex:outputPanel rendered="{!mapChildHasNext[c3.id]}">
+                                                        <apex:outputPanel rendered="{!IF(parentid4==c3.Id,True,False)}">
+                                                            <img class="downArrow"   />
+                                                        </apex:outputPanel>
+                                                        <apex:outputPanel rendered="{!IF(parentid4!=c3.Id,True,False)}">
+                                                            <img class="rightArrow"  />
+                                                </apex:outputPanel>                                                                                                         </apex:outputPanel>
+                                                 {!c3.name} <apex:outputText value=" - {!c3.Pearson_Course_Structure_Code__c}" rendered="{!If(c3.Type__c == 'Course',true,false)}"/> 
+                                            </div>
+                                            
+                                                <apex:repeat value="{!mapChild[c3.Id]}" var="c4"  rendered="{!IF(AND(parentid4==c3.Id,mapChild!=null,c3.Id!=null) ,true,false)}">
+                                                        <div  class="children4"  rId="{!c4.Id}" recName="{!c4.Name}" hasNext="{!mapChildHasNext[c4.Id]}">
+                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                 <apex:outputPanel rendered="{!mapChildHasNext[c4.id]}">
+                                                                        <apex:outputPanel rendered="{!IF(parentid5==c4.Id,True,False)}">
+                                                                           <img class="downArrow"  />
+                                                                        </apex:outputPanel>
+                                                                        <apex:outputPanel rendered="{!IF(parentid5!=c4.Id,True,False)}">
+                                                                            <img class="rightArrow"   />
+                                                                        </apex:outputPanel>
+                                                                  </apex:outputPanel> 
+                                                                {!c4.name} <apex:outputText value=" - {!c4.Pearson_Course_Structure_Code__c}" rendered="{!If(c4.Type__c == 'Course',true,false)}"/>
+                                                        </div>
+                                                        <apex:repeat value="{!mapChild[c4.Id]}" var="c5"  rendered="{!IF(AND(parentid5==c4.Id,mapChild!=null,c4.Id!=null) ,true,false)}">
+                                                               <div  class="children5"  rId="{!c5.Id}" recName="{!c5.Name}" hasNext="{!mapChildHasNext[c5.Id]}">
+                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                       <apex:outputPanel rendered="{!mapChildHasNext[c5.id]}">
+                                                                            <img class ="downArrow"  />
+                                                                       </apex:outputPanel>
+                                                                    {!c5.name} <apex:outputText value=" - {!c5.Pearson_Course_Structure_Code__c}" rendered="{!If(c5.Type__c == 'Course',true,false)}"/>
+                                                                    </div>
+                                                        </apex:repeat>
+                                                </apex:repeat>
+                                        </apex:repeat>
+                                </apex:repeat>
+                    </apex:repeat>
+                </apex:repeat>
+            </apex:outputPanel>
+                
+    </apex:repeat>
+   
+     </div> 
+     
+     <apex:pageblockButtons location="bottom">
+     <apex:ActionRegion id="myRegion" >
+        <apex:commandButton value="View Families" action="{!productFamily}" rerender="pgBlock,taxanomyError,prductSearchBlock,ProductSelectorForm" status="viewFamStatus">
+            <apex:param value="True" assignTo="{!fromTaxanomy}" name="fromTaxanomy"/>
+            <apex:param value="false" assignTo="{!offsetTaxonomyFlag}" name="fromTaxonomyFlag"/>
+        </apex:commandButton>&nbsp;&nbsp;&nbsp;
+             <apex:actionStatus id="viewFamStatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+             </apex:actionStatus>
+        
+         </apex:ActionRegion>
+        </apex:pageblockButtons>
+     
+    </apex:pageBlock>
+    
+    <apex:outputPanel id="test">
+    
+    </apex:outputPanel>
+  
+    
+    <!---------------OutputPanel Start---------------->
+   
+    <apex:outputPanel rendered="{!isDisplaySearchPanel}" id="FilterList">  
+    <apex:actionRegion >                
+            <!---------------PageBlock Start---------------->
+            <apex:pageblock id="SearchCriteriaPb" > 
+            
+            <div style="overflow: scroll; overflow-x: hidden;height: 288px;">
+             
+            <!--Added For Search Product/Family-->    
+                <!---------------PageBlockSection Start---------------->
+                <apex:pageBlockSection columns="1" id="SearchCriteriaPbSection" >                    
+                    <apex:actionStatus id="actStatusId" >
+                        <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                        </apex:facet>
+                    </apex:actionStatus>                                                          
+                                            
+                     <apex:outputPanel id="ProductSelectorOPId" style="background-color:#F8F8F8;"> 
+                        <font size="3"> <b>Enter Search Criteria</b> </font><br/><br/>  
+                        <apex:outputPanel layout="block" style="padding-bottom:20px;">                                                   
+                            <apex:outputLabel value="Search Type " for="Request" styleClass="searchConditionalSelectListWidth" id="searchTypeId"/>&nbsp;&nbsp;
+                            <apex:selectList size="1" value="{!selectedSearchType}" styleClass="searchConditionalSelectListWidth">
+                                <apex:selectOptions value="{!searchType}"/> 
+                                <apex:actionSupport event="onchange" action="{!searchTypeList}" reRender="FilterList" status="actStatusId" />        
+                            </apex:selectList>                         
+                        </apex:outputPanel> 
+                        <apex:variable value="{!0}" var="rowNum"/>  
+                       
+                        <apex:actionFunction name="changedValue1"  action="{!changeSerachTextType}" reRender="test,FilterList" status="actStatusId">
+                                <apex:param value="" name="selectedFilterbyValue" assignTo="{!selectedFilterbyValue}"/>
+                                <apex:param value="" name="selectedRow" assignTo="{!selectedRow }"/>
+                               
+       
+                            </apex:actionFunction>      
+                                         
+                        <!---------------pageBlockTable Start---------------->                                              
+                        <apex:dataTable value="{!listWithSelectOptions}" var="filterValues" headerClass="hidden" width="100%" id="SearchCriteriaPbTableId" style="background-color:#F8F8F8;border-spacing:2px;border-collapse: separate;">
+                         
+                            <apex:column width="12%" style="background-color:#F8F8F8;border-spacing:3px;border-collapse: separate;">
+                                <apex:outputLabel value="Filter by" for="Request" rendered="{!rowNum == 0}" />
+                            </apex:column>                              
+                            
+                            <apex:column width="20%" style="background-color:#F8F8F8;">
+                                <apex:selectList size="1" value="{!filterValues.selectedProductFilterValue}" id="a" styleClass="searchConditionalSelectListWidth" onchange="changedValue1(document.getElementById('{!$Component.a}').value,{!rowNum})">
+                                    <apex:selectOptions value="{!filterValues.productFieldLists}"/>    
+                                                                                                                                                                          
+                                </apex:selectList>
+                            </apex:column> 
+
+                            <apex:column width="20%" style="background-color:#F8F8F8;"> 
+                                <apex:selectList size="1" value="{!filterValues.selectedCondition}" styleClass="searchConditionalSelectListWidth" id="conditionListId">
+                                    <apex:selectOptions value="{!filterValues.conditionLists}"/>
+                                </apex:selectList>
+                                
+                            </apex:column> 
+                            
+                            <apex:column width="17%" style="background-color:#F8F8F8;">                                
+                                 <apex:inputText value="{!filterValues.searchText}" styleClass="searchTextWidth" id="ipSerachTextId" onclick="openBooleanPopup('{!$Component.ipSerachTextId}',document.getElementById('{!$Component.a}').value); " />
+                            </apex:column>
+                            <apex:column width="3%" style="background-color:#F8F8F8;">                             
+                                 <!-- <apex:inputText value="{!filterValues.searchText}" styleClass="searchTextWidth" id="ipSerachBooleanId" onfocus="DatePicker.pickDate(false, this, false);" /> -->                                                                  
+                                 <apex:image id="lookupImageId" styleClass="lookupIcon" url="/s.gif" value="{!filterValues.toDisplayLookup}" onclick="openBooleanPopup('{!$Component.ipSerachTextId}',document.getElementById('{!$Component.a}').value); " rendered="{!filterValues.toDisplayLookup}"/> 
+                                                               
+                                 <script>              
+                                                                                
+                                    var newWin=null;
+                                    function openBooleanPopup(name, id){    
+                                    var url;                                            
+                                        if(id == 'Contains eText'){              
+                                             url = "/apex/oneCRMProductSelectorPopUP?namefield=" + name ;
+                                             newWin = window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');                                           
+                                        }else if(id == 'Competitor Product'){              
+                                             url = "/apex/oneCRMProductSelectorPopUP?namefield=" + name ;
+                                             newWin = window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');                                           
+                                        }
+                                        else if(id == 'Status'){
+                                             url = "/apex/oneCRMProductSelectorPopUPPicklist?namefield=" + name;
+                                             newWin = window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+                                        }else if(id == 'Category'){
+                                            url = "/apex/oneCRMProductSelectorPopUPCatPicklist?namefield=" + name;
+                                            newWin = window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+                                        }else if(id == 'Instock Date'){                                                                                
+                                            DatePicker.pickDate(true, name, false);
+                                        }
+                                                                                
+                                        if (window.focus) {
+                                            newWin.focus();
+                                        }
+                                        return false;
+                                    }
+                                       
+                                    function closeLookupPopup(){
+                                        if (null!=newWin){                                      
+                                           newWin.close();
+                                        }  
+                                    }
+                                    function openPicklistPopup(name){                                                                
+                                        
+                                        window.open(popupURL, 'Popup','height=500,width=600,left=100,top=100,scrollbars=no,toolbar=no,status=no, resizable=no');
+                                        if (window.focus){
+                                           newWin.focus();
+                                        }
+                                     }
+                                 
+                                 
+                                </script>
+                            </apex:column>  
+
+                            <apex:column width="14%" style="background-color:#F8F8F8;"> 
+                                <apex:commandLink value="Add" action="{!addNewFilter}" styleClass="searchTextWidth" rerender="SearchCriteriaPb" rendered="{!IF(rowNum < 4 && addNewFilterLink == true, true, false)}" >
+                                    <apex:param value="{!rowNum}" name="rowNumber" assignTo="{!rowNumber}"/>
+                                </apex:commandLink>
+                            </apex:column>
+                            
+                            <apex:column width="14%" style="background-color:#F8F8F8;"> 
+                                <apex:commandLink value="Remove" action="{!removeFilter}" rendered="{!rowNum > 0}" styleClass="searchTextWidth" rerender="SearchCriteriaPb">  
+                                    <apex:param value="{!rowNum}" name="rowToRemove" assignTo="{!rowToRemove}"/>
+                                </apex:commandLink>
+                            <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                            </apex:column>
+                            
+                        </apex:dataTable>                       
+                        <!---------------pageBlockTable End---------------->
+                    </apex:outputPanel>
+                               
+                </apex:pageBlockSection>
+                <!---------------pageBlockSection End---------------->
+                
+                <apex:pageBlockButtons location="bottom">
+                   <apex:commandButton value="Search" action="{!searchResults}" reRender="prductSearchBlock,pgBlock,ProductSelectorForm" status="actStatusId">
+                     <apex:param value="false" assignTo="{!offsetSearchFlag}" name="fromSearchFlag"/>
+                     </apex:commandButton>
+                    <apex:commandButton value="Return to opportunity" action="{!createOpplineitems}" rendered="{!If(opportunityID != null,true,false)}"/>
+                </apex:pageBlockButtons>
+                <apex:pageMessages rendered="{!searchMessage}" ></apex:pageMessages>
+                <apex:pageMessages rendered="{!searchCriteriaMessage}"></apex:pageMessages>
+                
+                
+            </div>
+            </apex:pageblock> 
+            <!---------------PageBlock End---------------->     
+            </apex:actionRegion>        
+        </apex:outputPanel> 
+        
+        <!---------------OutputPanel End---------------->
+     </div> 
+    <div>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <!-- Added For Displaying Existing Pearson Course Code-->
+    <div id="existingCoursePanel" style="width: 56% !important;">
+        <apex:pageBlock >
+            <font size="3" color="black"><b>Pearson Course Codes</b></font> <br/>
+            <br/>
+            <div style="overflow: scroll; height: 72px; width: 100% !important;overflow-x: hidden;"> 
+                <apex:pageblockTable var="code" value="{!existingPearsonCourseList}">   
+                
+                    <apex:column headerValue="Pearson Course Code Name">
+                    <apex:actionRegion >
+                        <!--<apex:commandLink value="{!code.Pearson_Course_Code_Name_f__c}" /><br/>-->
+                        <apex:commandLink value="{!code.Pearson_Course_Code_Name_f__c}" action="{!productFamily}" rerender="pgBlock,pgTable,ProductSelectorForm">
+                            <apex:param assignTo="{!pearsonCodeId}" name="PearsonCode" value="{!code.Pearson_Course_Code_Name__c}"/><br/>
+                            <apex:param value="false" assignTo="{!fromTaxanomy}" name="fromTaxanomy"/>    
+                             <apex:param value="false" assignTo="{!offsetFlag}" name="offsetpearson" />
+                        </apex:commandLink>   
+                        </apex:actionRegion>  
+                    </apex:column> 
+                   
+                    <apex:column headerValue="Pearson Course Code">
+                        <apex:outputText value="{!code.Pearson_Course_Code_Name__r.Pearson_Course_Structure_Code__c}" /><br/>     
+                    </apex:column>                                          
+                 </apex:pageblockTable>
+             </div>         
+        </apex:pageBlock>
+    </div>
+
+    
+    
+    <div id="existingCoursePanel" style="width: 56% !important;">
+        <apex:pageblock id="addToOpty">
+            
+            <apex:tabPanel switchType="client"   selectedTab="Opportunity" id="theTabPanel"  tabClass="activeTab" inactiveTabClass="inactiveTab" value="{!sampletabfocus}">
+                <apex:tab label="Opportunity" name="Opportunity" id="oppTab">
+                 
+                    <div style="overflow: scroll; width: 710px; height: 141px;width: 100% !important; overflow-x: hidden;" >
+                        <apex:actionStatus id="qtyStatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+                        <apex:pageblockTable value="{!listOfproductFamilyClass}" var="relatedProduct" columnsWidth="70%, 20%, 5%,5%" styleClass="fontsize" id="theCartTable">
+                             
+                           
+                            <apex:column headerValue="Product" width="250px" style="font-size:100% !important;" headerClass="ct">
+                            
+                            <apex:commandLink value="{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Name}"  action="{!redirectProduct}" StyleClass="tooltip">
+                                   <apex:param assignTo="{!redirectProductId}" name="Opp Product" value="{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.id}"/>
+                                  
+                                   <span>{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Edition__c}e - &copy;{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Copyright_Year__c} - {!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.ISBN__c}</span>
+                               </apex:commandLink>
+                               <apex:commandLink value="{!relatedProduct.relatedProd1.PricebookEntry.Product2.Name}"  action="{!redirectProduct}"  StyleClass="tooltip">
+                                   <apex:param assignTo="{!redirectProductId}" name="About This Product" value="{!relatedProduct.relatedProd1.PricebookEntry.Product2.id}"/>
+                                   
+                                    <span>{!relatedProduct.relatedProd1.PricebookEntry.Product2.Edition__c}e - &copy;{!relatedProduct.relatedProd1.PricebookEntry.Product2.Copyright_Year__c} - {!relatedProduct.relatedProd1.PricebookEntry.Product2.ISBN__c}</span>
+                               </apex:commandLink>
+                               <apex:commandLink value="{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Name}"  action="{!redirectProduct}"  StyleClass="tooltip">
+                                   <apex:param assignTo="{!redirectProductId}" name="About This Product" value="{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.id}"/>
+                                  
+                                   <span>{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Edition__c}e - &copy;{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Copyright_Year__c} - {!relatedProduct.oppProd.Apttus_Config2__ProductId__r.ISBN__c}</span>
+                               </apex:commandLink>
+                            
+                            </apex:column>
+                             <apex:column headerValue="Author" style="text-align:-webkit-center;" headerClass="ct">
+                                 <apex:outputText value="{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Author__c}" styleClass="quantity"></apex:outputText>
+                            <apex:outputText value="{!relatedProduct.relatedProd1.PricebookEntry.Product2.Author__c}"/>
+                            <apex:outputText value="{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Author__c}"/>
+                            </apex:column>
+                            <apex:column headerValue="Qty" style="text-align:-webkit-center;" headerClass="ct">
+                            <apex:actionRegion >
+                                <apex:inputText value="{!relatedProduct.sQuantity}" styleClass="quantity" onchange="onChangeTest('{!$Component.ProductSelectorForm.addToOpty.theCartTable}',this.value);"></apex:inputText>
+                            </apex:actionRegion>    
+                            </apex:column>                          
+                           
+
+                            <apex:column width="10px" style="text-align:-webkit-center;" headerClass="ct">
+                            <apex:actionRegion >
+                                <apex:commandButton action="{!removeProdCart}" image="{!URLFOR($Resource.RemoveOppty)}" style="height:15px;width:15px;" rerender="addToOpty,pgBlock">
+                                    <apex:param name="relatedProductId" value="{!relatedProduct.relatedProd1.Id}" assignTo="{!relatedProductId}"/>
+                                    <apex:param name="relatedProductId1" value="{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Id}" assignTo="{!relatedProductId1}"/>
+                                    <apex:param name="removeProductIdFromCart" value="{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Id}" assignTo="{!removeProductIdFromCart}"/>
+                                </apex:commandButton>
+                            </apex:actionRegion>
+                            </apex:column>
+                        </apex:pageblockTable>
+                        <apex:pageMessages id="ab12" rendered="{!if(AND(NOT(searchMessage),oppCartEmpty),true,false)}" ></apex:pageMessages>
+                       <apex:pageMessages id="cd34" rendered="{!OR(baseProductError,PsellProductError,PricebookCurrencyError,PSellError)}" ></apex:pageMessages> 
+                           
+                    </div>
+                </apex:tab>
+                <apex:tab label="Sample" name="Sample" id="sample">
+                <div style="overflow: scroll; width: 710px; height: 141px;width: 100% !important; overflow-x: hidden;" >
+                    <apex:pageblockTable value="{!selectedproductslist}" var="relatedProduct" columnsWidth="70%, 20%, 5%,5%" styleClass="fontsize" id="sampletable">
+                            
+                            <apex:column headerValue="Product" width="250px" style="font-size:100% !important;" headerClass="ct">
+                              <apex:outputLink target="_blank" value="/{!relatedProduct.product.id}">{!relatedProduct.product.name}</apex:outputLink>
+                            </apex:column>
+                            <apex:column headerValue="Author" style="text-align:-webkit-center;" headerClass="ct">
+                                <apex:outputText value="{!relatedProduct.product.Author__c}" styleClass="quantity"></apex:outputText>
+                            </apex:column>
+                            <apex:column headerValue="Qty" style="text-align:-webkit-center;" headerClass="ct">
+                                <apex:inputText value="{!relatedProduct.sQuantity}" styleClass="quantity"></apex:inputText>
+                            </apex:column>
+                             <apex:column width="10px" style="text-align:-webkit-center;" headerClass="ct">
+                             <apex:actionRegion >
+                                <apex:commandButton action="{!removeSampleCart}" image="{!URLFOR($Resource.RemoveOppty)}" style="height:15px;width:15px;" rerender="sampletable,addToOpty">
+                                    <apex:param name="removeSampledId" value="{!relatedProduct.product.id}" assignTo="{!removesampleID}"/>
+                                </apex:commandButton>
+                             </apex:actionRegion>   
+                            </apex:column>
+                          </apex:pageblockTable>
+                        
+                              <apex:pageMessage rendered="{!(NOT(samplecart))}" summary="No items in the Sample cart" severity="info" strength="2"  id="message"></apex:pageMessage>
+                               
+                        
+                        </div>
+                </apex:tab>
+                
+            </apex:tabPanel>
+        
+        </apex:pageblock>
+        </div>
+        
+    <!-- Added For Custom Filter Search-->
+    <div id="existingCoursePanel" style="width: 56% !important;">
+        <apex:pageblock id="thpbl" rendered="{!notToDisplayOnSerach}">
+         <apex:actionRegion >
+            <font size="3"> <b>Filter Result(s)</b> </font><br/>
+            <apex:variable value="{!0}" var="rowNum"/>
+            <br/> 
+            <div style="overflow: scroll; width: 100% !important; height: 49px; overflow-x: hidden;">
+                 <apex:actionStatus id="actStatusId" >
+                        <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                        </apex:facet>
+                    </apex:actionStatus>  
+                   
+                          <apex:actionFunction name="changedValue"  action="{!changeSerachTextType}" reRender="ProductSelectorForm,existingCoursePanel,test" status="actStatusId">
+                                <apex:param value="" name="selectedFilterbyValue" assignTo="{!selectedFilterbyValue}"/>
+                                <apex:param value="" name="selectedRow" assignTo="{!selectedRow }"/>
+                               
+       
+                            </apex:actionFunction>
+                            
+                            
+                        
+                <apex:dataTable value="{!listWithSelectOptions}" var="filterValues" headerClass="hidden" width="100%" id="SearchCriteriaPbTableId1" style="background-color:#F8F8F8;border-spacing:3px;border-collapse: separate ;">
+                         
+                            <apex:column width="12%" style="background-color:#F8F8F8;border-spacing:4px;border-collapse: separate">
+                                <apex:outputLabel value="Filter by" for="Request" rendered="{!rowNum == 0}"/>
+                            </apex:column>                              
+                            
+                            <apex:column width="20%" style="background-color:#F8F8F8;">
+                            
+                             <apex:selectList size="1" value="{!filterValues.selectedProductFilterValue}" id="filtervalue" styleClass="searchConditionalSelectListWidth" onchange="changedValue(document.getElementById('{!$Component.filtervalue}').value,{!rowNum})">
+                                   <apex:selectOptions value="{!filterValues.productFieldLists}"/>    
+                             </apex:selectList>
+                             
+                              
+                            </apex:column> 
+
+                            <apex:column width="20%" style="background-color:#F8F8F8;"> 
+                           
+                                <apex:selectList size="1" value="{!filterValues.selectedCondition}" styleClass="searchConditionalSelectListWidth" id="conditionListId1">
+                                     <apex:selectOptions value="{!filterValues.conditionLists}"/>
+                                </apex:selectList>
+                            
+                            </apex:column> 
+                            
+                            <apex:column width="17%" style="background-color:#F8F8F8;"> 
+                                                         
+                                 <apex:inputText value="{!filterValues.searchText}" styleClass="searchTextWidth" id="ipSerachTextId1" onclick="openBooleanPopup1('{!$Component.ipSerachTextId1}',document.getElementById('{!$Component.filtervalue}').value);"/>
+                            
+                            </apex:column>
+                            <apex:column width="3%" style="background-color:#F8F8F8;"> 
+                                                      
+                                 <!-- <apex:inputText value="{!filterValues.searchText}" styleClass="searchTextWidth" id="ipSerachBooleanId" onfocus="DatePicker.pickDate(false, this, false);" /> -->                                                                  
+                                 <apex:image id="lookupImageId1" styleClass="lookupIcon" url="/s.gif" value="{!filterValues.toDisplayLookup}" onclick="openBooleanPopup1('{!$Component.ipSerachTextId1}',document.getElementById('{!$Component.filtervalue}').value); " rendered="{!filterValues.toDisplayLookup}"/> 
+                                                              
+                                 <script>              
+                                                                                   
+                                    var newWin=null;
+                                    function openBooleanPopup1(name, id){    
+                                    var url;   
+                                                                            
+                                        if(id == 'Contains eText'){              
+                                             url = "/apex/oneCRMProductSelectorPopUP?namefield=" + name ;
+                                             newWin = window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');                                           
+                                        }else if(id == 'Status'){
+                                             url = "/apex/oneCRMProductSelectorPopUPPicklist?namefield=" + name;
+                                             newWin = window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+                                            
+                                        }else if(id == 'Category'){
+                                            url = "/apex/oneCRMProductSelectorPopUPPicklist?namefield=" + name;
+                                            newWin = window.open(url, 'Popup','height=500,width=600,left=100,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no');
+                                        }else if(id == 'Instock Date'){                                                                                
+                                            DatePicker.pickDate(true, name, false);
+                                        }
+                                                                                
+                                        if (window.focus) {
+                                            newWin.focus();
+                                        }
+                                         
+                                        return false;
+                                    }
+                                       
+                                    function closeLookupPopup(){
+                                        if (null!=newWin){                                      
+                                           newWin.close();
+                                        }  
+                                    }
+                                    function openPicklistPopup(name){                                                                
+                                        
+                                        window.open(popupURL, 'Popup','height=500,width=600,left=100,top=100,scrollbars=no,toolbar=no,status=no, resizable=no');
+                                        if (window.focus){
+                                           newWin.focus();
+                                        }
+                                     }
+                                 
+                                 
+                                </script>
+                                 
+                            </apex:column>  
+
+                            <apex:column width="14%" style="background-color:#F8F8F8;"> 
+                            
+                                <apex:commandLink value="Add" action="{!addNewFilter}" styleClass="searchTextWidth" rerender="thpbl" rendered="{!IF(rowNum < 4 && addNewFilterLink == true, true, false)}" >
+                                    <apex:param value="{!rowNum}" name="rowNumber" assignTo="{!rowNumber}"/>
+                                </apex:commandLink>
+                                
+                            </apex:column>
+                            
+                            <apex:column width="14%" style="background-color:#F8F8F8;"> 
+                            
+                                <apex:commandLink value="Remove" action="{!removeFilter}" rendered="{!rowNum > 0}" styleClass="searchTextWidth" rerender="thpbl">  
+                                    <apex:param value="{!rowNum}" name="rowToRemove" assignTo="{!rowToRemove}"/>
+                                    
+                                </apex:commandLink>
+                            <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                            
+                            </apex:column>
+                            
+                        </apex:dataTable>  
+                                           
+            </div>
+            <apex:pageMessages rendered="{!searchFilterResults}"></apex:pageMessages> 
+           
+            <apex:actionFunction name="callsearchProductFamilyFilter" action="{!searchProductFamilyFilter}" rerender="pgBlock" status="famSearchStatus">
+                 <apex:param value="false" assignTo="{!searchoffsetFlag}" name="searchoffsetpearson" />
+                 
+            </apex:actionFunction>
+          
+             <apex:commandButton value="Search" onclick="callsearchProductFamilyFilter();" rerender="test">
+            
+              
+            </apex:commandButton>  &nbsp;&nbsp;&nbsp;
+         
+                    <apex:actionStatus id="famSearchStatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus>
+                
+              </apex:actionRegion>    
+        </apex:pageBlock> 
+        <br/>
+    </div>  
+    
+    <apex:pageblock id="pgBlock" rendered="{!Not(toDisplayProducts)}"> 
+    <apex:actionRegion >
+    <apex:actionFunction action="{!setQuantity}" name="setQty" rerender="dummy" status="qtyStatus">
+        <apex:param value="" assignTo="{!indexOfListToSetQty}" name="index"/>
+        <apex:param value="" assignTo="{!valueOfQty}" name="value"/>
+    </apex:actionFunction>
+    </apex:actionRegion>
+    <apex:outputpanel id="dummy"></apex:outputpanel>
+    <!--<apex:pagemessages />  -->
+    <!-- <apex:pageMessages rendered="{!OR(baseProductError,PsellProductError,PricebookCurrencyError,PSellError)}"></apex:pageMessages>-->
+    <apex:pageMessages rendered="{!productFamilyOnLoad}"/>
+             <div class="wrapper">
+            <div class="block-left"> <font size="3" color="black" padding-left="20px"><b>Product Families</b></font></div>
+            
+            <div class="block-right"> 
+            <apex:actionRegion >
+            <apex:commandButton value="Show" action="{!isLoad}" reRender="pgBlock" rendered="{!!isRender}"/>
+            <apex:commandButton value="Hide" action="{!isNone}" reRender="pgBlock" rendered="{!isRender}" />
+            </apex:actionRegion>
+            </div>
+        </div>
+        <br/>
+         <apex:outputText rendered="{!AND(displayProductFamilyOnLoad,totalPages!=0)}">
+        <div align="right">
+            <br/> 
+            <apex:commandLink value="<<Previous" action="{!Previous}" rerender="pgTable,pgBlock" status="status3" style="align:right;" rendered="{!if(pageNumber>1,true,false)}" />
+            &nbsp;&nbsp; 
+            <apex:commandLink value="Next>>" action="{!Next}" reRender="pgTable,pgBlock" status="status3" rendered="{!if((pageNumber==totalPages),false,true)}" style="align:right;" />
+            &nbsp;&nbsp; 
+            <apex:actionStatus id="status3" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+        </div> 
+       </apex:outputText>
+       
+            <br/> 
+       <apex:outputText rendered="{!AND(displayProductFamilyOnSerach,totalPages1!=0)}">
+        <div align="right"> 
+            <apex:commandLink value="<<Previous" action="{!PreviousSearch}" rendered="{!if(pageNumber2>1,true,false)}" rerender="pgTable,pgBlock"
+            status="status4"  />
+            &nbsp;&nbsp; 
+            <apex:commandLink value="Next>>" action="{!NextSearch}" rendered="{!if((pageNumber2==totalPages1),false,true)}" reRender="pgTable,pgBlock"
+            status="status4"  />
+            &nbsp;&nbsp; 
+             <apex:actionStatus id="status4" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+        </div>
+       </apex:outputText>  
+            <br/>
+        <apex:outputText rendered="{!AND(Or(displayOnPearsonClick,fromTaxanomy),totalPages1!=0)}">
+        <div align="right"> 
+        <apex:actionRegion >
+            <apex:commandLink value="<<Previous" action="{!PreviousSearchPearsonClick}" rendered="{!if(pageNumber1>1,true,false)}" rerender="pgTable,pgBlock"
+            status="status6"  />
+            &nbsp;&nbsp; 
+            <apex:commandLink value="Next>>" action="{!NextSearchPearsonClick}" rendered="{!if((pageNumber1==totalPages1),false,true)}" reRender="pgTable,pgBlock"
+            status="status6"  />
+            &nbsp;&nbsp; 
+             <apex:actionStatus id="status6" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+       </apex:actionRegion>
+        </div>
+       
+       </apex:outputText>      
+            <apex:outputText rendered="{!AND(searchFilterResultsFlag,totalPages2!=0)}">
+        <div align="right"> 
+            <apex:commandLink value="<<Previous" action="{!PreviousFilterSearch}" rendered="{!if(pageNumber1>1,true,false)}" rerender="pgTable,pgBlock"
+            status="status8"  />
+            &nbsp;&nbsp; 
+            <apex:commandLink value="Next>>" action="{!NextFilterSearch}" rendered="{!if((pageNumber1==totalPages2),false,true)}" reRender="pgTable,pgBlock"
+            status="status8"  />
+            &nbsp;&nbsp; 
+             <apex:actionStatus id="status8" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+        </div>
+       </apex:outputText>
+       <apex:pageMessage rendered="{!pricelistitemshow}" summary="This product is not associated with the pricelist.Please select another product." severity="info" strength="2"  id="message"></apex:pageMessage>
+             <apex:pageblockTable value="{!listWithProdId}" var="prodFamilyVal" id="pgTable" columnsWidth="3%,3%,33%,3%,3%,5%,3%,5%,5%,5%,5%"><br/>
+
+                <apex:column headerValue="Desc">
+                    <apex:commandButton id="cbtneditlogin" action="{!showPopup}" style="bgcolor:white;background-image:url({!$Resource.OneCRMPopupIcon});height:15px;width:15px;border-width:0px;background-repeat:no-repeat;cursor:pointer;" reRender="tstpopup,pgBlock" rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}"> 
+                        <apex:param name="familyId" value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Id}" assignTo="{!familyId}"/>
+                     <!--  <apex:outputPanel rendered="{!If(mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Id==null,true,false)}">
+                       <apex:param name="familyId" value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Id}" assignTo="{!familyId}"/>
+                    </apex:outputPanel>-->
+                    </apex:commandButton> 
+                    
+                   <apex:commandButton id="cbtneditlogin1" action="{!showPopup}" style="bgcolor:white;background-image:url({!$Resource.OneCRMPopupIcon});height:15px;width:15px;border-width:0px;background-repeat:no-repeat;cursor:pointer;" reRender="tstpopup,pgBlock" rendered="{!displayProductFamilyOnSerach}">    
+                       <apex:param name="familyId" value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Id}" assignTo="{!familyId}"/>
+                   </apex:commandButton>          
+                </apex:column>
+
+               <apex:column headerValue="" style="text-align:-webkit-center;">
+                  <!--  <img src="/servlet/servlet.FileDownload?file={!mapWithImageID[prodFamilyVal.productClassification.Apttus_Config2__ProductId__r.id]}" onmousehover="No Rel" border="0" /> --> 
+                    <!--<apex:Image value="/servlet/servlet.FileDownload?file="{!mapWithImageID[prodFamilyVal.Apttus_Config2__ProductId__r.id]}"" height="30" width="30"/>-->
+                   <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Relevance__c}" escape="false" rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}"/>
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Relevance__c}" escape="false" rendered="{!displayProductFamilyOnSerach}"/>
+                </apex:column>    
+                
+                <apex:column headerValue="Family Name" >                    
+                   <!--<apex:commandLink value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Name}" onclick="window.open('/apex/OneCRMProductFamilyDetailPage?productFamilyId={!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Id}&oppId={!opportunityID}&prodFromCartId={!cartProdFromURL }');"  rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick)}"/>
+                    <apex:commandLink value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Name}" onclick="window.open('/apex/OneCRMProductFamilyDetailPage?productFamilyId={!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Id}&oppId={!opportunityID}');"  rendered="{!displayProductFamilyOnSerach}"/>-->                     
+                   <apex:commandLink value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Name}" action="{!redirectProduct}" rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}">
+                    <apex:param assignTo="{!redirectProductId}" name="productFamilyId" value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Id}"/>
+                    <!--<apex:param assignTo="{!opportunityIDRedirect}" name="oppId" value="{!opportunityID}"/>-->
+                    </apex:commandLink>
+                    
+                    <apex:commandLink value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Name}" action="{!redirectProduct}" rendered="{!displayProductFamilyOnSerach}">
+                    <apex:param assignTo="{!redirectProductId}" name="productFamilyId" value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Id}"/>
+                    <!--<apex:param assignTo="{!opportunityIDRedirect}" name="oppId" value="{!opportunityID}"/>-->
+                    </apex:commandLink>
+                </apex:column>
+                
+               <!-- <apex:column headerValue="Author" >
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Author__c}" rendered="{!displayProductFamilyOnLoad}"></apex:outputText> 
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Author__c}" rendered="{!displayProductFamilyOnSerach}"></apex:outputText>
+                </apex:column>-->
+                
+                <apex:column >
+                
+                    <apex:facet name="header">
+                        &copy;
+                    </apex:facet>
+                    
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Copyright_Year__c}" rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}"></apex:outputText>
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Copyright_Year__c}" rendered="{!displayProductFamilyOnSerach}"></apex:outputText>
+                </apex:column>
+                
+                <apex:column headerValue="Status">
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Status__c}" rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}"></apex:outputText>
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Status__c}" rendered="{!displayProductFamilyOnSerach}"></apex:outputText>
+                </apex:column>
+                
+                <apex:column headerValue="Instock Date">
+                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}" rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick)}">
+                        <apex:param value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.InstockDate__c}" />
+                    </apex:outputText>
+                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}" rendered="{!Or(displayProductFamilyOnSerach)}">
+                    <apex:param value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.InstockDate__c}" />
+                    </apex:outputText>
+                </apex:column>
+                
+                <apex:column headerValue="Priority">
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Priority__c}" rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}"></apex:outputText>
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Priority__c}" rendered="{!displayProductFamilyOnSerach}"></apex:outputText>
+                </apex:column>
+                
+                <apex:column headerValue="Sub-Brand" >
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Sub_brand__c}" rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}"></apex:outputText>
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Sub_brand__c}" rendered="{!displayProductFamilyOnSerach}" escape="false"></apex:outputText>
+                </apex:column>
+                
+                <apex:column headerValue="Platform">
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Platform__c}" rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}"></apex:outputText>
+                    <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Platform__c}" rendered="{!displayProductFamilyOnSerach}"></apex:outputText>
+                </apex:column>
+                
+                
+                
+                <p><apex:column headerValue="Net" id="net" rendered="{!isRender}">
+                   <!-- <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Net_Price__c}" rendered="{!OR(displayProductFamilyOnLoad,displayProductFamilyOnSerach)}"></apex:outputText>-->
+                <apex:outputText value="{0, number, 00.00}"  rendered="{!OR(displayProductFamilyOnLoad,displayProductFamilyOnSerach,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}">
+                   <apex:param value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Net_Price__c}" />
+                </apex:outputText>
+               <!-- <apex:outputText value="{0, number, 00.00}"  rendered="{!displayProductFamilyOnSerach}">
+                   <apex:param value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Net_Price__c}" />
+                </apex:outputText>-->
+                </apex:column></p>
+                <apex:column headerValue="SRP" id="list" rendered="{!isRender}">
+                  <!--  <apex:outputText value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ListPrice__c}" rendered="{!OR(displayProductFamilyOnLoad,displayProductFamilyOnSerach)}"></apex:outputText>-->
+                <apex:outputText value="{0, number, 00.00}" rendered="{!Or(displayProductFamilyOnLoad,displayProductFamilyOnSerach,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}">
+                   <apex:param value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ListPrice__c}" />
+                </apex:outputText>
+               <!-- <apex:outputText value="{0, number, 00.00}" rendered="{!displayProductFamilyOnSerach}">
+                   <apex:param value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ListPrice__c}" />
+                </apex:outputText>-->
+                
+                </apex:column>
+                
+                <apex:column headerValue="Track" rendered="{!If(opportunityID != null,true,false)}">
+                <apex:actionRegion >
+                    <apex:commandButton value="Track" action="{!addToOppty}" reRender="addToOpty,pgBlock" rendered="{!displayProductFamilyOnSerach}" status="trackFam1Status">
+                          <apex:param name="familyId" value="{!mapDisplayProdWrapr[prodFamilyVal].priceListItem.Apttus_Config2__ProductId__r.Id}" assignTo="{!productId}"/> 
+                    </apex:commandButton>
+                    <apex:actionStatus id="trackFam1Status" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus>
+                    
+                    <apex:commandButton value="Track" action="{!addToOppty}" reRender="addToOpty,pgBlock"
+                     rendered="{!Or(displayProductFamilyOnLoad,displayOnPearsonClick,fromTaxanomy,searchFilterResultsFlag)}" status="trackFamStatus">
+                        <apex:param name="familyId" value="{!mapDisplayProdWrapr[prodFamilyVal].productClassification.Apttus_Config2__ProductId__r.Id}" assignTo="{!productId}"/>
+                         
+                    </apex:commandButton>
+                    <apex:actionStatus id="trackFamStatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus>
+                   </apex:actionRegion>
+                </apex:column>
+                
+                <apex:column headerValue="Sample" rendered="{!If(opportunityID != null,true,false)}">
+                <apex:actionRegion >
+                    <apex:commandButton value="Sample" onclick="getvalue('{!prodFamilyVal}');return false;" status="SampleFamStatus" >
+                   <apex:param name="familyId" value="{!prodFamilyVal}" assignTo="{!prodId}"/> 
+                   <apex:param name="ModeId" value="false" assignTo="{!productMode}"/> 
+                    </apex:commandButton>
+                    <apex:actionStatus id="SampleFamStatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus>
+                  </apex:actionRegion>
+                </apex:column>
+            
+            </apex:pageblockTable>
+        
+        <apex:facet name="footer"><apex:outputtext rendered="{!AND(displayProductFamilyOnLoad,totalPages!=0)}" value="Showing Page # {!pageNumber} of {!totalPages}"></apex:outputtext></apex:facet>  
+         <br/><apex:outputtext rendered="{!AND(displayProductFamilyOnSerach,totalPages1!=0)}" styleClass="pbBottomButtons" value="Showing Page # {!pageNumber2} of {!totalPages1}"></apex:outputtext> 
+         <apex:outputtext rendered="{!AND(displayOnPearsonClick,totalPages1!=0)}" styleClass="pbBottomButtons" value="Showing Page # {!pageNumber1} of {!totalPages1}"></apex:outputtext>
+         <apex:outputtext rendered="{!AND(fromTaxanomy,totalPages1!=0)}" styleClass="pbBottomButtons" value="Showing Page # {!pageNumber1} of {!totalPages1}"></apex:outputtext>  
+         <apex:outputtext rendered="{!AND(searchFilterResultsFlag,totalPages2!=0)}" styleClass="pbBottomButtons" value="Showing Page # {!pageNumber1} of {!totalPages2}"></apex:outputtext>
+        <br/>
+        <apex:outputText rendered="{!AND(displayProductFamilyOnLoad,totalPages!=0)}">
+        <div class="topbottom"> 
+            <apex:commandLink value="<<Previous" action="{!Previous}" rendered="{!if(pageNumber>1,true,false)}" rerender="pgTable,pgBlock"
+            status="status"  />
+            &nbsp;&nbsp; 
+            <apex:commandLink value="Next>>" action="{!Next}" rendered="{!if((pageNumber==totalPages),false,true)}" reRender="pgTable,pgBlock"
+            status="status"  />
+            &nbsp;&nbsp; 
+            <apex:actionStatus id="status" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+        </div>
+        </apex:outputText>
+        <apex:outputText rendered="{!AND(displayProductFamilyOnSerach,totalPages1!=0)}"> 
+        <div class="topbottom"> 
+            <apex:commandLink value="<<Previous" action="{!PreviousSearch}" rendered="{!if(pageNumber2>1,true,false)}" rerender="pgTable,pgBlock"
+            status="Famstatus"  />
+            &nbsp;&nbsp; 
+            <apex:commandLink value="Next>>" action="{!NextSearch}" rendered="{!if((pageNumber2==totalPages1),false,true)}" reRender="pgTable,pgBlock"
+            status="Famstatus"  />
+            &nbsp;&nbsp; 
+             <apex:actionStatus id="Famstatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+        </div>
+       </apex:outputText> 
+       <apex:outputText rendered="{!AND(Or(displayOnPearsonClick,fromTaxanomy),totalPages1!=0)}"> 
+        <div class="topbottom"> 
+        <apex:actionRegion >
+            <apex:commandLink value="<<Previous" action="{!PreviousSearchPearsonClick}" rendered="{!if(pageNumber1>1,true,false)}" rerender="pgTable,pgBlock"
+            status="status5"  />
+            &nbsp;&nbsp; 
+            <apex:commandLink value="Next>>" action="{!NextSearchPearsonClick}" rendered="{!if((pageNumber1==totalPages1),false,true)}" reRender="pgTable,pgBlock"
+            status="status5"  />
+            &nbsp;&nbsp; 
+             <apex:actionStatus id="status5" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+             </apex:actionRegion>
+        </div>
+       </apex:outputText> 
+       
+       <apex:outputText rendered="{!AND(searchFilterResultsFlag,totalPages2!=0)}">
+        <div align="right"> 
+            <apex:commandLink value="<<Previous" action="{!PreviousFilterSearch}" rendered="{!if(pageNumber1>1,true,false)}" rerender="pgTable,pgBlock"
+            status="status7"  />
+            &nbsp;&nbsp; 
+            <apex:commandLink value="Next>>" action="{!NextFilterSearch}" rendered="{!if((pageNumber1==totalPages2),false,true)}" reRender="pgTable,pgBlock"
+            status="status7"  />
+            &nbsp;&nbsp; 
+             <apex:actionStatus id="status7" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+        </div>
+       </apex:outputText>
+        <apex:outputPanel id="tstpopup">
+            <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>
+            <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}" >
+          
+                
+                <table><tr>
+                <td>
+               <div style="overflow: scroll;width:800px; overflow-x: hidden;height:260px;" >
+                
+                
+                <apex:outputText value="{!value}" escape="false"></apex:outputText>.<br/><br/><br/>
+               <!-- </apex:outputPanel>--></div>
+                </td>
+              </tr>
+           </table>
+                
+                <apex:actionFunction action="{!closePopup}" name="refreshSearchResults1" reRender="tstpopup"/>
+
+                <apex:outputPanel layout="block" style="float:right;">
+                 <apex:commandButton id="refreshSearchResults" value="Close" action="{!closePopup}" rerender="tstpopup" /> 
+                </apex:outputPanel>
+                
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+        <!--<apex:commandButton value="Click" action="{!productFamily}" />-->  
+        </apex:pageblock>      
+        
+        <apex:pageblock id="prductSearchBlock" rendered="{!toDisplayProducts}" >  
+           <apex:pageMessages rendered="{!OR(ProductPriceError,PricebookCurrencyErrorProd)}"></apex:pageMessages>  
+            <font size="3" color="black"><b>Products</b></font><br/><br/>
+            <apex:outputText rendered="{!AND(toDisplayProducts,totalPages1!=0)}">   
+            <div align="right">
+                <br/> 
+                <apex:commandLink value="<<Previous" action="{!PreviousSearch}" rendered="{!if(pageNumber2>1,true,false)}" rerender="pgTable,pgBlock,prductSearchBlock" status="Prostatus" style="align:right;" />
+                &nbsp;&nbsp; 
+                <apex:commandLink value="Next>>" action="{!NextSearch}" reRender="pgTable,pgBlock,prductSearchBlock" status="Prostatus" rendered="{!if((pageNumber2==totalPages1),false,true)}" style="align:right;" />
+                &nbsp;&nbsp; 
+                <apex:actionStatus id="Prostatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+            </div> 
+            </apex:outputText>                  
+             <apex:pageblockTable value="{!Products}" var="prods" id="pgTable" columnsWidth="600px,2px,2px,2px,2px,2px,2px,2px,2px,2px,2px" styleclass="background-color:red !important" title="Products" rendered="{!AND(!ISNULL(Products),toDisplayProducts)}">                        
+                <apex:column headerValue="Name">
+                    <apex:commandLink value="{!prods.Apttus_Config2__ProductId__r.Name}" action="{!redirectProduct}">
+                    <apex:param assignTo="{!redirectProductId}" name="productFamilyId" value="{!prods.Apttus_Config2__ProductId__r.Id}"/>
+                    <!--<apex:param assignTo="{!opportunityIDRedirect}" name="oppId" value="{!opportunityID}"/>-->
+                    </apex:commandLink>
+                    <!--<apex:outputLink value="/apex/ProductCatalogDetailPage?productId={!prods.Apttus_Config2__ProductId__r.Id}&oppId={!opportunityId}">{!prods.Apttus_Config2__ProductId__r.Name}</apex:outputLink> --> 
+                </apex:column>
+    
+               <apex:column headerValue="Author">
+                    <apex:outputText value="{!prods.Apttus_Config2__ProductId__r.Product_Author__c}"></apex:outputText>
+                </apex:column>
+    
+                <apex:column headerValue="Copyright Year">
+                    <apex:outputText value="{!prods.Apttus_Config2__ProductId__r.Copyright_Year__c}"></apex:outputText>
+                </apex:column>
+    
+                <apex:column headerValue="Edition">
+                    <apex:outputText value="{!prods.Apttus_Config2__ProductId__r.Edition__c}"></apex:outputText>
+                </apex:column>
+    
+                <apex:column headerValue="ISBN13">
+                    <apex:outputText value="{!prods.Apttus_Config2__ProductId__r.ISBN__c}"></apex:outputText>
+                </apex:column>
+                                
+                <apex:column headerValue="InStockdate">
+                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">                   
+                        <apex:param value="{!prods.Apttus_Config2__ProductId__r.InstockDate__c}"/>
+                    </apex:outputText>
+                </apex:column>
+    
+                <apex:column headerValue="Status">
+                    <apex:outputText value="{!prods.Apttus_Config2__ProductId__r.Status__c}"></apex:outputText>
+                </apex:column>
+    
+                <apex:column headerValue="Sub-Brand">
+                    <apex:outputText value="{!prods.Apttus_Config2__ProductId__r.Sub_brand__c}"></apex:outputText>
+                </apex:column>
+    
+                <apex:column headerValue="Publisher">
+                    <apex:outputText value="{!prods.Apttus_Config2__ProductId__r.Publisher__c}"></apex:outputText>
+                </apex:column>
+    
+                <apex:column headerValue="Track" rendered="{!If(opportunityID != null,true,false)}">
+                <apex:actionRegion >
+                    <apex:commandButton value="Track" action="{!addToOppty}" reRender="addToOpty,pgBlock,prductSearchBlock" status="trackStatus">
+                        <apex:param name="addToOptyProductId" value="{!prods.Apttus_Config2__ProductId__r.Id}" assignTo="{!addToOptyProductId}"/>
+                    </apex:commandButton>
+                    <apex:actionStatus id="trackStatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+                    </apex:actionRegion>
+                </apex:column>
+    
+                <apex:column headerValue="Sample" rendered="{!If(opportunityID != null,true,false)}">
+                <apex:actionRegion >
+                    <!--Davi Borges-->
+                    <apex:commandButton value="Sample" action="{!getListProductsToSample}" reRender="testpopup,sampletab,ProductSelectorForm" status="SampleStatus">
+                       <apex:param name="productId" value="{!prods.Apttus_Config2__ProductId__c}" assignTo="{!prodId}"/>
+                       <apex:param name="ModeId" value="true" assignTo="{!productMode}"/>  
+                    </apex:commandButton>
+                    <apex:actionStatus id="SampleStatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus> 
+                    </apex:actionRegion>
+                </apex:column>
+                
+                </apex:pageblockTable> 
+                <apex:facet name="footer"><apex:outputtext rendered="{!AND(toDisplayProducts,totalPages1!=0)}" value="Showing Page # {!pageNumber2} of {!totalPages1}"></apex:outputtext></apex:facet><br/>
+               <apex:outputText rendered="{!AND(toDisplayProducts,totalPages1!=0)}"> 
+                <div class="topbottom"> 
+                    <apex:commandLink value="<<Previous" action="{!PreviousSearch}" rerender="pgTable,pgBlock,prductSearchBlock"
+                                                status="status"  rendered="{!if(pageNumber2>1,true,false)}"/>&nbsp;&nbsp; 
+                    <apex:commandLink value="Next>>" action="{!NextSearch}" reRender="pgTable,pgBlock,prductSearchBlock"
+                                                status="status" rendered="{!if((pageNumber2==totalPages1),false,true)}"  />&nbsp;&nbsp; 
+                    <apex:actionStatus id="status" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus>  
+                </div>       
+                </apex:outputText>  
+        </apex:pageblock>
+        <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayproduct}" id="testpopup1" />
+        <apex:outputPanel styleClass="custPopup1" layout="block" rendered="{!displayproduct}" id="testpopup" >
+            <apex:pageBlock >
+            <apex:pageMessage summary="No products are avaliable.Please press Cancel to return." rendered="{!emptyproduct}" severity="info" strength="2" id="emptyproductmessage"></apex:pageMessage>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Sample" action="{!userselectedproducts}" reRender="ProductSelectorForm,addToOpty"/>
+                <apex:commandButton value="Cancel" action="{!dsproduct}" reRender="ProductSelectorForm,addToOpty"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!productsToSample}" var="lineitem" id="table">
+            <apex:column headerValue="Sel" >
+             <apex:inputCheckbox value="{!lineitem.selected}" id="theCheckbox" disabled="{!IF(lineitem.Restriction == 'X',true,false)}"/>
+            </apex:column>
+            <apex:column headerValue="Product" id="product" value="{!lineitem.product.name}"/>
+            <apex:column headerValue="ISBN13" id="isbn" value="{!lineitem.product.ISBN__c}"/>
+            <apex:column headerValue="Author" id="author" value="{!lineitem.product.Author__c}"/>
+            <apex:column headerValue="Status" id="status" value="{!lineitem.product.Status__c}"/>
+            <apex:column headerValue="InStock Date" id="stockdate" value="{!lineitem.product.InstockDate__c}"/>
+            <apex:column headerValue="Brand" id="brand" value="{!lineitem.product.Brand__c}"/>
+            <apex:column headerValue="IRC" id="irc" value="{!lineitem.product.IRC_Indicator__c}"/>
+            <apex:column headerValue="Res" id="restriction" value="{!lineitem.Restriction}"/>
+            <apex:column headerValue="Sub ISBN" id="subisbn" value="{!lineitem.product.Free_Copy_Substitute__r.ISBN__c}" title="{!lineitem.product.Free_Copy_Substitute__r.name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>              
+        </apex:outputpanel>
+   </apex:form>
+
+</apex:page>

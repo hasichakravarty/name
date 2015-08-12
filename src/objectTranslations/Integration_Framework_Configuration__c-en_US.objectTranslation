@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Integration Framework Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Integration Framework Configuration</value>
+    </caseValues>
+    <fields>
+        <label><!-- Event --></label>
+        <name>Event__c</name>
+    </fields>
+    <fields>
+        <label><!-- Geo --></label>
+        <name>Geo__c</name>
+    </fields>
+    <fields>
+        <label><!-- LoB --></label>
+        <name>LoB__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market --></label>
+        <name>Market__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub-Event --></label>
+        <name>Sub_Event__c</name>
+    </fields>
+    <fields>
+        <label><!-- System 1 --></label>
+        <name>System_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- System 2 --></label>
+        <name>System_2__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

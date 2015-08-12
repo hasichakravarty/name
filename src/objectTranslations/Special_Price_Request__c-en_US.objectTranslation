@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Special Price Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Special Price Requests</value>
+    </caseValues>
+    <fields>
+        <label><!-- AccountId --></label>
+        <name>AccountId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Address --></label>
+        <name>Account_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Account Number(s) of all Stores serving students at this campus. A comprehensive list can be found in Desktop OASIS. --></help>
+        <label><!-- Account Number(s) --></label>
+        <name>Account_Numbers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional Approver Flow --></label>
+        <name>Additional_Approver_Flow__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional Department Information --></label>
+        <name>Additional_Department_Information__c</name>
+    </fields>
+    <fields>
+        <help><!-- Describe any additional factors that should be considered for this approval --></help>
+        <label><!-- Additional Factors --></label>
+        <name>Additional_Factors__c</name>
+    </fields>
+    <fields>
+        <help><!-- Projected course start dates as defined by institution or department --></help>
+        <label><!-- Class Start Date --></label>
+        <name>Class_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- List of Competitive books/packages that exist with other publishers - please include as much information as possible --></help>
+        <label><!-- Competitive Titles --></label>
+        <name>Competitive_Titles__c</name>
+    </fields>
+    <fields>
+        <label><!-- Course Enrollment --></label>
+        <name>Course_Enrollment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Course --></label>
+        <name>Course__c</name>
+        <relationshipLabel><!-- Special Price Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Customer Service Comments --></label>
+        <name>Customer_Service_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- District Manager&apos;s Email --></label>
+        <name>District_Managers_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- District Manager&apos;s Name --></label>
+        <name>District_Managers_Name__c</name>
+        <relationshipLabel><!-- Special Price Requests (District Manager&apos;s Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- General Manager Information --></label>
+        <name>General_Manager_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- General Manager&apos;s Name --></label>
+        <name>General_Manager_Name__c</name>
+        <relationshipLabel><!-- Special Price Requests (General Manager&apos;s Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- General Manager&apos;s Email --></label>
+        <name>General_Managers_Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Has this product been previously requested? --></help>
+        <label><!-- Is this a Renewal? --></label>
+        <name>Is_this_a_Renewal__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LTS Email --></label>
+        <name>LTS_Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field reflects an Opportunity Team Member identified with role = &quot;LTS&quot;.  If not pre-polulated, please manually select the LTS team member. --></help>
+        <label><!-- LTS Name --></label>
+        <name>LTS_Name__c</name>
+        <relationshipLabel><!-- Special Price Requests (LTS Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Line of Business Finance Information --></label>
+        <name>Line_of_Business_Finance_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line of Business Finance Information --></label>
+        <name>Line_of_Business_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Special Price Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Pearson Account Number --></label>
+        <name>Pearson_Account_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Describe Pearson counter-offer that would gain or retain the business --></help>
+        <label><!-- Pearson Counter-Offer --></label>
+        <name>Pearson_Counter_Offer__c</name>
+    </fields>
+    <fields>
+        <help><!-- Search a previous Special Price Request by inserting the Special Price Request Name in this field. This should be in the format &quot;SPR-XXXXXXX.&quot; To find this, navigate to the previous year&apos;s opportunity; special price request will be listed there. --></help>
+        <label><!-- Previous Special Price Request --></label>
+        <name>Previous_Special_Price_Request__c</name>
+        <relationshipLabel><!-- Special Price Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Primary Selling Account --></label>
+        <name>Primary_Selling_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regional Manager&apos;s Email --></label>
+        <name>Regional_Managers_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regional Manager&apos;s Name --></label>
+        <name>Regional_Managers_Name__c</name>
+        <relationshipLabel><!-- Special Price Requests (Regional Manager&apos;s Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Request Type --></label>
+        <name>Request_Type__c</name>
+        <picklistValues>
+            <masterLabel>Book Alone</masterLabel>
+            <translation><!-- Book Alone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MyLab/Mastering Access Code</masterLabel>
+            <translation><!-- MyLab/Mastering Access Code --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valuepack</masterLabel>
+            <translation><!-- Valuepack --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valuepack with MyLab / Mastering Access Code</masterLabel>
+            <translation><!-- Valuepack with MyLab / Mastering Access Code --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sales Representative Name --></label>
+        <name>Sales_Representative_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales_Representative Phone Number --></label>
+        <name>Sales_Representative_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Socrates Account Number --></label>
+        <name>Socrates_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Price Coordinator Information --></label>
+        <name>Special_Price_Coordinator_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Pricing Group Information --></label>
+        <name>Special_Pricing_Group_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assigned to special pricing team</masterLabel>
+            <translation><!-- Assigned to special pricing team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM approved/ validating data</masterLabel>
+            <translation><!-- GM approved/ validating data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Manager Review</masterLabel>
+            <translation><!-- General Manager Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Optional</masterLabel>
+            <translation><!-- Optional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recalled</masterLabel>
+            <translation><!-- Recalled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special Pricing Coordinator</masterLabel>
+            <translation><!-- Special Pricing Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under review</masterLabel>
+            <translation><!-- Under review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Describe the actions and sales tactics you tried prior to resorting to Special pricing. --></help>
+        <label><!-- Supporting Information --></label>
+        <name>Supporting_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Number --></label>
+        <name>Territory_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valuepack Required --></label>
+        <name>Valuepack_Required__c</name>
+    </fields>
+    <fields>
+        <help><!-- For Legal reason, every college bookstore that services this particular school(both on-campus and off-campus stores, must receive the same Special Price.  Select &quot;Yes&quot; if Account Numbers for every School Store have been included. --></help>
+        <label><!-- Included all the Account Numbers? --></label>
+        <name>included_the_Account_Numbers_for_every_S__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Special Price Request Layout</layout>
+        <sections>
+            <label><!-- Additional Infomation --></label>
+            <section>Additional Infomation</section>
+        </sections>
+        <sections>
+            <label><!-- Core Information --></label>
+            <section>Core Information</section>
+        </sections>
+        <sections>
+            <label><!-- Course Information --></label>
+            <section>Course Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- School and Account Information --></label>
+            <section>School and Account Information</section>
+        </sections>
+        <sections>
+            <label><!-- Team Information --></label>
+            <section>Team Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Special Price Request --></label>
+        <name>Special_Price_Request</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Complete_Approval --></label>
+        <name>Complete_Approval</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Resubmit_for_Approval --></label>
+        <name>Resubmit_for_Approval</name>
+    </webLinks>
+</CustomObjectTranslation>

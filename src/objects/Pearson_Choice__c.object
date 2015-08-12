@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Access_Length__c</fullName>
+        <description>Value of the Access Length column to be shown in the PearsonChoice table</description>
+        <externalId>false</externalId>
+        <label>Access Length</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bookstore_ISBN_s__c</fullName>
+        <description>Group of values that make up the cell of the Bookstore ISBN(s) column to be shown in the PearsonChoice table</description>
+        <externalId>false</externalId>
+        <label>Bookstore ISBN(s)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Bookstore_Price__c</fullName>
+        <description>Price of the Bookstore Product to be shown in the PearsonChoice table</description>
+        <externalId>false</externalId>
+        <label>Bookstore Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Bookstore__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Bookstore</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Pearson Choices (Bookstore)</relationshipLabel>
+        <relationshipName>Pearson_Choices4</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>BrandCalc1__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND( NOT( ISBLANK( Brand__c ) ) , CONTAINS(Brand__c, &apos;&lt;br/&gt;&apos;) ) , 
+ MID(Brand__c, 0,  (FIND(&apos;&lt;br/&gt;&apos;, Brand__c)-1) ) ,
+ Brand__c)</formula>
+        <label>BrandCalc1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BrandCalc2__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND( NOT( ISBLANK( Brand__c ) ) , CONTAINS(Brand__c, &apos;&lt;br/&gt;&apos;) ) , 
+MID(Brand__c, FIND(&apos;&lt;br/&gt;&apos;, Brand__c)+5,  LEN(Brand__c)  ) , 
+&apos;&apos;)</formula>
+        <label>BrandCalc2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Brand__c</fullName>
+        <description>Brand of the row to be shown in the PearsonChoice table</description>
+        <externalId>false</externalId>
+        <label>Brand</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Includes_Pearon_eText__c</fullName>
+        <description>Value of the Includes Pearon eText? column to be shown in the PearsonChoice table</description>
+        <externalId>false</externalId>
+        <label>Includes Pearon eText</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Instant_Access_Price__c</fullName>
+        <description>Price of the Instant Access Product to be shown in the PearsonChoice table</description>
+        <externalId>false</externalId>
+        <label>Instant Access Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Instant_Access__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Instant Access</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Pearson Choices (Instant Access)</relationshipLabel>
+        <relationshipName>Pearson_Choices2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Master_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Master Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Pearson Choices</relationshipLabel>
+        <relationshipName>Pearson_Choices_Master</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Offer_Type__c</fullName>
+        <description>Offer Type used to determine what to show within the PearsonChoices table.</description>
+        <externalId>false</externalId>
+        <label>Offer Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Platform__c</fullName>
+        <description>Value of the Platform to be used in the PearsonChoice logic</description>
+        <externalId>false</externalId>
+        <label>Platform</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Print_Offer_Price__c</fullName>
+        <description>Price of the Print Offer Product to be shown in the PearsonChoice table</description>
+        <externalId>false</externalId>
+        <label>Print Offer Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Print_Offer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Print Offer</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Pearson Choices (Print Offer)</relationshipLabel>
+        <relationshipName>Pearson_Choices3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Family__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Product Family for which this Pearson Choice records needs to show in the PearsonChoice table.</description>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Pearson Choices (Product Family)</relationshipLabel>
+        <relationshipName>Pearson_Choices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sequence__c</fullName>
+        <description>Rank in which this record should show within the PearsonChoices table.</description>
+        <externalId>false</externalId>
+        <label>Sequence</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>eText_Offer_Price__c</fullName>
+        <description>Price of the eText Offer Product to be shown in the PearsonChoice table</description>
+        <externalId>false</externalId>
+        <label>eText Offer Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>eText_Offer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>eText Offer</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Pearson Choices (eText Offer)</relationshipLabel>
+        <relationshipName>Pearson_Choices1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Pearson Choice</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>OBJECT_ID</columns>
+        <columns>Product_Family__c</columns>
+        <columns>Bookstore__c</columns>
+        <columns>eText_Offer__c</columns>
+        <columns>Instant_Access__c</columns>
+        <columns>Print_Offer__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product_Family__c</field>
+            <operation>contains</operation>
+            <value>Reece/Urry - Campbell Biology</value>
+        </filters>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>PF1_view</fullName>
+        <columns>Product_Family__c</columns>
+        <columns>Brand__c</columns>
+        <columns>Bookstore__c</columns>
+        <columns>Instant_Access__c</columns>
+        <columns>Includes_Pearon_eText__c</columns>
+        <columns>Platform__c</columns>
+        <columns>Access_Length__c</columns>
+        <columns>Bookstore_ISBN_s__c</columns>
+        <columns>Bookstore_Price__c</columns>
+        <columns>Instant_Access_Price__c</columns>
+        <columns>eText_Offer_Price__c</columns>
+        <columns>Print_Offer_Price__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <operation>equals</operation>
+            <value>kpadm</value>
+        </filters>
+        <label>PF1 view</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Pearson Choices Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Pearson Choices</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

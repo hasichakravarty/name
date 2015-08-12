@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AccountId__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>AccountId</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Address__c</fullName>
+        <description>Address of the account on the Opportunity.  Auto-populated when the user comes into the approval.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>Account Address</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <description>Hyperlink to the account on the Opportunity. Auto-populated when the user comes into the approval. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;&amp;Opportunity__r.Account.Id,  Opportunity__r.Account.Name)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Numbers__c</fullName>
+        <description>Account Number(s) of all Stores serving students at this campus. A comprehensive list can be found in Desktop OASIS.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Account Number(s) of all Stores serving students at this campus. A comprehensive list can be found in Desktop OASIS.</inlineHelpText>
+        <label>Account Number(s)</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Additional_Approver_Flow__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Additional Approver Flow</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Additional_Department_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Department Information</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Additional_Factors__c</fullName>
+        <description>Describes any additional factors that should be considered for this approval.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe any additional factors that should be considered for this approval</inlineHelpText>
+        <label>Additional Factors</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Class_Start_Date__c</fullName>
+        <description>Start date of the course related to the opportunity.  Auto-populated when the user comes into the approval.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Projected course start dates as defined by institution or department</inlineHelpText>
+        <label>Class Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Competitive_Titles__c</fullName>
+        <description>List of Competitive books/packages that exist with other publishers.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>List of Competitive books/packages that exist with other publishers - please include as much information as possible</inlineHelpText>
+        <label>Competitive Titles</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Course_Enrollment__c</fullName>
+        <description>Enrollment for the course in the current period. Auto-populated when the user comes into the approval. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>IF(CONTAINS(TEXT(Opportunity__r.Selling_Period__c) , &quot;Fall&quot;) ,  Opportunity__r.Fall__c, IF(CONTAINS(TEXT(Opportunity__r.Selling_Period__c) , &quot;Spring&quot;) ,   Opportunity__r.Spring__c , IF(CONTAINS(TEXT(Opportunity__r.Selling_Period__c) , &quot;Summer&quot;) ,  Opportunity__r.Summer__c , IF(CONTAINS(TEXT(Opportunity__r.Selling_Period__c) , &quot;Winter&quot;) , Opportunity__r.Winter__c,0 ))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Course Enrollment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Course__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to the course related to the Opportunity.  Auto-populated when the user comes into the approval.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>Course</label>
+        <referenceTo>UniversityCourse__c</referenceTo>
+        <relationshipLabel>Special Price Requests</relationshipLabel>
+        <relationshipName>Special_Price_Requests</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Service_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Service Comments</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>District_Managers_Email__c</fullName>
+        <description>Email of the reps district manager. Manually entered by the Sales Rep. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>District_Managers_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>District Manager&apos;s Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>District_Managers_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Name of the reps district manager.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>District Manager&apos;s Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Special_Price_Requests1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>General_Manager_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>General Manager Information</label>
+        <length>65536</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>General_Manager_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Name of the reps general manager.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>General Manager&apos;s Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Special_Price_Requests</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>General_Managers_Email__c</fullName>
+        <description>Email of the reps general manager. Manually entered by the Sales Rep. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>General_Manager_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>General Manager&apos;s Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_this_a_Renewal__c</fullName>
+        <description>Describes if the product has been previously requested.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Has this product been previously requested?</inlineHelpText>
+        <label>Is this a Renewal?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>LTS_Email__c</fullName>
+        <description>Email of the LTS rep. Manually entered by the Sales Rep. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>LTS_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LTS Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LTS_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Name of the LTS rep. Manually entered by the Sales Rep. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field reflects an Opportunity Team Member identified with role = &quot;LTS&quot;.  If not pre-polulated, please manually select the LTS team member.</inlineHelpText>
+        <label>LTS Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Special_Price_Requests3</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Line_of_Business_Finance_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Line of Business Finance Information</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Line_of_Business_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Line of Business Finance Information</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Special Price Requests</relationshipLabel>
+        <relationshipName>Special_Price_Requests</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pearson_Account_Number__c</fullName>
+        <description>Pearson Account number from the account on the opportunity. Automatically calculated when the request is craeted. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Pearson_Account_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Pearson Account Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pearson_Counter_Offer__c</fullName>
+        <description>Describes Pearson counter-offer that would gain or retain the business.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe Pearson counter-offer that would gain or retain the business</inlineHelpText>
+        <label>Pearson Counter-Offer</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Previous_Special_Price_Request__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Holds the Special Price Request that was approved on a previous opportunity associated with the same account</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Search a previous Special Price Request by inserting the Special Price Request Name in this field. This should be in the format &quot;SPR-XXXXXXX.&quot; To find this, navigate to the previous year&apos;s opportunity; special price request will be listed there.</inlineHelpText>
+        <label>Previous Special Price Request</label>
+        <referenceTo>Special_Price_Request__c</referenceTo>
+        <relationshipLabel>Special Price Requests</relationshipLabel>
+        <relationshipName>Special_Price_Requests</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Selling_Account__c</fullName>
+        <description>Hyperlink to the the primary selling account of the account on the Opportunity. Auto-populated when the user comes into the approval. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;&amp; Opportunity__r.Account.Primary_Selling_Account__r.Id ,  Opportunity__r.Account.Primary_Selling_Account__r.Name  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Selling Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Regional_Managers_Email__c</fullName>
+        <description>Email of the reps regional manager. Manually entered by the Sales Rep. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>Regional_Managers_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Regional Manager&apos;s Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Regional_Managers_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Name of the reps regionalmanager.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>Regional Manager&apos;s Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Special_Price_Requests2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Request_Type__c</fullName>
+        <description>Type of request the sale rep is creating. Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>Request Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Valuepack with MyLab / Mastering Access Code</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Valuepack</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Book Alone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MyLab/Mastering Access Code</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Representative_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedBy.FirstName &amp; &quot; &quot; &amp;  CreatedBy.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales Representative Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Representative_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedBy.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sales_Representative Phone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Socrates_Account_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Socrates_Account_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Socrates Account Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Special_Price_Coordinator_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Price Coordinator Information</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Special_Pricing_Group_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Pricing Group Information</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Manager Review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GM approved/ validating data</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Assigned to special pricing team</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Under review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Optional</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Pricing Coordinator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Supporting_Information__c</fullName>
+        <description>Describe the actions and sales tactics the sales rep tried prior to resorting to Special pricing.Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the actions and sales tactics you tried prior to resorting to Special pricing.</inlineHelpText>
+        <label>Supporting Information</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Territory_Number__c</fullName>
+        <description>Territory number of the sales rep. Auto-populated when the user comes into the approval from the user record. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>CreatedBy.Charge_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Territory Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Valuepack_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Valuepack Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>included_the_Account_Numbers_for_every_S__c</fullName>
+        <description>Identifier if the user has included the Account Numbers for every School Store at that School.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For Legal reason, every college bookstore that services this particular school(both on-campus and off-campus stores, must receive the same Special Price.  Select &quot;Yes&quot; if Account Numbers for every School Store have been included.</inlineHelpText>
+        <label>Included all the Account Numbers?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Special Price Request</label>
+    <nameField>
+        <displayFormat>SPR-{0000000}</displayFormat>
+        <label>Special Price Request Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Special Price Requests</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Special_Price_Request</fullName>
+        <active>true</active>
+        <label>Special Price Request</label>
+        <picklistValues>
+            <picklist>Is_this_a_Renewal__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Request_Type__c</picklist>
+            <values>
+                <fullName>Book Alone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MyLab%2FMastering Access Code</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valuepack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valuepack with MyLab %2F Mastering Access Code</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assigned to special pricing team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GM approved%2F validating data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Manager Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Optional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Pricing Coordinator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Under review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>included_the_Account_Numbers_for_every_S__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <webLinks>
+        <fullName>Complete_Approval</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Complete Approval</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} 
+
+var c = new sforce.SObject(&quot;Special_Price_Request__c&quot;); 
+c.id = &quot;{!Special_Price_Request__c.Id}&quot;; 
+
+if(&apos;{!Special_Price_Request__c.Status__c}&apos; == &apos;Special Pricing Coordinator&apos;){
+     c.Status__c = &quot;Completed&quot;;
+     result = sforce.connection.update([c]); 
+     if (result[0].getBoolean(&quot;success&quot;)) {
+       window.location.reload();
+     }else{
+         alert(&quot;Only a Special Pricing Approver can complete approval request&quot;);
+      } 
+}else{
+  alert(&quot;Status Must be Special Pricing Coordinator in order to get it Completed&quot;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Resubmit_for_Approval</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Resubmit for Approval</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!requireScript(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+{!requireScript(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+var retStr; 
+if(&apos;{!Special_Price_Request__c.Status__c}&apos; != &apos;Rejected&apos;) 
+  retStr = &apos;You can submit to this process only at Rejection status.&apos;;
+else{
+retStr = sforce.apex.execute(&quot;SpecialPriceRequestResubmission&quot;, &quot;SpecialPriceRequestResubmissionforRejection&quot;, {ObjOppID:&apos;{!Special_Price_Request__c.Id}&apos;}); 
+}
+alert(retStr); 
+
+document.location = &apos;/{!Special_Price_Request__c.Id}&apos;;</url>
+    </webLinks>
+</CustomObject>

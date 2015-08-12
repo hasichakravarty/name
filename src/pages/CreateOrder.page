@@ -1,0 +1,10 @@
+<apex:page standardController="Opportunity" extensions="CreateOrderController" action="{!init}">
+	<apex:form >
+		<apex:pageBlock >
+		<apex:pageBlockButtons >
+			<apex:commandButton action="{!actionReturn}" value="Return to Opportunity"/>
+		</apex:pageBlockButtons>
+		<apex:pagemessages />
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

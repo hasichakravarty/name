@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>An email notification is sent to all members of the queue each time a new case of Bursary type is created</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Notification on Bursary request</name>
+    <style>none</style>
+    <subject>Email Notification for Bursary Request</subject>
+    <type>text</type>
+</EmailTemplate>

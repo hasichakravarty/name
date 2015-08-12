@@ -1,0 +1,9 @@
+Hi,
+
+Lead: “{!Lead.Name} ” has been assigned to you.
+
+To view the details of this Lead in Salesforce.com click on the link: 
+
+URL : https://pearson1--devmaster1.cs18.my.salesforce.com/{!Lead.Id}
+
+Thanks,

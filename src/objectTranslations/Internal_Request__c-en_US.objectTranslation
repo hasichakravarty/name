@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Internal Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Internal Request</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account ID --></label>
+        <name>Account_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+        <relationshipLabel><!-- Internal Request --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Adjustment Sub-Type --></label>
+        <name>Adjustment_Sub_Type__c</name>
+        <picklistValues>
+            <masterLabel>Agreement</masterLabel>
+            <translation><!-- Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Base Relief</masterLabel>
+            <translation><!-- Base Relief --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crediting</masterLabel>
+            <translation><!-- Crediting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Bill</masterLabel>
+            <translation><!-- Direct Bill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Failure</masterLabel>
+            <translation><!-- Product Failure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Territory Misalignment</masterLabel>
+            <translation><!-- Territory Misalignment --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Adjustment Type --></label>
+        <name>Adjustment_Type__c</name>
+        <picklistValues>
+            <masterLabel>Registration</masterLabel>
+            <translation><!-- Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revenue</masterLabel>
+            <translation><!-- Revenue --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Appeal --></label>
+        <name>Appeal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Office Comments --></label>
+        <name>Business_Office_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change Outside Current Region --></label>
+        <name>Change_Outside_Current_Region__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please identify the type of territory change or territory related change you would reviewed, keep in mind you will have to submit one type --></help>
+        <label><!-- Change Type --></label>
+        <name>Change_Type__c</name>
+        <picklistValues>
+            <masterLabel>Add New Region/District</masterLabel>
+            <translation><!-- Add New Region/District --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add New School</masterLabel>
+            <translation><!-- Add New School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add Territory</masterLabel>
+            <translation><!-- Add Territory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Delete Department</masterLabel>
+            <translation><!-- Add/Delete Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Remove Temp</masterLabel>
+            <translation><!-- Add/Remove Temp --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Remove User</masterLabel>
+            <translation><!-- Add/Remove User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change User Info</masterLabel>
+            <translation><!-- Change User Info --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rename Territory</masterLabel>
+            <translation><!-- Rename Territory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Territory Change</masterLabel>
+            <translation><!-- Territory Change --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date/Time Closed --></label>
+        <name>Date_Time_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date/Time Opened --></label>
+        <name>Date_Time_Opened__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Change Date --></label>
+        <name>Expected_Realignment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Approved Dollar Value --></label>
+        <name>Final_Approved_Dollar_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Approved Unit Count --></label>
+        <name>Final_Approved_Unit_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category --></label>
+        <name>Finance_Category__c</name>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passback</masterLabel>
+            <translation><!-- Passback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registrations</masterLabel>
+            <translation><!-- Registrations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wholesaler</masterLabel>
+            <translation><!-- Wholesaler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Year End Program</masterLabel>
+            <translation><!-- Year End Program --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Business Office Approval Status --></label>
+        <name>Financial_Review_Status__c</name>
+        <picklistValues>
+            <masterLabel>Not Approved</masterLabel>
+            <translation><!-- Not Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reviewed</masterLabel>
+            <translation><!-- Reviewed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- For multiple ISBNs, separate with a comma --></help>
+        <label><!-- ISBN --></label>
+        <name>ISBN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Role --></label>
+        <name>Owner_Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please identify the reason why you are submitting a territory realignment request for approval --></help>
+        <label><!-- Reason for Change --></label>
+        <name>Reason_for_Realignment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rejected --></label>
+        <name>Rejected__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select another Internal Request record --></help>
+        <label><!-- Internal Request --></label>
+        <lookupFilter>
+            <errorMessage><!-- You can only select other finance workflow Internal Requests --></errorMessage>
+            <informationalMessage><!-- Please select another finance workflow case as a related case. --></informationalMessage>
+        </lookupFilter>
+        <name>Related_Internal_Request__c</name>
+        <relationshipLabel><!-- Internal Request --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Related_Opportunity__c</name>
+        <relationshipLabel><!-- Internal Request --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Associated dollar value of the commission adjustment request --></help>
+        <label><!-- Requested Dollar Value --></label>
+        <name>Requested_Dollar_Value__c</name>
+    </fields>
+    <fields>
+        <help><!-- Associated unit count of the commission adjustment request (whole units) --></help>
+        <label><!-- Requested Unit Count --></label>
+        <name>Requested_Unit_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Person Name --></label>
+        <name>Sales_Person_Name__c</name>
+        <relationshipLabel><!-- Internal Request --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sales Person Territory Code --></label>
+        <name>Sales_Person_Territory_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Specialty --></label>
+        <name>Sales_Specialty__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Awaiting Business Office Approval</masterLabel>
+            <translation><!-- Awaiting Business Office Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Awaiting General Manager Approval</masterLabel>
+            <translation><!-- Awaiting General Manager Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Awaiting Mgmt Approval</masterLabel>
+            <translation><!-- Awaiting Mgmt Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close - Approved</masterLabel>
+            <translation><!-- Close - Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Close - Declined</masterLabel>
+            <translation><!-- Close - Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM - Approved</masterLabel>
+            <translation><!-- GM - Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Review</masterLabel>
+            <translation><!-- In Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RM - Approved</masterLabel>
+            <translation><!-- RM - Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for Appeal</masterLabel>
+            <translation><!-- Submitted for Appeal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub Status --></label>
+        <name>Sub_Status__c</name>
+        <picklistValues>
+            <masterLabel>Awaiting additional activity</masterLabel>
+            <translation><!-- Awaiting additional activity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Need information from Sales</masterLabel>
+            <translation><!-- Need information from Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending year-end review</masterLabel>
+            <translation><!-- Pending year-end review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subcategory --></label>
+        <name>Subcategory__c</name>
+        <picklistValues>
+            <masterLabel>Amazon</masterLabel>
+            <translation><!-- Amazon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BN.com</masterLabel>
+            <translation><!-- BN.com --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cafescribe</masterLabel>
+            <translation><!-- Cafescribe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chegg</masterLabel>
+            <translation><!-- Chegg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coursesmart</masterLabel>
+            <translation><!-- Coursesmart --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Follett eBooks</masterLabel>
+            <translation><!-- Follett eBooks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inkling</masterLabel>
+            <translation><!-- Inkling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kno</masterLabel>
+            <translation><!-- Kno --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBS</masterLabel>
+            <translation><!-- MBS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Matthews</masterLabel>
+            <translation><!-- Matthews --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NACS</masterLabel>
+            <translation><!-- NACS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rebate</masterLabel>
+            <translation><!-- Rebate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rittenhouse</masterLabel>
+            <translation><!-- Rittenhouse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation><!-- SMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XanEdu</masterLabel>
+            <translation><!-- XanEdu --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitter Territory Text --></label>
+        <name>Submitter_Territory_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitter&apos;s Territory Code --></label>
+        <name>Territory_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time Period --></label>
+        <name>Time_Period__c</name>
+        <picklistValues>
+            <masterLabel>4Q</masterLabel>
+            <translation><!-- 4Q --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9M</masterLabel>
+            <translation><!-- 9M --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Finance Workflow Layout</layout>
+        <sections>
+            <label><!-- Business Office Details --></label>
+            <section>Business Office Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Sectionx --></label>
+            <section>New Sectionx</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Territory Realignment</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Internal Request Information --></label>
+            <section>Internal Request Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Finance Workflow --></label>
+        <name>Finance_Workflow</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Territory Realignment --></label>
+        <name>Territory_Realignment</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- For Registration Adjustment Type, please enter Requested Unit Count. --></errorMessage>
+        <name>Adjustment_Type_Registr_MandatoryField</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Revenue Adjustment Type, please enter Requested Dollar Value. --></errorMessage>
+        <name>Adjustment_Type_Revenue_MandatoryField</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only declined cases can be appealed by Regional Managers and above. --></errorMessage>
+        <name>Appeal_cannot_be_selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter either product information or ISBN information before saving the case. --></errorMessage>
+        <name>Either_Product_or_ISBN_Must_be_Populated</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- An internal request record cannot be submitted for a date in the past, please enter a proper expected change date (i.e. today&apos;s date or greater) --></errorMessage>
+        <name>Expected_Change_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t change the status field without sending this case for approval. Please also make sure the status of a new case is &quot;New&quot; --></errorMessage>
+        <name>Status_cant_be_changed</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Add_Delete_Reassign_Territory_Realignment_Report --></label>
+        <name>Add_Delete_Reassign_Territory_Realignment_Report</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Rep_Member_to_Territory_Reassignment_Report --></label>
+        <name>Rep_Member_to_Territory_Reassignment_Report</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Submit_for_Approval --></label>
+        <name>Submit_for_Approval</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Territory_Realignment_Template --></label>
+        <name>Territory_Realignment_Template</name>
+    </webLinks>
+</CustomObjectTranslation>

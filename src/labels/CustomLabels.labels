@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AC001_Financial_Responsible_Person_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AC001_Financial_Responsible_Person_Error</shortDescription>
+        <value>You must select at least one financial responsible person for this Account</value>
+    </labels>
+    <labels>
+        <fullName>AC001_Primary_Contact_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AC001_Primary_Contact_Error</shortDescription>
+        <value>You must select at least one primary contact for this Account</value>
+    </labels>
+    <labels>
+        <fullName>ANZ_AccountBookstore_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Label to store ANZ AccountLearnerType</shortDescription>
+        <value>Learner</value>
+    </labels>
+    <labels>
+        <fullName>ANZ_Account_Record_Type</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Label to store ANZ Account Record Type</shortDescription>
+        <value>Bookstore,Corporate,Higher Education,Non Integrated,School</value>
+    </labels>
+    <labels>
+        <fullName>ANZ_Case_Record_Type</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ANZ Record Types for Case</shortDescription>
+        <value>No ANZ Record Type Till now</value>
+    </labels>
+    <labels>
+        <fullName>ANZ_Contact_RecordType</fullName>
+        <categories>Record Types</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Label to store ANZ Contact Record Type</shortDescription>
+        <value>Contact</value>
+    </labels>
+    <labels>
+        <fullName>ANZ_Opportunity_Record_Type</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ANZ_Opportunity_Record_Type</shortDescription>
+        <value>Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>ANZ_Record_Type</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Label to store ANZ Record Type</shortDescription>
+        <value>Core Lead</value>
+    </labels>
+    <labels>
+        <fullName>AOD</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AOD</shortDescription>
+        <value>AOD</value>
+    </labels>
+    <labels>
+        <fullName>About_the_Author_s</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>About the Author(s)</shortDescription>
+        <value>About the Author(s)</value>
+    </labels>
+    <labels>
+        <fullName>About_this_Product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>About this Product</shortDescription>
+        <value>About this Product</value>
+    </labels>
+    <labels>
+        <fullName>Account_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Address</shortDescription>
+        <value>Account</value>
+    </labels>
+    <labels>
+        <fullName>Appeal_Closed_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Appeal Closed Status</shortDescription>
+        <value>Close – Declined</value>
+    </labels>
+    <labels>
+        <fullName>Appeal_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Appeal Status</shortDescription>
+        <value>Submitted for Appeal</value>
+    </labels>
+    <labels>
+        <fullName>Application_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Application ID</shortDescription>
+        <value>Application ID</value>
+    </labels>
+    <labels>
+        <fullName>Approver_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approver Error</shortDescription>
+        <value>You Cannot Submit for Appeal</value>
+    </labels>
+    <labels>
+        <fullName>Available_on_Demand</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Available on Demand</shortDescription>
+        <value>Available on Demand</value>
+    </labels>
+    <labels>
+        <fullName>BO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BO</shortDescription>
+        <value>BO</value>
+    </labels>
+    <labels>
+        <fullName>Back_Ordered</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Back Ordered</shortDescription>
+        <value>Back Ordered</value>
+    </labels>
+    <labels>
+        <fullName>Cancellation_Request_Record_type</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Label to Store Cancellation Request record type</shortDescription>
+        <value>Cancellation Request</value>
+    </labels>
+    <labels>
+        <fullName>Cancelled</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancelled</shortDescription>
+        <value>Cancelled</value>
+    </labels>
+    <labels>
+        <fullName>CannotDeleteCallEvent</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorMsg - Prevent Deletion</shortDescription>
+        <value>You cannot delete an Event linked to a Call. Please contact the Data Admin to delete the related Call.</value>
+    </labels>
+    <labels>
+        <fullName>Case_custom_label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>case custom label</shortDescription>
+        <value>Loan/Bursary Request</value>
+    </labels>
+    <labels>
+        <fullName>Change_Of_Campus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Change Of Campus</shortDescription>
+        <value>Change of Campus</value>
+    </labels>
+    <labels>
+        <fullName>Change_Request_Record_Type</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Label to store Change Request Record Type</shortDescription>
+        <value>Change Request</value>
+    </labels>
+    <labels>
+        <fullName>ContactANZRecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Label to store ANZ Record Type</shortDescription>
+        <value>Contact</value>
+    </labels>
+    <labels>
+        <fullName>ContactMailing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Mailing</shortDescription>
+        <value>Mailing Address</value>
+    </labels>
+    <labels>
+        <fullName>Contact_Other</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Other</shortDescription>
+        <value>Other Address</value>
+    </labels>
+    <labels>
+        <fullName>Contract_Cancelled</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract Cancelled</shortDescription>
+        <value>Contract Cancelled</value>
+    </labels>
+    <labels>
+        <fullName>D2L_Opportunity_Record_Type</fullName>
+        <categories>Opportunity Record Type</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>D2L_Opportunity_Record_Type</shortDescription>
+        <value>D2L</value>
+    </labels>
+    <labels>
+        <fullName>D2L_Opportunity_StageName_Value</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>D2L Opportunity StageName Value</shortDescription>
+        <value>Needs Analysis</value>
+    </labels>
+    <labels>
+        <fullName>D2L_Opportunity_Type_Value</fullName>
+        <categories>Opportunity Default Values</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>D2L_Opportunity_Type_Value</shortDescription>
+        <value>New Business</value>
+    </labels>
+    <labels>
+        <fullName>DMandRMcanSubmitCaseForApproval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DMandRMcanSubmitCaseForApproval</shortDescription>
+        <value>Only District and Regional Sales Managers can submit the record for Approval</value>
+    </labels>
+    <labels>
+        <fullName>DataMigrationUserForAmendment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DataMigrationUserForAmendment</shortDescription>
+        <value>005g0000002Elur</value>
+    </labels>
+    <labels>
+        <fullName>Demo</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Demo</shortDescription>
+        <value>CF00N110000014OJx</value>
+    </labels>
+    <labels>
+        <fullName>Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>DisplayOppContactsVF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DisplayOppContactsVF</shortDescription>
+        <value>/apex/PS_DisplayOppContacts?</value>
+    </labels>
+    <labels>
+        <fullName>DocumentsIDWhereTemplateStored</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DocumentsIDWhereTemplateStored</shortDescription>
+        <value>015g0000000cS9c</value>
+    </labels>
+    <labels>
+        <fullName>EmailAttachmentRetentionPeriodDays</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailAttachmentRetentionPeriodDays</shortDescription>
+        <value>-7</value>
+    </labels>
+    <labels>
+        <fullName>EmailBody</fullName>
+        <categories>Email Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailBody</shortDescription>
+        <value>Dear Instructor,</value>
+    </labels>
+    <labels>
+        <fullName>EmailBody0</fullName>
+        <categories>Email Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailBody0</shortDescription>
+        <value>Thank you for choosing Pearson for your course. We provide students with options to suit both their preferences and their budgets:</value>
+    </labels>
+    <labels>
+        <fullName>EmailBody1</fullName>
+        <categories>Email Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailBody1</shortDescription>
+        <value>To learn more about this title visit the Pearson Higher Education catalog:</value>
+    </labels>
+    <labels>
+        <fullName>EmailBody2</fullName>
+        <categories>Email Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailBody2</shortDescription>
+        <value>Disclaimer: All prices are subject to change without notice</value>
+    </labels>
+    <labels>
+        <fullName>EmailErrorMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailErrorMsg</shortDescription>
+        <value>Error occurred.Please contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>EmailSuccessMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailSuccessMessage</shortDescription>
+        <value>Email Sent Successfully.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Body1_1_for_NA_Sol_doc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Body1.1 for NA Sol doc</shortDescription>
+        <value>You can download 
+instructor support materials for this book at</value>
+    </labels>
+    <labels>
+        <fullName>Email_Body1_2_for_NA_Sol_doc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Body1.2 for NA Sol doc</shortDescription>
+        <value>On this page, click on the &quot;Resources tab&quot;.This will list all of the available instructor resources.Click on any file you would like to download. If you are not  already signed in to the site, you will be prompted to enter your Pearson username and password. If you do not have a Pearson username, or your username does not work here, you can request access to the Instructor Resource Center by clicking the &quot;Request access&quot; link. Once you have access you can download any instructor resources on http://www.pearsonhighered.com !
+
+Please let me know if you have any problems accessing these resources, or need any additional assistance.</value>
+    </labels>
+    <labels>
+        <fullName>Email_Body1_for_NASol_doc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Body1 for NASol doc</shortDescription>
+        <value>Dear Instructor,
+
+
+Thank you for your interest in</value>
+    </labels>
+    <labels>
+        <fullName>Email_Subject</fullName>
+        <categories>Email Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Subject</shortDescription>
+        <value>&quot;Pearson Choices for :</value>
+    </labels>
+    <labels>
+        <fullName>Email_Subject_for_NA_Sol_doc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Subject for NA Sol doc</shortDescription>
+        <value>&quot;Instructor Resources for</value>
+    </labels>
+    <labels>
+        <fullName>Enrol_Student</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Enrol Student</shortDescription>
+        <value>Enrol Student</value>
+    </labels>
+    <labels>
+        <fullName>Entered</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Entered</shortDescription>
+        <value>Entered</value>
+    </labels>
+    <labels>
+        <fullName>ErrorMsgCloseCase</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Message on Close Case</shortDescription>
+        <value>Cannot Close Case Until the Actions are Completed</value>
+    </labels>
+    <labels>
+        <fullName>ErrorMsgForAccountReAssign</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorMsgForAccountReAssign</shortDescription>
+        <value>Kindly check &apos;OwnerForAccount&apos; Custom Label, No User exists</value>
+    </labels>
+    <labels>
+        <fullName>ErrorMsg_Prevent_Duplicate</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorMsg - Prevent Duplicate</shortDescription>
+        <value>This Contact is already linked to this Account</value>
+    </labels>
+    <labels>
+        <fullName>ErrorOnCaseIfAttachmentMissing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorOnCaseIfAttachmentMissing</shortDescription>
+        <value>Kindly Add Attachment and submit the record for Approval</value>
+    </labels>
+    <labels>
+        <fullName>Features</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Features</shortDescription>
+        <value>Features</value>
+    </labels>
+    <labels>
+        <fullName>Filled</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filled</shortDescription>
+        <value>Filled</value>
+    </labels>
+    <labels>
+        <fullName>General_Record_Type</fullName>
+        <categories>label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Label to store General Record Type</shortDescription>
+        <value>General</value>
+    </labels>
+    <labels>
+        <fullName>INT_Status_Received</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INT_Status_Received</shortDescription>
+        <value>Received</value>
+    </labels>
+    <labels>
+        <fullName>Lead_B2B_RecordType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead B2B RecordType</shortDescription>
+        <value>B2B</value>
+    </labels>
+    <labels>
+        <fullName>Learner_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Learner ID</shortDescription>
+        <value>Learner ID</value>
+    </labels>
+    <labels>
+        <fullName>Learner_Record_Type</fullName>
+        <categories>Record Types</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Learner Record Type</shortDescription>
+        <value>Learner</value>
+    </labels>
+    <labels>
+        <fullName>Loan_Bursary_Request</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Label to store Loan/Bursary Request Record Type</shortDescription>
+        <value>Loan/Bursary Request</value>
+    </labels>
+    <labels>
+        <fullName>Modify_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Modify Contract</shortDescription>
+        <value>Modify Contract</value>
+    </labels>
+    <labels>
+        <fullName>NA_Sol_pdf</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NA_Sol_pdf</shortDescription>
+        <value>Working with Pearson Custom Publishing, professor&apos;s can create their own professionally produced customized
+textbooks and media products to best compliment their course. Pearson Custom Publishing offers high-quality 
+content, professional design, quick production, and reliable on-time delivery. The result is valuable textbook
+that students will use, cover to cover that is tailored to meet exactly the needs of their professor, students and 
+course.&lt;br/&gt;
+www.pearsoncustom.com
+
+Information is accurate as of &amp;nbsp;&amp;nbsp;
+&lt;apex:outputText value=&quot;{0,date,dd&apos;-&apos;MMM&apos;-&apos;yyyy}&quot; escape=&quot;false&quot;&gt;
+  &lt;apex:param value=&quot;{!today()}&quot; escape=&quot;false&quot;/&gt;
+   &lt;/apex:outputText&gt;
+
+
+&lt;hr&gt; &lt;/hr&gt;
+&amp;copy;Pearson Higher Education  http://www.pearsonhighered.com</value>
+    </labels>
+    <labels>
+        <fullName>NYP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NYP</shortDescription>
+        <value>NYP</value>
+    </labels>
+    <labels>
+        <fullName>Navision</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Navision</shortDescription>
+        <value>Navision</value>
+    </labels>
+    <labels>
+        <fullName>New_To_This_Edition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New To This Edition</shortDescription>
+        <value>New To This Edition</value>
+    </labels>
+    <labels>
+        <fullName>NoContactRoles</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoContactRoles</shortDescription>
+        <value>No Contacts are currently related via the Opportunity Contact Roles related list on this Opportunity. Please relate some contacts and try emailing contacts again</value>
+    </labels>
+    <labels>
+        <fullName>NonAdminOwnerDelete</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorMsg - Prevent Deletion</shortDescription>
+        <value>You must be the owner of a this record or a system administrator in order to delete.</value>
+    </labels>
+    <labels>
+        <fullName>Not_Yet_Published</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not Yet Published</shortDescription>
+        <value>Not Yet Published</value>
+    </labels>
+    <labels>
+        <fullName>Order_Initial_Status_Value</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Order Initial Status Value</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>Order_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Order Type</shortDescription>
+        <value>Rep Sample</value>
+    </labels>
+    <labels>
+        <fullName>OwnerForAccount</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OwnerForAccount</shortDescription>
+        <value>Pearson</value>
+    </labels>
+    <labels>
+        <fullName>PS_AccountGPTerUserRole</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KP: Account Territory Grand Parent User role</shortDescription>
+        <value>Regional Manager</value>
+    </labels>
+    <labels>
+        <fullName>PS_AccountHandler_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS_AccountHandler_Error</shortDescription>
+        <value>Record can’t be created without the Market, Line of Business and Geography</value>
+    </labels>
+    <labels>
+        <fullName>PS_AccountParTerUserRole</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KP: Account Territory Parent user role</shortDescription>
+        <value>District Manager</value>
+    </labels>
+    <labels>
+        <fullName>PS_AccountTerritoryUserRole</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KP:Account Territory same tier user roles</shortDescription>
+        <value>Learning Technology Specialist,Customer Digital Success Agent,Temporary Sales Representative,Sales Representative</value>
+    </labels>
+    <labels>
+        <fullName>PS_Account_Organisation</fullName>
+        <categories>Account Record Type</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS_Account_Organisation</shortDescription>
+        <value>Organisation</value>
+    </labels>
+    <labels>
+        <fullName>PS_BatchFLCatType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for BatchFront List</shortDescription>
+        <value>Course</value>
+    </labels>
+    <labels>
+        <fullName>PS_BatchPearsonChoiceRem</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KP:Custom Label to bypass Remaining Category</shortDescription>
+        <value>ON</value>
+    </labels>
+    <labels>
+        <fullName>PS_BatchPearsonChoiceSwitch</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To enable new batch class</shortDescription>
+        <value>ON</value>
+    </labels>
+    <labels>
+        <fullName>PS_INT_RetreivePayment_CN</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS_INT_RetreivePayment_CN</shortDescription>
+        <value>SelfSignedCert_27Feb2015_033452</value>
+    </labels>
+    <labels>
+        <fullName>PS_INT_URL_RetreivePayment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS INT URL RetreivePayment</shortDescription>
+        <value>https://integrationtest.pearson.com/Services/Sales/OrderMgmt/RetrievePaymentInfo/1</value>
+    </labels>
+    <labels>
+        <fullName>PS_OrderItem_Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS OrderItem Delete</shortDescription>
+        <value>You do not have permission to delete this order product!</value>
+    </labels>
+    <labels>
+        <fullName>PS_OrderItem_Quantity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS OrderItem Quantity</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Quantity&lt;/i&gt;&lt;/b&gt; of this order product!</value>
+    </labels>
+    <labels>
+        <fullName>PS_OrderItem_Shipping</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS_OrderItem_Shipping</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Shipping Method&lt;/i&gt;&lt;/b&gt; of this order product!</value>
+    </labels>
+    <labels>
+        <fullName>PS_OrderItem_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS OrderItem Status</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Status&lt;/i&gt;&lt;/b&gt; of this order product!</value>
+    </labels>
+    <labels>
+        <fullName>PS_OrderItem_StatusReason</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS OrderItem StatusReason</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Satus Reason&lt;/i&gt;&lt;/b&gt; of this order product!</value>
+    </labels>
+    <labels>
+        <fullName>PS_OrderItem_UnitPrice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS OrderItem UnitPrice</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Unit Price&lt;/i&gt;&lt;/b&gt; of this order product!</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS Order Account</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;account&lt;/i&gt;&lt;/b&gt; of the order!</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS_Order_Address</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Shipping Address&lt;/i&gt;&lt;/b&gt; of the order!</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_EffectiveDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS Order EffectiveDate</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;order start date&lt;/i&gt;&lt;/b&gt; of the order!</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_Item_Create</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS Order Item Create</shortDescription>
+        <value>You do not have permission to Add product</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_Notes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS Order Notes</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Order Notes&lt;/i&gt;&lt;/b&gt; of the order!</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_Opportunity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS_Order_Opportunity</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Opportunity &lt;/i&gt;&lt;/b&gt; of the order!</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_ShippingInst</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS_Order_ShippingInst</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Shipping Instruction&lt;/i&gt;&lt;/b&gt; of the order!</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS Order Status</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;status&lt;/i&gt;&lt;/b&gt; of the order!</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_Status_New</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS Order Status New</shortDescription>
+        <value>You do not have permission to change the order &lt;b&gt;&lt;i&gt;status&lt;/i&gt;&lt;/b&gt; back to New!</value>
+    </labels>
+    <labels>
+        <fullName>PS_Order_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PS_Order_Type</shortDescription>
+        <value>You do not have permission to change the &lt;b&gt;&lt;i&gt;Type&lt;/i&gt;&lt;/b&gt; of the order!</value>
+    </labels>
+    <labels>
+        <fullName>PS_PearsonWoBrand</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Alternate edition without Brand</shortDescription>
+        <value>Paper,Cloth,Ringbound,Spiral Bound,Pearson Custom Library Content,Paper Bound with Access Card</value>
+    </labels>
+    <labels>
+        <fullName>PS_PotentialTargetFrontListSwitch</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RG: For Multiple front list switch</shortDescription>
+        <value>ON</value>
+    </labels>
+    <labels>
+        <fullName>PS_SpecialPriceStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>D-0877: Status check on Special Price Request</shortDescription>
+        <value>\&apos;Completed\&apos;,\&apos;Rejected\&apos;</value>
+    </labels>
+    <labels>
+        <fullName>PS_TerritoryMarket</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KP: To identify Territory management Markets</shortDescription>
+        <value>US</value>
+    </labels>
+    <labels>
+        <fullName>PS_TerritoryUserAdminRole</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KP:To identify User admin user for Territory Chatter post notification</shortDescription>
+        <value>NA Sales and Territory Admins</value>
+    </labels>
+    <labels>
+        <fullName>PS_TestProdFamId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Product Family Id for Pearson Choice creation</shortDescription>
+        <value>01tg0000002YEM7</value>
+    </labels>
+    <labels>
+        <fullName>PUB</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PUB</shortDescription>
+        <value>PUB</value>
+    </labels>
+    <labels>
+        <fullName>PearsonLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PearsonLabel</shortDescription>
+        <value>“Pearson:</value>
+    </labels>
+    <labels>
+        <fullName>Processed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Processed</shortDescription>
+        <value>Processed</value>
+    </labels>
+    <labels>
+        <fullName>Published</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Published</shortDescription>
+        <value>Published</value>
+    </labels>
+    <labels>
+        <fullName>Restrict_Approver_Role</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Restrict Approver Role</shortDescription>
+        <value>NA District Sales Manager</value>
+    </labels>
+    <labels>
+        <fullName>SendEmailtoOppcontactsURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SendEmailtoOppcontactsURL</shortDescription>
+        <value>/apex/PS_SendEmailtoOppcontacts?</value>
+    </labels>
+    <labels>
+        <fullName>Shipped</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Shipped</shortDescription>
+        <value>Shipped</value>
+    </labels>
+    <labels>
+        <fullName>SpecialPricingEmail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SpecialPricingEmail</shortDescription>
+        <value>ravi.nagar@accenture.com</value>
+    </labels>
+    <labels>
+        <fullName>TA_Existing_Business_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Existing Business Type</shortDescription>
+        <value>Existing Business</value>
+    </labels>
+    <labels>
+        <fullName>TA_Frontlist_Publisher</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Frontlist Publisher</shortDescription>
+        <value>Pearson</value>
+    </labels>
+    <labels>
+        <fullName>TA_Frontlist_Relevance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Frontlist Relevance</shortDescription>
+        <value>10</value>
+    </labels>
+    <labels>
+        <fullName>TA_MassDigitalOrderType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Created for defaulting Order type from TA</shortDescription>
+        <value>Rep Sample</value>
+    </labels>
+    <labels>
+        <fullName>TA_Order_Item_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Order Item Status</shortDescription>
+        <value>Entered</value>
+    </labels>
+    <labels>
+        <fullName>TA_Order_Ship_Method</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Order Ship Method</shortDescription>
+        <value>4th class mail</value>
+    </labels>
+    <labels>
+        <fullName>TA_Order_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Order Status</shortDescription>
+        <value>Open</value>
+    </labels>
+    <labels>
+        <fullName>TA_Pending_Stage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Pending Stage</shortDescription>
+        <value>Pending</value>
+    </labels>
+    <labels>
+        <fullName>TA_Qualified_Stage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Qualified Stage</shortDescription>
+        <value>Qualified</value>
+    </labels>
+    <labels>
+        <fullName>TA_Rollover_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Rollover Type</shortDescription>
+        <value>Rollover</value>
+    </labels>
+    <labels>
+        <fullName>TA_Schedule_Job_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Schedule Job Status</shortDescription>
+        <value>Batch Job To Create Opportunity from Targets -</value>
+    </labels>
+    <labels>
+        <fullName>TA_Selling_Period_Fall</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Selling Period Fall</shortDescription>
+        <value>Fall</value>
+    </labels>
+    <labels>
+        <fullName>TA_Selling_Period_Spring</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Selling Period Spring</shortDescription>
+        <value>Spring</value>
+    </labels>
+    <labels>
+        <fullName>TA_Takeaway_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Takeaway Type</shortDescription>
+        <value>Takeaway</value>
+    </labels>
+    <labels>
+        <fullName>TA_Target_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Target Status</shortDescription>
+        <value>Pending Process</value>
+    </labels>
+    <labels>
+        <fullName>TA_Target_Status_Post_Create</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Target Status Post Create</shortDescription>
+        <value>Opportunity Created</value>
+    </labels>
+    <labels>
+        <fullName>TA_Territory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Territory</shortDescription>
+        <value>Territory</value>
+    </labels>
+    <labels>
+        <fullName>TA_Validation_Failed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Validation Failed</shortDescription>
+        <value>Validation Failed</value>
+    </labels>
+    <labels>
+        <fullName>TA_Validation_In_Progress</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TA Validation In Progress</shortDescription>
+        <value>Validation In Progress</value>
+    </labels>
+    <labels>
+        <fullName>TU</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TU</shortDescription>
+        <value>TU</value>
+    </labels>
+    <labels>
+        <fullName>Table_of_Contents</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Table of Contents</shortDescription>
+        <value>Table of Contents</value>
+    </labels>
+    <labels>
+        <fullName>Temporarily_Unavailable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Temporarily Unavailable</shortDescription>
+        <value>Temporarily Unavailable</value>
+    </labels>
+    <labels>
+        <fullName>Test_Territory_General_Central</fullName>
+        <categories>Label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test_Territory_General-Central</shortDescription>
+        <value>0MIg00000000A4b</value>
+    </labels>
+    <labels>
+        <fullName>eVision</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>eVision</shortDescription>
+        <value>eVision</value>
+    </labels>
+    <labels>
+        <fullName>large_no_of_results</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>when the search result generates more than 1000 results.</shortDescription>
+        <value>Your search returned more than 1000 rows of data.  Please refine the search criteria and try again.</value>
+    </labels>
+    <labels>
+        <fullName>many_results</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>When the search results generate too many results.</shortDescription>
+        <value>Too Many Results</value>
+    </labels>
+    <labels>
+        <fullName>no_pearson_course_found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>When no pearson course structure is found.</shortDescription>
+        <value>No Pearson Course Structures were found for the search criteria you entered, please try again.</value>
+    </labels>
+    <labels>
+        <fullName>no_result</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>When the search result gives no answer.</shortDescription>
+        <value>No Results Found</value>
+    </labels>
+    <labels>
+        <fullName>onecrmFamilyVF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>onecrmFamilyVF</shortDescription>
+        <value>/apex/OneCRMProductFamilyDetailPage?</value>
+    </labels>
+    <labels>
+        <fullName>productCatalogueVF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>productCatalogueVF</shortDescription>
+        <value>/apex/ProductCatalogDetailPage?</value>
+    </labels>
+    <labels>
+        <fullName>short_course_code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label will ask the user to input more terms for search.</shortDescription>
+        <value>&apos;Course Code or Course Name search must contain at least 2 characters</value>
+    </labels>
+    <labels>
+        <fullName>short_search_term</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>This custom label will be used when the searched term is leass than 2 digits</shortDescription>
+        <value>Search term is too Short</value>
+    </labels>
+    <labels>
+        <fullName>z_DumpBtn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>z_DumpBtn</shortDescription>
+        <value>Snapshot</value>
+    </labels>
+    <labels>
+        <fullName>z_FAILURE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>z_FAILURE</shortDescription>
+        <value>You have to fix error/s before reviewing  object metadata.</value>
+    </labels>
+    <labels>
+        <fullName>z_Message1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>z_Message1</shortDescription>
+        <value>Please check enough disk to store metadata before snapshot. In case your org is Developer Edition, please reduce target objects at Setting tab. You need 4.5MB to store all object metadata info of default org</value>
+    </labels>
+    <labels>
+        <fullName>z_Message2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>z_Message2</shortDescription>
+        <value>This application overwrites object metadata records after execute the snapshot. If you need to save previous metadata info, please export data to csv or xsl via report or to another custom object via Analytic Sanpshot</value>
+    </labels>
+    <labels>
+        <fullName>z_Message3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>z_Message3</shortDescription>
+        <value>Please wait for around 10 mins without closing this page until you will see SObjects Metadata have been created message after the completion and do not press SnapShot button twice.</value>
+    </labels>
+    <labels>
+        <fullName>z_MetadataDump</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>z_MetadataDump</shortDescription>
+        <value>Snapshot Console</value>
+    </labels>
+    <labels>
+        <fullName>z_Progress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>z_Progress</shortDescription>
+        <value>Progress</value>
+    </labels>
+    <labels>
+        <fullName>z_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>z_SUCCESS</shortDescription>
+        <value>Success!!
+Please click SObject tab to check created sobject metadata records.</value>
+    </labels>
+    <labels>
+        <fullName>z_Warning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>z_Warning</shortDescription>
+        <value>You need to prepare setting. Please click Settings tab.</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$FirstName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$LastName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Year_of_Graduation__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$School__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Opportunities__r$Owner</field>
+    </columns>
+    <columns>
+        <field>Account$Pearson_Campus_Picklist__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$MobilePhone</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$HomePhone</field>
+    </columns>
+    <currency>AUD</currency>
+    <description>Report that contains the list of students to be contacted via SMS. These students will be sent SMS as a confirmation of their registration.</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts.Opportunities__r$Student_Registered__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Student Registration SMS Data Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Account_with_proposals__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

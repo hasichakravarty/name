@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <aggregates>
+        <calculatedFormula>AMOUNT:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>AC7.1: Revenue</masterLabel>
+        <reportType>Opportunity</reportType>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>OPP_QUANTITY:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>AC7.2 Opportunities Count</masterLabel>
+        <reportType>Opportunity</reportType>
+        <scale>0</scale>
+    </aggregates>
+    <block>
+        <blockInfo>
+            <aggregateReferences>
+                <aggregate>FORMULA1</aggregate>
+            </aggregateReferences>
+            <aggregateReferences>
+                <aggregate>FORMULA2</aggregate>
+            </aggregateReferences>
+            <blockId>B1</blockId>
+            <joinTable>o</joinTable>
+        </blockInfo>
+        <columns>
+            <field>OPPORTUNITY_NAME</field>
+        </columns>
+        <columns>
+            <field>RECORDTYPE</field>
+        </columns>
+        <columns>
+            <field>TYPE</field>
+        </columns>
+        <columns>
+            <field>ACCOUNT_NAME</field>
+        </columns>
+        <columns>
+            <field>AMOUNT</field>
+        </columns>
+        <currency>AUD</currency>
+        <filter>
+            <criteriaItems>
+                <column>ACCOUNT_OWNER</column>
+                <operator>equals</operator>
+                <value>SalesRep SalesRep Mobile</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Opportunities block 1</name>
+        <params>
+            <name>terr</name>
+            <value>all</value>
+        </params>
+        <params>
+            <name>open</name>
+            <value>all</value>
+        </params>
+        <params>
+            <name>probability</name>
+            <value>&gt;0</value>
+        </params>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>Opportunity</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>CLOSE_DATE</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>o</joinTable>
+    </blockInfo>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>STAGE_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity.Selling_Period__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Business Plan By Stage (US463)</name>
+    <params>
+        <name>lsk</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <showDetails>true</showDetails>
+</Report>

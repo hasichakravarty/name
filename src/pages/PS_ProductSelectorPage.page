@@ -1,0 +1,14 @@
+<apex:page controller="PS_BrowseTaxonomyController" sidebar="false" tabstyle="Opportunity">
+<apex:stylesheet value="{!$Resource.oneCRMProductSelectorWizardV2CSS}" />
+<apex:form id="ProductSelectorForm">
+    <apex:pageblock id="taxanomyviewId">
+        <apex:repeat value="{!grndParentLst }" var="gp">
+            <div>
+            <img class ="rightArrow"/>
+            <apex:outputText value="{!gp.Apttus_Config2__HierarchyId__r.Name}" ></apex:outputText> 
+            </div>
+        </apex:repeat>
+    <apex:pagemessages id="taxanomyError"/>
+    </apex:pageblock>
+</apex:form>
+</apex:page>

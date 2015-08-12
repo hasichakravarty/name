@@ -1,0 +1,41 @@
+<apex:page controller="sendEmailToOpportunityContact" tabstyle="Opportunity">
+<apex:form >
+ <apex:pagemessages />
+ <apex:pageblock title="Send Email">
+  <apex:pageblockButtons >
+      <apex:commandButton action="{!sendEmail}" value="Send Email"/>
+      <apex:commandButton action="{!cancel}" value="Cancel"/>
+  </apex:pageblockButtons> 
+  <apex:pageblocksection columns="1" title="Edit Email">
+   <apex:pageblocksectionItem >
+     To:<apex:inputText value="{!primaryContact}" disabled="true"/>
+  </apex:pageblocksectionItem>
+  <apex:pageblocksectionItem >
+    Additional To:
+    
+     <apex:inputTextArea value="{!additionalEmailAddress}" rows="3" cols="40" disabled="true"/>
+    </apex:pageblocksectionItem>
+  <apex:pageblocksectionItem >
+  Subject:  
+  <apex:inputText value="{!subject}"/>   
+  </apex:pageblocksectionItem>
+  <apex:pageblocksectionItem >
+  Body:  
+  <apex:inputTextArea value="{!emailBody}" cols="80" rows="20"/> 
+  </apex:pageblocksectionItem>
+  <apex:pageblocksectionItem >
+  Notify Sender:  
+  <apex:inputCheckbox value="{!notifySender}"/> 
+  </apex:pageblocksectionItem>
+  </apex:pageblocksection> 
+   
+ </apex:pageblock>
+ <apex:pageBlock >
+          <apex:pageBlockSection title="New Attachment(s)" columns="1">
+            <apex:pageblocksectionItem >         
+            New Attachment: <apex:inputFile value="{!documentbody}" filename="{!documentname}"/>
+            </apex:pageblocksectionItem>             
+           </apex:pageBlockSection>
+       </apex:pageBlock>
+</apex:form>
+</apex:page>

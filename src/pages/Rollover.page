@@ -1,0 +1,163 @@
+<apex:page Controller="Rollover"  id="pageID">
+<script> var previousOnload = window.onload; window.onload = function() { if (previousOnload) { previousOnload(); } CreateOppty(); } </script>
+    <apex:form id="formID">
+        <style type="text/css">
+            .customPopup {
+                background-color: white;
+                border-width: 2px;
+                border-style: solid;
+                z-index: 9999;
+                left: 50%;
+                padding: 10px;
+                position: absolute;
+                width: 500px;
+                margin-left: -250px;
+                top: 70px;
+                height :300px;
+                overflow-x:auto;
+                overflow-y:auto;         
+            }
+            .popupBackground {
+                background-color: black;
+                opacity: 0.10;
+                filter: alpha(opacity=10);
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 9998;
+            }
+            h1 {
+                font-size: 140%
+            }
+            .parentAssetRow {
+                font-weight: bold;
+                color: #FFFFFF;
+                background-color: #c1c1c1;
+            }
+        </style>
+        
+        <script>
+            function CreateOppty() {
+                var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+                if(hasError == 'false') {
+                    CreateOppty();
+                }
+                else {
+                    return;
+                }
+                
+            }
+            function doCreateContractRole() {
+                var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+                if(hasError == 'false') {
+                    doCreateContractRole();
+                }
+                else {
+                    return;
+                }
+            }
+            function doOpportunityTeam() {
+                var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+                if(hasError == 'false') {
+                    doOpportunityTeam();
+                }
+                else {
+                    return;
+                }
+            }
+            function doCreateQuote() {
+                var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+                if(hasError == 'false') {
+                    doCreateQuote();
+                }
+                else {
+                    return;
+                }
+            }
+            function docretaeApttusobjects() {
+                var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+                if(hasError == 'false') {
+                    docretaeApttusobjects();
+    
+                }else {
+                    return;
+                }
+            }
+            function doRedirectCall() {
+                var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+                if(hasError == 'false') {
+                    doRouteToQuote();
+                }
+                else {
+                    return;
+                }
+            }
+            
+        </script>
+        <apex:inputHidden id="hasErrorID" value="{!hasError}" />
+        <apex:inputHidden id="pricePendingID" value="{!pricePending}"/>
+        
+            <apex:pageMessages id="errorMsgID" escape="false"/> 
+            
+            <center> 
+                   
+                   <apex:actionStatus id="OpptyProcessStart" stopText="" rendered="true">
+                    <apex:facet name="start">
+                        <div class="popupBackground"></div>
+                        <img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Creating Returning Opportunity ...</span>
+                    </apex:facet>
+                    </apex:actionStatus>
+             
+                    <apex:actionStatus id="ContactRollprocessStart" stopText="" rendered="true">
+                    <apex:facet name="start">
+                        <div class="popupBackground"></div>
+                        <img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Creating Contact Rolls ...</span>
+                    </apex:facet>
+                    </apex:actionStatus>   
+            
+                    <apex:actionStatus id="OpportunityTeamprocessStart" stopText="" rendered="true">
+                    <apex:facet name="start">
+                        <div class="popupBackground"></div>
+                        <img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Creating Opportunity Team Member ...</span>
+                    </apex:facet>
+                    </apex:actionStatus>
+            
+                    <apex:actionStatus id="CreatQuoteprocessStart" stopText="" rendered="true">
+                    <apex:facet name="start">
+                        <div class="popupBackground"></div>
+                        <img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Creating Quote  ...</span>
+                    </apex:facet>
+                    </apex:actionStatus>
+            
+                    <apex:actionStatus id="cretaeApttusprocessStart" stopText="" rendered="true">
+                    <apex:facet name="start">
+                        <div class="popupBackground"></div>
+                        <img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Adding Returning Product. ...</span>
+                    </apex:facet>
+                    </apex:actionStatus>
+            
+                    <apex:actionStatus id="routingprocessStart" stopText="" rendered="true">
+                    <apex:facet name="start">
+                        <div class="popupBackground"></div>
+                        <img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Routing  ...</span>
+                    </apex:facet>
+                    </apex:actionStatus>
+            </center>
+         
+        
+        
+        
+        
+        
+        <apex:actionFunction action="{!createOppty}" name="CreateOppty" onComplete="doOpportunityTeam();" rerender="hasErrorID,errorMsgID,pricePendingID" status="OpptyProcessStart"/>
+   <!-- Davi Borges -- Additiona investigation TODO    
+   <apex:actionFunction action="{!Create_ContactRoles}" name="doCreateContractRole" onComplete="doOpportunityTeam();" rerender="hasErrorID,errorMsgID,pricePendingID" status="ContactRollprocessStart"/>
+      --> 
+      <apex:actionFunction action="{!Create_OpportunityTeam}" name="doOpportunityTeam" onComplete="doCreateQuote();" rerender="phasErrorID,errorMsgID,pricePendingID" status="OpportunityTeamprocessStart"/>
+        <apex:actionFunction action="{!Create_Quote}" name="doCreateQuote" onComplete="docretaeApttusobjects();" rerender="hasErrorID,errorMsgID,pricePendingID" status="CreatQuoteprocessStart"/>
+        <apex:actionFunction action="{!cretaeApttusobjects}" name="docretaeApttusobjects" onComplete="doRouteToQuote();" rerender="hasErrorID,errorMsgID,pricePendingID" status="cretaeApttusprocessStart"/>
+        <apex:actionFunction action="{!routeToQuote}" name="doRouteToQuote" rerender="hasErrorID,errorMsgID,pricePendingID" status="routingprocessStart"/>
+      </apex:form>
+</apex:page>

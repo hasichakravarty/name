@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apexPluginCalls>
+        <name>Action_Creation_on_Case_Creation</name>
+        <label>Action Creation on Case Creation</label>
+        <locationX>267</locationX>
+        <locationY>83</locationY>
+        <apexClass>ActionFrameworkPlugin</apexClass>
+        <inputParameters>
+            <name>ParentObjectID</name>
+            <value>
+                <elementReference>caseId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ParentObjectType</name>
+            <value>
+                <elementReference>objectType</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>TemplateName</name>
+            <value>
+                <elementReference>templateName</elementReference>
+            </value>
+        </inputParameters>
+    </apexPluginCalls>
+    <description>Actions are created on case creation</description>
+    <interviewLabel>InsertActionForCaseCreation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>InsertActionForCaseCreation</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Action_Creation_on_Case_Creation</startElementReference>
+    <variables>
+        <description>capture the case Id</description>
+        <name>caseId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>capture the Object Type</description>
+        <name>objectType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>capture template Name</description>
+        <name>templateName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

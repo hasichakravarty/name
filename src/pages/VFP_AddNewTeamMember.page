@@ -1,0 +1,117 @@
+<apex:page showHeader="false" sidebar="false" standardController="AccountTeamMember" extensions="VFC_AddNewTeamMember" id="page">
+
+<script>
+
+//function clearValue()
+//    {
+//     document.getElementById('{!$Component.page:form:x:theBlock:name}').value = '';
+//     document.getElementById('{!$Component.page:form:x:theBlock:role}').value = '';
+//
+//      return false;
+//    }
+
+function closeWin(){    
+        window.opener.location.href="/{!$CurrentPage.parameters.AccountID}";
+        window.top.close();
+    }
+    
+    function closeWindow_NoAction(){
+         setTimeout(function(){ closeWin(); }, 8000);
+       
+      }
+
+</script>
+    <table border="0" style="width:50%" align="center">
+    <tr><td><B>Manage Team Members</B></td></tr>
+    </table>
+    <apex:pageMessages id="theError"/>
+    <apex:form id="form">
+          <apex:pageblock id="x">
+            <apex:pageBlock mode="Edit" id="theBlock">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save & New" action="{!doSaveTeamMember}" oncomplete="clearValue();" rerender="theError,table,accesspermissions" /> 
+                 <apex:actionSupport event="onclick" rerender="table"/>              
+                <apex:commandButton value="Save & Close" action="{!SaveAndExitmessage}" oncomplete="closeWindow_NoAction();"  rerender="theError"/ >                   
+            </apex:pageBlockButtons>           
+            <table border="0" style="width:50%"  align="center">
+            <tr><td>Select the user you want to add to the team from the below list:</td></tr>
+            </table>
+            <table border="0" style="width:50%" align="center">
+            <tr>
+                <td></td>
+                <td></td>      
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>       
+            </tr>                        
+            <tr>
+                <td>Users: </td>
+                <td><apex:inputField required="false" value="{!AccountTeamMember.UserId}" id="name" /></td>       
+            </tr>
+            <tr>
+                <td>Team Role: </td>
+                <td><apex:inputField required="false" value="{!AccountTeamMember.TeamMemberRole}" id="role" /></td>           
+            </tr>
+            </table>   
+         </apex:pageBlock>
+          <apex:pageBlock id="accesspermissions" >
+                  <apex:pageBlockButtons >
+                     <apex:commandButton value="Update Permissions" action="{!updatepermission}" rerender="theError,table" />
+                  </apex:pageBlockButtons>
+   
+                      <table border="0" style="width:50%" align="center">
+                      <tr><td>Select the user and the access level desired for the different records</td></tr>
+                      <tr><td></td></tr>
+                      <tr><td></td></tr>
+                      </table>
+                      <table border="0" style="width:100%,heigh:100%" align="center">
+                       <tr><td>
+                       <apex:outputLabel value="User: " for="username"/>
+                        <apex:selectList label="User" value="{!selectedteammember}" size="1" id="username">
+                                    <apex:selectOptions value="{!items}"/>
+                        </apex:selectList>
+                       <apex:outputLabel value="Account Access: " for="accountaccess"/>
+                       <apex:selectList label="Account" value="{!accountaccess}" size="1" id="accountaccess">
+                                    <apex:selectOptions value="{!permissions}"/>
+                              </apex:selectList>
+                       <apex:outputLabel value="Contact Access: " for="contactaccess"/>
+                       <apex:selectList Label="Contact"  value="{!contactaccess}" size="1" id="contactaccess">
+                                    <apex:selectOptions value="{!permissions}"/>
+                              </apex:selectList>
+                       <apex:outputLabel value="Opportunity Access: " for="opportunityaccess"/>
+                       <apex:selectList Label="Opportunity" value="{!opportunityaccess}" size="1" id="opportunityaccess">
+                                    <apex:selectOptions value="{!permissions}"/>
+                              </apex:selectList>
+                       <apex:outputLabel value="Case Access: " for="caseaccess"/>
+                       <apex:selectList Label="Case" value="{!caseaccess}" size="1" id="caseaccess">
+                                    <apex:selectOptions value="{!permissions}"/>
+                              </apex:selectList>
+                       </td></tr>
+                       </table>      
+        </apex:pageBlock>
+
+         <apex:pageBlock id="table1" >                 
+             <apex:pageBlockButtons >
+                    <apex:commandButton value="Delete" action="{!DeleteSelected}" reRender="table,theError,accesspermissions"/>
+                    <apex:commandButton value="Delete & Close " action="{!DeleteAndExitmessage}" oncomplete="closeWindow_NoAction();" reRender="table,theError"/>
+                            </apex:pageBlockButtons>
+                     <table border="0" style="width:50%"  align="center">
+                     <tr><td>Select the user you want to delete from the team from the below list:</td></tr>
+                     <tr><td></td></tr>
+                     </table>
+                     <apex:pageBlockTable value="{!AccountTeamMembers}" var="c" id="table">
+                            <apex:column >
+                                <apex:inputCheckbox value="{!c.selected}"/>
+                            </apex:column>
+                            <apex:column headerValue="Name"  value="{!c.username}" />
+                            <apex:column headerValue="Team Role" value="{!c.atm.TeamMemberRole}" />
+                            <apex:column headerValue="Account Access Level" value="{!c.accpermission.AccountAccessLevel }" />
+                            <apex:column headerValue="Contact Access Level" value="{!c.accpermission.ContactAccessLevel }" />
+                            <apex:column headerValue="Opportunity Access Level" value="{!c.accpermission.OpportunityAccessLevel }" />
+                            <apex:column headerValue="Case Access Level" value="{!c.accpermission.CaseAccessLevel }" />
+                            </apex:pageBlockTable>
+         </apex:pageBlock> 
+       </apex:pageBlock>               
+       </apex:form>
+</apex:page>

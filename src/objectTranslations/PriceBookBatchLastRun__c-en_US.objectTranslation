@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PriceBookBatchLastRun</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Batch_Last_Run</value>
+    </caseValues>
+    <fields>
+        <label><!-- Batch Previous Run --></label>
+        <name>Batch_Previous_Run__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies if the association between the  Course and the Pearson Course Code is Active.</inlineHelpText>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Course__c</fullName>
+        <description>This contains the Course.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This contains the Course.</inlineHelpText>
+        <label>Course/Catalog Code</label>
+        <referenceTo>UniversityCourse__c</referenceTo>
+        <relationshipLabel>Pearson Course Equivalent</relationshipLabel>
+        <relationshipName>Pearson_Course_Equivalent</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DM_Identifier__c</fullName>
+        <description>DM Identifier</description>
+        <externalId>true</externalId>
+        <label>DM Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pearson_Course_Code_Name_f__c</fullName>
+        <description>Used to display Pearson Course Code Name on Related List</description>
+        <externalId>false</externalId>
+        <formula>Pearson_Course_Code__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Pearson Course Code Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pearson_Course_Code__c</fullName>
+        <description>This contains the Pearson Course Code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This contains the Pearson Course Code.</inlineHelpText>
+        <label>Pearson Course Code</label>
+        <referenceTo>Apttus_Config2__ClassificationHierarchy__c</referenceTo>
+        <relationshipLabel>Pearson Course Equivalent</relationshipLabel>
+        <relationshipName>Pearson_Course_Equivalent</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Primary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to indicate that the Pearson Course Code is the Primary Pearson Course Code for the Course.</description>
+        <externalId>false</externalId>
+        <label>Primary</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Pearson Course Equivalent</label>
+    <nameField>
+        <displayFormat>CPCS-{000000}</displayFormat>
+        <label>Pearson Course Equivalent	 Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Pearson Course Equivalent</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Add_Pearson_Course</fullName>
+        <availability>online</availability>
+        <description>Launch visualforce page to add Apttus_Config2__ClassificationHierarchy__c objects to University Courses</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add Pearson Course Code</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>window.parent.location = &apos;/apex/DemoCourseSearchGlobal?Id={!UniversityCourse__c.Id}&amp;type=1&apos;;</url>
+    </webLinks>
+</CustomObject>

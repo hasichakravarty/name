@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email Body For Pearson Choices</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Email Body Pearson Choices</name>
+    <style>none</style>
+    <subject>{!Outbound_Notification__c.Subject__c}</subject>
+    <type>custom</type>
+</EmailTemplate>

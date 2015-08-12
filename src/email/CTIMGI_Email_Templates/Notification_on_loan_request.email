@@ -1,0 +1,11 @@
+Case ID: {!Case.CaseNumber}
+
+Dear queue member
+
+A loan request has entered the 'CTIMGI Loan Applications' queue and it is at the start of the process.
+
+Please review the request, complete the actions and close the case once complete.
+
+To view the record please navigate to the 'CTIMGI Loan Applications' queue and locate it using the ID at the top of this email.
+
+Alternatively please click on this link to access the record: {!Case.Link}

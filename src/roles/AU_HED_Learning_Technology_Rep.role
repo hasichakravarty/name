@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>AU HED Learning Technology Rep</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>AU HED Learning Technology Rep</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>AU_HED_Learning_Technology_Manager</parentRole>
+</Role>

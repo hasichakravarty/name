@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Opportunity Pearson Course Structure</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Opportunity Pearson Course Structure</value>
+    </caseValues>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Opportunity Pearson Course Structure --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is the Pearson course structure. --></help>
+        <label><!-- Pearson Course Structure --></label>
+        <name>Pearson_Course_Structure__c</name>
+        <relationshipLabel><!-- Opportunity Pearson Course Structure --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>CORE OpportunityPearsonCourseStructure Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HE UK OpportunityPearsonCourseStructure Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Pearson Course Structure Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Add_Pearson_Course --></label>
+        <name>Add_Pearson_Course</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Add_Pearson_Course_Code --></label>
+        <name>Add_Pearson_Course_Code</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Get_Parent_Asset</name>
+        <label>Get Parent Asset</label>
+        <locationX>352</locationX>
+        <locationY>200</locationY>
+        <actionName>IntegrationFrameworkAsset</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>IntReqList</name>
+            <value>
+                <elementReference>IntegrationRequestObject</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>AssetParentObject</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Get_Parent_Opportunity</name>
+        <label>Get Parent Opportunity</label>
+        <locationX>350</locationX>
+        <locationY>54</locationY>
+        <actionName>IntegrationFrameworkOpportunity</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>IntReqList</name>
+            <value>
+                <elementReference>IntegrationRequestObject</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>OpportunityParentObject</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <decisions>
+        <name>Integration_Request_Parent_Object_Type</name>
+        <label>Integration Request Parent Object Type?</label>
+        <locationX>58</locationX>
+        <locationY>202</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Opportunity_Parent_Object</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IntegrationRequestObject.Object_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Opportunity</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Parent_Opportunity</targetReference>
+            </connector>
+            <label>Opportunity Parent Object</label>
+        </rules>
+        <rules>
+            <name>Asset_Parent_Object</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IntegrationRequestObject.Object_Name__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Asset</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Parent_Asset</targetReference>
+            </connector>
+            <label>Asset Parent Object</label>
+        </rules>
+    </decisions>
+    <interviewLabel>OIF_TechnicalErrorHandler {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>OIF_TechnicalErrorHandler</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Integration_Request_Parent_Object_Type</startElementReference>
+    <variables>
+        <name>AssetParentObject</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Asset</objectType>
+    </variables>
+    <variables>
+        <name>IntegrationRequestObject</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Integration_Request__c</objectType>
+    </variables>
+    <variables>
+        <name>OpportunityParentObject</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+</Flow>

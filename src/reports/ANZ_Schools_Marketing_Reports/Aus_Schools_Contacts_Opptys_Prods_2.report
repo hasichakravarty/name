@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$External_Account_Number__c</field>
+    </columns>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Email</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.OpportunityContactRoles$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.OpportunityContactRoles.OpportunityLineItems$Full_Title__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.OpportunityContactRoles.OpportunityLineItems$Product_Type__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.OpportunityContactRoles.OpportunityLineItems$ISBN__c</field>
+    </columns>
+    <currency>AUD</currency>
+    <description>Baseline report listing Aus Schools oppties with Schools products, their contacts and Accounts</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts.OpportunityContactRoles.OpportunityLineItems$Product_Type__c</column>
+            <operator>contains</operator>
+            <value>Primary,Secondary</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Aus Schools Contacts, Opptys &amp; Prods 2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Contacts_Opportunities_and_products__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

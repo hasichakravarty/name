@@ -1,0 +1,3 @@
+<apex:page controller="CreateEditQuoteController" tabStyle="Apttus_Proposal__Proposal__c" action="{!onLoad}">
+
+</apex:page>

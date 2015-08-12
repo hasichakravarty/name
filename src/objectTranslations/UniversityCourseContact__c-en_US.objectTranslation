@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Course Contact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Course Contacts</value>
+    </caseValues>
+    <fields>
+        <help><!-- Active identifies if the contact is involved and has a role related to the course --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact: Account Name --></label>
+        <name>Contact_Account_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Email --></label>
+        <name>Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Phone --></label>
+        <name>Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Role --></label>
+        <name>Contact_Role__c</name>
+        <picklistValues>
+            <masterLabel>Business User</masterLabel>
+            <translation><!-- Business User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decision Maker</masterLabel>
+            <translation><!-- Decision Maker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Economic Buyer</masterLabel>
+            <translation><!-- Economic Buyer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Economic Decision Maker</masterLabel>
+            <translation><!-- Economic Decision Maker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Evaluator</masterLabel>
+            <translation><!-- Evaluator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Sponsor</masterLabel>
+            <translation><!-- Executive Sponsor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Influencer</masterLabel>
+            <translation><!-- Influencer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical Buyer</masterLabel>
+            <translation><!-- Technical Buyer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This is the contact linked to the course. --></help>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Course Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DM Identifier --></label>
+        <name>DM_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Enrollment --></label>
+        <name>Enrollment_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Selling Account --></label>
+        <name>Primary_Selling_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Enrollments --></label>
+        <name>Total_Enrollments__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the university course. --></help>
+        <label><!-- Course --></label>
+        <name>UniversityCourse__c</name>
+        <relationshipLabel><!-- Course Contacts --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>HE UK UniversityCourseContact Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>University Course Contact Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

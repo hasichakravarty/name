@@ -1,0 +1,7 @@
+Hi, 
+
+This is a confirmation mail to inform you that approval request for the following territory change internal requests {!Internal_Request__c.Name}  has been approved.
+
+Please leverage the following link to review the internal requests details: 
+
+{!Internal_Request__c.Link}

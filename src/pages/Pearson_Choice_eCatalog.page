@@ -1,0 +1,60 @@
+<apex:page id="mypage" controller="oneCRMProductSelectorWizardControllerV2" tabstyle="opportunity">
+ <apex:form id="myform" >
+ <script type="text/javascript">
+
+function showinstdesc(div) {
+
+  var vis = "none";
+  var chbox = document.getElementById('mypage:myform:myBlock:instructor').checked;
+   
+  if(chbox){  vis = 'block';}
+  if(!chbox){  vis = 'none';}
+ document.getElementById(div).style.display = vis;
+  
+}
+
+function showstudentdesc(div) {
+
+  var vis = "none";
+  var chbox = document.getElementById('mypage:myform:myBlock:student').checked;
+ 
+  if(chbox){  vis = 'block';}
+  if(!chbox){  vis = 'none';}
+ document.getElementById(div).style.display = vis;
+  
+}
+
+
+function showpearsondesc(div) {
+  var vis = "none";
+  var chbox = document.getElementById('mypage:myform:myBlock:pearsonchoices').checked;
+    if(chbox){  vis = 'block';}
+  if(!chbox){  vis = 'none';}
+ document.getElementById(div).style.display = vis;
+  
+}
+
+</script>
+ <apex:messages />
+<br></br>
+
+ <apex:pageblock id="myBlock" title="Pearson Choices eCatalog - Email Choices">
+ <br></br><br></br>
+ <apex:outputLabel value="Please select prices to include in Pearson Choices email:"> </apex:outputLabel> 
+ <br></br> <br></br> <br></br>
+ <div>
+ 
+ <apex:inputCheckbox value="{!booleanBookstoreprice}" selected="true"/>Price to Bookstore<br></br><br></br>
+ <apex:inputCheckbox value="{!booleanInstantAccessPrice}" selected="true"/>Instant Access <br></br><br></br>
+ <apex:inputCheckbox value="{!booleaneTextOfferPrice}" selected="true"/>eText Offer <br></br><br></br>
+ <apex:inputCheckbox value="{!booleanPrintOfferPricec}" selected="true"/>Print Offer <br></br><br></br> 
+ <apex:inputCheckbox value="{!booleanSelectedOffer}" selected="false"/>Suggested Retail Price <br></br><br></br> 
+   </div> <br></br> <br></br> 
+  
+ <apex:pageblockButtons location="bottom"  >
+      <apex:commandButton action="{!ActionOk}" value="OK"/>
+      <apex:commandButton action="{!cancel}" value="Cancel"/>
+  </apex:pageblockButtons> 
+ </apex:pageblock>
+ </apex:form> 
+</apex:page>

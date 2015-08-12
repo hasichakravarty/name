@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Pearson marketing segment codes like discipline, cluster, course</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Active_Indicator__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates if the Pearson course code is active or inactive.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates if the Pearson course code is active or inactive.</inlineHelpText>
+        <label>Active Indicator</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cluster__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Text( Parent_Pearson_Course_Structure__r.Type__c ) = &quot;Cluster&quot;, Parent_Pearson_Course_Structure__r.Name,&quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Cluster</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Period__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Created For Requirement 311.</description>
+        <externalId>false</externalId>
+        <label>Current Period</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DataHub_Key__c</fullName>
+        <externalId>true</externalId>
+        <label>DataHub Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Discipline__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Text(Type__c) = &quot;Discipline&quot;, &quot;&quot;, IF (Text(Parent_Pearson_Course_Structure__r.Type__c) = &quot;Cluster&quot;, IF( Text( Parent_Pearson_Course_Structure__r.Parent_Pearson_Course_Structure__r.Type__c ) = &quot;Discipline&quot;, Parent_Pearson_Course_Structure__r.Parent_Pearson_Course_Structure__r.Name , &quot;&quot;),IF( Text( Parent_Pearson_Course_Structure__r.Type__c ) = &quot;Discipline&quot;, Parent_Pearson_Course_Structure__r.Name , &quot;&quot;)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Discipline</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GHEPM_Course_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>GHEPM Course Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_Pearson_Course_Structure__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Filtered Lookup for the Parent Course Structure of a Cluster and/or Course.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A parent must be a higher level in the Pearson Course Structure (E.g Course can&apos;t be be the parent of a Cluster)</inlineHelpText>
+        <label>Parent Pearson Course Structure</label>
+        <lookupFilter>
+            <active>false</active>
+            <booleanFilter>(1 AND 2) OR (3 AND 4)</booleanFilter>
+            <filterItems>
+                <field>$Source.Type__c</field>
+                <operation>equals</operation>
+                <value>Course</value>
+            </filterItems>
+            <filterItems>
+                <field>PearsonCourseStructure__c.Type__c</field>
+                <operation>equals</operation>
+                <value>Discipline, Cluster</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.Type__c</field>
+                <operation>equals</operation>
+                <value>Cluster</value>
+            </filterItems>
+            <filterItems>
+                <field>PearsonCourseStructure__c.Type__c</field>
+                <operation>equals</operation>
+                <value>Discipline</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>PearsonCourseStructure__c</referenceTo>
+        <relationshipLabel>Pearson Course Structure</relationshipLabel>
+        <relationshipName>Pearson_Course_Structure</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pearson_Course_Structure_Code__c</fullName>
+        <description>Contains the code of the Pearson course structure.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Contains the code of the Pearson course structure.</inlineHelpText>
+        <label>Pearson Course Code</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pearson_Course_Structure_Name__c</fullName>
+        <description>Description for the Pearson course structure.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description for the Pearson course structure.</inlineHelpText>
+        <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prior_Period__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Created for Requirement 311.</description>
+        <externalId>false</externalId>
+        <label>Prior Period</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>US</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Describes the type of the record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Describes the type of the record.</inlineHelpText>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Course</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discipline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cluster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Super Discipline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Pearson Course Structure</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Active_Indicator__c</columns>
+        <columns>Parent_Pearson_Course_Structure__c</columns>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <columns>Pearson_Course_Structure_Name__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>EDU</fullName>
+        <columns>Active_Indicator__c</columns>
+        <columns>Pearson_Course_Structure_Code__c</columns>
+        <columns>Pearson_Course_Structure_Name__c</columns>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>equals</operation>
+            <value>Education</value>
+        </filters>
+        <label>EDU</label>
+    </listViews>
+    <nameField>
+        <label>Pearson Course Structure Name</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Pearson Course Structure</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Active_Indicator__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Pearson_Course_Structure_Name__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Active_Indicator__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Pearson_Course_Structure_Name__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Active_Indicator__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Pearson_Course_Structure_Name__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>VR_HEUK_NeedParentForClusterOrCourse</fullName>
+        <active>false</active>
+        <description>Course or Cluster type Pearson structure should have a parent.</description>
+        <errorConditionFormula>OR (AND ( Text(Type__c) = &quot;Cluster&quot;, ISBLANK(Parent_Pearson_Course_Structure__c)), 
+AND ( Text(Type__c) = &quot;Course&quot;, ISBLANK(Parent_Pearson_Course_Structure__c)))</errorConditionFormula>
+        <errorDisplayField>Parent_Pearson_Course_Structure__c</errorDisplayField>
+        <errorMessage>This record needs to be linked to a parent course structure.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>VR_HEUK_ParentNotNeededForDiscipline</fullName>
+        <active>false</active>
+        <description>Discipline does not have a parent linked to it.</description>
+        <errorConditionFormula>TEXT( Type__c ) = &apos;Discipline&apos; &amp;&amp; NOT ISBLANK( Parent_Pearson_Course_Structure__c )</errorConditionFormula>
+        <errorDisplayField>Parent_Pearson_Course_Structure__c</errorDisplayField>
+        <errorMessage>A discipline cannot have a parent.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>VR_HEUK_ValidateParentForClusterOrCourse</fullName>
+        <active>false</active>
+        <description>The parent of a Course should be a Cluster or Discipline and that of a Cluster should be a Discipline.</description>
+        <errorConditionFormula>(Text(Type__c) = &quot;Cluster&quot; &amp;&amp; Text( Parent_Pearson_Course_Structure__r.Type__c) &lt;&gt; &quot;Discipline&quot;) || (Text(Type__c) = &quot;Course&quot; &amp;&amp; (Text( Parent_Pearson_Course_Structure__r.Type__c) &lt;&gt; &quot;Cluster&quot; &amp;&amp; Text( Parent_Pearson_Course_Structure__r.Type__c) &lt;&gt; &quot;Discipline&quot;) )</errorConditionFormula>
+        <errorDisplayField>Parent_Pearson_Course_Structure__c</errorDisplayField>
+        <errorMessage>The parent of a Course should be a Cluster or Discipline and that of a Cluster should be a Discipline.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>FK_CNTC_FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>AccountContact__c.Academic_Role__c</field>
+    </columns>
+    <columns>
+        <field>AccountContact__c.Other_Academic_Role__c</field>
+    </columns>
+    <columns>
+        <field>FK_CNTC_EMAIL</field>
+    </columns>
+    <columns>
+        <field>FK_CNTC_EMAIL_OPT_OUT</field>
+    </columns>
+    <columns>
+        <field>FK_CNTC_DO_NOT_CALL</field>
+    </columns>
+    <columns>
+        <field>TYPE</field>
+    </columns>
+    <currency>AUD</currency>
+    <description>Baseline report listing Contacts with their Academic report where Do Not Mail is not checked</description>
+    <filter>
+        <criteriaItems>
+            <column>FK_CNTC_EMAIL_OPT_OUT</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Contacts with Academic Role</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$AccountContact__c@AccountContact__c.Contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

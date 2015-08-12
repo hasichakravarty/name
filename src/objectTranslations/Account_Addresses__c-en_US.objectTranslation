@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Addresses</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Addresses</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Alternate Addresses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Address 1 --></label>
+        <name>Address_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address 2 --></label>
+        <name>Address_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address 3 --></label>
+        <name>Address_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address 4 --></label>
+        <name>Address_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Type --></label>
+        <name>Address_Type__c</name>
+        <picklistValues>
+            <masterLabel>Billing</masterLabel>
+            <translation><!-- Billing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deliver To</masterLabel>
+            <translation><!-- Deliver To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipping</masterLabel>
+            <translation><!-- Shipping --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+    </fields>
+    <fields>
+        <label><!-- DataHub Key --></label>
+        <name>DataHub_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Hub ID --></label>
+        <name>Data_Hub_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- ERP Account Number --></label>
+        <name>ERP_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ERP Address ID --></label>
+        <name>ERP_Address_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- ERP Address Status --></label>
+        <name>ERP_Address_Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contains the Oracle id of the specific address type. --></help>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code --></label>
+        <name>Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detail --></label>
+        <name>record_url__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Address Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

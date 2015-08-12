@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>System Response</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>System Responses</value>
+    </caseValues>
+    <fields>
+        <help><!-- The error code --></help>
+        <label><!-- Error Code --></label>
+        <name>Error_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- The error message --></help>
+        <label><!-- Error Message --></label>
+        <name>Error_Message__c</name>
+    </fields>
+    <fields>
+        <help><!-- The external system name --></help>
+        <label><!-- External System --></label>
+        <name>External_System__c</name>
+    </fields>
+    <fields>
+        <help><!-- The linked integration request --></help>
+        <label><!-- Integration Request --></label>
+        <name>Integration_Request__c</name>
+        <relationshipLabel><!-- System Responses --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The status --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

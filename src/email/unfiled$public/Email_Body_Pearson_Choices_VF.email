@@ -1,0 +1,9 @@
+<messaging:emailTemplate subject="Test" recipientType="Contact" relatedToType="Outbound_Notification__c">
+<messaging:plainTextEmailBody >
+<!--<apex:form > -->
+<!--<apex:inputTextarea value="{!relatedTo.emailBody1}" richText="true" cols="10" rows="25" disabled="false"/>-->
+<!-- </apex:form > -->
+<apex:outputText escape="false">{!relatedTo.Rich_Body__c}</apex:outputText>
+<!--<apex:outputLabel>{!relatedTo.Rich_Body__c}</apex:outputLabel>-->
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

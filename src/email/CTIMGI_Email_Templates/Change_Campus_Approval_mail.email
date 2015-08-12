@@ -1,0 +1,9 @@
+Case ID: {!Case.CaseNumber}
+
+Dear {!Case.Contact}
+
+We have received your request to transfer campus and are happy to let you know the request has been approved.
+
+Your Student Advisor will now contact you to confirm that you want to progress with the transfer.
+
+For reference, please refer to our Terms and Conditions.

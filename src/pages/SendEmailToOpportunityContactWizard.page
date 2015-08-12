@@ -1,0 +1,58 @@
+<apex:page controller="sendEmailToOpportunityContact" tabstyle="opportunity" id="thePage">
+ 
+<script>
+function checkAll(cb)
+{
+    var inputElem = document.getElementsByTagName("input");
+    for(var i=0; i<inputElem.length; i++)
+    {
+        if(inputElem[i].id.indexOf("checkedone")!=-1)
+        inputElem[i].checked = cb.checked;
+    }
+}  
+
+function changeValue1(input, textid) 
+{
+  document.getElementById(textid).value = input.checked;
+ }
+   
+   
+function changeValue2(input, textid) 
+{ 
+  document.getElementById(textid).value = input; 
+}
+
+</script>
+ <apex:form id="myForm" >
+  <apex:pagemessages />
+  <apex:pageblock id="myBlock" title="Select Contacts" rendered="{!If(listWithContactValues.size>0,true,false)}">
+  <apex:pageBlockButtons >
+    <apex:commandButton value="Continue" action="{!addContactToListRM}"/> 
+    <apex:commandButton value="Cancel" action="{!cancel}"/>   
+   </apex:pageBlockButtons>  
+   <apex:pageblocksection id="mySection" title="Select Contacts" columns="1">  
+     <apex:pageblocktable id="myTable" value="{!ContactValues}" var="conVal">
+     <apex:column >
+      <apex:facet name="header">                        
+      <apex:inputCheckbox onclick="checkAll(this)"/>                    
+      </apex:facet>
+             <apex:inputcheckbox value="{!conVal.selectBox}" id="checkedone"/>  
+      </apex:column>  
+      <apex:column headerValue="Primary Contact">
+      <div align="Center">
+      <!-- <input type="radio" name="chosen" id="{!conVal.primaryContact}" VALUE="{!conVal.primaryContact}" onclick="changeValue1(this,'{!$Component.RadioButtonValue}');"/> -->  
+      <input type="radio" name="chosen" id="{!conVal.primaryContact}" VALUE="{!conVal.primaryContact}" onclick="changeValue2('{!conVal.contactList}','{!$Component.ContactIdValue}');"/>
+      </div>
+      <apex:inputHidden value="{!conVal.isPrimary}" id="RadioButtonValue" />
+      </apex:column>         
+      <apex:column value="{!conVal.contactList.Name}"/>  
+      <apex:column value="{!conVal.contactList.Email}"/>        
+      <apex:column headerValue="Owner Role" value="{!mapWithContactRoleAndID[conVal.contactList.Id]}"/>
+      <apex:column headerValue="Address" value="{!conVal.contactList.MailingStreet},{!conVal.contactList.MailingCity},{!conVal.contactList.MailingState},{!conVal.contactList.MailingCountry},{!conVal.contactList.MailingPostalCode}"/>
+     </apex:pageblocktable>
+     <apex:inputHidden value="{!PrimaryContactId}" id="ContactIdValue" />
+  
+  </apex:pageblocksection>     
+  </apex:pageblock>
+ </apex:form>
+</apex:page>

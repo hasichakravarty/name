@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>MGI_Letterhead</letterhead>
+    <name>MGI Midrand Interview Confirmation</name>
+    <style>freeForm</style>
+    <subject>Interview Confirmation</subject>
+    <textOnly>Dear {!Outbound_Notification__c.Contact_First_Name__c} {!Outbound_Notification__c.Contact_Last_Name__c}
+
+Thank you for visiting our MGI {!Outbound_Notification__c.Preferred_Campus__c} campus on {!Outbound_Notification__c.Current_Date__c}.
+We are really excited that you are considering us as your preferred Higher Education Institution.
+
+As a reminder, here is what we discussed:
+
+To secure your registration please submit the following documentation and make the following payment as soon as possible so that we can process your student number:
+
+• R800 registration fee (non-refundable)
+• Completed and signed registration form
+• Signed payment calculator
+• Signed Addendum A
+• Signed Social Indemnity form
+• A copy of student’s ID (or passport if foreign student)
+• A copy of sponsor’s ID (or passport if foreign student)
+
+You are welcome to deposit the R800 registration fee into our bank account and fax the deposit slip, together with all the above registration documentation, to me on {!Outbound_Notification__c.Preferred_Campus_Fax__c}. Please contact me in order to confirm that I have received all documentation after it has been sent. Faxed and e-mailed documentation will be accepted; however the originals must be submitted upon enrolment.
+
+Account Name: Midrand Graduate Institute
+Bank: Standard Bank
+Account Number: {!Outbound_Notification__c.Preferred_Campus_Bank_Account_Number__c}
+Branch Code: 001805
+Branch: Smal Street
+Reference Number: {!Outbound_Notification__c.Pearson_Account_Number__c}
+
+If you require any further information please do not hesitate to contact me.
+
+Kind Regards
+{!Outbound_Notification__c.Sender_Name__c}
+MGI {!Outbound_Notification__c.Campus__c} Campus
+{!Outbound_Notification__c.Sender_Email__c}
+
+CTI and MGI are part of Pearson, the world’s leading learning company. Pearson is the corporate owner, not a registered provider nor conferrer of qualifications. CTI and MGI are registered PHEI and offer separate qualifications in South Africa. CTI Education Group (PTY) Ltd. is registered with the Department of Higher Education and Training as a private higher education institution under the Higher Education Act, 101, of 1997. Registration Certificate number: 2004/HE07/004. www.cti.ac.za. Midrand Graduate Institute (PTY) Ltd. T/A MGI is registered with the Department of Higher Education and Training as a private higher education institution under the Higher Education Act, 101, of 1997. Registration Certificate number: 2001/HE07/008. www.mgi.ac.za.</textOnly>
+    <type>html</type>
+</EmailTemplate>

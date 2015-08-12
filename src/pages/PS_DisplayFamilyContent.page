@@ -1,0 +1,122 @@
+<apex:page id="mypage" controller="PS_LeaveBehindController" tabstyle="opportunity" >
+ <apex:form id="myform" >
+  <apex:pageMessages ></apex:pageMessages>
+ <script type="text/javascript">
+
+function showinstdesc(div) {
+
+  var vis = "none";
+  var chbox = document.getElementById('mypage:myform:myBlock:instructor').checked;
+   
+  if(chbox){  vis = 'block';}
+  if(!chbox){  vis = 'none';}
+ document.getElementById(div).style.display = vis;
+  
+}
+
+function showstudentdesc(div) {
+
+  var vis = "none";
+  var chbox = document.getElementById('mypage:myform:myBlock:student').checked;
+ 
+  if(chbox){  vis = 'block';}
+  if(!chbox){  vis = 'none';}
+ document.getElementById(div).style.display = vis;
+  
+}
+
+
+function showpearsondesc(div) {
+  var vis = "none";
+  var chbox = document.getElementById('mypage:myform:myBlock:pearsonchoices').checked;
+    if(chbox){  vis = 'block';}
+  if(!chbox){  vis = 'none';}
+ document.getElementById(div).style.display = vis;
+  
+}
+
+</script>
+ <apex:messages />
+<br></br>
+
+<apex:pageblock id="myBlock"  title="Selected Product:">
+ <!--<u><apex:outputLabel value="Select the following information to include: "> </apex:outputLabel>  </u> -->
+ 
+ <b><apex:outputLabel value="{!product.Name}{!product.Edition__c }"> </apex:outputLabel></b>
+ 
+ <br></br><br></br>
+ <apex:outputLabel value="Select the following information to include: "> </apex:outputLabel> 
+ <br></br> <br></br> <br></br>
+ 
+ <div>
+ <b><apex:outputText value="Product Information">
+  </apex:outputText></b> <br></br><br></br>
+ <apex:inputCheckbox value="{!booleanNetprice}"  />Net Price<br></br><br></br>
+
+ <apex:inputCheckbox value="{!booleanListprice }" />Suggested Retail Price <br></br> 
+ </div>
+ <div> </div>
+ <div> </div><br></br><br></br>
+ 
+   <div>
+ <b><apex:outputText value="Marketing Information"></apex:outputText></b><br></br><br></br>
+  <apex:inputCheckbox selected="true" value="{!tableofcontents }"/>Table Of Contents  &nbsp;&nbsp;&nbsp;&nbsp;
+   <apex:inputCheckbox selected="true" value="{!description}"/>Description  &nbsp;&nbsp;&nbsp;&nbsp;     
+  <apex:inputCheckbox selected="true" value="{!producturl}"/>Product URL &nbsp;&nbsp;&nbsp;&nbsp;
+  </div> <br></br><br></br>
+  
+  <div><apex:inputCheckbox selected="true" value="{!newtothisedition}"/>New To This Edition &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <apex:inputCheckbox selected="true" value="{!features}"/>Features                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <apex:inputCheckbox value="{!abouttheauthor}" />About the Author(s)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div> <br></br><br></br>
+  
+  <table>
+  <tr>
+  <td>
+   <div> <b><apex:outputText value="Product Family Information"></apex:outputText></b> </div> 
+ <div></div> <br></br><br></br>
+ 
+ <div>
+ 
+<div> <apex:inputCheckbox selected="true" value="{!instructor}" id="instructor" onclick="showinstdesc('descriptions') "/>Instructor Resources </div>
+<div id="descriptions"><apex:inputCheckbox selected="false" value="{!instDescriptions}" /> Include Descriptions</div> <br></br><br></br>
+
+ <div>  
+<div ><apex:inputCheckbox selected="true" value="{!pearsonchoices}" id="pearsonchoices" onclick="showpearsondesc('pearsonchoices') "/>Pearson Choices </div>
+<div id ='pearsonchoices'> 
+
+<div><apex:inputCheckbox selected="true" value="{!PricetoBookstore}"/>Price to Bookstore </div>
+ <div><apex:inputCheckbox value="{!SuggestedRetailPrice}"/>Suggested Retail Price </div>
+ <div><apex:inputCheckbox selected="true" value="{!InstantAccess}"/>Instant Access</div>
+<div><apex:inputCheckbox selected="true" value="{!Printoffer}"/>Print offer</div>
+<div><apex:inputCheckbox selected="true" value="{!eTextOffer}"/>eText Offer</div>
+  
+ </div>
+</div> 
+
+  </div>
+  
+   <br></br><br></br>
+  
+  </td>
+ 
+  <td><br/><br/><br/>
+  
+<div > <apex:inputCheckbox selected="true" value="{!student}" id="student" onclick="showstudentdesc('studentDesc') "/>Student Resources </div> 
+<div id="studentDesc"><apex:inputCheckbox selected="false" value="{!studntDescriptions}" /> Include Descriptions</div>
+</td>
+
+</tr></table>
+
+ <apex:pageblockButtons location="bottom"  >
+      <apex:commandButton action="{!sendEmailWithAttachement}" value="Send Email" >
+      <apex:param assignTo="{!mailAttachment}" value="mailAttachment" />
+           </apex:commandButton>
+      <apex:commandButton action="{!generatePDF}" value="Generate PDF">
+       <apex:param assignTo="{!mailAttachment}" value="mailAttachment" />
+        </apex:commandButton>
+      <apex:commandButton action="{!cancel}" value="Cancel"/>
+  </apex:pageblockButtons> 
+ </apex:pageblock> 
+ </apex:form> 
+</apex:page>

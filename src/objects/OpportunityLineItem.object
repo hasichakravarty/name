@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChoosePricebook</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditAllProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Active__c</fullName>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.IsActive</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Amendment_Action__c</fullName>
+        <description>Used to denote is a module has been Deferred or is being added to an Amendment Opportunity as a Retake</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select Retake if the module has been added to an Amendment Opportunity as the student has failed the module and is retaking it
+Select Deferred if the module has been deferred to a different period due to an Opportunity Amendment</inlineHelpText>
+        <label>Amendment Action</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Author__c</fullName>
+        <description>CORE - Product Author</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Author__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Author</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Book_Type__c</fullName>
+        <description>CORE - Product Book Type</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Book_Type__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Book Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bookshop__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <label>Bookshop</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Opportunity Product</relationshipLabel>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <description>CORE - Product Category</description>
+        <externalId>false</externalId>
+        <formula>TEXT(PricebookEntry.Product2.Category2__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Category</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Class__c</fullName>
+        <description>CORE - Product Class</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Class__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Class</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Copyright_Year__c</fullName>
+        <description>Copyright Year of the Opportunity Line Item</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Copyright_Year__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Copyright Year</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DM_Identifier__c</fullName>
+        <description>DM Identifier External ID field</description>
+        <externalId>true</externalId>
+        <label>DM Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>Discount</fullName>
+    </fields>
+    <fields>
+        <fullName>Discount_Reference__c</fullName>
+        <description>Used to document whether a Module has a Credit. Populated from Proposal Line items.</description>
+        <externalId>false</externalId>
+        <label>Discount Reference</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Financial Credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Academic Credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Division__c</fullName>
+        <description>CORE - Product Division</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Division__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Division</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Edition__c</fullName>
+        <description>CORE - Product Edition</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Edition__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Edition</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Sales_Quantity__c</fullName>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <label>Expected Sales Qty</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Forecasted_Install_Date__c</fullName>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <label>Forecasted Install Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Full_Title__c</fullName>
+        <description>CORE - Product Full Title</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Full_Title__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Title</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Group__c</fullName>
+        <description>CORE - Product Group</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Group__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Group</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ISBN__c</fullName>
+        <description>CORE - Product ISBN</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.ISBN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ISBN</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Implementation_Type__c</fullName>
+        <description>CORE - Implementation Type of the Opportunity Product</description>
+        <externalId>false</externalId>
+        <label>Implementation Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Kiosk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Batch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MLP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Student Purchase/Equity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Student Purchase</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Integration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VS Building Block</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cartridge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>LineNumber__c</fullName>
+        <description>Used to identify what options are group to which bundle</description>
+        <externalId>false</externalId>
+        <label>Line Number</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LineType__c</fullName>
+        <description>Configuration Type of Product2, Utilized for SA Rollover and Amendment Process (code)</description>
+        <externalId>false</externalId>
+        <label>Line Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Product/Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Option</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Misc</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ListPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>Medium__c</fullName>
+        <description>CORE - Product Medium</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Medium__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Medium</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mobile_Last_Updated__c</fullName>
+        <description>Use by mobile to track when fields were last updated on the mobile app.</description>
+        <externalId>false</externalId>
+        <label>Mobile Last Updated</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Mode_of_Delivery__c</fullName>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <label>Mode of Delivery</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Streaming (3rd-Party Hosted)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Website/Online Only (Licensed)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Website/Online Only (Free)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Downloadable Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Downloadable - Rental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warehoused AND Downloadable</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Downloadable - DRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warehoused</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Streaming (Tri-Pro Hosted)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OptionId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Module, Utilized to determine the module for downstream communication</description>
+        <externalId>false</externalId>
+        <label>Option</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Opportunity Product (Option)</relationshipLabel>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Order_Confirmed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <label>Order Confirmed</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Order_Invoiced__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CORE - Has invoice been sent?</description>
+        <externalId>false</externalId>
+        <label>Order Invoiced</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Origin__c</fullName>
+        <description>CORE - Product Origin</description>
+        <externalId>false</externalId>
+        <formula>TEXT(PricebookEntry.Product2.Origin__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Origin</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Implementation_Type__c</fullName>
+        <description>CORE - If other implementation is selected this field is required.</description>
+        <externalId>false</externalId>
+        <label>Other Implementation Type</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Outside_Module__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Identifies is the Module is associated to a qualification outside of the main qualification</description>
+        <externalId>false</externalId>
+        <label>Outside Module</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Pearson_Course__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>CORE - tracks the Pearson course against a specific opportunity product</description>
+        <externalId>false</externalId>
+        <label>Pearson Course</label>
+        <referenceTo>PearsonCourseStructure__c</referenceTo>
+        <relationshipLabel>Opportunity Product</relationshipLabel>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>CORE - used to track primary contact against a specific Opportunity Product</description>
+        <externalId>false</externalId>
+        <label>Primary Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Opportunity Product</relationshipLabel>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product2Id</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+    </fields>
+    <fields>
+        <fullName>ProductOptionId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to determine the Option Group in which the Option belongs to. Used for Amendment Opportunity Process SA</description>
+        <externalId>false</externalId>
+        <label>Product Option</label>
+        <referenceTo>Apttus_Config2__ProductOptionComponent__c</referenceTo>
+        <relationshipLabel>Opportunity Product</relationshipLabel>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Family_HE__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used by US HE to generate the Product Family hyperlink on the Opportunity Products</description>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Opportunity Product (Product Family)</relationshipLabel>
+        <relationshipName>Product_Family</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Family__c</fullName>
+        <description>Displays the Title of the Product Family. When clicked the User is redirected to custom product selector with the Product Family Id passed to the custom apex page</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&apos;/apex/OneCRMProductFamilyDetailPage?oppId=&apos;+OpportunityId+&apos;&amp;productfamilyid=&apos;+ Product_Family_HE__r.Id,Product_Family_HE__r.Name)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Family</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Type__c</fullName>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <formula>TEXT(PricebookEntry.Product2.ProductType__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Publish_Date__c</fullName>
+        <description>CORE - Product Publish Date</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Publish_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Publish Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Publisher__c</fullName>
+        <description>Publisher of the Opportunity Line Item</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Publisher__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Publisher</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity</fullName>
+    </fields>
+    <fields>
+        <fullName>Quantity_in_Stock__c</fullName>
+        <description>CORE - Product Qty in Stock</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Quantity_in_Stock__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quantity in Stock</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Required_By_Date__c</fullName>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <label>Required By Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SRP__c</fullName>
+        <externalId>false</externalId>
+        <label>SRP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Channel__c</fullName>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <label>Sales Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Bookshop</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct to Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct to University/Department</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct to School</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Salesperson__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>CORE - tracks Salesperson against specific opportunity product</description>
+        <externalId>false</externalId>
+        <label>Salesperson</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ServiceDate</fullName>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>CORE - Product Status</description>
+        <externalId>false</externalId>
+        <formula>Text(PricebookEntry.Product2.Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Status</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sub_Category__c</fullName>
+        <description>CORE - Product Sub Category</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Sub_Category__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sub Category</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subtotal</fullName>
+    </fields>
+    <fields>
+        <fullName>Suggested_Order_Quantity__c</fullName>
+        <description>CORE</description>
+        <externalId>false</externalId>
+        <label>Suggested Order Qty</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supplier_Item_Code__c</fullName>
+        <description>CORE - Product Supplier Item Code</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Supplier_Item_Code__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Supplier Item Code</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TempRefID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>[HH- Remove before deployment] Temp to support Data Migration from Dev2</description>
+        <externalId>true</externalId>
+        <label>Temp-RefID</label>
+        <length>18</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>TotalPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>URL__c</fullName>
+        <description>CORE - Product URL</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.URL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>URL</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UnitPrice</fullName>
+    </fields>
+    <validationRules>
+        <fullName>Product_Discount_greater_than_100</fullName>
+        <active>true</active>
+        <description>CORE - Cannot discount greater than 100%</description>
+        <errorConditionFormula>Discount  &gt; 100</errorConditionFormula>
+        <errorDisplayField>Discount</errorDisplayField>
+        <errorMessage>The discount can not exceed 100%.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Product_Other_Implementation_Type</fullName>
+        <active>true</active>
+        <description>CORE - If &apos;Other&apos; is selected for the Implementation Type, you must fill in the &quot;Other Implementation Type&apos; text box.</description>
+        <errorConditionFormula>AND( ISPICKVAL(Implementation_Type__c, &quot;Other&quot;),
+  ISBLANK(Other_Implementation_Type__c))</errorConditionFormula>
+        <errorDisplayField>Other_Implementation_Type__c</errorDisplayField>
+        <errorMessage>If &apos;Other&apos; is selected for the Implementation Type, you must fill in the &apos;Other Implementation Type&apos; text box.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Edit_Products</fullName>
+        <availability>online</availability>
+        <description>Created For NA Product Configuration Build.</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Edit Products</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/32.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/32.0/apex.js&quot;)} 
+var errorString = sforce.apex.execute(&quot;PS_oneCRMProductSelectorPermission&quot;,&quot;checkPermission&quot;,{oppID:&quot;{!Opportunity.Id}&quot;});
+if(errorString == &apos;redirectUser&apos;)
+{
+parent.frames.location.replace(&apos;/apex/oneCRMProductSelectorWizardV2?oppId=&apos;+&apos;{!Opportunity.Id}&apos;);
+    
+}else
+{
+    alert(errorString);
+}</url>
+    </webLinks>
+</CustomObject>

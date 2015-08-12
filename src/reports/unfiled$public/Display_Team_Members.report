@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Territory_Code__c</field>
+    </columns>
+    <columns>
+        <field>Account.AccountTeamMembers*User$Business_Unit__c</field>
+    </columns>
+    <columns>
+        <field>Account.AccountTeamMembers$Name</field>
+    </columns>
+    <columns>
+        <field>Account.AccountTeamMembers*User$Market__c</field>
+    </columns>
+    <columns>
+        <field>Account.AccountTeamMembers*User$Sales_Force__c</field>
+    </columns>
+    <columns>
+        <field>Account.AccountTeamMembers$TeamMemberRole</field>
+    </columns>
+    <columns>
+        <field>Account$Id</field>
+    </columns>
+    <columns>
+        <field>Account.AccountTeamMembers*User$Job_Function__c</field>
+    </columns>
+    <currency>AUD</currency>
+    <description>The report displayed will display all members of the account team on the account</description>
+    <filter>
+        <criteriaItems>
+            <column>Account$Id</column>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>Display Team Members</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Account_Team_with_user__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

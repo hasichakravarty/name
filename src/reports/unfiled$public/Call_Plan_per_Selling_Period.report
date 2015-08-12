@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>VisitPlan__c.Planned_Date__c</field>
+    </columns>
+    <columns>
+        <field>VisitPlan__c.Contact_Name__c</field>
+    </columns>
+    <columns>
+        <field>VisitPlan__c.Opportunity__c</field>
+    </columns>
+    <columns>
+        <field>VisitPlan__c.Course__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>VisitPlan__c.Visited__c</field>
+    </columns>
+    <currency>AUD</currency>
+    <filter>
+        <criteriaItems>
+            <column>VisitPlan__c.Visited__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>Call Plan per Selling Period</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$VisitPlan__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>VisitPlan__c.Opportunity__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>VisitPlan__c.Planned_Date__c</dateColumn>
+        <endDate>2015-08-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2015-01-01</startDate>
+    </timeFrameFilter>
+</Report>

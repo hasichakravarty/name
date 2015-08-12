@@ -1,0 +1,8 @@
+{!Internal_Request__c.LastModifiedBy} has submitted an adjustment request for appeal that is awaiting your approval: 
+
+{!Internal_Request__c.Description__c}
+
+Please follow the link to approve/reject the appeal for {!Internal_Request__c.Sales_Person_Name__c}. 
+
+For more information: 
+{!Internal_Request__c.Link}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <customSettingsVisibility>Protected</customSettingsVisibility>
+    <description>This objects stores the metadata id for the custom course object record id, name.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>AssetCourseID__c</fullName>
+        <description>Contains the metadata id of the course id field of the course lookup field on the Asset object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contains the metadata id of the course id field of the course lookup field on the Asset object.</inlineHelpText>
+        <label>AssetCourseID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AssetCourseNameID__c</fullName>
+        <description>Contains the metadata id of the course name field of the course lookup field on the Asset object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contains the metadata id of the course name field of the course lookup field on the Asset object.</inlineHelpText>
+        <label>AssetCourseNameID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CourseNameID__c</fullName>
+        <description>This field contains metadata id for the custom object course name field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field contains metadata id for the custom object course name field.</inlineHelpText>
+        <label>CourseNameID</label>
+        <length>45</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RecordID__c</fullName>
+        <externalId>false</externalId>
+        <label>RecordID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>URL_Course</label>
+</CustomObject>

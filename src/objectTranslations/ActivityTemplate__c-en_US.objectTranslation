@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Activity Template</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Activity Templates</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Location --></label>
+        <name>Account_Location__c</name>
+        <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of Days from the triggered creation of the event --></help>
+        <label><!-- Days Until Due --></label>
+        <name>Days_Until_Due__c</name>
+    </fields>
+    <fields>
+        <help><!-- If left blank this will default to the owner of the associated record. --></help>
+        <label><!-- Default Owner --></label>
+        <name>Default_Owner__c</name>
+        <relationshipLabel><!-- Activity Templates --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- NPS Rating Required --></label>
+        <name>NPS_Rating_Required__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Type --></label>
+        <name>Product_Type__c</name>
+        <picklistValues>
+            <masterLabel>Hardware</masterLabel>
+            <translation><!-- Hardware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintenance and Support</masterLabel>
+            <translation><!-- Maintenance and Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Materials</masterLabel>
+            <translation><!-- Materials --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Materials - Software Bundles</masterLabel>
+            <translation><!-- Materials - Software Bundles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Services</masterLabel>
+            <translation><!-- Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software</masterLabel>
+            <translation><!-- Software --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Related To --></label>
+        <name>Related_To__c</name>
+        <picklistValues>
+            <masterLabel>Opportunity</masterLabel>
+            <translation><!-- Opportunity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Contract (If Required)</masterLabel>
+            <translation><!-- Contract (If Required) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Production</masterLabel>
+            <translation><!-- In Production --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoiced</masterLabel>
+            <translation><!-- Invoiced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost</masterLabel>
+            <translation><!-- Lost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs Analysis</masterLabel>
+            <translation><!-- Needs Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Negotiation</masterLabel>
+            <translation><!-- Negotiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proposal/Quote</masterLabel>
+            <translation><!-- Proposal/Quote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospecting</masterLabel>
+            <translation><!-- Prospecting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qualification</masterLabel>
+            <translation><!-- Qualification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal Confirmation</masterLabel>
+            <translation><!-- Renewal Confirmation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solutioning</masterLabel>
+            <translation><!-- Solutioning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Won (Verbal Agreement)</masterLabel>
+            <translation><!-- Won (Verbal Agreement) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>At Risk</masterLabel>
+            <translation><!-- At Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Schedule</masterLabel>
+            <translation><!-- On Schedule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponed</masterLabel>
+            <translation><!-- Postponed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+    </fields>
+    <layouts>
+        <layout>Activity Template Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Task Detail --></label>
+            <section>Task Detail</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must select a country that this rule applies to in order to save this record. --></errorMessage>
+        <name>AccountLocationRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must define which kind of object this template relates to in order to save this record. --></errorMessage>
+        <name>RelatedToRequired</name>
+    </validationRules>
+</CustomObjectTranslation>

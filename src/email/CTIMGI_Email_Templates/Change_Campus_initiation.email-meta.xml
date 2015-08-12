@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>A mail will be sent to the queue user when a change campus request case is created.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Change Campus initiation</name>
+    <style>none</style>
+    <subject>Email notification for Change Campus</subject>
+    <type>text</type>
+</EmailTemplate>

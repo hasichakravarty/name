@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Call Opportunity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Call Opportunities</value>
+    </caseValues>
+    <fields>
+        <label><!-- Call --></label>
+        <name>Call__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Calls --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Call Opportunity Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Link_Existing_Call --></label>
+        <name>Link_Existing_Call</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Existing_Opportunity --></label>
+        <name>Link_Existing_Opportunity</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Call --></label>
+        <name>New_Call</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Opportunity --></label>
+        <name>New_Opportunity</name>
+    </webLinks>
+</CustomObjectTranslation>

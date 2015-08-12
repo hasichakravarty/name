@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Relationship</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Relationships</value>
+    </caseValues>
+    <fields>
+        <label><!-- Author --></label>
+        <name>Author__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Product Relationships --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Copyright Year --></label>
+        <name>Copyright_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discipline --></label>
+        <name>Discipline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Edition --></label>
+        <name>Edition_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Edition --></label>
+        <name>Edition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Publisher --></label>
+        <name>Other_Publisher__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Product Relationships --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Publisher --></label>
+        <name>Publisher_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Publisher --></label>
+        <name>Publisher__c</name>
+        <picklistValues>
+            <masterLabel>CCH</masterLabel>
+            <translation><!-- CCH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cengage</masterLabel>
+            <translation><!-- Cengage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elsevier</masterLabel>
+            <translation><!-- Elsevier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lipincott</masterLabel>
+            <translation><!-- Lipincott --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>McGraw-Hill</masterLabel>
+            <translation><!-- McGraw-Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oxford University Press</masterLabel>
+            <translation><!-- Oxford University Press --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palgrave Macmillan</masterLabel>
+            <translation><!-- Palgrave Macmillan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pearson</masterLabel>
+            <translation><!-- Pearson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sage</masterLabel>
+            <translation><!-- Sage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wiley</masterLabel>
+            <translation><!-- Wiley --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Relationship --></label>
+        <name>Relationship__c</name>
+        <picklistValues>
+            <masterLabel>Competitive Author</masterLabel>
+            <translation><!-- Competitive Author --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Faculty Advisory</masterLabel>
+            <translation><!-- Faculty Advisory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pearson Author</masterLabel>
+            <translation><!-- Pearson Author --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reviewer</masterLabel>
+            <translation><!-- Reviewer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <layouts>
+        <layout>Authored Product Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Global</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must enter the other publisher. --></errorMessage>
+        <name>Other_Publisher</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must choose a Publisher --></errorMessage>
+        <name>Publisher_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

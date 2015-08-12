@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>CORE - used to track engagement with contacts and assets (Products in Use)</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <description>CORE - links the record to the associated Contact</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Contact Engagement</relationshipLabel>
+        <relationshipName>Contact_Engagements</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Demonstrated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CORE - signifies if product has been demonstrated</description>
+        <externalId>false</externalId>
+        <label>Demonstrated</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Demonstration_Date__c</fullName>
+        <description>CORE - date of demo</description>
+        <externalId>false</externalId>
+        <label>Demonstration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Engagement__c</fullName>
+        <description>CORE - Contact Engagement picklist</description>
+        <externalId>false</externalId>
+        <label>Engagement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0. No interest/not applicable</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1. Passive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2. Promoter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3. Super User</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Product_In_Use__c</fullName>
+        <description>CORE - tracks the Product in Use with the Contact</description>
+        <externalId>false</externalId>
+        <label>Product In Use</label>
+        <referenceTo>Asset</referenceTo>
+        <relationshipLabel>Contact Engagement</relationshipLabel>
+        <relationshipName>Contact_Engagements</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Contact Engagement</label>
+    <nameField>
+        <displayFormat>CE-{00000}</displayFormat>
+        <label>Contact Engagement Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contact Engagements</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product_In_Use__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Engagement__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Demonstrated__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Demonstration_Date__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Contact__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product_In_Use__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Engagement__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Demonstration_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Demonstrated__c</lookupPhoneDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Contact_Engagement_Date_Mandatory</fullName>
+        <active>true</active>
+        <description>CORE - If the demonstrated check box is true then the Demonstration Date must be populated.</description>
+        <errorConditionFormula>AND (
+ Demonstrated__c  = True,
+  ISBLANK(Demonstration_Date__c))</errorConditionFormula>
+        <errorDisplayField>Demonstration_Date__c</errorDisplayField>
+        <errorMessage>If the &apos;Demonstrated&apos; check box is true then the Demonstration Date must be populated.</errorMessage>
+    </validationRules>
+</CustomObject>

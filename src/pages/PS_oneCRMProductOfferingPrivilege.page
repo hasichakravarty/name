@@ -1,0 +1,41 @@
+<apex:page >
+<!--<script type="text/javascript">
+var previousOnload = window.onload; 
+window.onload = function() 
+{ 
+    if (previousOnload) 
+    { 
+        previousOnload(); 
+    } 
+    checkPrivilege();
+}
+function theResult(errorString,opptyId,opptyProdId)
+{
+    if(errorString == 'redirectUser') 
+    { 
+        if(opptyProdId == '')
+        {
+            window.location = '/apex/oneCRMProductSelectorWizardV2?oppId='+opptyId; 
+        }else
+        {
+            window.location = '/apex/OneCRMProductFamilyDetailPage?oppId='+opptyId+'&productfamilyid='+opptyProdId;
+        }    
+    }else 
+    { 
+        alert(errorString); 
+        window.location = '/'+opptyId;
+    }
+}
+
+</script>
+<apex:form >
+<apex:actionStatus id="actStatusId" >
+  <apex:facet name="start" >
+    <img src="/img/loading.gif" />    
+    <font size="2" color="Red"><b>Loading.....Please Wait...</b></font>                
+   </apex:facet>
+</apex:actionStatus> 
+<apex:actionFunction action="{!checkPermission}" name="checkPrivilege" reRender="test" oncomplete="theResult('{!errorString}','{!opptyId}','{!opptyProdId}');" status="actStatusId"/>
+<apex:outputText id="test"></apex:outputText>
+</apex:form>-->
+</apex:page>

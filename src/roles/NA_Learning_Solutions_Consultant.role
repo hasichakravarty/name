@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Read</contactAccessLevel>
+    <description>NA Learning Solutions Consultant</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>NA Learning Solutions Consultant</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>NA_Learning_Solutions_Consultant_Manager</parentRole>
+</Role>

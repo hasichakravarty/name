@@ -1,0 +1,121 @@
+<!-- 
+    Apttus Proposal-Asset Integration
+    ProposalConfiguration
+     
+    @2011-2013 Apttus Inc. All rights reserved.
+    
+	parameters
+    ==========
+    Name			     | Required | Description
+    =====================|==========|======================================================================================
+    id 				     | Yes      | The record id of the quote/proposal
+                         |          |
+    locationId           | No       | The id of the account location. If this parameter is not provided, the location 
+                         |          | configured as default for the account will be used as the account location.
+                         |			|
+    method          	 | No       | The configuration method. 
+                    	 |          | Valid values are : quickAdd, quickConfig. If this parameter is not provided, the catalog page
+                    	 |		    | will be displayed. 
+                    	 |		    |
+                    	 |		    | quickAdd - The quick add page will be displayed with products from the price list.
+                    	 |		    | quickConfig - The quick configuration page will be displayed with products selected by
+                    	 |		    |			   product default rules. 
+    					 |		    |
+    useAdvancedApproval	 | No	    | Indicates whether advanced approval will be used to approve quotes that needs approval.  
+    					 |		    | The default value is false. 
+    					 |			|
+    useDealOptimizer	 | No	    | Indicates whether deal optimizer will be used to approve quotes that needs approval.  
+    					 |		    | The default value is false. 
+    					 |			|
+    defaultQuantity		 | No		| The default quantity for products selected by the user.
+    					 |			| 
+    defaultSellingTerm	 | No		| The default selling term for products selected by the user.
+    					 |          |
+    prodfilter_          | No       | Product search filter may be passed by prefixing the parameter name with 'prodfilter_'.
+   					     |		    | for e.g. if you pass in a parameter prodfilter_Family=XYZ001, the product family field in 
+   					     |		    | the Product object will be used to filter the product records. Multiple parameters
+   					     |		    | may be passed. 
+                         |          |
+    prodfilter_oper      | No       | The boolean operator to combine multiple search filters. 
+                         |          | Valid values are : AND, OR. The default value is AND. 
+    				     |		    |
+    prodscope_           | No       | Product search scope for text search may be passed by prefixing the parameter name with 'prodscope_'.
+   					     |		    | for e.g. if you pass in parameters prodscope_1=Name and prodscope_2=Family the product name and 
+   					     |		    | Family fields will form the search scope for text search. 
+   					     |		    | If this parameter is not provided, the following fields will be used as the default search scope. 
+   					     |		    | 
+   					     |		    | Product Name
+   					     |		    | Product Code
+   					     |		    | Product Description
+   					     |		    | Family
+   					     |		    | Configuration Type	
+   					     |		    |
+    astfilter_      	 | No       | Asset search filter may be passed by prefixing the parameter name with 'astfilter_'.
+   						 |		    | for e.g. if you pass in a parameter astfilter_CompanyID__c=XYZ001, the company id field in 
+   						 |		    | the Asset Line Item object will be used to filter the asset records. Multiple parameters
+   						 |		    | may be passed. 
+   						 |		    } If this parameter is not provided, the account id will be used to filter the asset records. 
+                    	 |          |
+    astfilter_oper  	 | No       | The boolean operator to combine multiple search filters. 
+                    	 |          | Valid values are : AND, OR. The default value is AND. 
+    					 |		    |
+    astscope_       	 | No       | Asset search scope for text search may be passed by prefixing the parameter name with 'astscope_'.
+   						 |		    | for e.g. if you pass in parameters astscope_1=Name and astscope_2=Family the product name and 
+   						 |		    | Family fields will form the search scope for text search. 
+   						 |		    | If this parameter is not provided, the following fields will be used as the default search scope. 
+   						 |		    | 
+   						 |		    | Product Name
+   						 |		    | Product Code
+   						 |		    | Product Description
+   						 |		    | Family
+   						 |		    | Configuration Type	
+   						 |		    |
+    cntrNbr_             | No       | Contract number for pricing may be passed by prefixing the parameter name with 'cntrNbr_'.
+   					     |		    | for e.g. if you pass in parameters cntrNbr_1=00000384.0 and cntrNbr_2=00000459.0, the contract numbers 00000384.0 and
+   					     |		    | 00000459.0 will be used in the given sequence for contract pricing.
+   					     |		    |
+    retId 			     | No       | The id of the record to navigate to after the cart is abandoned
+    				     |		    |
+    ===================================================================================================================
+    
+ -->
+<apex:page standardController="Apttus_Proposal__Proposal__c" 
+		   extensions="Apttus_QPAsset.ProposalConfigurationController" >
+		   
+	<apex:form >
+		<!--  required fields -->
+		<apex:outputText value="{!Apttus_Proposal__Proposal__c.Name}" rendered="false" />
+		<apex:outputText value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__Proposal_Name__c}" rendered="false" />
+		<apex:outputText value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__Account__c}" rendered="false" />
+		<apex:outputText value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__ExpectedStartDate__c}" rendered="false" />
+		<apex:outputText value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__ExpectedEndDate__c}" rendered="false" />
+		<apex:outputText value="{!Apttus_Proposal__Proposal__c.Apttus_QPConfig__PriceListId__c}" rendered="false" />
+		<apex:outputText value="{!Apttus_Proposal__Proposal__c.Apttus_QPConfig__PricingDate__c}" rendered="false" />
+		
+		<!--  hidden action buttons -->
+		<apex:commandButton id="btnOnLoad" action="{!onLoad}" value="On Load" style="display: none" />
+		
+		<script>
+        	var btnOnLoad = document.getElementById("{!$Component.btnOnLoad}");
+      	</script>
+      	
+		<apex:pageBlock mode="edit" rendered="{!hasErrors}" >
+			<apex:pageMessages />
+			<apex:pageBlockButtons location="bottom" >
+				<apex:commandButton action="{!doCancel}" value="{!$Label.Apttus_QPConfig__Cancel}" immediate="true" />
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+	
+	<script>
+		// register to invoke the function after the page load
+		var hasErrors = "{!hasErrors}";
+		if (hasErrors.toLowerCase() == 'false') {
+		    window.onload = function() { 
+		    	// on load
+		        btnOnLoad.click();
+		    };
+		}
+	</script>
+	
+</apex:page>

@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product in Use</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Products in Use</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Product In Use Description</value>
+        </caseValues>
+        <name>asset_description</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Product In Use Information</value>
+        </caseValues>
+        <name>asset_information</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Product In Use</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Products In Use</value>
+        </caseValues>
+        <name>asset_name</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Competitor Product In Use</value>
+        </caseValues>
+        <name>competitor_asset</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Total Net Price</value>
+        </caseValues>
+        <name>price_asset</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Net Sales Quantity</value>
+        </caseValues>
+        <name>quantity_asset</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <label><!-- Amendment Action --></label>
+        <name>Amendment_Action__c</name>
+        <picklistValues>
+            <masterLabel>Deferred</masterLabel>
+            <translation><!-- Deferred --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retake</masterLabel>
+            <translation><!-- Retake --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Bookshop --></label>
+        <name>Bookshop__c</name>
+        <relationshipLabel><!-- Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Campus --></label>
+        <name>Campus__c</name>
+        <picklistValues>
+            <masterLabel>Bloemfontein</masterLabel>
+            <translation><!-- Bloemfontein --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cape Town</masterLabel>
+            <translation><!-- Cape Town --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Durban</masterLabel>
+            <translation><!-- Durban --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Durbanville</masterLabel>
+            <translation><!-- Durbanville --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>East London</masterLabel>
+            <translation><!-- East London --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Midrand</masterLabel>
+            <translation><!-- Midrand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nelspruit</masterLabel>
+            <translation><!-- Nelspruit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Port Elizabeth</masterLabel>
+            <translation><!-- Port Elizabeth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Potchefstroom</masterLabel>
+            <translation><!-- Potchefstroom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pretoria</masterLabel>
+            <translation><!-- Pretoria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Randburg</masterLabel>
+            <translation><!-- Randburg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vanderbijlpark</masterLabel>
+            <translation><!-- Vanderbijlpark --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cancelled dateTime --></label>
+        <name>Cancelled_dateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Competitive Status --></label>
+        <name>Competitive_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Competitor Publisher --></label>
+        <name>Competitor_Publisher__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+        <relationshipLabel><!-- Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Converted Asset --></label>
+        <name>Converted_Asset__c</name>
+    </fields>
+    <fields>
+        <label><!-- Converted Product in Use --></label>
+        <name>Converted_Product_in_Use__c</name>
+    </fields>
+    <fields>
+        <label><!-- Copyright Year --></label>
+        <name>Copyright_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Course --></label>
+        <lookupFilter>
+            <errorMessage><!-- This Course is not associated to the Account for this Product in Use. --></errorMessage>
+        </lookupFilter>
+        <name>Course__c</name>
+        <relationshipLabel><!-- Products in Use --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DM Identifier --></label>
+        <name>DM_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount Reference --></label>
+        <name>Discount_Reference__c</name>
+        <picklistValues>
+            <masterLabel>Academic Credit</masterLabel>
+            <translation><!-- Academic Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Credit</masterLabel>
+            <translation><!-- Financial Credit --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Discount --></label>
+        <name>Discount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Edition --></label>
+        <name>Edition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Enrollments --></label>
+        <name>Enrollments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Sales Quantity --></label>
+        <name>Expected_Sales_Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- External_BIU_Number__c --></label>
+        <name>External_BIU_Number_c__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecasted Install Date --></label>
+        <name>Forecasted_Install_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ISBN 10 --></label>
+        <name>ISBN_10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Intake --></label>
+        <name>Intake__c</name>
+        <picklistValues>
+            <masterLabel>Semester</masterLabel>
+            <translation><!-- Semester --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Study Period</masterLabel>
+            <translation><!-- Study Period --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Term</masterLabel>
+            <translation><!-- Term --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trimester</masterLabel>
+            <translation><!-- Trimester --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Legacy Modified Date --></label>
+        <name>Legacy_Modified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Description --></label>
+        <name>Line_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mode of Delivery --></label>
+        <name>Mode_of_Delivery__c</name>
+        <picklistValues>
+            <masterLabel>Batch</masterLabel>
+            <translation><!-- Batch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cartridge</masterLabel>
+            <translation><!-- Cartridge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Integration</masterLabel>
+            <translation><!-- Direct Integration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kiosk</masterLabel>
+            <translation><!-- Kiosk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MLP</masterLabel>
+            <translation><!-- MLP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Student Purchase</masterLabel>
+            <translation><!-- Student Purchase --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Student Purchase/Equity</masterLabel>
+            <translation><!-- Student Purchase/Equity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VS Building Block</masterLabel>
+            <translation><!-- VS Building Block --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Net Sales Price --></label>
+        <name>Net_Sales_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Product in Use --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Option --></label>
+        <name>OptionId__c</name>
+        <relationshipLabel><!-- Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Other Mode of Delivery --></label>
+        <name>Other_Mode_of_Delivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outside Module --></label>
+        <name>Outside_Module__c</name>
+    </fields>
+    <fields>
+        <label><!-- Period --></label>
+        <name>Period__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6</masterLabel>
+            <translation><!-- 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7</masterLabel>
+            <translation><!-- 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autumn</masterLabel>
+            <translation><!-- Autumn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spring</masterLabel>
+            <translation><!-- Spring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Summer</masterLabel>
+            <translation><!-- Summer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Winter</masterLabel>
+            <translation><!-- Winter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Selling Account --></label>
+        <name>Primary_Selling_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary --></label>
+        <name>Primary__c</name>
+    </fields>
+    <fields>
+        <name>ProductFamily</name>
+        <picklistValues>
+            <masterLabel>Custom</masterLabel>
+            <translation><!-- Custom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Platforms</masterLabel>
+            <translation><!-- Platforms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology</masterLabel>
+            <translation><!-- Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Traditional</masterLabel>
+            <translation><!-- Traditional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eTexts</masterLabel>
+            <translation><!-- eTexts --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product Author --></label>
+        <name>Product_Author__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Campus --></label>
+        <name>Product_Campus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Edition --></label>
+        <name>Product_Edition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product ISBN --></label>
+        <name>Product_ISBN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Semester --></label>
+        <name>Product_Semester__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Product_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Publisher --></label>
+        <name>Publisher__c</name>
+        <picklistValues>
+            <masterLabel>CCH</masterLabel>
+            <translation><!-- CCH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CUP</masterLabel>
+            <translation><!-- CUP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cengage</masterLabel>
+            <translation><!-- Cengage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elsevier</masterLabel>
+            <translation><!-- Elsevier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lipincott</masterLabel>
+            <translation><!-- Lipincott --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>McGraw-Hill</masterLabel>
+            <translation><!-- McGraw-Hill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oxford University Press</masterLabel>
+            <translation><!-- Oxford University Press --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palgrave/Macmillan</masterLabel>
+            <translation><!-- Palgrave/Macmillan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pearson</masterLabel>
+            <translation><!-- Pearson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sage</masterLabel>
+            <translation><!-- Sage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scholastic</masterLabel>
+            <translation><!-- Scholastic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wiley</masterLabel>
+            <translation><!-- Wiley --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Related Opportunity --></label>
+        <name>Purchase_Opportunity__c</name>
+        <relationshipLabel><!-- Products in Use --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Renewal Opportunity --></label>
+        <name>Renewal_Opportunity__c</name>
+        <relationshipLabel><!-- Products in Use --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Required by Date --></label>
+        <name>Required_by_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rollover --></label>
+        <name>Rollover__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Channel --></label>
+        <name>Sales_Channel__c</name>
+        <picklistValues>
+            <masterLabel>Bookshop</masterLabel>
+            <translation><!-- Bookshop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct to School</masterLabel>
+            <translation><!-- Direct to School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct to Student</masterLabel>
+            <translation><!-- Direct to Student --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct to University / Department</masterLabel>
+            <translation><!-- Direct to University / Department --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Semester --></label>
+        <name>Semester__c</name>
+        <picklistValues>
+            <masterLabel>1st Semester</masterLabel>
+            <translation><!-- 1st Semester --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2nd Semester</masterLabel>
+            <translation><!-- 2nd Semester --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full Year</masterLabel>
+            <translation><!-- Full Year --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Service Date --></label>
+        <name>Service_Date__c</name>
+    </fields>
+    <fields>
+        <name>Status</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adopted</masterLabel>
+            <translation><!-- Adopted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor PIU</masterLabel>
+            <translation><!-- Competitor PIU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivered</masterLabel>
+            <translation><!-- Delivered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dropped</masterLabel>
+            <translation><!-- Dropped --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Installed</masterLabel>
+            <translation><!-- Installed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obsolete</masterLabel>
+            <translation><!-- Obsolete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ordered</masterLabel>
+            <translation><!-- Ordered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchased</masterLabel>
+            <translation><!-- Purchased --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registered</masterLabel>
+            <translation><!-- Registered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipped</masterLabel>
+            <translation><!-- Shipped --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation><!-- Withdrawn --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Suggested Order Qty --></label>
+        <name>Suggested_Order_Quantity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the correct Product Integration for the Product in Use --></help>
+        <label><!-- Third Party LMS --></label>
+        <name>Third_Party_LMS__c</name>
+        <picklistValues>
+            <masterLabel>Angel</masterLabel>
+            <translation><!-- Angel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BlackBoard</masterLabel>
+            <translation><!-- BlackBoard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brainhoney</masterLabel>
+            <translation><!-- Brainhoney --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canvas</masterLabel>
+            <translation><!-- Canvas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CourseCompass</masterLabel>
+            <translation><!-- CourseCompass --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom</masterLabel>
+            <translation><!-- Custom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desire2Learn</masterLabel>
+            <translation><!-- Desire2Learn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Transition</masterLabel>
+            <translation><!-- In Transition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LearningStudio</masterLabel>
+            <translation><!-- LearningStudio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moodle</masterLabel>
+            <translation><!-- Moodle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moodlerooms</masterLabel>
+            <translation><!-- Moodlerooms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sakai</masterLabel>
+            <translation><!-- Sakai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WebCt</masterLabel>
+            <translation><!-- WebCt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eCollege</masterLabel>
+            <translation><!-- eCollege --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- University Course --></label>
+        <name>University_Course__c</name>
+        <relationshipLabel><!-- Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Usage --></label>
+        <name>Usage__c</name>
+        <picklistValues>
+            <masterLabel>Optional</masterLabel>
+            <translation><!-- Optional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required</masterLabel>
+            <translation><!-- Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tech Optional</masterLabel>
+            <translation><!-- Tech Optional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tech Required</masterLabel>
+            <translation><!-- Tech Required --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Asset Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Enrolment Information --></label>
+            <section>Enrolment Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product Information --></label>
+            <section>Product Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product Timeline Information --></label>
+            <section>Product Timeline Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NA HE Assets</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- US HE Record Type --></label>
+        <name>US_HE_Record_Type</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- If &quot;Other&quot; is selected for Mode of Delivery, an Other value must be provided --></errorMessage>
+        <name>OtherModeOfDeliveryRequired</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Product_In_Use --></label>
+        <name>New_Product_In_Use</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Update_Contacts --></label>
+        <name>Update_Contacts</name>
+    </webLinks>
+</CustomObjectTranslation>

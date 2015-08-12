@@ -1,0 +1,59 @@
+<apex:page id="mypage" controller="SendEmailInstructor" tabstyle="opportunity">
+ <apex:form id="myform" >
+ <script type="text/javascript">
+
+function showinstdesc(div) {
+
+  var vis = "none";
+  var chbox = document.getElementById('mypage:myform:myBlock:instructor').checked;
+   
+  if(chbox){  vis = 'block';}
+  if(!chbox){  vis = 'none';}
+ document.getElementById(div).style.display = vis;
+  
+}
+
+function showstudentdesc(div) {
+
+  var vis = "none";
+  var chbox = document.getElementById('mypage:myform:myBlock:student').checked;
+ 
+  if(chbox){  vis = 'block';}
+  if(!chbox){  vis = 'none';}
+ document.getElementById(div).style.display = vis;
+  
+}
+
+
+function showpearsondesc(div) {
+  var vis = "none";
+  var chbox = document.getElementById('mypage:myform:myBlock:pearsonchoices').checked;
+    if(chbox){  vis = 'block';}
+  if(!chbox){  vis = 'none';}
+ document.getElementById(div).style.display = vis;
+  
+}
+
+</script>
+ <apex:messages />
+<br></br>
+
+ <apex:pageblock id="myBlock" title="Pearson Choices eCatalog - Email Choices">
+ <br></br><br></br>
+ <apex:outputLabel value="Select prices you want to includes in the email: "> </apex:outputLabel> 
+ <br></br> <br></br> <br></br>
+ <div>
+ 
+ <apex:inputCheckbox />Price to Bookstore<br></br><br></br>
+ <apex:inputCheckbox />Instant Access <br></br><br></br>
+ <apex:inputCheckbox />eText Offer <br></br><br></br>
+ <apex:inputCheckbox />Print Offer <br></br><br></br> 
+   </div> <br></br> <br></br> 
+  
+ <apex:pageblockButtons location="bottom"  >
+      <apex:commandButton action="{!addContactToList}" value="Ok"/>
+      <apex:commandButton action="{!cancel}" value="Cancel"/>
+  </apex:pageblockButtons> 
+ </apex:pageblock>
+ </apex:form> 
+</apex:page>

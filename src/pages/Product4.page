@@ -1,0 +1,763 @@
+<apex:page controller="oneCRMProductSelectorWizardControllerV4" sidebar="false" tabStyle="opportunity" wizard="false" setup="false" showHeader="true">
+
+<style>
+.ct{
+        text-align:center;
+    }
+#existingCoursePanel
+{
+ padding-top: 11px;
+ float: right;
+ width: 57%;
+}
+#table1 {
+     padding-top: 40px;
+ float: left;
+ width: 42%;
+    
+  }
+.aligntop{
+  vertical-align: top !important;
+}
+.quantity{
+        width:25px !important;
+        text-align:center;
+    }
+    
+    .block-left{ 
+        float: left; 
+    }
+    .block-right{ 
+        float: right; 
+    }
+
+.activeTab 
+{
+border-style: solid;
+font-weight: bold;
+background-image:none;
+font-size: 120%; 
+height: 25px;
+border-color: #e5c130;
+background-color: #e5c130;
+color:#fff !important;
+border-top-left-radius: 14px;
+border-top-right-radius: 14px;
+box-shadow: 6px 1px 5px rgba(150, 150, 150, 0.5);
+
+}
+
+.inactiveTab 
+{
+border-style: solid;
+background-color:#e8e8e9; 
+color:black !important;
+font-weight: bold;
+background-image:none;
+font-size: 120%; 
+height: 25px;
+border-color: #e5c130;
+border-top-left-radius: 14px;
+border-top-right-radius: 14px;
+box-shadow: 6px 1px 5px rgba(150, 150, 150, 0.5);
+}
+.custPopup{
+            background-color: white; 
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            /* These are the 3 css properties you will need to change so the popup 
+            displays in the center of the screen. First set the width. Then set 
+            margin-left to negative half of what the width is. You can add 
+            the height property for a fixed size pop up if you want.*/
+            width: 600px;
+            height:350px; 
+            margin-left: -250px;
+            top:-80%;
+        }
+        .custPopup1{
+        background-color: white;
+        border-width: 2px;
+        border-style: solid;
+        z-index: 9999;
+        left: 50%;
+        padding:10px;
+        position: absolute;
+        /* These are the 3 css properties you will need to change so the popup 
+        displays in the center of the screen. First set the width. Then set 
+        margin-left to negative half of what the width is. You can add 
+        the height property for a fixed size pop up if you want.*/
+        width: 50%;
+        margin-left: -250px;
+        top:250px;
+    }
+        .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+        
+        a:hover {
+        background:#ffffff; /*BG color is a must for IE6*/
+        text-decoration:none;
+    } 
+    a.tooltip span {
+        display:none; 
+        padding:2px 3px;
+        margin-left:8px; 
+        width:250px;
+        top:50px;
+        
+    }
+    a.tooltip:hover span{
+        display:inline; 
+        position: absolute; 
+        background:#FFC; 
+        border:1px solid #cccccc; 
+        color:#000000;
+        top:50px;
+
+    }
+        
+
+</style>
+<script type="text/javascript">
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        refreshSearchResults1();
+    }
+};
+
+document.onmousedown = function(evt) {
+var status="For Security Reasons, Right Click Is Disabled";
+    evt = evt || window.event;
+  if(evt.button ==2)
+   {
+     alert(status);
+     return false;    
+   }
+};
+function loadProducts(methodName,tabName)
+    {
+       if(methodName == 'getProductPackageDetails')
+       {
+       getProductPackageDetails(tabName);
+       }else
+       if(methodName =='getComponentDetails'){
+       getComponentDetails(tabName);
+       }
+    
+    }
+    function theResult(errorString,opptyId,opptyProdId)
+    {
+        if(errorString == 'redirectUser') 
+        { 
+              
+        }else 
+        { 
+            if(errorString == '')
+            {
+            
+            }else
+            {
+                alert(errorString); 
+                window.location = '/'+opptyId;
+            }    
+        }
+    }
+
+         var previousOnload = window.onload; 
+             window.onload = function() { 
+             if (previousOnload) { 
+             previousOnload(); 
+             } 
+             checkPrivilege();
+             
+              var d = document.getElementById('j_id0:form1:pgBlock:theAboutProductPgBlock:aboutProductRepeat:0:aboutProductLink');
+              d.style.color = "red";
+              
+             }        
+            function turnRedAboutThisProduct(id) {
+                for(i=0;i<100;i++){
+                var s = document.getElementById('j_id0:form1:pgBlock:theAboutProductPgBlock:aboutProductRepeat:'+i+':aboutProductLink');
+                 if(s != null)
+                 s.style.color = "#1E90FF";
+                 
+                }
+                
+                 var linkToColorChange = document.getElementById(id);
+                
+                 if(linkToColorChange.style.color != "red")
+                 {
+                      linkToColorChange.style.color="red";
+                 }else
+                 {
+                 linkToColorChange.style.color = "#1E90FF";
+                 }    
+            }
+            
+       function onChangeTest(Id,value) {
+       alert('hi');
+        var Index = Id.split(':');
+        setQty(Index[4],value);
+        
+    }
+</script>
+ <apex:form id="form1" >
+ <apex:actionFunction action="{!checkPermission}" name="checkPrivilege" reRender="test" oncomplete="theResult('{!errorString}','{!opptyIdForPermissionCheck}','{!opptyProdId}');" status="actStatusId"/>
+<apex:outputText id="test"></apex:outputText>
+   <!--<b>Product Catalog</b>-->
+    <div style="margin-left: auto;margin-right: auto;width: 30%;background-color: #b0e0e6;">
+<apex:actionStatus id="actStatusId" >
+  <apex:facet name="start" >
+    <img src="/img/loading.gif" />    
+    <font size="2" color="Red"><b>Loading.....Please Wait...</b></font>                
+   </apex:facet>
+</apex:actionStatus> 
+
+</div>
+
+   <div style="text-align:center;">
+  <apex:commandlink value="<< Back to Related Products" action="{!returntoProductSelectorWizardV2}" style="font-size: 120%; position:absolute;left:15px;top:15px;"/>
+   <apex:commandButton value="Save and Return" action="{!createOpplineitems}" style="position:absolute;left:500px;" rendered="{!If(opportunityID != null,true,false)}"/>
+   <apex:commandButton value="Cancel" action="{!returntoopportunity }" style="position:absolute;left:600px;" rendered="{!If(opportunityID != null,true,false)}"/>
+   <apex:image value="{!$Resource.OneCRMProductSynclogo}" style="cursor:pointer;float:Right;" width="80px;" height="30px;" onclick="window.open('https://sync.pearsonhighered.com/');"/>
+   </div>
+  <div id="table1" width="100%" >
+  <apex:pageblock >
+  <!--<div id="table1">-->
+   <div style="overflow: scroll;  overflow-x: hidden;vertical-align:top;height:289px;" >
+    <table  >
+    <div style="vertical-align:top; ">
+    <tr><td>
+    <!--<apex:Image value="/servlet/servlet.FileDownload?file={!ProductFileId}" height="170" width="150" rendered="{!If(ProductFileId!=null,true,false)}"/>-->
+    <apex:image value="{!product2CatalogResult.Image__c}" height="180" width="150" rendered="{!If(product2CatalogResult.Image__c!=null,true,false)}"/>
+    <apex:image value="{!$Resource.OneCRMProductDefaultImage}" height="180" width="150" rendered="{!If(product2CatalogResult.Image__c==null,true,false)}"/></td><td>
+    <font size="3" color="black"><b><apex:outputText value="{!product2CatalogResult.Name}"/></b></font><br/><br/>
+    <apex:outputField value="{!product2CatalogResult.Full_Author_and_Affiliation__c}"/><br/><br/><br/><br/>
+    <apex:outputtext rendered="{!If(product2CatalogResult.Copyright_Year__c!=null,true,false)}">&copy;</apex:outputtext>
+    <apex:outputText value="{!product2CatalogResult.Copyright_Year__c} |" rendered="{!If(product2CatalogResult.Copyright_Year__c!= null,true,false)}"/>
+    <apex:outputText value="{!product2CatalogResult.InstockDate__c} |" rendered="{!If(product2CatalogResult.InstockDate__c!= null,true,false)}"/>
+    <apex:outputText value=" {!product2CatalogResult.Status__c} " rendered="{!If(product2CatalogResult.Status__c!= null,true,false)}"/> <br/>
+   <!-- <apex:outputText value=" {!product2CatalogResult.Digital_Instock_Date__c} |" rendered="{!If(product2CatalogResult.Digital_Instock_Date__c != null,true,false)}"/>-->
+   <!-- <apex:outputText value=" {!product2CatalogResult.Apttus_Config2__Icon__c}" escape="false"/>-->
+  </td></tr></div>
+   <!--<tr><td><br/><apex:image value="{!$Resource.oneCRMProductCatalogImage}" height="40" width="40" style="margin-left:auto;margin-right:auto;display:block;"/></td></tr>-->
+   </table>
+   </div>
+   <apex:pageblockButtons location="bottom" style="position:absolute;left: 150px;top:365px;">
+   
+    <!--<apex:commandButton  accesskey="" image="{!$Resource.OneCRMProductSynclogo}" style="height:30px;"/>-->
+    
+     <!-- added  button for NA doc Sol Gen.   -->
+     <apex:commandButton value="Send Product Information" action="{!getMarketingMaterialContent}"/>
+      <apex:commandButton value="Send IRC Link" action="{!getContacts}" rendered="{!product2CatalogResult.IRC_Indicator__c}" /> 
+   
+   
+    <!--<apex:commandButton value="Browse Families" action="{!returnToProdSelection}"/>-->
+   
+   </apex:pageblockButtons>
+    </apex:pageblock>
+   </div>
+   <!--</div>-->
+ <div id="existingCoursePanel">
+ <apex:pageBlock >
+   <font size="3" color="black"><b>Pearson Course Codes</b></font> <br/>
+            <br/>
+            <div style="overflow: scroll; width: 100% !important; height: 82px; overflow-x: hidden;"> 
+                <apex:pageblockTable var="code" value="{!existingPearsonCourseList}">   
+                    <apex:column headerValue="Pearson Course Code Name">
+                       <!-- <apex:commandLink value="{!code.Pearson_Course_Code_Name_f__c}" /><br/>  -->
+                       <apex:commandLink value="{!code.Pearson_Course_Code_Name_f__c}" action="{!returntoProductSelectorWizardV2}" rerender="pgBlock">
+                            <apex:param assignTo="{!pearsonCodeId}" name="PearsonCode" value="{!code.Pearson_Course_Code_Name__c}"/><br/>     
+                        </apex:commandLink>   
+                    </apex:column> 
+                    <apex:column headerValue="Pearson Course Code">
+                        <apex:outputText value="{!code.Pearson_Course_Code_Name__r.Pearson_Course_Structure_Code__c}" /><br/>     
+                    </apex:column>                                          
+                 </apex:pageblockTable>
+             </div>        
+   </apex:pageBlock>
+  </div>
+   <div id="existingCoursePanel" style="width: 57% !important;">
+ <apex:pageblock id="addToOpty">
+ <apex:pageMessages rendered="{!ProductPriceError}"></apex:pageMessages>
+ <apex:tabPanel switchType="client" selectedTab="Opportunity"  id="theTabPanel"  tabClass="activeTab" inactiveTabClass="inactiveTab" value="{!sampletabfocus}">
+   <apex:tab switchType="client" label="Opportunity" name="Opportunity">
+   
+   <div style="overflow: scroll; width: 100% !important; height: 117px; overflow-x: hidden;" >
+   <apex:actionStatus id="qtyStatus" >
+                            <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                            </apex:facet>
+                            </apex:actionStatus>
+                        <apex:pageblockTable value="{!listOfproductFamilyClass}" var="relatedProduct" columnsWidth="70%, 20%, 5%,5%" styleClass="fontsize" id="theCartTable">
+                            
+                                                      
+                            <apex:column headerValue="Product" width="100px" style="font-size:110% !important;" headerClass="ct">
+                              <apex:commandLink value="{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Name}"  action="{!redirectProduct}" rendered="{!addToOpty}" StyleClass="tooltip">
+                                   <apex:param assignTo="{!redirectProductId}" name="Opp Product" value="{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.id}"/>
+                                  <!-- <span>{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Author__c}</span>-->
+                                  <span>{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Edition__c}e - &copy;{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Copyright_Year__c} - {!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.ISBN__c}</span>
+                               </apex:commandLink>
+                               <apex:commandLink value="{!relatedProduct.relatedProd1.PricebookEntry.Product2.Name}"  action="{!redirectProduct}"  StyleClass="tooltip">
+                                   <apex:param assignTo="{!redirectProductId}" name="About This Product" value="{!relatedProduct.relatedProd1.PricebookEntry.Product2.id}"/>
+                                   <!--<span>{!relatedProduct.relatedProd1.PricebookEntry.Product2.Author__c}</span>-->
+                                   <span>{!relatedProduct.relatedProd1.PricebookEntry.Product2.Edition__c}e - &copy;{!relatedProduct.relatedProd1.PricebookEntry.Product2.Copyright_Year__c} - {!relatedProduct.relatedProd1.PricebookEntry.Product2.ISBN__c}</span>
+                               </apex:commandLink>
+                               <apex:commandLink value="{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Name}"  action="{!redirectProduct}"  StyleClass="tooltip">
+                                   <apex:param assignTo="{!redirectProductId}" name="About This Product" value="{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.id}"/>
+                                   <!--<span>{!relatedProduct.oppProd.Author__c}</span>-->
+                                   <span>{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Edition__c}e - &copy;{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Copyright_Year__c} - {!relatedProduct.oppProd.Apttus_Config2__ProductId__r.ISBN__c}</span>
+                               </apex:commandLink>
+                            </apex:column>
+                            <apex:column headerValue="Author" style="text-align:-webkit-center;" headerClass="ct">
+                                <apex:outputText value="{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Author__c}" styleClass="quantity"></apex:outputText>
+                            <apex:outputText value="{!relatedProduct.relatedProd1.PricebookEntry.Product2.Author__c}"/>
+                            <apex:outputText value="{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Author__c}"/>
+                            </apex:column>
+                            <apex:column headerValue="Qty" width="5px" style="text-align:-webkit-center;" headerClass="ct">
+                             <apex:actionRegion >
+                                <apex:inputText value="{!relatedProduct.sQuantity}" styleClass="quantity" onchange="onChangeTest('{!$Component.form1.addToOpty.theCartTable}',this.value);"></apex:inputText>
+                            </apex:actionRegion>
+                            </apex:column>
+                            
+                          
+
+                            <apex:column width="5px" style="text-align:-webkit-center;">
+                                <apex:commandButton action="{!removeProdCart}" image="{!URLFOR($Resource.RemoveOppty)}" style="height:15px;width:15px;" rerender="addToOpty,pgBlock">
+                                    <apex:param name="relatedProductId" value="{!relatedProduct.relatedProd1.Id}" assignTo="{!relatedProductId}"/>
+                                    <apex:param name="relatedProductId1" value="{!relatedProduct.relatedProd.apttus_config2__relatedproductid__r.Id}" assignTo="{!relatedProductId1}"/>
+                                    <apex:param name="removeProductIdFromCart" value="{!relatedProduct.oppProd.Apttus_Config2__ProductId__r.Id}" assignTo="{!removeProductIdFromCart}"/>
+                                </apex:commandButton>
+                            </apex:column>
+                        </apex:pageblockTable>
+                        <apex:pageMessages rendered="{!if(AND(NOT(searchMessage),oppCartEmpty),true,false)}"></apex:pageMessages>
+                         <apex:pageMessages rendered="{!OR(ProductPriceError,PricebookCurrencyErrorProd)}"></apex:pageMessages>
+                    </div>
+   
+   
+   </apex:tab>
+   <apex:tab switchType="client" id="sampletab"  label="Sample" name="Sample">
+   <div style="overflow: scroll; width: 700px; height: 117px; overflow-x: hidden;" >
+   <apex:pageblockTable value="{!selectedproductslist}" var="relatedProduct" columnsWidth="70%, 20%, 5%,5%" styleClass="fontsize" id="sampletable">
+                            
+                            <apex:column headerValue="Product" width="70px" style="font-size:14px !important;" headerClass="ct">
+                              <apex:outputLink target="_blank" value="/{!relatedProduct.product.id}">{!relatedProduct.product.name}</apex:outputLink>
+                            </apex:column>
+                            <apex:column headerValue="Author" style="text-align:-webkit-center;" headerClass="ct">
+                                <apex:outputText value="{!relatedProduct.product.Author__c}" styleClass="quantity"></apex:outputText>
+                            </apex:column>
+                            <apex:column headerValue="Qty" style="text-align:-webkit-center;" headerClass="ct">
+                                <apex:inputText value="{!relatedProduct.sQuantity}" styleClass="quantity"></apex:inputText>
+                            </apex:column>
+                                                      <apex:column width="10px" style="text-align:-webkit-center;">
+                                <apex:commandButton action="{!removeSampleCart}" image="{!URLFOR($Resource.RemoveOppty)}" style="height:15px;width:15px;" rerender="sampletable,addToOpty">
+                                    <apex:param name="removeSampledId" value="{!relatedProduct.product.id}" assignTo="{!removesampleID}"/>
+                                                                   </apex:commandButton>
+                            </apex:column>
+                        </apex:pageblockTable>
+                         <apex:pageMessage rendered="{!(NOT(samplecart))}" summary="No items in the Sample cart" severity="info" strength="2"  id="message"></apex:pageMessage>
+                        </div>
+   </apex:tab>
+  </apex:tabPanel>
+ </apex:pageblock>
+ </div>
+ <!--</apex:pageblock>-->
+  <!-- Added For Tabs-->
+  <div>
+   <apex:pageblock id="pgBlock">
+   <apex:actionRegion >
+    <apex:actionFunction action="{!setQuantity}" name="setQty" rerender="dummy" status="qtyStatus">
+        <apex:param value="" assignTo="{!indexOfListToSetQty}" name="index"/>
+        <apex:param value="" assignTo="{!valueOfQty}" name="value"/>
+    </apex:actionFunction>
+    </apex:actionRegion>
+   <apex:actionFunction name="getProductPackageDetails" action="{!getProductPackageDetails}" rerender="pgBlock,theTabPanel" status="tabStatus">
+      <apex:param assignTo="{!tabInFocus}" value="" name="setTab"/>
+   </apex:actionFunction>
+   <apex:actionFunction name="getComponentDetails" action="{!getComponentDetails}" rerender="pgBlock,theTabPanel" status="tabStatus">
+      <apex:param assignTo="{!tabInFocus}" value="" name="setTab"/>
+   </apex:actionFunction>
+   
+   <div style="margin-left: auto;margin-right: auto;width: 70%;">
+       <apex:actionStatus id="tabStatus" >
+                        <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                        </apex:facet>
+      </apex:actionStatus>
+      </div>
+   
+   <!-- <apex:pageMessages rendered="{!OR(ProductPriceError,PricebookCurrencyErrorProd)}"></apex:pageMessages>-->
+   <div class="wrapper">
+            <!--<div class="block-left"> <font size="3" color="black" padding-left="20px"><b>Product(s)</b></font></div>-->
+            <div class="block-right"> <apex:commandButton value="Show" action="{!isLoad}" reRender="pgBlock" rendered="{!!isRender}"/>
+            <apex:commandButton value="Hide" action="{!isNone}" reRender="pgBlock" rendered="{!isRender}" /></div>
+        </div>
+   
+   <div>
+    <apex:tabPanel switchType="client" headerAlignment="center" value="{!tabInFocus}" selectedTab="About This Product" id="theTabPanel"  tabClass="activeTab" inactiveTabClass="inactiveTab">
+     
+     <apex:tab switchType="client" label="About This Product" name="AboutThisProduct" rendered="{!aboutthisproductlistforProduct.size != 0}">
+     <apex:pageblock id="theAboutProductPgBlock">
+    <table ><tr><td style="vertical-align:top;">
+    <apex:repeat value="{!aboutthisproductlistforProduct }" var="aboutLink" id="aboutProductRepeat">
+    <apex:actionRegion >
+      <apex:commandLink value="{!aboutLink.sub_type}"  action="{!getMarketingDetailsForProduct}" rerender="theContent,theTabPanel"  style="font-size: 120%;font-weight: bold;color:#1E90FF" oncomplete="turnRedAboutThisProduct('{!$Component.aboutProductLink}')" id="aboutProductLink">
+       <apex:param assignTo="{!marketingInfoSubtypeStringForProduct}" name="About This Product" value="{!aboutLink.sub_type}"/>
+       <apex:param assignTo="{!marketingInformationTypeStringForProduct}" name="AboutThisProduct" value="About This Product"/>
+       </apex:commandLink>
+     <br/><br/></apex:actionRegion>
+    </apex:repeat>
+    </td>
+    <td style="width:90%">
+    <!--<div style="margin-left: auto;margin-right: auto;width: 70%;text-align: left;">-->
+    <!-- <div style="overflow: scroll; width:100%; height: 200px; overflow-x: hidden;text-align: left;" > -->
+      <apex:outputText value="{!listToCheckTheAboutThisProdToolsLinkForProduct[0].Content__c}" escape="false" id="theContent" rendered="{!onClickLinkAboutProduct}"/>
+    
+      <apex:outputText value="{!listForContentforProduct[0].Content__c}" escape="false"  rendered="{!if(And(listToCheckTheAboutThisProdToolsLinkForProduct.size == 0,listForContentforProduct.size != 0),true,false) }"/>
+      <!-- </div> -->
+      </td></tr></table>
+      
+      </apex:pageblock>
+       <script type="text/javascript">  
+       
+        </script>
+        
+     </apex:tab>
+          <apex:tab switchType="client" label="Components" name="Components" rendered="{!renderComponentTab!=0}" ontabenter="loadProducts('getComponentDetails','Components');" id="theComponents">
+     <apex:pageblock >
+     <apex:pageblocktable value="{!packageChildDetailsForProductCatalog}" var="childpackage" columnsWidth="600px,2px,2px,2px,2px">
+          <apex:column >
+          <!--<apex:outputlink value="/{!childpackage.Apttus_Config2__RelatedProductId__r.Id}"><font size="3">{!childpackage.Apttus_Config2__RelatedProductId__r.Name}</font></apex:outputlink><br/><br/>-->
+          <apex:commandLink value="{!childpackage.Apttus_Config2__RelatedProductId__r.Name}"  action="{!redirectProduct}" style="font-size:120% !important">
+              <apex:param assignTo="{!redirectProductId}" name="childPackage" value="{!childpackage.Apttus_Config2__RelatedProductId__r.Id}"/>
+              
+          </apex:commandLink><br/><br/>
+          
+          <apex:outputtext value="{!childpackage.Apttus_Config2__RelatedProductId__r.Author__c}" rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Author__c!=null,true,false)}"></apex:outputtext><br/>
+          <apex:outputtext value="ISBN10-{!childpackage.Apttus_Config2__RelatedProductId__r.SBN__c} " rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.SBN__c!=null,true,false)}"></apex:outputtext>
+          <apex:outputtext rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.SBN__c!=null,true,false)}"> | </apex:outputtext>
+          &nbsp;<apex:outputtext value="ISBN-{!childpackage.Apttus_Config2__RelatedProductId__r.ISBN__c} " rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.ISBN__c!=null,true,false)}"></apex:outputtext><br/>
+          <apex:outputtext rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Copyright_Year__c!=null,true,false)}">&copy;</apex:outputtext>
+          <apex:outputtext value="{!childpackage.Apttus_Config2__RelatedProductId__r.Copyright_Year__c} " rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Copyright_Year__c!=null,true,false)}"></apex:outputtext>
+         <apex:outputtext rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Copyright_Year__c!=null,true,false)}"> | </apex:outputtext>
+         &nbsp;<apex:outputtext value="{!childpackage.Apttus_Config2__RelatedProductId__r.Status__c} " rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Status__c!=null,true,false)}"></apex:outputtext>
+          <apex:outputtext rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Status__c!=null,true,false)}"> | </apex:outputtext>
+          <apex:outputtext value=" {0,date,MM'/'dd'/'yyyy}" rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.InstockDate__c!=null,true,false)}">
+          <apex:param value="{!childpackage.Apttus_Config2__RelatedProductId__r.InstockDate__c}" /></apex:outputtext><br/>
+          
+          <apex:outputPanel rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Sub_brand__c!=null,true,false)}" layout="none">
+          <apex:outputtext value="{!childpackage.Apttus_Config2__RelatedProductId__r.Sub_brand__c}" rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Sub_brand__c!=null,true,false)}"></apex:outputtext><br/></apex:outputPanel>
+          <apex:outputPanel rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Binding__c!=null,true,false)}" layout="none">
+         <apex:outputtext value="{!childpackage.Apttus_Config2__RelatedProductId__r.Binding__c}" rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Binding__c!=null,true,false)}"></apex:outputtext><br/></apex:outputPanel>
+          <!--<apex:outputtext value="{!childpackage.Apttus_Config2__RelatedProductId__r.Platform__c} " rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Platform__c!=null,true,false)}"></apex:outputtext><br/>-->
+           <apex:outputPanel rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.URL__c!=null,true,false)}" layout="none">
+          <apex:outputlink value="{!childpackage.Apttus_Config2__RelatedProductId__r.URL__c} " rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.URL__c!=null,true,false)}" >{!childpackage.Apttus_Config2__RelatedProductId__r.URL__c} </apex:outputlink><br/></apex:outputPanel>
+           <apex:outputPanel rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.IRC_Link__c!=null,true,false)}" layout="none">
+          <apex:outputlink value="{!childpackage.Apttus_Config2__RelatedProductId__r.IRC_Link__c} " rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.IRC_Link__c!=null,true,false)}">IRC:{!childpackage.Apttus_Config2__RelatedProductId__r.IRC_Link__c} </apex:outputlink><br/></apex:outputPanel>
+         <!--&nbsp; <apex:outputtext value="| {!childpackage.Apttus_Config2__RelatedProductId__r.Priority__c}" rendered="{!If(childpackage.Apttus_Config2__RelatedProductId__r.Priority__c!=null,true,false)}"></apex:outputtext>-->
+          
+          </apex:column>
+         
+                
+                <apex:column headerValue="Net" id="net" rendered="{!isRender}" styleClass="aligntop">
+                  <!--  <apex:outputText value="{!mapDisplayProductComponentNetPrice[childpackage.Apttus_Config2__RelatedProductId__r.Id]}" ></apex:outputText>-->
+                <apex:repeat value="{!mapDisplayProductComponentNetPrice}" var="Netkey2"> <!--yourMapVariable is a map and you are not sure whether it contains or not the key 'Name' -->
+                        <!-- <apex:outputText rendered="{!Netkey2==childpackage.Apttus_Config2__RelatedProductId__r.Id}">--> <!-- kind of containsKey(...) -->
+                                             <!--  {!mapDisplayProductComponentNetPrice[childpackage.Apttus_Config2__RelatedProductId__r.Id]}</apex:outputText>--> <!-- this is now safe and will never produces an exception -->
+                          
+                          <apex:outputText value="{0, number, 00.00}"  rendered="{!Netkey2==childpackage.Apttus_Config2__RelatedProductId__r.Id}">
+                               <apex:param value="{!mapDisplayProductComponentNetPrice[childpackage.Apttus_Config2__RelatedProductId__r.Id]}" />
+                          </apex:outputText>
+                          
+                  </apex:repeat>
+                </apex:column>
+                <apex:column headerValue="SRP" id="list" rendered="{!isRender}" styleClass="aligntop">
+                  <!--  <apex:outputText value="{!mapDisplayProductComponentListPrice[childpackage.Apttus_Config2__RelatedProductId__r.Id]}" ></apex:outputText>-->
+                <apex:repeat value="{!mapDisplayProductComponentListPrice}" var="Netkey1"> <!--yourMapVariable is a map and you are not sure whether it contains or not the key 'Name' -->
+                   <!-- <apex:outputText rendered="{!Netkey1==childpackage.Apttus_Config2__RelatedProductId__r.Id}"> 
+                                               {!mapDisplayProductComponentListPrice[childpackage.Apttus_Config2__RelatedProductId__r.Id]} 
+                     </apex:outputText>-->
+                     <apex:outputText value="{0, number, 00.00}"  rendered="{!Netkey1==childpackage.Apttus_Config2__RelatedProductId__r.Id}">
+                               <apex:param value="{!mapDisplayProductComponentListPrice[childpackage.Apttus_Config2__RelatedProductId__r.Id]}" />
+                          </apex:outputText>
+                  </apex:repeat>
+                </apex:column>
+          <apex:column headerValue="Track" styleClass="aligntop" rendered="{!If(opportunityID != null,true,false)}">
+                    <apex:commandButton value="Track" action="{!addToOppty}" reRender="addToOpty,pgBlock" status="trackComponentStatus" >
+                        <apex:param name="addToOptyProductId" value="{!childpackage.Apttus_Config2__RelatedProductId__r.Id}" assignTo="{!addToOptyProductId}"/> 
+                    </apex:commandButton> &nbsp;&nbsp;&nbsp;
+                    <apex:actionStatus id="trackComponentStatus" >
+                        <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                        </apex:facet>
+                     </apex:actionStatus> 
+          </apex:column>
+          <apex:column headerValue="Sample" styleClass="aligntop" rendered="{!If(opportunityID != null,true,false)}">
+                      <apex:commandButton value="Sample" action="{!getListProductsToSample}" reRender="form2,testpopup,pgBlock" status="sampleComponentStatus">
+                   <apex:param name="familyId" value="{!childpackage.Apttus_Config2__RelatedProductId__r.Id}" assignTo="{!prodId}"/>
+
+                   <apex:param name="ModeId" value="true" assignTo="{!productMode}"/>  
+
+                    </apex:commandButton>
+                    <apex:actionStatus id="sampleComponentStatus" >
+                        <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                        </apex:facet>
+                     </apex:actionStatus>
+          </apex:column>
+      </apex:pageblocktable>
+     </apex:pageblock>
+     </apex:tab>
+     
+     <apex:tab switchType="client" label="Product Details" name="productDetails">
+     <apex:pageblock >
+     <apex:detail subject="{!productCatalogIdFromURL}" relatedList="false" title="false"/>
+     </apex:pageblock>
+    <style>
+    .apexp .bPageBlock.apexDefaultPageBlock .pbBody .pbSubheader
+    {
+     color : black;
+    }
+    input.btn[name="edit"] {
+            display: none;
+        }
+    input.btn[name="del"] {
+            display: none;
+        }
+        input.btn[name="clone"] {
+            display: none;
+        }
+        input.btn[name="apttus_config2__productconsole"] {
+            display: none;
+        }
+    </style>
+
+     </apex:tab>
+     <!--Added By Pooja -->
+     <apex:tab switchType="client" label="Competitor Info" name="competitive" rendered="{!listForeCompetitor.size>0}">
+     <apex:pageBlock >
+     
+       <apex:pageblocktable value="{!listForeCompetitor}" var="eLearning" columnsWidth="600px,1px,1px">
+         <apex:column >
+           <!--<apex:outputlink value="/{!eLearning.Apttus_Config2__RelatedProductId__r.Id}"><font size="3">{!eLearning.Apttus_Config2__RelatedProductId__r.Name}</font></apex:outputlink><br/>-->
+           <apex:commandLink value="{!eLearning.Apttus_Config2__RelatedProductId__r.Name}"  action="{!redirectProduct}" style="font-size:120% !important;">
+              <apex:param assignTo="{!redirectProductId}" name="About This Product" value="{!eLearning.Apttus_Config2__RelatedProductId__r.Id}"/>
+              
+          </apex:commandLink><br/><br/>
+          <!-- <br/><apex:outputtext value="{!eLearning.Apttus_Config2__RelatedProductId__r.Full_Author_and_Affiliation__c}"/>--> <br/>
+           <apex:outputText value="{!eLearning.Apttus_Config2__RelatedProductId__r.Publisher__c}" rendered="{!If(eLearning.Apttus_Config2__RelatedProductId__r.Publisher__c!=null,true,false)}"/>&nbsp;
+           <apex:outputtext rendered="{!If(eLearning.Apttus_Config2__RelatedProductId__r.Publisher__c!=null,true,false)}"> | </apex:outputtext>
+           <apex:outputText value=" {!eLearning.Apttus_Config2__RelatedProductId__r.Author__c} " rendered="{!If(eLearning.Apttus_Config2__RelatedProductId__r.Author__c!=null,true,false)}"/>
+           <apex:outputtext rendered="{!If(eLearning.Apttus_Config2__RelatedProductId__r.Author__c!=null,true,false)}"> | </apex:outputtext>
+           <apex:outputText value=" {!eLearning.Apttus_Config2__RelatedProductId__r.Edition__c}" rendered="{!If(eLearning.Apttus_Config2__RelatedProductId__r.Edition__c!=null,true,false)}" /><br/>
+         <!--  <apex:outputText value="ISBN10-{!eLearning.Apttus_Config2__RelatedProductId__r.SBN__c}"/>
+           <apex:outputText value=" ISBN-{!eLearning.Apttus_Config2__RelatedProductId__r.ISBN__c}"/><br/>-->
+           <apex:outputtext rendered="{!If(eLearning.Apttus_Config2__RelatedProductId__r.Copyright_Year__c!=null,true,false)}">&copy;</apex:outputtext>
+           <apex:outputText value="{!eLearning.Apttus_Config2__RelatedProductId__r.Copyright_Year__c}"/>
+            
+           &nbsp; <apex:outputText value="| {!eLearning.Apttus_Config2__RelatedProductId__r.Competitor_Edition_Status__c}" rendered="{!if(eLearning.Apttus_Config2__RelatedProductId__r.Competitor_Edition_Status__c != null,true,false)}"/>
+    <!--       // <apex:outputText value="{!eLearning.Apttus_Config2__RelatedProductId__r.Binding__c} | " rendered="{!eLearning.Apttus_Config2__RelatedProductId__r.Binding__c} != null"/> 
+          // <apex:outputText value="{!eLearning.Apttus_Config2__RelatedProductId__r.Status__c} | "/>
+          // <apex:outputText value="{!eLearning.Apttus_Config2__RelatedProductId__r.InstockDate__c} | "/>
+          <apex:outputText value="{!eLearning.Apttus_Config2__RelatedProductId__r.Priority__c} | " rendered="{!eLearning.Apttus_Config2__RelatedProductId__r.Priority__c} != null"/>
+           <apex:outputText value="{!eLearning.Apttus_Config2__RelatedProductId__r.Sub_brand__c} | " rendered="{!eLearning.Apttus_Config2__RelatedProductId__r.Sub_brand__c} != null"/>
+           <apex:outputText value="{!eLearning.Apttus_Config2__RelatedProductId__r.Platform__c} | " rendered="{!eLearning.Apttus_Config2__RelatedProductId__r.Platform__c} != null"/>
+           <apex:outputText value="{!eLearning.Apttus_Config2__RelatedProductId__r.URL__c}" rendered="{!eLearning.Apttus_Config2__RelatedProductId__r.URL__c} != null"/> 
+                -->  
+           <br/><apex:commandLink action="{!showMarketPopup}" reRender="tstpopup" rendered="{!IF(Contains(keyString,eLearning.Id),true,false)}"><font size="2">Competitive Marketing Information</font>
+                   <apex:param name="nickName"
+                value="{!eLearning.Id}"
+                assignTo="{!CatalogRelatedProductId}"/>
+           </apex:commandLink><br/>
+         </apex:column>
+        <!-- <apex:column headerValue="Track" styleClass="aligntop">
+                    <apex:commandButton value="Track" action="{!addToOppty}" reRender="addToOpty,pgBlock">
+                        <apex:param name="addToOptyProductId" value="{!eLearning.Apttus_Config2__RelatedProductId__r.Id}" assignTo="{!addToOptyProductId}"/> 
+                    </apex:commandButton> 
+          </apex:column>
+          <apex:column headerValue="Sample" styleClass="aligntop">
+                   <apex:commandButton value="Sample" action="{!getProductfamilymembers}"  reRender="form2,testpopup,pgBlock">
+                   <apex:param name="familyId" value="{!eLearning.Apttus_Config2__RelatedProductId__r.Id}" assignTo="{!prodId}"/> 
+                    </apex:commandButton>
+          </apex:column>-->
+       </apex:pageblocktable>
+       <apex:outputPanel id="tstpopup">
+           
+            <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayMarketInfoPopup}"/>
+            <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayMarketInfoPopup}">
+                <apex:outputPanel layout="block" style="height:93%">
+                    <table style="height:100%">
+                        <tr> 
+                            <td style="vertical-align:top;width:25%;">
+                                <apex:outputPanel layout="block" style="overflow-y:auto; height:100%">
+                                    <apex:repeat value="{!SubList}" var="con">
+                                        <apex:commandLink reRender="tstpopup,outid" action="{!showvalueinpopup}" rendered="{!con.Related_Product__c == CatalogRelatedProductId}"><font size="3">{!con.Sub_Type__c}</font>
+                                            <apex:param name="nickName" value="{!con.Id}" assignTo="{!CatalogMarketId}"/>
+                                        </apex:commandLink><br/><br/>
+                                    </apex:repeat>
+                                </apex:outputPanel>
+                            </td>
+                            <td>
+                                <apex:outputPanel layout="block" style="overflow-y:auto; height:100%; word-break:break-word;">
+                                    <apex:outputText id="outid" value="{!value}" escape="false" rendered="{!dispVal}"></apex:outputText>
+                                </apex:outputPanel>
+                            </td>
+                        </tr>
+                    </table>
+                </apex:outputPanel>
+                <apex:outputPanel layout="block">
+                    <apex:commandButton id="refreshSearchResults" value="Close" action="{!closePopup}" rerender="tstpopup" style="float: right;" />
+                </apex:outputPanel>
+            </apex:outputPanel>
+            <apex:actionFunction action="{!closePopup}" name="refreshSearchResults1" reRender="tstpopup"/>
+            
+        </apex:outputPanel>
+      </apex:pageBlock>
+     </apex:tab>
+     
+     <apex:tab switchType="client" label="Packages" name="Packages" rendered="{!renderProductPkgTab!=0}" ontabenter="loadProducts('getProductPackageDetails','Packages');" id="thePackages">
+     <apex:pageblock >
+     <apex:pageblocktable value="{!prodMap}" var="package" columnsWidth="600px,2px,2px,2px,2px">
+          <apex:column >
+         <!-- <apex:outputlink value="/{!package.Apttus_Config2__ProductId__r.Id}"><font size="3">{!package.Apttus_Config2__ProductId__r.Name}</font></apex:outputlink><br/><br/>-->
+        <apex:commandLink value="ISBN10-{!setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.SBN__c} | ISBN-{!setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.ISBN__c} "  action="{!redirectProduct}" style="font-size:120% !important">
+              <apex:param assignTo="{!redirectProductId}" name="Package" value="{!setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Id}"/>
+              
+          </apex:commandLink><br/><br/>
+        <!--  <apex:outputtext value="ISBN10-{!package.Apttus_Config2__ProductId__r.SBN__c} " rendered="{!If(package.Apttus_Config2__ProductId__r.SBN__c!=null,true,false)}" style="font-size:120%;"></apex:outputtext>
+           <apex:outputtext value="| ISBN-{!package.Apttus_Config2__ProductId__r.ISBN__c} " rendered="{!If(package.Apttus_Config2__ProductId__r.ISBN__c!=null,true,false)}" style="font-size:120%;"></apex:outputtext><br/><br/>
+          
+          <apex:outputtext value="ISBN10-{!package.Apttus_Config2__ProductId__r.SBN__c} |" rendered="{!If(package.Apttus_Config2__ProductId__r.SBN__c!=null,true,false)}"></apex:outputtext>
+        &nbsp;<apex:outputtext value="ISBN-{!package.Apttus_Config2__ProductId__r.ISBN__c} " rendered="{!If(package.Apttus_Config2__ProductId__r.ISBN__c!=null,true,false)}"></apex:outputtext><br/>-->
+          <apex:outputtext rendered="{!If(setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Copyright_Year__c!=null,true,false)}">&copy;</apex:outputtext>
+          <apex:outputtext value="{!setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Copyright_Year__c} |" rendered="{!If(setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Copyright_Year__c!=null,true,false)}"></apex:outputtext>
+         &nbsp;<apex:outputtext value="{!setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Status__c}" rendered="{!If(setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Status__c!=null,true,false)}"></apex:outputtext><br/><br/>
+           <div style="align:left;padding-left:60px;">
+           <apex:repeat value="{!prodMap[package]}" var="childpackage1">
+         <!-- <apex:outputlink value="/{!childpackage1.Apttus_Config2__RelatedProductId__r.Id}"><font size="3">{!childpackage1.Apttus_Config2__RelatedProductId__r.Name}</font></apex:outputlink><br/><br/>-->
+         <br/> <apex:commandLink value="{!childpackage1.Apttus_Config2__RelatedProductId__r.Name}"  action="{!redirectProduct}" style="font-size:120% !important">
+              <apex:param assignTo="{!redirectProductId}" name="childPackage" value="{!childpackage1.Apttus_Config2__RelatedProductId__r.Id}"/>
+              
+          </apex:commandLink><br/><br/>
+          <apex:outputtext value="{!childpackage1.Apttus_Config2__RelatedProductId__r.Author__c}" rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.Author__c!=null,true,false)}"></apex:outputtext><br/>
+          <apex:outputtext value="ISBN10-{!childpackage1.Apttus_Config2__RelatedProductId__r.SBN__c} |" rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.SBN__c!=null,true,false)}"></apex:outputtext>
+         &nbsp;<apex:outputtext value="ISBN-{!childpackage1.Apttus_Config2__RelatedProductId__r.ISBN__c} " rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.ISBN__c!=null,true,false)}"></apex:outputtext><br/>
+          <apex:outputtext rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.Copyright_Year__c!=null,true,false)}">&copy;</apex:outputtext>
+          <apex:outputtext value="{!childpackage1.Apttus_Config2__RelatedProductId__r.Copyright_Year__c} |" rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.Copyright_Year__c!=null,true,false)}"></apex:outputtext>
+         &nbsp;<apex:outputtext value="{!childpackage1.Apttus_Config2__RelatedProductId__r.Status__c} |" rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.Status__c!=null,true,false)}"></apex:outputtext>
+         &nbsp;<apex:outputtext value="{0,date,MM'/'dd'/'yyyy}" rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.InstockDate__c!=null,true,false)}">
+          <apex:param value="{!childpackage1.Apttus_Config2__RelatedProductId__r.InstockDate__c}" /></apex:outputtext><br/>
+          
+          <apex:outputPanel rendered="{!NOT(ISBLANK(childpackage1.Apttus_Config2__RelatedProductId__r.Sub_brand__c))}" layout="none">
+          <apex:outputtext value="{!childpackage1.Apttus_Config2__RelatedProductId__r.Sub_brand__c}" rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.Sub_brand__c!=null,true,false)}"></apex:outputtext><br/></apex:outputPanel>
+          <apex:outputPanel rendered="{!NOT(ISBLANK(childpackage1.Apttus_Config2__RelatedProductId__r.Binding__c))}" layout="none">
+          <apex:outputtext value="{!childpackage1.Apttus_Config2__RelatedProductId__r.Binding__c} " rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.Binding__c!=null,true,false)}"></apex:outputtext><br/></apex:outputPanel>
+          <!--<apex:outputtext value="{!childpackage1.Apttus_Config2__RelatedProductId__r.Platform__c}" rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.Platform__c!=null,true,false)}"></apex:outputtext>-->
+          <apex:outputPanel rendered="{!NOT(ISBLANK(childpackage1.Apttus_Config2__RelatedProductId__r.URL__c))}" layout="none">
+          <apex:outputlink value="/{!childpackage1.Apttus_Config2__RelatedProductId__r.URL__c}" rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.URL__c!=null,true,false)}">{!childpackage1.Apttus_Config2__RelatedProductId__r.URL__c}</apex:outputlink><br/></apex:outputPanel>
+         <!-- <apex:outputPanel rendered="{!NOT(ISBLANK(childpackage1.Apttus_Config2__RelatedProductId__r.IRC_Link__c))}" layout="none">-->
+          <apex:outputlink value="/{!childpackage1.Apttus_Config2__RelatedProductId__r.IRC_Link__c} " rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.IRC_Link__c!=null,true,false)}">IRC:{!childpackage1.Apttus_Config2__RelatedProductId__r.IRC_Link__c}</apex:outputlink><br/>
+          <!--&nbsp;<apex:outputtext value="| {!childpackage1.Apttus_Config2__RelatedProductId__r.Priority__c}" rendered="{!If(childpackage1.Apttus_Config2__RelatedProductId__r.Priority__c!=null,true,false)}"></apex:outputtext><br/><br/>&nbsp;&nbsp;-->
+          </apex:repeat>
+          </div>
+          </apex:column>
+          
+                
+                <apex:column headerValue="Net" id="net" rendered="{!isRender}" styleClass="aligntop">
+                  <!--  <apex:outputText value="{!mapDisplayProductPkgNetPrice[package.Apttus_Config2__ProductId__r.Id]}"></apex:outputText>-->
+               <apex:repeat value="{!mapDisplayProductPkgNetPrice}" var="Netkey12"> <!--yourMapVariable is a map and you are not sure whether it contains or not the key 'Name' -->
+                        <!-- <apex:outputText rendered="{!Netkey12==package.Apttus_Config2__ProductId__r.Id}"> 
+                                               {!mapDisplayProductPkgNetPrice[package.Apttus_Config2__ProductId__r.Id]} 
+                          </apex:outputText>-->
+                          <apex:outputText value="{0, number, 00.00}"  rendered="{!Netkey12==setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Id}">
+                               <apex:param value="{!mapDisplayProductPkgNetPrice[setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Id]}" />
+                          </apex:outputText>
+                  </apex:repeat>
+                </apex:column>
+                <apex:column headerValue="SRP" id="list" rendered="{!isRender}" styleClass="aligntop">
+                   <!-- <apex:outputText value="{!mapDisplayProductPkgListPrice[package.Apttus_Config2__ProductId__r.Id]}" ></apex:outputText>-->
+               <apex:repeat value="{!mapDisplayProductPkgListPrice}" var="Netkey11"> <!--yourMapVariable is a map and you are not sure whether it contains or not the key 'Name' -->
+                   <!-- <apex:outputText rendered="{!Netkey11==package.Apttus_Config2__ProductId__r.Id}"> 
+                                               {!mapDisplayProductPkgListPrice[package.Apttus_Config2__ProductId__r.Id]} 
+                     </apex:outputText>-->
+                     <apex:outputText value="{0, number, 00.00}"  rendered="{!Netkey11==setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Id}">
+                               <apex:param value="{!mapDisplayProductPkgListPrice[setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Id]}" />
+                          </apex:outputText>
+                  </apex:repeat>
+                </apex:column>
+          
+          <apex:column headerValue="Track" styleClass="aligntop" rendered="{!If(opportunityID != null,true,false)}">
+                    <apex:commandButton value="Track" action="{!addToOppty}" reRender="addToOpty,pgBlock" status="trackPackageStatus">
+                        <apex:param name="addToOptyProductId" value="{!setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Id}" assignTo="{!addToOptyProductId}"/> 
+                    </apex:commandButton> &nbsp;&nbsp;&nbsp;
+                    <apex:actionStatus id="trackPackageStatus" >
+                        <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                        </apex:facet>
+                     </apex:actionStatus>
+          </apex:column>
+          <apex:column headerValue="Sample" styleClass="aligntop" rendered="{!If(opportunityID != null,true,false)}">
+                   <apex:commandButton value="Sample" action="{!getListProductsToSample}"  reRender="form2,testpopup,pgBlock" status="samplePackageStatus">
+                     <apex:param name="familyId" value="{!setWithRelatedPkgID1[package].Apttus_Config2__ProductId__r.Id}" assignTo="{!prodId}"/> 
+
+                     <apex:param name="ModeId" value="true" assignTo="{!productMode}"/>  
+
+                    </apex:commandButton>&nbsp;&nbsp;&nbsp;
+                    <apex:actionStatus id="samplePackageStatus" >
+                        <apex:facet name="start" >
+                            <img src="/img/loading.gif" />                    
+                        </apex:facet>
+                     </apex:actionStatus>
+          </apex:column>
+      </apex:pageblocktable>
+     </apex:pageblock>
+     </apex:tab>
+     
+
+     
+    </apex:tabPanel>
+    </div>  
+ </apex:pageblock>
+  </div>
+  </apex:form>
+  <apex:form id="form2">
+  <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayproduct}" id="testpopup" />
+        <apex:outputPanel styleClass="custPopup1" layout="block" rendered="{!displayproduct}" >
+            <apex:pageBlock >
+             <apex:pageMessage summary="No products are avaliable.Please press Cancel to return." rendered="{!emptyproduct}" severity="info" strength="2" id="emptyproductmessage"></apex:pageMessage>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Sample" action="{!userselectedproducts}" reRender="form2,testpopup,pgBlock,sampletab"/>
+                <apex:commandButton value="Cancel" action="{!dsproduct}" reRender="form2,testpopup,pgBlock,sampletab"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!productsToSample}" var="lineitem" id="table">
+            <apex:column headerValue="Sel" >
+             <apex:inputCheckbox value="{!lineitem.selected}" id="theCheckbox"/>
+            </apex:column>
+            <apex:column headerValue="Product" id="product" value="{!lineitem.product.name}"/>
+            <apex:column headerValue="ISBN13" id="isbn" value="{!lineitem.product.ISBN__c}"/>
+            <apex:column headerValue="Author" id="author" value="{!lineitem.product.Author__c}"/>
+            <apex:column headerValue="Status" id="status" value="{!lineitem.product.Status__c}"/>
+            <apex:column headerValue="InStock Date" id="stockdate" value="{!lineitem.product.InstockDate__c}"/>
+            <apex:column headerValue="Brand" id="brand" value="{!lineitem.product.Status__c}"/>
+            <apex:column headerValue="IRC" id="irc" value="{!lineitem.product.IRC_Indicator__c}"/>
+            <apex:column headerValue="Res" id="restriction" value="{!lineitem.Restriction}"/>
+            <apex:column headerValue="Sub ISBN" id="subisbn" value="{!lineitem.product.Free_Copy_Substitute__r.ISBN__c}" title="{!lineitem.product.Free_Copy_Substitute__r.name}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>              
+        </apex:outputpanel>
+        </apex:form>
+
+</apex:page>

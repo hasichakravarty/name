@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This email template is used for sending an email to queue members when a Cancellation Request is submitted</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Cancellation Transfer</name>
+    <style>none</style>
+    <subject>Email Notification for Cancellation Request</subject>
+    <type>text</type>
+</EmailTemplate>

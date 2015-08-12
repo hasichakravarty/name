@@ -1,0 +1,295 @@
+<apex:page controller="PS_LeaveBehindController"  renderAs="pdf"  > 
+
+<apex:form > 
+<apex:pageBlock >
+
+<div  width="5%">
+ <table >
+ <tr>
+ <td>
+<!--<apex:image value="http://vig-fp.prenhall.com/bigcovers/0133003795.jpg" height="180" width="150"/>-->
+
+<apex:Image url="{!product.Image__c}" height="230"  width="150"  rendered="{!If(product.Image__c!=null,true,false)}"/>
+
+<!--<apex:Image value="/servlet/servlet.FileDownload?file={!product.Image__c}" height="230" width="150"  rendered="{!If(product.Image__c!=null,true,false)}"/>-->
+<apex:image value="{!$Resource.OneCRMProductDefaultImage}"  height="230" width="150" rendered="{!If(product.Image__c==null,true,false)}"/>
+</td>
+<td>
+
+<apex:outputPanel rendered="{!if(product.Name!=null,true,false)}">
+ <apex:outputText value="{!product.Name}" /> </apex:outputPanel>
+ 
+ <apex:outputPanel rendered="{!if(product.Full_Author_and_Affiliation__c!=null,true,false)}">
+ <br/><apex:outputText value="{!product.Full_Author_and_Affiliation__c}" escape="false" > </apex:outputText>
+  </apex:outputPanel>
+  
+ <apex:outputPanel rendered="{!if(product.Copyright_Year__c!=null,true,false)}">
+ <br/><apex:outputText >&copy;&nbsp;&nbsp; </apex:outputText> <apex:outputText value="{!product.Copyright_Year__c}"></apex:outputText><br/> 
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!if(product.InstockDate__c!=null,true,false)}">
+ <br/><apex:outputText >Instock Date:</apex:outputText>&nbsp;&nbsp; 
+  <apex:outputText value="{0,date,dd'-'MMM'-'yyyy}" rendered="{!If(product.InstockDate__c!=null,true,false)}">
+  <apex:param value="{!product.InstockDate__c}" />
+   </apex:outputText> 
+     </apex:outputPanel> 
+
+ <apex:outputPanel rendered="{!AND(product_status!=null,product.InstockDate__c!=null)}">&nbsp; |&nbsp; </apex:outputPanel>
+ 
+<apex:outputPanel rendered="{!if(product_status!=null,true,false)}">
+ <apex:outputText >Status:</apex:outputText>&nbsp;&nbsp;
+<apex:outputText rendered="{!If(product_status!=null,true,false)}" value="{!product_status }" ></apex:outputText>&nbsp; 
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!if(product.Digital_Instock_Date__c!=null,true,false)}">
+<br/><apex:outputText >DigitalInstock Date:</apex:outputText>&nbsp;&nbsp;
+<apex:outputText value="{0,date,dd'-'MMM'-'yyyy}" rendered="{!If(product.Digital_Instock_Date__c!=null,true,false)}">
+  <apex:param value="{!product.Digital_Instock_Date__c}" /> 
+  </apex:outputText> 
+ </apex:outputPanel>
+ 
+<apex:outputPanel rendered="{!AND(product.Digital_Instock_Date__c!=null,product.Digital_Status__c!=null)}">&nbsp; |&nbsp; </apex:outputPanel>
+ 
+ <apex:outputPanel rendered="{!If(product.Digital_Status__c!=null,true,false)}">
+ <apex:outputText >Digital Status:</apex:outputText>&nbsp;&nbsp;
+  </apex:outputPanel>
+  
+   <apex:outputPanel rendered="{!If(product.Digital_Status__c!=null,true,false)}">
+ <apex:outputText value="{!product.Digital_Status__c}">
+ 
+ </apex:outputText>  
+ 
+   </apex:outputPanel> 
+  
+ <apex:outputPanel rendered="{!If(product.Publisher__c!=null,true,false)}">   
+<br/><apex:outputText >Publisher:</apex:outputText>&nbsp;&nbsp; <apex:outputText value="{!product.Publisher__c}"></apex:outputText><br/> 
+ </apex:outputPanel>
+ </td>
+ </tr>
+ </table >
+ </div>  
+  
+<div ><apex:outputLabel rendered="{!If(booleanNetprice == true,true,false) && if(sNetprice!= null,true,false) }">Net Price:</apex:outputLabel>&nbsp;&nbsp; 
+<apex:outputLabel rendered="{!if(sNetprice!= null,true,false)&& If(booleanNetprice == true,true,false) }" value="${!sNetprice }"></apex:outputLabel>
+ </div>
+<div><apex:outputLabel rendered="{!If(booleanListprice == true,true,false) && if(sListprice != null,true,false)}">Suggested Retail Price:</apex:outputLabel>&nbsp;&nbsp;
+ <apex:outputLabel rendered="{!if(sListprice != null,true,false) && If(booleanListprice == true,true,false)}" value="${!sListprice }"></apex:outputLabel>
+  </div>
+ <hr/>
+ 
+<div> 
+<apex:outputPanel rendered="{!AND(productListPackage !=null,PackageSize  !=0)}">
+<apex:outputLabel rendered="{!if(productListPackage!=null,true,false)}"> This product contains:</apex:outputLabel></apex:outputPanel><br/>
+<apex:pageBlockTable value="{!productListPackage}" var="productPackage">
+<apex:column >
+<apex:outputtext value="{!productPackage.Apttus_Config2__RelatedProductId__r.Name }"/> &nbsp;| &nbsp;
+ISBN-10:&nbsp; <apex:outputtext value="{!productPackage.Apttus_Config2__RelatedProductId__r.SBN__c}"/>
+
+</apex:column>
+</apex:pageBlockTable>
+
+</div>
+ 
+<br/>
+<div>
+   <apex:repeat value="{!marketingcontent}" var="key" >
+     <b> <apex:outputText value="{!key}" /></b> <br/><br/>
+   <apex:outputText value="{!marketingcontent[key]}" escape="false" /><br/><br/>
+    </apex:repeat>
+    
+<apex:outputPanel rendered="{!if(producturl == true,true,false) && if(product.URL__c!= null,true,false)}">  
+<b>Product URL</b> <br/> <br/> <apex:outputtext value="{!product.URL__c}"/>  
+</apex:outputPanel> 
+<apex:outputPanel rendered="{!if(producturl == true,true,false) && if(product.URL__c == null,true,false)}"> 
+ 
+</apex:outputPanel> 
+</div>    
+  
+<br/>  
+
+<div> 
+ <apex:outputLabel rendered="{!AND(InstructortResources!=null,InstResourcesSize !=0,instructor==true)}"><b>Instructor Resources </b><br/><br/>
+ <apex:pageBlockTable value="{!InstructortResources}" var="InstStdntResources" rendered="{!AND(InstructortResources!=null,InstResourcesSize !=0,instructor==true)}"> 
+ <apex:column >
+ 
+<apex:outputPanel rendered="{!if(InstStdntResources.Apttus_Config2__RelatedProductId__r.Name != null,true,false)}">
+<b><apex:outputtext value="{!InstStdntResources.Apttus_Config2__RelatedProductId__r.Name}"/> </b>
+</apex:outputPanel><br/>
+<apex:outputPanel rendered="{!if(InstStdntResources.Apttus_Config2__RelatedProductId__r.Author__c!= null,true,false)}">
+by&nbsp;<apex:outputtext value="{!InstStdntResources.Apttus_Config2__RelatedProductId__r.Author__c}"/>
+</apex:outputPanel><br/>
+
+<apex:outputPanel rendered="{!if(InstStdntResources.Apttus_Config2__RelatedProductId__r.SBN__c!= null,true,false)}" >
+ISBN-10:&nbsp;<apex:outputtext value="{!InstStdntResources.Apttus_Config2__RelatedProductId__r.SBN__c}"/> 
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!if(InstStdntResources.Apttus_Config2__RelatedProductId__r.ISBN__c!= null,true,false)}">
+&nbsp;|&nbsp;ISBN-13:&nbsp;<apex:outputtext value="{!InstStdntResources.Apttus_Config2__RelatedProductId__r.ISBN__c}"/> 
+</apex:outputPanel><br/>
+
+<apex:outputPanel rendered="{!if(InstStdntResources.Apttus_Config2__RelatedProductId__r.Copyright_Year__c!= null,true,false)}" >
+&copy;&nbsp;<apex:outputtext value="{!InstStdntResources.Apttus_Config2__RelatedProductId__r.Copyright_Year__c}"/> 
+</apex:outputPanel> <br/>
+
+
+<apex:outputPanel rendered="{!if(InstStdntResources.Apttus_Config2__RelatedProductId__r.Status__c!= null,true,false) && if(InstStdntResources.Apttus_Config2__RelatedProductId__r.Status__c!= '',true,false) }">
+Status:<apex:outputtext value="{!inst_status}"/> &nbsp;
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!if(InstStdntResources.Apttus_Config2__RelatedProductId__r.InstockDate__c!= null,true,false)}">
+|&nbsp;Instock Date:&nbsp;<apex:outputtext value="{0,date,dd'-'MMM'-'yyyy}" > 
+<apex:param value="{!InstStdntResources.Apttus_Config2__RelatedProductId__r.InstockDate__c}" /> 
+</apex:outputtext>
+</apex:outputPanel><br/>
+<apex:outputPanel rendered="{!if(InstStdntResources.Apttus_Config2__RelatedProductId__r.URL__c != null,true,false)}">
+<apex:outputtext value="{!InstStdntResources.Apttus_Config2__RelatedProductId__r.URL__c }"/>
+</apex:outputPanel><br/>
+<apex:outputPanel rendered="{!if(instDescriptions ==true,true,false) && if(InstStdntResources.Apttus_Config2__RelatedProductId__r.Description!= null,true,false) }">
+<apex:outputtext value="{!InstStdntResources.Apttus_Config2__RelatedProductId__r.Description}"/>
+
+</apex:outputPanel><br/><br/>
+ </apex:column>
+ 
+</apex:pageBlockTable>  
+</apex:outputLabel>
+ </div> 
+ <br/>
+ 
+<div>   
+ <apex:outputLabel rendered="{!AND(StudentResources !=null,StndResourcesSize  !=0,student==true)}" ><b>StudentResources </b><br/><br/>
+ <apex:pageBlockTable value="{!StudentResources }" var="StdntResources"  > 
+ <apex:column >
+ <apex:outputPanel rendered="{!if(StdntResources.Apttus_Config2__RelatedProductId__r.Name != null,true,false)}">
+<b><apex:outputtext value="{!StdntResources.Apttus_Config2__RelatedProductId__r.Name}"/></b> 
+</apex:outputPanel><br/>
+
+<apex:outputPanel rendered="{!if(StdntResources.Apttus_Config2__RelatedProductId__r.Author__c!= null,true,false)}">
+by&nbsp;<apex:outputtext value="{!StdntResources.Apttus_Config2__RelatedProductId__r.Author__c}"/>
+</apex:outputPanel><br/>
+
+
+<apex:outputPanel rendered="{!if(StdntResources.Apttus_Config2__RelatedProductId__r.SBN__c!= null,true,false)}" >
+ISBN-10:&nbsp;<apex:outputtext value="{!StdntResources.Apttus_Config2__RelatedProductId__r.SBN__c}"/> 
+</apex:outputPanel>
+
+<apex:outputPanel rendered="{!if(StdntResources.Apttus_Config2__RelatedProductId__r.ISBN__c!= null,true,false)}">
+&nbsp;|&nbsp;ISBN-13:&nbsp;<apex:outputtext value="{!StdntResources.Apttus_Config2__RelatedProductId__r.ISBN__c}"/> 
+</apex:outputPanel><br/>
+
+<apex:outputPanel rendered="{!if(StdntResources.Apttus_Config2__RelatedProductId__r.Copyright_Year__c!= null,true,false)}" >
+&copy;&nbsp; <apex:outputtext value="{!StdntResources.Apttus_Config2__RelatedProductId__r.Copyright_Year__c}"/> 
+</apex:outputPanel> <br/>
+
+Status:<apex:outputPanel rendered="{!if(StdntResources.Apttus_Config2__RelatedProductId__r.Status__c!= null,true,false)}">
+<apex:outputtext value="{!StdntResources.Apttus_Config2__RelatedProductId__r.Status__c}"/>
+</apex:outputPanel> 
+
+<apex:outputPanel rendered="{!if(StdntResources.Apttus_Config2__RelatedProductId__r.InstockDate__c!= null,true,false)}">
+|&nbsp;Instock Date:&nbsp;<apex:outputtext value="{0,date,dd'-'MMM'-'yyyy}" > 
+<apex:param value="{!StdntResources.Apttus_Config2__RelatedProductId__r.InstockDate__c}" /> 
+</apex:outputtext>
+</apex:outputPanel><br/>
+
+<apex:outputPanel rendered="{!if(StdntResources.Apttus_Config2__RelatedProductId__r.URL__c != null,true,false)}">
+<apex:outputtext value="{!StdntResources.Apttus_Config2__RelatedProductId__r.URL__c }"/>
+</apex:outputPanel><br/>
+<apex:outputPanel rendered="{!if(StdntResources==true,true,false) && if(StdntResources.Apttus_Config2__RelatedProductId__r.Description!= null,true,false) }">
+<apex:outputtext value="{!StdntResources.Apttus_Config2__RelatedProductId__r.Description}"/>
+</apex:outputPanel><br/><br/>
+ </apex:column>
+</apex:pageBlockTable>  
+</apex:outputLabel>
+ </div>  
+
+<div> 
+
+<apex:outputPanel rendered="{!AND(PearsonChoiceList!=null,pearschoiceSize !=0,pearsonchoices ==true)}" ><b>Pearson Choices </b><br/>
+<apex:pageBlockTable value="{!PearsonChoiceList}" border="1"  var="pearsonChoice" columnsWidth="7%,7%" cellpadding="0" cellspacing="0"> 
+
+<apex:column >
+<apex:outputtext style="font-size:80%;" value="{!pearsonChoice.BrandCalc1__c}"/> 
+<apex:outputtext style="font-size:80%;" value="{!pearsonChoice.BrandCalc2__c}" rendered="{!NOT(ISNULL(pearsonChoice.BrandCalc2__c))}"/> 
+</apex:column><br/>
+<apex:column headerValue="Includes Pearson eText?"><apex:outputtext style="font-size:80%;" value="{!pearsonChoice.Includes_Pearon_eText__c}"/> </apex:column><br/>
+<apex:column headerValue="Access Length"><apex:outputtext style="font-size:80%;" value="{!pearsonChoice.Access_Length__c}"/> </apex:column><br/>
+<apex:column headerValue="Bookstore ISBN(s)">
+<apex:outputtext style="font-size:80%;" value="{!pearsonChoice.Bookstore_ISBN_s__c}" escape="false" /> </apex:column><br/>
+
+<apex:column headerValue="Price to Bookstore" rendered="{!If(PricetoBookstore==true,true,false)}">
+<apex:outputText value="{0, number, 00.00}" style="font-size:80%;" >
+      <apex:param value="{!pearsonChoice.Bookstore_Price__c}"  />
+</apex:outputText>
+<!--<apex:outputtext rendered="{!If(PricetoBookstore==true,true,false)}" value="{!pearsonChoice.Bookstore_Price__c}"/> -->
+</apex:column><br/>
+
+<apex:column headerValue="Print Offer" rendered="{!If(Printoffer==true,true,false)}">
+<apex:outputtext style="font-size:80%;" value="{!pearsonChoice.Print_Offer__c}"/>
+ </apex:column><br/>
+
+<apex:column headerValue="Instant Access" rendered="{!If(InstantAccess==true,true,false)}">
+<apex:outputText value="{0, number, 00.00}" style="font-size:80%;" >
+      <apex:param value="{!pearsonChoice.Instant_Access_Price__c}" />
+</apex:outputText>
+ </apex:column><br/>
+
+
+<apex:column headerValue="Suggested Retail Price" rendered="{!If(SuggestedRetailPrice==true,true,false)}">
+<apex:repeat value="{!suggestedRetPrice}" var="Netkey1">
+                    <apex:outputText value="{0, number, 00.00}" rendered="{!Netkey1==pearsonChoice.Bookstore__c}" style="font-size:80%;">
+                       <apex:param value="{!suggestedRetPrice[Netkey1]}"/> 
+                     </apex:outputText>
+                  </apex:repeat>
+</apex:column><br/>
+
+<apex:column headerValue="eText Offer" rendered="{!If(eTextOffer==true,true,false)}">
+<apex:outputText style="font-size:80%;" value="{0, number, 00.00}" >
+      <apex:param value="{!pearsonChoice.eText_Offer_Price__c}" />
+</apex:outputText>
+
+<!--<apex:outputtext rendered="{!If(eTextOffer==true,true,false)}" value="{!pearsonChoice.eText_Offer_Price__c}"/> --> 
+
+
+</apex:column><br/>
+</apex:pageBlockTable> 
+</apex:outputPanel>
+</div>
+<br/>
+<br/>
+
+<!--<apex:outputPanel rendered="{!if(mailAttachment!=null, true, false)}"> -->
+
+
+
+<div>
+<apex:outputPanel rendered="{!if(productFamilyIdFromUrl!=null,true,false)}"> 
+<b><u>Pearson Custom Publishing</u></b> <br/>
+ Working with Pearson Custom Publishing, professor's can create their own professionally produced customized
+textbooks and media products to best compliment their course. Pearson Custom Publishing offers high-quality 
+content, professional design, quick production, and reliable on-time delivery. The result is valuable textbook
+that students will use, cover to cover that is tailored to meet exactly the needs of their professor, students and 
+course.<br/>
+www.pearsoncustom.com
+
+Information is accurate as of &nbsp;&nbsp;
+<apex:page >
+<apex:outputText value="{0,date,dd'-'MMM'-'yyyy}" escape="false">
+  <apex:param value="{!today()}"/>
+   </apex:outputText>
+</apex:page> 
+
+<hr> </hr>
+</apex:outputPanel>
+<table>
+<tr>
+<td>&copy;&nbsp;Pearson Higher Education&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><apex:image value="{!$Resource.Pearson_logo}" height="35" width="150"/>&nbsp;&nbsp;&nbsp;</td>
+<td> http://www.pearsonhighered.com</td>
+</tr>
+</table>
+
+</div> 
+
+ 
+</apex:pageBlock>  
+</apex:form> 
+</apex:page>

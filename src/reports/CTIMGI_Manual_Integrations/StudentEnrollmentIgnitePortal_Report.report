@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$FirstName__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$LastName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$MobilePhone</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Email</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Opportunities__r$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Opportunities__r$Qualification__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Opportunities__r$StageName</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.Opportunities__r$Academic_Start_Date__c</field>
+    </columns>
+    <currency>ZAR</currency>
+    <description>Report that contains student enrollment data to be used by customer services dept to map students to relevant ebooks</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts.Opportunities__r$Enrolment_Status__c</column>
+            <operator>equals</operator>
+            <value>Enrolled</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>StudentEnrollmentIgnitePortal Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Account_with_proposals__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

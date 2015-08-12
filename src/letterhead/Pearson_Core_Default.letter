@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#CCCCCC</backgroundColor>
+    <bodyColor>#FFFFFF</bodyColor>
+    <bottomLine>
+        <color>#AAAAFF</color>
+        <height>5</height>
+    </bottomLine>
+    <description>Core: Default Pearson letterhead</description>
+    <footer>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>69</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>Pearson_Core_Logos/Pearson_Footer_Blue.png</logo>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>69</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>Pearson_Core_Logos/Pearson_Header_Blue.png</logo>
+        <verticalAlignment>Top</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#AAAAFF</color>
+        <height>5</height>
+    </middleLine>
+    <name>Pearson Core Default</name>
+    <topLine>
+        <color>#AAAAFF</color>
+        <height>5</height>
+    </topLine>
+</Letterhead>

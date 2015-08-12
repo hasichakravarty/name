@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>true</allowRecall>
+    <allowedSubmitters>
+        <submitter>NA_Regional_Sales_Manager</submitter>
+        <type>role</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
+        <submitter>NA_Sales_General_Manager</submitter>
+        <type>role</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>CaseNumber</field>
+        <field>Owner</field>
+        <field>Sales_Rep_Name__c</field>
+        <field>Subject</field>
+        <field>Adjustment_Type__c</field>
+        <field>Adjustment_Sub_Type__c</field>
+        <field>Appeal__c</field>
+        <field>Requested_Dollar_Value__c</field>
+        <field>Requested_Unit_Count__c</field>
+        <field>Account</field>
+        <field>ISBN__c</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <type>adhoc</type>
+            </approver>
+        </assignedApprover>
+        <description>singular step for sales and finance unanimous approval</description>
+        <label>Adjustment Request - Appeal Review</label>
+        <name>Commission_Manual_Adjustment_APPEAL</name>
+    </approvalStep>
+    <description>approval process for the appeal of previously reject commission adjustment requests</description>
+    <emailTemplate>unfiled$public/Commission_Manual_Adjustment_Appeal_Request</emailTemplate>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <criteriaItems>
+            <field>Case.Appeal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Close – Declined</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordType</field>
+            <operation>equals</operation>
+            <value>Finance Workflow</value>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>Case_Reason_to_approved</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Closed_with_Approval</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Case_Reason_to_declined</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Closed_with_Rejection</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Status_to_Submission_for_Appeal</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Adjustment Request - Appeal</label>
+    <recallActions>
+        <action>
+            <name>Status_back_to_New</name>
+            <type>FieldUpdate</type>
+        </action>
+    </recallActions>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

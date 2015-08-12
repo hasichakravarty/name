@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Contact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Contacts</value>
+    </caseValues>
+    <fields>
+        <help><!-- Describes role of a contact at an account. --></help>
+        <label><!-- Academic Role --></label>
+        <name>Academic_Role__c</name>
+        <picklistValues>
+            <masterLabel>Administrative Assistant</masterLabel>
+            <translation><!-- Administrative Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assc. Professor</masterLabel>
+            <translation><!-- Assc. Professor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assistant Principal</masterLabel>
+            <translation><!-- Assistant Principal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bookshop Manager</masterLabel>
+            <translation><!-- Bookshop Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Manager</masterLabel>
+            <translation><!-- Business Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chairman</masterLabel>
+            <translation><!-- Chairman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chancellor</masterLabel>
+            <translation><!-- Chancellor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultant</masterLabel>
+            <translation><!-- Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coordinator</masterLabel>
+            <translation><!-- Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Course Director</masterLabel>
+            <translation><!-- Course Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Curriculum Coordinator</masterLabel>
+            <translation><!-- Curriculum Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Curriculum Director</masterLabel>
+            <translation><!-- Curriculum Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dean</masterLabel>
+            <translation><!-- Dean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deputy Dean</masterLabel>
+            <translation><!-- Deputy Dean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deputy Head of School</masterLabel>
+            <translation><!-- Deputy Head of School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deputy Principal</masterLabel>
+            <translation><!-- Deputy Principal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Director</masterLabel>
+            <translation><!-- Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Learning Coordinator</masterLabel>
+            <translation><!-- E-Learning Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Education</masterLabel>
+            <translation><!-- Early Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emeritus Professor</masterLabel>
+            <translation><!-- Emeritus Professor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Assistant</masterLabel>
+            <translation><!-- Executive Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance Manager</masterLabel>
+            <translation><!-- Finance Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head of Department</masterLabel>
+            <translation><!-- Head of Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head of School</masterLabel>
+            <translation><!-- Head of School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head of Subject</masterLabel>
+            <translation><!-- Head of Subject --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT Administrator</masterLabel>
+            <translation><!-- IT Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Instructor</masterLabel>
+            <translation><!-- Instructor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LMS Administrator</masterLabel>
+            <translation><!-- LMS Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lab Technician</masterLabel>
+            <translation><!-- Lab Technician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal Counsel</masterLabel>
+            <translation><!-- Legal Counsel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Librarian</masterLabel>
+            <translation><!-- Librarian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager</masterLabel>
+            <translation><!-- Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Administrator</masterLabel>
+            <translation><!-- Office Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Officer</masterLabel>
+            <translation><!-- Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Principal</masterLabel>
+            <translation><!-- Principal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pro Vice Chancellor</masterLabel>
+            <translation><!-- Pro Vice Chancellor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professor</masterLabel>
+            <translation><!-- Professor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Program Director</masterLabel>
+            <translation><!-- Program Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Manager</masterLabel>
+            <translation><!-- Project Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>School Counsellor</masterLabel>
+            <translation><!-- School Counsellor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secretary</masterLabel>
+            <translation><!-- Secretary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speech Pathologist</masterLabel>
+            <translation><!-- Speech Pathologist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supervisor</masterLabel>
+            <translation><!-- Supervisor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teacher</masterLabel>
+            <translation><!-- Teacher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teaching Aid</masterLabel>
+            <translation><!-- Teaching Aid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teaching and Learning</masterLabel>
+            <translation><!-- Teaching and Learning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textbuyer</masterLabel>
+            <translation><!-- Textbuyer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unit Chair</masterLabel>
+            <translation><!-- Unit Chair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unit Coordinator</masterLabel>
+            <translation><!-- Unit Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vice Chancellor</masterLabel>
+            <translation><!-- Vice Chancellor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vice President</masterLabel>
+            <translation><!-- Vice President --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vice Principal</masterLabel>
+            <translation><!-- Vice Principal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>AccountRole__c</name>
+        <picklistValues>
+            <masterLabel>Educator</masterLabel>
+            <translation><!-- Educator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee</masterLabel>
+            <translation><!-- Employee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government</masterLabel>
+            <translation><!-- Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learner</masterLabel>
+            <translation><!-- Learner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parent</masterLabel>
+            <translation><!-- Parent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner</masterLabel>
+            <translation><!-- Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sponsor</masterLabel>
+            <translation><!-- Sponsor --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Account --></label>
+        <name>Account_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Account linked to the Contact --></help>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Account Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Is this Account Contact relationship active? --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populated by a workflow rule every time record is modified to make Contact Name searchable in this junction object. --></help>
+        <label><!-- Contact Name --></label>
+        <name>Contact_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Contact linked to the Account --></help>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Account Relationships --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DM Identifier --></label>
+        <name>DM_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Financially Responsible --></label>
+        <name>Financially_Responsible__c</name>
+    </fields>
+    <fields>
+        <help><!-- Available office hours on Friday --></help>
+        <label><!-- Friday Office Hours --></label>
+        <name>Friday_Office_Hours__c</name>
+        <picklistValues>
+            <masterLabel>10:00 - 10:30 AM</masterLabel>
+            <translation><!-- 10:00 - 10:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10:30 - 11:00 AM</masterLabel>
+            <translation><!-- 10:30 - 11:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:00 - 11:30 AM</masterLabel>
+            <translation><!-- 11:00 - 11:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:30 - 12:00 PM</masterLabel>
+            <translation><!-- 11:30 - 12:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:00 - 12:30 PM</masterLabel>
+            <translation><!-- 12:00 - 12:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:30 - 1:00 PM</masterLabel>
+            <translation><!-- 12:30 - 1:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:00 - 1:30 PM</masterLabel>
+            <translation><!-- 1:00 - 1:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:30 - 2:00 PM</masterLabel>
+            <translation><!-- 1:30 - 2:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:00 - 2:30 PM</masterLabel>
+            <translation><!-- 2:00 - 2:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:30 - 3:00 PM</masterLabel>
+            <translation><!-- 2:30 - 3:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:00 - 3:30 PM</masterLabel>
+            <translation><!-- 3:00 - 3:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:30 - 4:00 PM</masterLabel>
+            <translation><!-- 3:30 - 4:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:00 - 4:30 PM</masterLabel>
+            <translation><!-- 4:00 - 4:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:30 - 5:00 PM</masterLabel>
+            <translation><!-- 4:30 - 5:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5:00 - 5:30 PM</masterLabel>
+            <translation><!-- 5:00 - 5:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8.00 - 8:30 AM</masterLabel>
+            <translation><!-- 8.00 - 8:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8:30 - 9:00 AM</masterLabel>
+            <translation><!-- 8:30 - 9:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9:30 - 10:00 AM</masterLabel>
+            <translation><!-- 9:30 - 10:00 AM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select the specific grades taught by this individual at the specific account. --></help>
+        <label><!-- Grades Taught --></label>
+        <name>Grades_Taught__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation><!-- 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation><!-- 11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation><!-- 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6</masterLabel>
+            <translation><!-- 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7</masterLabel>
+            <translation><!-- 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8</masterLabel>
+            <translation><!-- 8 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9</masterLabel>
+            <translation><!-- 9 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>K</masterLabel>
+            <translation><!-- K --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mailing Country --></label>
+        <name>Mailing_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mailing State/Province --></label>
+        <name>Mailing_State_Province__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile --></label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <help><!-- Available office hours on Monday --></help>
+        <label><!-- Monday Office Hours --></label>
+        <name>Monday_Office_Hours__c</name>
+        <picklistValues>
+            <masterLabel>10:00 - 10:30 AM</masterLabel>
+            <translation><!-- 10:00 - 10:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10:30 - 11:00 AM</masterLabel>
+            <translation><!-- 10:30 - 11:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:00 - 11:30 AM</masterLabel>
+            <translation><!-- 11:00 - 11:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:30 - 12:00 PM</masterLabel>
+            <translation><!-- 11:30 - 12:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:00 - 12:30 PM</masterLabel>
+            <translation><!-- 12:00 - 12:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:30 - 1:00 PM</masterLabel>
+            <translation><!-- 12:30 - 1:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:00 - 1:30 PM</masterLabel>
+            <translation><!-- 1:00 - 1:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:30 - 2:00 PM</masterLabel>
+            <translation><!-- 1:30 - 2:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:00 - 2:30 PM</masterLabel>
+            <translation><!-- 2:00 - 2:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:30 - 3:00 PM</masterLabel>
+            <translation><!-- 2:30 - 3:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:00 - 3:30 PM</masterLabel>
+            <translation><!-- 3:00 - 3:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:30 - 4:00 PM</masterLabel>
+            <translation><!-- 3:30 - 4:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:00 - 4:30 PM</masterLabel>
+            <translation><!-- 4:00 - 4:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:30 - 5:00 PM</masterLabel>
+            <translation><!-- 4:30 - 5:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5:00 - 5:30 PM</masterLabel>
+            <translation><!-- 5:00 - 5:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8.00 - 8:30 AM</masterLabel>
+            <translation><!-- 8.00 - 8:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8:30 - 9:00 AM</masterLabel>
+            <translation><!-- 8:30 - 9:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9:30 - 10:00 AM</masterLabel>
+            <translation><!-- 9:30 - 10:00 AM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Organisation Type --></label>
+        <name>Organisation_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- If Other is selected from Academic Role please type in the role in this section --></help>
+        <label><!-- Other Academic Role --></label>
+        <name>Other_Academic_Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mailing Address --></label>
+        <name>Physical_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Account --></label>
+        <name>Primary_Account_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates if this is the contact&apos;s primary account. --></help>
+        <label><!-- Primary Account --></label>
+        <name>Primary_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Email --></label>
+        <name>Primary_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Selling Account --></label>
+        <name>Primary_Selling_Account__c</name>
+        <relationshipLabel><!-- Account Contacts (Primary Selling Account) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Primary --></label>
+        <name>Primary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship Name --></label>
+        <name>Relationship_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role Detail --></label>
+        <name>Role_Detail__c</name>
+        <picklistValues>
+            <masterLabel>Adjunct Faculty</masterLabel>
+            <translation><!-- Adjunct Faculty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative Assistant</masterLabel>
+            <translation><!-- Administrative Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrator</masterLabel>
+            <translation><!-- Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assc. Professor</masterLabel>
+            <translation><!-- Assc. Professor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asst. Professor</masterLabel>
+            <translation><!-- Asst. Professor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bookstore Manager</masterLabel>
+            <translation><!-- Bookstore Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chairman</masterLabel>
+            <translation><!-- Chairman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chancellor</masterLabel>
+            <translation><!-- Chancellor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coordinator</masterLabel>
+            <translation><!-- Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Course Director</masterLabel>
+            <translation><!-- Course Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Curriculum Coordinator</masterLabel>
+            <translation><!-- Curriculum Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dean</masterLabel>
+            <translation><!-- Dean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Department Chairperson</masterLabel>
+            <translation><!-- Department Chairperson --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Director</masterLabel>
+            <translation><!-- Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Learning Coordinator</masterLabel>
+            <translation><!-- E-Learning Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emeritus Professor</masterLabel>
+            <translation><!-- Emeritus Professor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Father</masterLabel>
+            <translation><!-- Father --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guardian</masterLabel>
+            <translation><!-- Guardian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head of Department</masterLabel>
+            <translation><!-- Head of Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head of School</masterLabel>
+            <translation><!-- Head of School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT Administrator</masterLabel>
+            <translation><!-- IT Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Instructor</masterLabel>
+            <translation><!-- Instructor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lab Technician/Coordinator</masterLabel>
+            <translation><!-- Lab Technician/Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mother</masterLabel>
+            <translation><!-- Mother --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parent</masterLabel>
+            <translation><!-- Parent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Principal</masterLabel>
+            <translation><!-- Principal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professor</masterLabel>
+            <translation><!-- Professor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secretary</masterLabel>
+            <translation><!-- Secretary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teacher</masterLabel>
+            <translation><!-- Teacher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teaching Assistant</masterLabel>
+            <translation><!-- Teaching Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visiting Lecturer</masterLabel>
+            <translation><!-- Visiting Lecturer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- For Primary Education Only
+
+Use to define which subjects the contact has involvement with --></help>
+        <label><!-- Subjects --></label>
+        <name>Subjects__c</name>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Art</masterLabel>
+            <translation><!-- Art --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biology</masterLabel>
+            <translation><!-- Biology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business</masterLabel>
+            <translation><!-- Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTE Technical Trade</masterLabel>
+            <translation><!-- CTE Technical Trade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemistry</masterLabel>
+            <translation><!-- Chemistry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese</masterLabel>
+            <translation><!-- Chinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Classics</masterLabel>
+            <translation><!-- Classics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drama</masterLabel>
+            <translation><!-- Drama --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ESL</masterLabel>
+            <translation><!-- ESL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Years</masterLabel>
+            <translation><!-- Early Years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Economics</masterLabel>
+            <translation><!-- Economics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronics</masterLabel>
+            <translation><!-- Electronics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food Technology</masterLabel>
+            <translation><!-- Food Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Geography</masterLabel>
+            <translation><!-- Geography --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German</masterLabel>
+            <translation><!-- German --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gifted Ed</masterLabel>
+            <translation><!-- Gifted Ed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Graphics</masterLabel>
+            <translation><!-- Graphics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HSIE</masterLabel>
+            <translation><!-- HSIE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Handwriting</masterLabel>
+            <translation><!-- Handwriting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health</masterLabel>
+            <translation><!-- Health --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>History</masterLabel>
+            <translation><!-- History --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospitality/Travel/Tourism</masterLabel>
+            <translation><!-- Hospitality/Travel/Tourism --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Humanities</masterLabel>
+            <translation><!-- Humanities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indonesian</masterLabel>
+            <translation><!-- Indonesian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information Technology</masterLabel>
+            <translation><!-- Information Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italian</masterLabel>
+            <translation><!-- Italian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese</masterLabel>
+            <translation><!-- Japanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Languages</masterLabel>
+            <translation><!-- Languages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Latin</masterLabel>
+            <translation><!-- Latin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legacy Studies</masterLabel>
+            <translation><!-- Legacy Studies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Literacy</masterLabel>
+            <translation><!-- Literacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lote</masterLabel>
+            <translation><!-- Lote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maori</masterLabel>
+            <translation><!-- Maori --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maths</masterLabel>
+            <translation><!-- Maths --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media</masterLabel>
+            <translation><!-- Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Music</masterLabel>
+            <translation><!-- Music --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PDHPE</masterLabel>
+            <translation><!-- PDHPE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PE</masterLabel>
+            <translation><!-- PE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physics</masterLabel>
+            <translation><!-- Physics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional Development</masterLabel>
+            <translation><!-- Professional Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psychology</masterLabel>
+            <translation><!-- Psychology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Religion</masterLabel>
+            <translation><!-- Religion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S&amp;E</masterLabel>
+            <translation><!-- S&amp;E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOSE</masterLabel>
+            <translation><!-- SOSE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Science</masterLabel>
+            <translation><!-- Science --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special Ed</masterLabel>
+            <translation><!-- Special Ed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speech</masterLabel>
+            <translation><!-- Speech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spelling</masterLabel>
+            <translation><!-- Spelling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textiles Technology</masterLabel>
+            <translation><!-- Textiles Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VET</masterLabel>
+            <translation><!-- VET --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sync In Progress --></label>
+        <name>Sync_In_Progress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Synchronized Account Contact Role --></label>
+        <name>Synchronized_Account_Contact_Role__c</name>
+    </fields>
+    <fields>
+        <help><!-- Available office hours on Thursday --></help>
+        <label><!-- Thursday Office Hours --></label>
+        <name>Thursday_Office_Hours__c</name>
+        <picklistValues>
+            <masterLabel>10:00 - 10:30 AM</masterLabel>
+            <translation><!-- 10:00 - 10:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10:30 - 11:00 AM</masterLabel>
+            <translation><!-- 10:30 - 11:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:00 - 11:30 AM</masterLabel>
+            <translation><!-- 11:00 - 11:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:30 - 12:00 PM</masterLabel>
+            <translation><!-- 11:30 - 12:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:00 - 12:30 PM</masterLabel>
+            <translation><!-- 12:00 - 12:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:30 - 1:00 PM</masterLabel>
+            <translation><!-- 12:30 - 1:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:00 - 1:30 PM</masterLabel>
+            <translation><!-- 1:00 - 1:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:30 - 2:00 PM</masterLabel>
+            <translation><!-- 1:30 - 2:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:00 - 2:30 PM</masterLabel>
+            <translation><!-- 2:00 - 2:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:30 - 3:00 PM</masterLabel>
+            <translation><!-- 2:30 - 3:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:00 - 3:30 PM</masterLabel>
+            <translation><!-- 3:00 - 3:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:30 - 4:00 PM</masterLabel>
+            <translation><!-- 3:30 - 4:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:00 - 4:30 PM</masterLabel>
+            <translation><!-- 4:00 - 4:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:30 - 5:00 PM</masterLabel>
+            <translation><!-- 4:30 - 5:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5:00 - 5:30 PM</masterLabel>
+            <translation><!-- 5:00 - 5:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8.00 - 8:30 AM</masterLabel>
+            <translation><!-- 8.00 - 8:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8:30 - 9:00 AM</masterLabel>
+            <translation><!-- 8:30 - 9:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9:30 - 10:00 AM</masterLabel>
+            <translation><!-- 9:30 - 10:00 AM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Available office hours on Tuesday --></help>
+        <label><!-- Tuesday Office Hours --></label>
+        <name>Tuesday_Office_Hours__c</name>
+        <picklistValues>
+            <masterLabel>10:00 - 10:30 AM</masterLabel>
+            <translation><!-- 10:00 - 10:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10:30 - 11:00 AM</masterLabel>
+            <translation><!-- 10:30 - 11:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:00 - 11:30 AM</masterLabel>
+            <translation><!-- 11:00 - 11:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:30 - 12:00 PM</masterLabel>
+            <translation><!-- 11:30 - 12:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:00 - 12:30 PM</masterLabel>
+            <translation><!-- 12:00 - 12:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:30 - 1:00 PM</masterLabel>
+            <translation><!-- 12:30 - 1:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:00 - 1:30 PM</masterLabel>
+            <translation><!-- 1:00 - 1:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:30 - 2:00 PM</masterLabel>
+            <translation><!-- 1:30 - 2:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:00 - 2:30 PM</masterLabel>
+            <translation><!-- 2:00 - 2:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:30 - 3:00 PM</masterLabel>
+            <translation><!-- 2:30 - 3:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:00 - 3:30 PM</masterLabel>
+            <translation><!-- 3:00 - 3:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:30 - 4:00 PM</masterLabel>
+            <translation><!-- 3:30 - 4:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:00 - 4:30 PM</masterLabel>
+            <translation><!-- 4:00 - 4:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:30 - 5:00 PM</masterLabel>
+            <translation><!-- 4:30 - 5:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5:00 - 5:30 PM</masterLabel>
+            <translation><!-- 5:00 - 5:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8.00 - 8:30 AM</masterLabel>
+            <translation><!-- 8.00 - 8:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8:30 - 9:00 AM</masterLabel>
+            <translation><!-- 8:30 - 9:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9:30 - 10:00 AM</masterLabel>
+            <translation><!-- 9:30 - 10:00 AM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Available office hours on Wednesday --></help>
+        <label><!-- Wednesday Office Hours --></label>
+        <name>Wednesday_Office_Hours__c</name>
+        <picklistValues>
+            <masterLabel>10:00 - 10:30 AM</masterLabel>
+            <translation><!-- 10:00 - 10:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10:30 - 11:00 AM</masterLabel>
+            <translation><!-- 10:30 - 11:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:00 - 11:30 AM</masterLabel>
+            <translation><!-- 11:00 - 11:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11:30 - 12:00 PM</masterLabel>
+            <translation><!-- 11:30 - 12:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:00 - 12:30 PM</masterLabel>
+            <translation><!-- 12:00 - 12:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12:30 - 1:00 PM</masterLabel>
+            <translation><!-- 12:30 - 1:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:00 - 1:30 PM</masterLabel>
+            <translation><!-- 1:00 - 1:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1:30 - 2:00 PM</masterLabel>
+            <translation><!-- 1:30 - 2:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:00 - 2:30 PM</masterLabel>
+            <translation><!-- 2:00 - 2:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2:30 - 3:00 PM</masterLabel>
+            <translation><!-- 2:30 - 3:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:00 - 3:30 PM</masterLabel>
+            <translation><!-- 3:00 - 3:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3:30 - 4:00 PM</masterLabel>
+            <translation><!-- 3:30 - 4:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:00 - 4:30 PM</masterLabel>
+            <translation><!-- 4:00 - 4:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4:30 - 5:00 PM</masterLabel>
+            <translation><!-- 4:30 - 5:00 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5:00 - 5:30 PM</masterLabel>
+            <translation><!-- 5:00 - 5:30 PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8.00 - 8:30 AM</masterLabel>
+            <translation><!-- 8.00 - 8:30 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8:30 - 9:00 AM</masterLabel>
+            <translation><!-- 8:30 - 9:00 AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9:30 - 10:00 AM</masterLabel>
+            <translation><!-- 9:30 - 10:00 AM --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Account Contact Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Office Hours --></label>
+            <section>Office Hours</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Education Detail --></label>
+            <section>Primary Education Detail</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Global</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Global Account Contact Role Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The change of the Account is not allowed. --></errorMessage>
+        <name>C_PreventAccountChange</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot uncheck the Active flag if the Account Contact is a Financially Responsible person. If you would like to uncheck the Active flag for this person update another Account Contact record with the Financially Responsible flag first. --></errorMessage>
+        <name>PS_Cannot_Uncheck_Active_Flag</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must choose Role Detail when Role of Educator is chosen --></errorMessage>
+        <name>RoleDetailRequiredAccountContact</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter an Other Academic Role --></errorMessage>
+        <name>Select_Other_Academic_Role</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Add_Existing_Contact --></label>
+        <name>Add_Existing_Contact</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Merge_Contacts --></label>
+        <name>Merge_Contacts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Contact --></label>
+        <name>New_Contact</name>
+    </webLinks>
+</CustomObjectTranslation>

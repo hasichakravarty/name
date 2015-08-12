@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PS_Util</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>PS_Util_1</value>
+    </caseValues>
+    <fields>
+        <label><!-- ObjectName --></label>
+        <name>ObjectName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object Fields1 --></label>
+        <name>Object_Fields1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object Fields --></label>
+        <name>Object_Fields__c</name>
+    </fields>
+    <fields>
+        <label><!-- Where Clause --></label>
+        <name>Where_Clause__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>true</allowRecall>
+    <allowedSubmitters>
+        <submitter>NA_Regional_Sales_Manager</submitter>
+        <type>role</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
+        <submitter>NA_Sales_General_Manager</submitter>
+        <type>role</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Owner</field>
+        <field>Sales_Person_Name__c</field>
+        <field>Subject__c</field>
+        <field>Adjustment_Type__c</field>
+        <field>Adjustment_Sub_Type__c</field>
+        <field>Appeal__c</field>
+        <field>Requested_Dollar_Value__c</field>
+        <field>Requested_Unit_Count__c</field>
+        <field>Account_Name__c</field>
+        <field>ISBN__c</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>testdm@pearson112.com</name>
+                <type>user</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <description>singular step for sales and business office to unanimous approval</description>
+        <label>Adjustment Request - Appeal Review</label>
+        <name>Adjustment_Request_Appeal_Review</name>
+    </approvalStep>
+    <description>approval process for the appeal of previously reject commission adjustment requests</description>
+    <emailTemplate>unfiled$public/Commission_Manual_Adjustment_APPEAL_Request2</emailTemplate>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <criteriaItems>
+            <field>Internal_Request__c.Appeal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Internal_Request__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Close - Declined</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Internal_Request__c.RecordType</field>
+            <operation>equals</operation>
+            <value>Finance Workflow</value>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>Closed_with_Approval</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Closed_with_Rejection</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalRejectionActions>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Status_to_Submission_for_Appeal</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Adjustment Request - Appeal</label>
+    <recallActions>
+        <action>
+            <name>Status_back_to_New</name>
+            <type>FieldUpdate</type>
+        </action>
+    </recallActions>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

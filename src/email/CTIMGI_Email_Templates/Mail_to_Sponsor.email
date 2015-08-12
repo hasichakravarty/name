@@ -1,0 +1,7 @@
+Dear {!Case.Sponsor_name__c}
+
+We have received a request from {!Case.Contact} to Cancel their enrollment for {!Case.Products_in_Use__c}.
+
+Our Finance Team will be in touch regarding any outstanding payments or refunds due.
+ 
+For reference, please refer to our Terms and Conditions.

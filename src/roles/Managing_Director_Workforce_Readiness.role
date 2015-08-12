@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Read</contactAccessLevel>
+    <description>Managing Director  - Workforce Readiness</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>NA Managing Director  - Workforce Readiness</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>Enterprise</parentRole>
+</Role>

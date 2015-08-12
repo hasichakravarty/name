@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>InsufficientPrivileges</fullName>
+        <categories>Error Message</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insufficient Privileges</shortDescription>
+        <value>You do not have the level of access necessary to perform the operation you requested. Please contact the owner of the record or your administrator if access is necessary.</value>
+    </labels>
+</CustomLabels>

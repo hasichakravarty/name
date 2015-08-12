@@ -1,0 +1,91 @@
+<apex:page controller="retreivePaymentInfo">
+<head>
+        <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js" / >
+        <apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js" />
+        <apex:stylesheet value="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css" />
+        <script>
+            j$ = jQuery.noConflict();
+            
+            function formatTable(){
+            
+             var contactTable = j$('[id$="contacttable"]').DataTable({
+                     //"iDisplayLength"    : -1,
+                     "bSortable": false,
+                     "info":     false,
+                     "bFilter": false,
+                     'bLengthChange': false,     
+                     
+                });
+            };
+            
+            j$(document).ready(formatTable);
+</script>
+<style type="text/css">
+[id*=header] {background: rgb(11, 92, 9);font-size:14px;color:white; font-weight:bold; padding:5px;} 
+[id*=contacttableborder] {border:1px solid black}
+</style>       
+    </head>
+    <body>
+        <apex:form >
+        <apex:panelGrid columns="2">
+            <apex:selectList value="{!institution}" multiselect="false" size="1">
+                <apex:selectOptions value="{!institutions}"/>
+            </apex:selectList>
+            <apex:commandButton value="Search" action="{!search}" rerender="out" status="status" oncomplete="formatTable();"/>
+        </apex:panelGrid>
+    </apex:form>
+    <apex:outputPanel id="out">
+        <apex:actionstatus id="status" startText="Searching...">
+            <apex:facet name="stop">
+       <apex:pageBlock id="contacttableborder"><div id="header" style="
+    margin-bottom: -10px;">Navision Customer Ledger</div>
+        <br/>
+         <table id="contacttable" class="display">
+            <thead>
+                <tr id="header">
+                    <th></th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                    <th>Document Number</th>
+                    <th>Reg Fee</th>
+                    <th>Early Bird</th>
+                    <th>Securing Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!listWithDetail}" var="lwd">
+                    <tr>
+                        <td></td>
+                        <td>
+                            <apex:outputText value="{0,date,dd'/'MMM'/'yyyy}">
+                                <apex:param value="{!lwd.trandate}" /> 
+                            </apex:outputText>
+                        </td>
+                        <td>{!lwd.trantype}</td>
+                        <td>
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!lwd.tranamount}" />
+                            </apex:outputText>
+                        </td>
+                         <td>
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!lwd.tranbalance}" />
+                            </apex:outputText>
+                        </td>
+                      
+                        <td>{!lwd.tranreference}</td>
+                        <td>{!lwd.tranearlybird}</td>
+                        <td>{!lwd.tranregpayment}</td>
+                        <td></td>
+                    </tr>
+                </apex:repeat>
+            </tbody>
+        </table>     
+       </apex:pageBlock>
+       </apex:facet>
+        </apex:actionstatus>
+    </apex:outputPanel>
+    </body>
+</apex:page>

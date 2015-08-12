@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Read</contactAccessLevel>
+    <description>VP of Product Marketing</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>NA VP of Product Marketing - HE Learning Services</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>Managing_Director_HE_Learning_Services</parentRole>
+</Role>

@@ -1,0 +1,5 @@
+<apex:page controller="Controller">
+<apex:form >
+  <apex:dynamicComponent componentValue="{!thePanel}"/>
+</apex:form>
+</apex:page>

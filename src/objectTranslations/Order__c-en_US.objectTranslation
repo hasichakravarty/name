@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Orders</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cancel After Date --></label>
+        <name>CancelAfterDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Address --></label>
+        <lookupFilter>
+            <errorMessage><!-- Selected Deliver To Address is not an active address for the selected Account --></errorMessage>
+        </lookupFilter>
+        <name>DeliverToAddress__c</name>
+        <relationshipLabel><!-- Orders (End User/Deliver To Address) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Contact --></label>
+        <name>DeliverToContact__c</name>
+        <relationshipLabel><!-- Orders (End User/Deliver To Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Discount Amount --></label>
+        <name>DiscountAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Ship Before Date --></label>
+        <name>DoNotShipBeforeDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Split --></label>
+        <name>DoNotSplit__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Order Number --></label>
+        <name>External_Order_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Financial Account Number --></label>
+        <name>FinancialAccountNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gratis Order COGS Account --></label>
+        <name>GratisOrderCOGSAccount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Id (18-character) --></label>
+        <name>Id_18_character__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inactive Products --></label>
+        <name>Inactive_Products__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instruction Alert --></label>
+        <name>Instruction_Alert__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Notes --></label>
+        <name>InvoiceNotes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Address --></label>
+        <lookupFilter>
+            <errorMessage><!-- Selected Invoice To Address is not an active address for the selected Account --></errorMessage>
+        </lookupFilter>
+        <name>InvoiceToAddress__c</name>
+        <relationshipLabel><!-- Orders (Invoice to Address) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Contact --></label>
+        <name>InvoiceToContact__c</name>
+        <relationshipLabel><!-- Orders (Invoice to Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Invoice To Address Account --></label>
+        <name>Invoice_To_Address_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice To Address State --></label>
+        <name>Invoice_To_Address_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Item Count --></label>
+        <name>LineItemCount__c</name>
+    </fields>
+    <fields>
+        <help><!-- HE Only -  The Pearson Customer Experience Representative will check the “Manual Order Fulfilled” box on the order once it has been fully completed/delivered according to the ERP (Bookmaster) system. --></help>
+        <label><!-- Manual Order Fulfilled --></label>
+        <name>Manual_Order_Fulfilled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Order Contact Info --></label>
+        <name>OrderContactInfo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Id --></label>
+        <name>OrderId__c</name>
+    </fields>
+    <fields>
+        <label><!-- ERP Order Number --></label>
+        <name>OrderNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Source --></label>
+        <name>OrderSource__c</name>
+        <picklistValues>
+            <masterLabel>edi</masterLabel>
+            <translation><!-- edi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>fax</masterLabel>
+            <translation><!-- fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>phone</masterLabel>
+            <translation><!-- phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>web</masterLabel>
+            <translation><!-- web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Subtotal --></label>
+        <name>OrderSubTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Type --></label>
+        <name>OrderType__c</name>
+        <picklistValues>
+            <masterLabel>Normal Sale</masterLabel>
+            <translation><!-- Normal Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sample</masterLabel>
+            <translation><!-- Sample --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schools Direct</masterLabel>
+            <translation><!-- Schools Direct --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schools Inspection</masterLabel>
+            <translation><!-- Schools Inspection --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Instructions --></label>
+        <name>Order_Instructions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Counts Line Items that don&apos;t have a blank Ordered Item field.  If this does not match the Line Item Rollup, validation fails. --></help>
+        <label><!-- Ordered Item Rollup --></label>
+        <name>Ordered_Item_Rollup__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override DeliverTo Address Line 1 --></label>
+        <name>OverrideDeliverToAddressLine1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override DeliverTo Address Line 2 --></label>
+        <name>OverrideDeliverToAddressLine2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override DeliverTo Address Line 3 --></label>
+        <name>OverrideDeliverToAddressLine3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override DeliverTo Address Line 4 --></label>
+        <name>OverrideDeliverToAddressLine4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override Deliver To Address --></label>
+        <name>OverrideDeliverToAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override DeliverTo City --></label>
+        <name>OverrideDeliverToCity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override DeliverTo Country --></label>
+        <name>OverrideDeliverToCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override Deliver To State --></label>
+        <name>OverrideDeliverToState__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override Deliver To Zip Code --></label>
+        <name>OverrideDeliverToZipCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purchase Order Number --></label>
+        <name>PONumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Packing Instructions --></label>
+        <name>PackingInstructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Delivery Date --></label>
+        <name>Preferred_Delivery_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purchase Date --></label>
+        <name>PurchaseDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rush Flag --></label>
+        <name>RushFlag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Channel --></label>
+        <name>SalesChannel__c</name>
+        <picklistValues>
+            <masterLabel>NCSLearn Eastern Region</masterLabel>
+            <translation><!-- NCSLearn Eastern Region --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NCSLearn Western Region</masterLabel>
+            <translation><!-- NCSLearn Western Region --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Salesperson Name --></label>
+        <name>Salesperson_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Salesperson --></label>
+        <name>Salesperson__c</name>
+        <relationshipLabel><!-- Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ship Confirmation Email --></label>
+        <name>ShipConfirmationEmail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship to Address --></label>
+        <lookupFilter>
+            <errorMessage><!-- Selected Ship To Address is not an active address for the selected Account --></errorMessage>
+        </lookupFilter>
+        <name>ShipToAddress__c</name>
+        <relationshipLabel><!-- Orders (Ship to Address) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ship to Contact --></label>
+        <name>ShipToContact__c</name>
+        <relationshipLabel><!-- Orders (Ship to Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ship to Account --></label>
+        <name>Ship_to_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipment Priority --></label>
+        <name>ShipmentPriority__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International</masterLabel>
+            <translation><!-- International --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Key Only</masterLabel>
+            <translation><!-- Key Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Normal</masterLabel>
+            <translation><!-- Normal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Priority</masterLabel>
+            <translation><!-- Standard Priority --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urgent</masterLabel>
+            <translation><!-- Urgent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Shipping Amount --></label>
+        <name>ShippingAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Instructions --></label>
+        <name>ShippingInstructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Method --></label>
+        <name>ShippingMethod__c</name>
+        <picklistValues>
+            <masterLabel>Australia Post</masterLabel>
+            <translation><!-- Australia Post --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Best Method of Shipment</masterLabel>
+            <translation><!-- Best Method of Shipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hand Delivered</masterLabel>
+            <translation><!-- Hand Delivered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overnight Shipment</masterLabel>
+            <translation><!-- Overnight Shipment --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sold To Contact --></label>
+        <name>SoldToContact__c</name>
+        <relationshipLabel><!-- Orders (Sold To Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Includes: 
+Non-standard billing terms  
+Special invoice language (match customer PO)
+Commit orders 
+Supporting documentation with invoice 
+Expense billing 
+Future product delivery 
+Credit card payment
+Promotion codes --></help>
+        <label><!-- Special Order Information --></label>
+        <name>Special_Order_Handling__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Reason --></label>
+        <name>StatusReason__c</name>
+    </fields>
+    <fields>
+        <help><!-- &apos;New&apos; is the status for order that have not been completed yet
+&apos;Approved&apos; is the status you should select when you want to trigger the sending of the order to Bookmaster --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hand Delivered</masterLabel>
+            <translation><!-- Hand Delivered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Need Approval</masterLabel>
+            <translation><!-- Need Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Store Id --></label>
+        <name>StoreId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Supplier Id --></label>
+        <name>SupplierId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target System --></label>
+        <name>TargetSystem__c</name>
+        <picklistValues>
+            <masterLabel>HED</masterLabel>
+            <translation><!-- HED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>K12</masterLabel>
+            <translation><!-- K12 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tax Exempt Id --></label>
+        <name>TaxExemptId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Sales Amount --></label>
+        <name>TotalSalesAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Tax Amount --></label>
+        <name>TotalTaxAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transaction Notification Email --></label>
+        <name>TransactionNotificationEmail__c</name>
+    </fields>
+    <layouts>
+        <layout>Approved Order Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Deliver Information --></label>
+            <section>Deliver Information</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice Information --></label>
+            <section>Invoice Information</section>
+        </sections>
+        <sections>
+            <label><!-- Related To --></label>
+            <section>Related To</section>
+        </sections>
+        <sections>
+            <label><!-- Shipping Information --></label>
+            <section>Shipping Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Order Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Deliver Information --></label>
+            <section>Deliver Information</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice Information --></label>
+            <section>Invoice Information</section>
+        </sections>
+        <sections>
+            <label><!-- Related To --></label>
+            <section>Related To</section>
+        </sections>
+        <sections>
+            <label><!-- Shipping Information --></label>
+            <section>Shipping Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Approved Order --></label>
+        <name>Approved_Order</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Order --></label>
+        <name>Order</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please ensure an active product has been added to the order, and all inactive products removed. --></errorMessage>
+        <name>Order_Approval_Only_If_Active_Products</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Account must have a Bookmaster Account Number and be Active to have an Approved Order. Please ensure the Account is in Bookmaster and the Account Status is A. --></errorMessage>
+        <name>Order_Approval_only_if_BookmasterAccount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- An HE Normal Sale Order cannot be set to &apos;Approved&apos; --></errorMessage>
+        <name>Order_NO_Approval_HE_Non_Samples</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Purchase Order Number can not exceed 30 characters --></errorMessage>
+        <name>Order_PO_Number_To_Long</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If choosing to override the deliver to address, please populate the Override Deliver Address Line 1, Override Deliver to City, Override Deliver to Country, Override Deliver to State and Override Deliver to Zip Code fields. --></errorMessage>
+        <name>Required_Address_Override_Fields</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Oasis --></label>
+        <name>Oasis</name>
+    </webLinks>
+</CustomObjectTranslation>

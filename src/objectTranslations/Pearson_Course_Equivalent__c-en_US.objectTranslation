@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Pearson Course Equivalent</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pearson Course Equivalent</value>
+    </caseValues>
+    <fields>
+        <help><!-- Identifies if the association between the  Course and the Pearson Course Code is Active. --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- This contains the Course. --></help>
+        <label><!-- Course/Catalog Code --></label>
+        <name>Course__c</name>
+        <relationshipLabel><!-- Pearson Course Equivalent --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DM Identifier --></label>
+        <name>DM_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pearson Course Code Name --></label>
+        <name>Pearson_Course_Code_Name_f__c</name>
+    </fields>
+    <fields>
+        <help><!-- This contains the Pearson Course Code. --></help>
+        <label><!-- Pearson Course Code --></label>
+        <name>Pearson_Course_Code__c</name>
+        <relationshipLabel><!-- Pearson Course Equivalent --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Primary --></label>
+        <name>Primary__c</name>
+    </fields>
+    <layouts>
+        <layout>Pearson Course Equivalent Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Add_Pearson_Course --></label>
+        <name>Add_Pearson_Course</name>
+    </webLinks>
+</CustomObjectTranslation>

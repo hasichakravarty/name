@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Marketing Information</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Marketing Information</value>
+    </caseValues>
+    <fields>
+        <label><!-- Content --></label>
+        <name>Content__c</name>
+    </fields>
+    <fields>
+        <label><!-- DM Identifier --></label>
+        <name>DM_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Family --></label>
+        <name>Family__c</name>
+        <relationshipLabel><!-- Marketing Information (Family) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Marketing Copy Type --></label>
+        <name>Marketing_Copy_Type__c</name>
+        <picklistValues>
+            <masterLabel>Adoption List</masterLabel>
+            <translation><!-- Adoption List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Appropriate Course(s)</masterLabel>
+            <translation><!-- Appropriate Course(s) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Appropriate Courses</masterLabel>
+            <translation><!-- Appropriate Courses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audience</masterLabel>
+            <translation><!-- Audience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Author Bio(s)</masterLabel>
+            <translation><!-- Author Bio(s) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Basic Approach</masterLabel>
+            <translation><!-- Basic Approach --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Check List</masterLabel>
+            <translation><!-- Check List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competition/Rep Copy</masterLabel>
+            <translation><!-- Competition/Rep Copy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cut and Paste Emails</masterLabel>
+            <translation><!-- Cut and Paste Emails --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Features</masterLabel>
+            <translation><!-- Features --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forthcoming Edition</masterLabel>
+            <translation><!-- Forthcoming Edition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interview/Tabbing Guide</masterLabel>
+            <translation><!-- Interview/Tabbing Guide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New To This Edition</masterLabel>
+            <translation><!-- New To This Edition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional Features</masterLabel>
+            <translation><!-- Professional Features --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review(s)</masterLabel>
+            <translation><!-- Review(s) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Short College Description</masterLabel>
+            <translation><!-- Short College Description --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Short Retail Description</masterLabel>
+            <translation><!-- Short Retail Description --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategy</masterLabel>
+            <translation><!-- Strategy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strengths/Weaknesses</masterLabel>
+            <translation><!-- Strengths/Weaknesses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Summary</masterLabel>
+            <translation><!-- Summary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Table of Contents</masterLabel>
+            <translation><!-- Table of Contents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology Tips</masterLabel>
+            <translation><!-- Technology Tips --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Online Copy</masterLabel>
+            <translation><!-- Web Online Copy --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Marketing Information --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Product --></label>
+        <name>Related_Product__c</name>
+        <relationshipLabel><!-- Marketing Information --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sub Type --></label>
+        <name>Sub_Type__c</name>
+        <picklistValues>
+            <masterLabel>About the Author(s)</masterLabel>
+            <translation><!-- About the Author(s) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adoption List</masterLabel>
+            <translation><!-- Adoption List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Appropriate Courses</masterLabel>
+            <translation><!-- Appropriate Courses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Check List</masterLabel>
+            <translation><!-- Check List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cut &amp; Paste E-Mails</masterLabel>
+            <translation><!-- Cut &amp; Paste E-Mails --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Description</masterLabel>
+            <translation><!-- Description --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Features</masterLabel>
+            <translation><!-- Features --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forthcoming Edition</masterLabel>
+            <translation><!-- Forthcoming Edition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interview/Tabbing Guide</masterLabel>
+            <translation><!-- Interview/Tabbing Guide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New To This Edition</masterLabel>
+            <translation><!-- New To This Edition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rep Copy</masterLabel>
+            <translation><!-- Rep Copy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reviews</masterLabel>
+            <translation><!-- Reviews --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategy</masterLabel>
+            <translation><!-- Strategy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strengths/Weaknesses</masterLabel>
+            <translation><!-- Strengths/Weaknesses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Table of Contents</masterLabel>
+            <translation><!-- Table of Contents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology Tips</masterLabel>
+            <translation><!-- Technology Tips --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>About This Product</masterLabel>
+            <translation><!-- About This Product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comparative Copy</masterLabel>
+            <translation><!-- Comparative Copy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rep Tools</masterLabel>
+            <translation><!-- Rep Tools --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Marketing Information Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

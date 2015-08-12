@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Call Attendee</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Call Attendees</value>
+    </caseValues>
+    <fields>
+        <help><!-- The call to which the attendee is linked --></help>
+        <label><!-- Call --></label>
+        <name>Call__c</name>
+        <relationshipLabel><!-- Call Attendees --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client --></label>
+        <name>Client__c</name>
+        <relationshipLabel><!-- Call Attendances --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Pearson Employee --></label>
+        <name>Pearson_Employee__c</name>
+        <relationshipLabel><!-- Call Attendees --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Call Attendee Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Call Owner is not required to be added as an attendee. --></errorMessage>
+        <name>MayNotAddOwnerOfCallToAttendee</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- At lease one attendee must be selected in order to save this record. --></errorMessage>
+        <name>OneAttendeeSelectionMandatory</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only one kind of attendee can be selected in order to save a record --></errorMessage>
+        <name>OneTypeOfAttendeeSelectionMandatory</name>
+    </validationRules>
+</CustomObjectTranslation>

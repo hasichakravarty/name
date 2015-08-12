@@ -1,0 +1,11 @@
+Case ID: {!Case.CaseNumber}
+
+Dear queue member 
+
+A change sponsor request has entered the 'CTIMGI - Contracts Team' queue and it is at the start of the process.
+
+Please review the request, complete the actions assigned to the record and close the case once complete.
+
+To view the record please navigate to the 'CTIMGI - Contracts Team' queue and locate it using the ID at the top of this email.
+
+Alternatively please click on this link to access the record: {!Case.Link}

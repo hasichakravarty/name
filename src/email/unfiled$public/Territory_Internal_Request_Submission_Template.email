@@ -1,0 +1,8 @@
+{!User.Name} has submitted the below internal request that is awaiting your approval: 
+
+This territory change internal request was submitted for the following reason: 
+
+{!Internal_Request__c.Reason_for_Realignment__c}
+
+Please use the following link to access the request record's details: 
+{!Internal_Request__c.Link}

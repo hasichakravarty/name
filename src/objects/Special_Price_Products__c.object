@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Approved_Price__c</fullName>
+        <description>Price that has been approved by the approver.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter approved discount</inlineHelpText>
+        <label>Approved Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Back_order_Issue__c</fullName>
+        <description>Does this product currently have a back-order issue?  Manually selected by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does this product currently have a back-order issue?</inlineHelpText>
+        <label>Back-order Issue</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Components_of_New_Valuepack__c</fullName>
+        <description>Contents of the value-pack.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please follow format: [ISBN, Title, Author,Net Price]. Use additional lines if necessary</inlineHelpText>
+        <label>Components of New Valuepack</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ISBN13__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product__r.ISBN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ISBN13</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Title_Special_Program__c</fullName>
+        <description>Is this Title part of any Special Program?  Manually selected by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>Is Title part of any Special Program?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Is_this_a_New_Value_Pack__c</fullName>
+        <description>Is this a New Value Pack? Manually selected by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>Is this a New Value Pack?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Net_Discount__c</fullName>
+        <externalId>false</externalId>
+        <label>Net Discount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Line_Item__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Populating Opportunity line item ID through trigger.</inlineHelpText>
+        <label>Opportunity Line Item</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The opportunity to which special price product belongs</description>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Special Price Products</relationshipLabel>
+        <relationshipName>Special_Price_Products</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Product for which approval has been requested.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Special Price Products</relationshipLabel>
+        <relationshipName>Special_Price_Products</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <description>Quantity of product line item.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Requested_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Requested Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Special_Price_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Price Request</label>
+        <referenceTo>Special_Price_Request__c</referenceTo>
+        <relationshipLabel>Special Price Products</relationshipLabel>
+        <relationshipName>Special_Price_Products</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Special_Program_Name__c</fullName>
+        <description>If Title is part of a Special Program, please name Special Program.  Manually entered by the Sales Rep.  Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>E.g. All Inclusive, IncludEd etc.</inlineHelpText>
+        <label>Please name Special Program</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Approved_Price__c</fullName>
+        <description>Total with the approved discount price. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>Quantity__c  * Approved_Price__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Approved Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Requested_Price__c</fullName>
+        <description>Total with the requested discount price. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>Quantity__c * Requested_Price__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Requested Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Sales_Price__c</fullName>
+        <description>Total Sales Price of line item which approval has been requested. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <formula>Quantity__c * UnitPrice__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Sales Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UnitPrice__c</fullName>
+        <description>Sales Price of line item which approval has been requested. Used in the HE Special Pricing Approval process.</description>
+        <externalId>false</externalId>
+        <label>Sales Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Special Price Product</label>
+    <nameField>
+        <displayFormat>A-{000000}</displayFormat>
+        <label>Special Price ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Special Price Products</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

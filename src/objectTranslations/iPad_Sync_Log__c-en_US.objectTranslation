@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>iPad Sync Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>iPad Sync Logs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Connection Type --></label>
+        <name>Connection_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Success__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sync End Time --></label>
+        <name>Sync_End_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sync Start Time --></label>
+        <name>Sync_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sync Time --></label>
+        <name>Sync_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sync Type --></label>
+        <name>Sync_Type__c</name>
+        <picklistValues>
+            <masterLabel>Delta</masterLabel>
+            <translation><!-- Delta --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initial</masterLabel>
+            <translation><!-- Initial --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- UserName --></label>
+        <name>UserName__c</name>
+    </fields>
+    <fields>
+        <label><!-- iOS Version --></label>
+        <name>iOS_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- iPad App Version --></label>
+        <name>iPad_App_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- iPad Type --></label>
+        <name>iPad_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- iPad Version --></label>
+        <name>iPad_Version__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

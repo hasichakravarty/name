@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email Template for Order Approval</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Order Approval Email</name>
+    <style>none</style>
+    <subject>Order Approval Required - {!Order__c.Name}</subject>
+    <textOnly>Your approval is required for {!Order__c.Name} for Opportunity {!Order__c.Opportunity__c}. Please submit your approval so that this may be processed.  {!Order__c.Account__c} {!Order__c.Name} {Apttus_QPConfig__ProposalSummary__c.Apttus_QPConfig__ProposalId__c}} {!Apttus_QPConfig__ProposalSummary__c.Apttus_QPConfig__ProposalIdId__c} {!Order__c.Status__c} {!Order__c.Id_18_character__c}  {!Order__c.Salesperson__c}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

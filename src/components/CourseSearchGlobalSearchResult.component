@@ -1,0 +1,22 @@
+<apex:component controller="CourseSearchGlobalSearchResultController">
+    <apex:attribute name="inputData" assignTo="{!InboundResults}" description="The results of the search as an array of PearsonCourseStructure__c objects" type="PearsonCourseStructure__c[]" required="true"/>
+    <apex:attribute name="thekey" type="String" assignTo="{!Key}" description="The key given to this component so the page can access to it" />
+    <apex:attribute name="thepageController" type="PageControllerBase" assignTo="{!PageController}" required="true" description="The controller for the page." />
+    <apex:attribute name="thetitle" type="string" assignTo="{!Title}" required="true" description="The heading to be displayed alongside the results count." />
+
+    <apex:pageBlockSection title="{!Title} ({!Count})" rendered="{!ShowResults}" collapsible="false" columns="1">
+        <apex:pageBlockTable var="data" value="{!Results}">
+            <apex:column title="Tick to attach this course">
+                <apex:facet name="header">Attach</apex:facet>
+                <apex:inputCheckbox id="selection" value="{!data.isSelected}"/>
+            </apex:column>
+            <!--apex:column value="{!data.PearsonCourseStructure.Pearson_Course_Structure_Name__c}"/-->
+            <apex:column value="{!data.PearsonCourseStructure.Pearson_Course_Structure_Code__c}"/>
+            <apex:column value="{!data.PearsonCourseStructure.Name}"/>
+            <apex:column value="{!data.PearsonCourseStructure.Pearson_Course_Structure_Name__c}"/>
+            <apex:column value="{!data.PearsonCourseStructure.Cluster__c}"/>
+            <apex:column value="{!data.PearsonCourseStructure.Discipline__c}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlockSection>
+
+</apex:component>

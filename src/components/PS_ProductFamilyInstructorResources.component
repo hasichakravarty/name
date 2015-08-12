@@ -1,0 +1,16 @@
+<apex:component controller="PS_ProductFamilyInstructorResources">
+<apex:attribute name="prodFamily" assignTo="{!productFamilyId}" description="Product Family Id" type="String" required="true"/>
+     <apex:pageBlock >
+      
+      <apex:pageblocktable value="{!listForInstructorResource}" var="instructorResource"  columnsWidth="600px,2px,2px,2px,2px">
+      
+         <apex:column >
+
+           <apex:outputtext value="{!instructorResource.Apttus_Config2__RelatedProductId__r.Author__c}"/>
+                 
+         </apex:column>
+         
+  
+       </apex:pageblocktable>
+      </apex:pageBlock>
+</apex:component>

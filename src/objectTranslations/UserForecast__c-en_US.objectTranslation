@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>User Forecast</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>User Forecasts</value>
+    </caseValues>
+    <fields>
+        <help><!-- This field is populated with the selected User Id on creation of a User Forecast by a Workflow rule, and it has a requirement of uniqueness, so an attempt to create a second User Forecast for the same User ID should result in an error and no duplicate Use --></help>
+        <label><!-- User Id Unique --></label>
+        <name>User_Id_Unique__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- User Forecasts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Year to date sales for the user territory from VISTA. --></help>
+        <label><!-- YTDSales --></label>
+        <name>YTDSales__c</name>
+    </fields>
+    <fields>
+        <help><!-- Year to date target set for the user. --></help>
+        <label><!-- YTDTarget --></label>
+        <name>YTDTarget__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

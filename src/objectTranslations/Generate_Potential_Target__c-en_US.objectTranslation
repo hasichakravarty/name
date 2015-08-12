@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Potential Target</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Potential Targets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Potential Targets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Action --></label>
+        <name>Action__c</name>
+    </fields>
+    <fields>
+        <label><!-- Adoption Type --></label>
+        <name>Adoption_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Author --></label>
+        <name>Author__c</name>
+    </fields>
+    <fields>
+        <label><!-- Catalog Code/ Course Name --></label>
+        <name>Catalog_Code_Course_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Copyright Year --></label>
+        <name>Copyright_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Course --></label>
+        <name>Course__c</name>
+        <relationshipLabel><!-- Potential Targets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Fall Frontlist --></label>
+        <name>Fall_Frontlist__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fall --></label>
+        <name>Fall__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Edition Currency --></label>
+        <name>Next_Edition_Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Edition --></label>
+        <name>Next_Edition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Type --></label>
+        <name>Opportunity_Type__c</name>
+        <picklistValues>
+            <masterLabel>Existing Business</masterLabel>
+            <translation><!-- Existing Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rollover</masterLabel>
+            <translation><!-- Rollover --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Takeaway</masterLabel>
+            <translation><!-- Takeaway --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PCC(Primary)+Pearson CourseName(Primary) --></label>
+        <name>PCC_c__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Selling Account --></label>
+        <name>Primary_Selling_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Processed --></label>
+        <name>Processed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product In Use Publisher --></label>
+        <name>Product_In_Use_Publisher__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product In Use --></label>
+        <name>Product_In_Use__c</name>
+        <relationshipLabel><!-- Potential Targets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Potential Targets (Product) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Publisher --></label>
+        <name>Publisher__c</name>
+    </fields>
+    <fields>
+        <label><!-- Selling Period+Course Name --></label>
+        <name>Selling_Period_Course_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Spring Frontlist --></label>
+        <name>Spring_Frontlist__c</name>
+    </fields>
+    <fields>
+        <label><!-- Spring --></label>
+        <name>Spring__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opportunity Created</masterLabel>
+            <translation><!-- Opportunity Created --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation Failed</masterLabel>
+            <translation><!-- Validation Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation In Progress</masterLabel>
+            <translation><!-- Validation In Progress --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Summer --></label>
+        <name>Summer__c</name>
+    </fields>
+    <fields>
+        <label><!-- TakeAway Multiple Frontlist --></label>
+        <name>TakeAway_Multiple_Frontlist__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Family --></label>
+        <name>TakeAway_Product_Family__c</name>
+        <relationshipLabel><!-- Potential Targets (Product Family) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Winter --></label>
+        <name>Winter__c</name>
+    </fields>
+    <layouts>
+        <layout>Potential Target Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Generate_Opportunities --></label>
+        <name>Generate_Opportunities</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Potential_Targets --></label>
+        <name>Generate_Potential_Targets</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Test --></label>
+        <name>Test</name>
+    </webLinks>
+</CustomObjectTranslation>

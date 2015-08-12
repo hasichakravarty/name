@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <attributeName>mail_lc</attributeName>
+    <identityLocation>Attribute</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>https://identity-internal.pearson.com:443/auth</issuer>
+    <loginUrl>https://identity-internal.pearson.com:443/auth/SSOPOST/metaAlias/pearson/saml-idp</loginUrl>
+    <logoutUrl>https://mycloud.pearson.com/</logoutUrl>
+    <name>OneCRMQA2</name>
+    <oauthTokenEndpoint>https://pearson--ONECRMQA2.cs17.my.salesforce.com/services/oauth2/token?so=00Dg0000003NlS0</oauthTokenEndpoint>
+    <redirectBinding>false</redirectBinding>
+    <requestSignatureMethod>0</requestSignatureMethod>
+    <salesforceLoginUrl>https://pearson--ONECRMQA2.cs17.my.salesforce.com?so=00Dg0000003NlS0</salesforceLoginUrl>
+    <samlEntityId>https://pearson--ONECRMQA2.cs17.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIDATCCAemgAwIBAgIQ0AfS/MEZubVEWIrHX47FYjANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDEwtDZXJ0Rm9yQURGUzAeFw0xMTEyMDEwMDAwMDBaFw0zMTEyMDEwMDAwMDBaMBYxFDASBgNVBAMTC0NlcnRGb3JBREZTMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwnLjIblu0jfnhWV1gMGcwIW8yGRlyGHhK0yAh4BLZP/7CGCrsO9JnsKTc1vhYxR3KWBTrJgeHus0hJVgDC5WRdjvgCU6KQf1g/bXYA6yJx/Sy3Mt6EWDCBaTkDDB5cB1+Qg80t2Xu2vK+Ptkj2yqb/QxwUa75uh4eYmlIl86fmRedWt3J5ma5SNvb5ZLu9bVHVt+DKS/K5vtFDuU7gkLWvG75hU+ZWiBcpLXgTHCR96JaSVl+XIJ8eqTM25+TpKscZPERTMa4JLvr93Zl5gfKKuNRDe5x8f5EMWd+jX+AoPtqgpAX9LPjM9F+/48xkKp36BK3ReIkh/3Gyc9lGoqCwIDAQABo0swSTBHBgNVHQEEQDA+gBCQP+klsIwut8veieOIekk7oRgwFjEUMBIGA1UEAxMLQ2VydEZvckFERlOCENAH0vzBGbm1RFiKx1+OxWIwDQYJKoZIhvcNAQELBQADggEBACP4uKH5Ez9QPg+aiAnNjm8CEW763l76No1w7q/s7MkH/XWryfrv5ECMua/bG44MMQjt0mkU4Ikm0jFklH5DZ7cYhz/DE+5PPx8+2mkLyNskX/DnEg1L/wECt9dc7brVmkszXoxnDvzfqJipEXxIVXzPSEs7NGBk50EixrlyUrBuigywp1tJOj6P4vRa52p2qK3MHOTXa+hcNI4enQK+C6T6Mngvs+h/WNI9jgBeOcHPhui6NMqrOYqEu31hvzjc6tkVeA/y7uNmMiNAs/eiXVDiRoKyMqp1FCKfJzDgX4Bns7nrgceQqnZwQ06Og2uTKEOrKCUiiGR1VF6Yz//VpgY=</validationCert>
+</SamlSsoConfig>

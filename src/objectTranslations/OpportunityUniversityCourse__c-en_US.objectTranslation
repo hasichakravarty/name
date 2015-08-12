@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Opportunity Course</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Opportunity Courses</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Opportunity University Courses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Adoption Criteria --></label>
+        <name>Adoption_Criteria__c</name>
+    </fields>
+    <fields>
+        <label><!-- Adoption Type --></label>
+        <name>Adoption_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel --></label>
+        <name>Channel__c</name>
+        <picklistValues>
+            <masterLabel>Direct Bill</masterLabel>
+            <translation><!-- Direct Bill --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Close Date --></label>
+        <name>Close_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Course Name --></label>
+        <name>Course_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- DM Identifier --></label>
+        <name>DM_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technology Required --></label>
+        <name>Digital_Indicator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fall --></label>
+        <name>Fall__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecast Category --></label>
+        <name>ForecastCategoryName__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Omitted</masterLabel>
+            <translation><!-- Omitted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Next Step --></label>
+        <name>Next_Step__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Name --></label>
+        <name>Opportunity_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>Opportunity_University_Course_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- This contains the opportunity. --></help>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Opportunity Courses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Owner --></label>
+        <name>Owner__c</name>
+        <relationshipLabel><!-- Opportunity Courses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Probability (%) --></label>
+        <name>Probability__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Converted? --></label>
+        <name>Product_Converted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Selling Period --></label>
+        <name>Selling_Period__c</name>
+        <picklistValues>
+            <masterLabel>Fall 2014</masterLabel>
+            <translation><!-- Fall 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fall 2015</masterLabel>
+            <translation><!-- Fall 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fall 2016</masterLabel>
+            <translation><!-- Fall 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fall 2017</masterLabel>
+            <translation><!-- Fall 2017 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spring 2014</masterLabel>
+            <translation><!-- Spring 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spring 2015</masterLabel>
+            <translation><!-- Spring 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spring 2016</masterLabel>
+            <translation><!-- Spring 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spring 2017</masterLabel>
+            <translation><!-- Spring 2017 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Special Pricing Renewal --></label>
+        <name>Special_Pricing_Renewal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Spring --></label>
+        <name>Spring__c</name>
+    </fields>
+    <fields>
+        <label><!-- Strategy --></label>
+        <name>Strategy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Summer --></label>
+        <name>Summer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temp-RefID --></label>
+        <name>TempRefID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Existing Business</masterLabel>
+            <translation><!-- Existing Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rollover</masterLabel>
+            <translation><!-- Rollover --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sampling</masterLabel>
+            <translation><!-- Sampling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Takeway</masterLabel>
+            <translation><!-- Takeway --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This contains the University course. --></help>
+        <label><!-- University Course --></label>
+        <name>UniversityCourse__c</name>
+        <relationshipLabel><!-- Course Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Winter --></label>
+        <name>Winter__c</name>
+    </fields>
+    <fields>
+        <label><!-- 3PL --></label>
+        <name>X3PL__c</name>
+        <picklistValues>
+            <masterLabel>TBD</masterLabel>
+            <translation><!-- TBD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>stage__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost</masterLabel>
+            <translation><!-- Lost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qualified</masterLabel>
+            <translation><!-- Qualified --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>CORE OpportunityUniversityCourse Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HE UK OpportunityUniversityCourse Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity University Course Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Opportunity Course Name</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

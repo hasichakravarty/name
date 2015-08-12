@@ -1,0 +1,1 @@
+<apex:page standardController="Order" extensions="PS_OverideOrderNewButton" tabStyle="Order" showheader="true" action="{!OverideOrderNewButton}" />

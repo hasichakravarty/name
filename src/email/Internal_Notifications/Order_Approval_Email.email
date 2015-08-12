@@ -1,0 +1,8 @@
+Your approval is required for order {!Order__c.Name} for Opportunity {!Order__c.Opportunity__c}. Please submit your approval so that this may be processed. Details below.
+
+{!Order__c.Account__c}
+{!Order__c.Name}
+{!Order__c.Status__c}
+{!Order__c.Id_18_character__c}
+
+{!Order__c.Salesperson__c}

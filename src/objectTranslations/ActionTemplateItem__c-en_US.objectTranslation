@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Action Template Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Action Template Items</value>
+    </caseValues>
+    <fields>
+        <help><!-- Specify if the action is assigned to a Queue or a User --></help>
+        <label><!-- Assign To Type --></label>
+        <name>AssignToType__c</name>
+        <picklistValues>
+            <masterLabel>Queue</masterLabel>
+            <translation><!-- Queue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User</masterLabel>
+            <translation><!-- User --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Object Type --></label>
+        <name>ParentObjectType__c</name>
+        <picklistValues>
+            <masterLabel>Account</masterLabel>
+            <translation><!-- Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Case</masterLabel>
+            <translation><!-- Case --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact</masterLabel>
+            <translation><!-- Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation><!-- Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opportunity</masterLabel>
+            <translation><!-- Opportunity --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Name of the queue to assign the action to --></help>
+        <label><!-- Queue Name --></label>
+        <name>QueueName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sequence --></label>
+        <name>Sequence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Template Name --></label>
+        <name>TemplateName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Time in minutes from the creation to complete the action --></help>
+        <label><!-- Time To Complete --></label>
+        <name>TimeToComplete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- User to assign the action to --></help>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Action Template Items --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Action Template Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Parent Object Type and Description need to be entered --></errorMessage>
+        <name>C_ActionTemplateItemMandatoryInformation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Queue Name need to be filled --></errorMessage>
+        <name>C_QueueInformationRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The User need to be filled --></errorMessage>
+        <name>C_UserInformationRequired</name>
+    </validationRules>
+</CustomObjectTranslation>

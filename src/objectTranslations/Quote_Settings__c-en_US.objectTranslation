@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CTI MGI Quote Setting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CTI MGI Quote Setting</value>
+    </caseValues>
+    <fields>
+        <label><!-- Academic Start Date Term 1 --></label>
+        <name>Academic_Start_Date_Term_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Academic Start Date Term 2 --></label>
+        <name>Academic_Start_Date_Term_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Academic Start Date Term 3 --></label>
+        <name>Academic_Start_Date_Term_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Academic Start Date Term 4 --></label>
+        <name>Academic_Start_Date_Term_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Administration Fee Rate --></label>
+        <name>Administration_Fee_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Registration Fee (New Business) --></label>
+        <name>Default_Registration_Fee_New_Business__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Registration Fee(ReturnBusiness) --></label>
+        <name>Default_Registration_Fee_ReturnBusiness__c</name>
+    </fields>
+    <fields>
+        <label><!-- Early Bird Price List Id --></label>
+        <name>Early_Bird_Price_List_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Early Bird --></label>
+        <name>Early_Bird__c</name>
+    </fields>
+    <fields>
+        <label><!-- Earlybird/Securing Fee(New Business) --></label>
+        <name>Earlybird_Securing_Fee_New_Business__c</name>
+    </fields>
+    <fields>
+        <label><!-- Earlybird/Securing Fee (Return Business) --></label>
+        <name>Earlybird_Securing_Fee_Return_Business__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non Early Bird Price List Id --></label>
+        <name>Non_Early_Bird_Price_List_Id__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

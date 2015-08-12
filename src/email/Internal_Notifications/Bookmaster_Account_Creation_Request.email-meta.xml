@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>CORE - email to request the creation of a Bookmaster Account from a &quot;new account&apos; Account record</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Pearson_Core_Default</letterhead>
+    <name>Bookmaster Account Creation Request</name>
+    <style>freeForm</style>
+    <subject>Request for New Bookmaster Account</subject>
+    <textOnly>Hi,
+
+I would like to request the creation of the following Account in Bookmaster:
+
+Salesforce Id: {!Account.Id}
+Account Name: {!Account.Name}
+Category: {!Account.Category__c}
+
+Shipping Street: {!Account.ShippingStreet}
+Shipping City: {!Account.ShippingCity}
+Shipping State: {!Account.ShippingState}
+Shipping Country: {!Account.ShippingCountry}
+Shipping Post Code: {!Account.ShippingPostalCode}
+
+Billing Street: {!Account.BillingStreet}
+Billing City: {!Account.BillingCity}
+Billing State: {!Account.BillingState}
+Billing Country: {!Account.BillingCountry}
+Billing Post Code: {!Account.BillingPostalCode}
+
+Telephone: {!Account.Phone}
+Fax: {!Account.Fax}
+Email: {!Account.Email__c}
+
+Link to salesforce record: {!Account.Link}
+
+This request was submitted by:
+Name: {!Account.OwnerFullName}
+Phone: {!Account.OwnerPhone}
+Email: {!Account.OwnerEmail}</textOnly>
+    <type>html</type>
+</EmailTemplate>

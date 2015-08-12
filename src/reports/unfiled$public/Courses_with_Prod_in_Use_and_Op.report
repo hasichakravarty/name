@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>UniversityCourse__c.Products_In_Use__r$Name</field>
+    </columns>
+    <columns>
+        <field>UniversityCourse__c$Opportunity_Count__c</field>
+    </columns>
+    <columns>
+        <field>UniversityCourse__c$Spring_Front_List__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>UniversityCourse__c$Opportunity_Count__c</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>UniversityCourse__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Courses with Prod in Use and Op #</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>courses_with_products_in_use__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>UniversityCourse__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,3 @@
+<apex:page standardController="OpportunityLineItem" >
+    <apex:outputText value="You cannot delete an opportunity product item."/>
+</apex:page>

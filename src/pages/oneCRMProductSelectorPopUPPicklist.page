@@ -1,0 +1,100 @@
+<!-- 
+   @Author : Accenture IDC
+   @name   : oneCRMProductSelectorPopUpPicklist
+   @CreateDate :
+   @Description : Open Popup for status picklist 
+   @Version <1.0>
+   @reference :
+  -->
+  
+<apex:page controller="oneCRMProductSelectorWizardControllerV2" sidebar="false" showheader="false">
+<script>
+    /* copy selected value to parent window */
+        var statusValue = [];
+        function fillIn(name){
+            /* get Id from URL */       
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++){
+                hash = hashes[i].split('=');                
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+                                    
+            if(name.checked == true){           
+                statusValue.push(name.value)
+            }else{              
+                for(var i = 0 ; i< statusValue.length ; i++) {                      
+                    if(statusValue[i] == name.value) {                                     
+                        statusValue.splice(i,i);                                        
+                    }
+                }
+            }
+            
+            var copyToId = vars["namefield"];   
+            
+            var winMain=window.opener;
+            if (null==winMain){
+               winMain=window.parent.opener;
+            }
+            
+            var ele=winMain.document.getElementById(copyToId);      
+            ele.value = statusValue;                 
+        }
+        
+        /* Close window*/   
+        function closeWindow(){
+            var winMain=window.opener;
+            if (null==winMain){
+                winMain=window.parent.opener;
+            }
+            winMain.closeLookupPopup();
+        }   
+</script>
+<apex:form >
+<apex:pageBlock >
+    <!-- Display when Statsu is selected -->
+    <apex:selectCheckboxes value="{!selectedValueFromPopup}" layout="pageDirection" onchange="fillIn(this);">           
+        <!--<apex:selectOption itemLabel="Est" itemValue="Est"  />
+        <apex:selectOption itemLabel="Sch" itemValue="Sch" />
+        <apex:selectOption itemLabel="AOD" itemValue="AOD" />
+        <apex:selectOption itemLabel="Pub" itemValue="Pub" />
+        <apex:selectOption itemLabel="Dly" itemValue="Dly" />
+        <apex:selectOption itemLabel="Xld" itemValue="Xld" />           
+        <apex:selectOption itemLabel="OOP" itemValue="OOP" />
+        <apex:selectOption itemLabel="NOP" itemValue="NOP" />
+        <apex:selectOption itemLabel="OSI" itemValue="OSI" />
+        <apex:selectOption itemLabel="AFS" itemValue="AFS" />
+        <apex:selectOption itemLabel="OPD" itemValue="OPD" />
+        <apex:selectOption itemLabel="OED" itemValue="OED" />
+        <apex:selectOption itemLabel="PEN" itemValue="PEN" />
+        <apex:selectOption itemLabel="BO" itemValue="BO" />
+        <apex:selectOption itemLabel="TU" itemValue="TU" />
+        <apex:selectOption itemLabel="NAB" itemValue="NAB" />
+        <apex:selectOption itemLabel="REF" itemValue="REF" />
+        <apex:selectOption itemLabel="OFL" itemValue="OFL" />
+        <apex:selectOption itemLabel="NYP" itemValue="NYP" />
+        <apex:selectOption itemLabel="O/F" itemValue="O/F" />
+        <apex:selectOption itemLabel="W/F" itemValue="W/F" />
+        <apex:selectOption itemLabel="O/O" itemValue="O/O" />
+        <apex:selectOption itemLabel="OTO" itemValue="OTO" />
+        <apex:selectOption itemLabel="R/P" itemValue="R/P" />
+        <apex:selectOption itemLabel="RES" itemValue="RES" />
+        <apex:selectOption itemLabel="UPN" itemValue="UPN" />
+        <apex:selectOption itemLabel="UPA" itemValue="UPA" />
+        <apex:selectOption itemLabel="SNP" itemValue="SNP" />
+        <apex:selectOption itemLabel="IPO" itemValue="IPO" />
+        <apex:selectOption itemLabel="IPN" itemValue="IPN" />
+        <apex:selectOption itemLabel="UVM" itemValue="UVM" />  -->    
+        
+        <apex:selectOptions value="{!statuses}"/>
+
+ 
+    </apex:selectCheckboxes>
+     <!-- display when category is selected --> 
+    <apex:pageblockButtons location="top">
+    <apex:commandButton value="Insert Selected"   onClick="closeWindow();"/>
+    </apex:pageblockButtons>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

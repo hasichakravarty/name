@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Represent the information to use as a templates for the action creation on the Action Framework solution</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AssignToType__c</fullName>
+        <description>Specify if the action is assigned to a Queue or a User</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify if the action is assigned to a Queue or a User</inlineHelpText>
+        <label>Assign To Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>User</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Queue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Description of the action</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ParentObjectType__c</fullName>
+        <description>Identifies the action parent object type</description>
+        <externalId>false</externalId>
+        <label>Parent Object Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Account</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Case</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lead</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opportunity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>QueueName__c</fullName>
+        <description>Name of the queue to assign the action to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the queue to assign the action to</inlineHelpText>
+        <label>Queue Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sequence__c</fullName>
+        <description>Number to represent the order of execution of the action</description>
+        <externalId>false</externalId>
+        <label>Sequence</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TemplateName__c</fullName>
+        <description>Name of template to identify the business process</description>
+        <externalId>false</externalId>
+        <label>Template Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TimeToComplete__c</fullName>
+        <description>Time in minutes from the creation to complete the action</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Time in minutes from the creation to complete the action</inlineHelpText>
+        <label>Time To Complete</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <description>Briefly description of the action</description>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>User to assign the action to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User to assign the action to</inlineHelpText>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Action_Template_Items</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Action Template Item</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ParentObjectType__c</columns>
+        <columns>TemplateName__c</columns>
+        <columns>Sequence__c</columns>
+        <columns>Title__c</columns>
+        <columns>Description__c</columns>
+        <columns>TimeToComplete__c</columns>
+        <columns>AssignToType__c</columns>
+        <columns>User__c</columns>
+        <columns>QueueName__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>ATI-{00000}</displayFormat>
+        <label>Action Template Item Ref</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Action Template Items</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>C_ActionTemplateItemMandatoryInformation</fullName>
+        <active>true</active>
+        <description>Validates that the mandatory information is filled</description>
+        <errorConditionFormula>OR( ISBLANK(TEXT(ParentObjectType__c )), ISBLANK( Description__c )  )</errorConditionFormula>
+        <errorMessage>The Parent Object Type and Description need to be entered</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>C_QueueInformationRequired</fullName>
+        <active>true</active>
+        <description>Validates that the information of the queue to assigned the action to is filled</description>
+        <errorConditionFormula>AND( ISPICKVAL( AssignToType__c , &quot;Queue&quot;) ,  ISBLANK(  QueueName__c  ) )</errorConditionFormula>
+        <errorMessage>The Queue Name need to be filled</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>C_UserInformationRequired</fullName>
+        <active>true</active>
+        <description>Validates that the information of the user to assigned the action to is filled</description>
+        <errorConditionFormula>AND( ISPICKVAL( AssignToType__c , &quot;User&quot;) ,  ISBLANK( User__c ) )</errorConditionFormula>
+        <errorMessage>The User need to be filled</errorMessage>
+    </validationRules>
+</CustomObject>

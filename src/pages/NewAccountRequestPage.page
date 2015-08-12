@@ -1,0 +1,72 @@
+<apex:page standardcontroller="Lead" title="New Account Request" tabStyle="Account" extensions="NewAccountRequest">
+
+          
+
+
+        <apex:form >
+        <apex:pageMessages />
+        <apex:sectionHeader title="New Account Request" />
+
+        <apex:pageblock mode="edit">
+            <apex:pageBlockButtons location="bottom" >
+            <apex:commandButton value="Submit Request" action="{!save}" id="submit1"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageblockSection columns="1" title="Account Information">
+             <apex:pageblocksectionItem >
+              <apex:outputlabel value="Account Name"/>
+              <apex:inputfield value="{!Leadvalues.company}"/>
+             </apex:pageblocksectionItem>
+             <apex:inputfield value="{!Leadvalues.Abbreviated_Name__c}"/>
+             <apex:inputfield value="{!Leadvalues.Organisation_Type1__c}" required="true"/>
+             <apex:inputfield value="{!Leadvalues.Type__c}" required="true"/>
+             <apex:inputfield value="{!Leadvalues.Sub_Type__c}" required="true"/>
+             <apex:inputField value="{!Leadvalues.Academic_Achievement__c}" />
+             <apex:inputfield value="{!Leadvalues.Description}"/>
+            </apex:pageblockSection>
+            
+            <apex:pageblockSection columns="1" title="Account Contact Information">
+              <apex:inputfield value="{!Leadvalues.Phone}"/>
+              <apex:inputfield value="{!Leadvalues.Fax}"/>
+              <apex:inputfield value="{!Leadvalues.Email}"/>
+              <apex:inputfield value="{!Leadvalues.Website}"/>
+            </apex:pageblocksection>
+            
+            <apex:pageblockSection columns="1" title="Account Contact Information">
+              <apex:inputfield value="{!Leadvalues.CountryCode}" required="true"/>
+               <apex:inputfield value="{!Leadvalues.StateCode}"/>
+              <apex:inputfield value="{!Leadvalues.Street}" required="true"/>
+              <apex:inputfield value="{!Leadvalues.City}" required="true"/>  
+               <apex:inputfield value="{!Leadvalues.PostalCode}" required="true"/>                                       
+              <!--<apex:inputfield value="{!Leadvalues.Geolocation__c}"/>-->
+              
+            </apex:pageblocksection>
+            
+            <apex:pageblockSection columns="1" title="Additional Information">
+              <apex:inputfield value="{!Leadvalues.Line_of_Business__c}" required="true"/>
+              <apex:inputfield value="{!Leadvalues.Geography__c}" required="true"/>
+               <apex:inputfield value="{!Leadvalues.Account_Currency__c}" required="true"/>
+            </apex:pageblocksection>
+            
+             <apex:pageblockSection columns="1" title="Contact Information">
+               <apex:inputfield value="{!Leadvalues.Firstname}" required="true"/>
+               <apex:inputfield value="{!Leadvalues.Middle_Name__c}"/>
+               <apex:inputfield value="{!Leadvalues.Lastname}"/>
+               <apex:inputfield value="{!Leadvalues.MobilePhone}"/>
+               <apex:inputfield value="{!Leadvalues.Home_Phone__c}" />
+               <apex:inputfield value="{!Leadvalues.Other_Phone__c}"/>
+               
+
+              </apex:pageblocksection>
+               
+               <apex:pageblocksection >
+                <apex:pageblocksectionItem >
+                    <apex:outputlabel value="New Account Request"/>
+                    <apex:inputcheckbox value="{!Leadvalues.Request_Account_Creation__c}" selected="true"/>
+                </apex:pageblocksectionItem>
+            </apex:pageblocksection>
+        </apex:pageblock>
+
+    </apex:form>
+
+</apex:page>

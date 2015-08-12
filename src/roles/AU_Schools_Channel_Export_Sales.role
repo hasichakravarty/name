@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>AU Schools Channel &amp; Export Sales</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>AU Schools Channel &amp; Export Sales</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>AU_Schools_Channel_Export_Sales_Mgr</parentRole>
+</Role>

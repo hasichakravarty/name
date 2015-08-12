@@ -1,0 +1,6 @@
+{!Internal_Request__c.OwnerFullName} has submitted a manual adjustment request below that is awaiting your approval:
+
+{!Internal_Request__c.Description__c}
+ 
+Please follow the link to approve/reject the request back to {!Internal_Request__c.OwnerFullName} for more information:
+{!Internal_Request__c.Link}

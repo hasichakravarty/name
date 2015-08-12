@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>notification that commission adjustment appeal has been submitted for approval</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Commission Manual Adjustment APPEAL Request2</name>
+    <style>none</style>
+    <subject>Manual adjustment for {!Internal_Request__c.OwnerFullName} has been submitted for appeal</subject>
+    <type>text</type>
+</EmailTemplate>

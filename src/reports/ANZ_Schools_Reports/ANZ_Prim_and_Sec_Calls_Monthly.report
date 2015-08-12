@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_CREATED_NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Call__c.Call_Objective__c</field>
+    </columns>
+    <columns>
+        <field>Call__c.Call_Notes__c</field>
+    </columns>
+    <columns>
+        <field>Call__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>Call__c.Call_Start_Time__c</field>
+    </columns>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE_CODE</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <currency>AUD</currency>
+    <description>Will need to change the Date Range for appropriate Dashboard</description>
+    <filter>
+        <criteriaItems>
+            <column>CUST_CREATED_NAME</column>
+            <operator>equals</operator>
+            <value>John Figliano,Catriona Kennedy,Richard Allnutt,Darryl Van Leerdam,Caly James,Peter Marskell,Freya Samuel,Bev Clasohm,Daniel Hope,Ingrid Maling,Matthew Clark,Cara Perry,Michelle Sutton,Masum Syed,Rebecca Lanting,Rhonda Edwards,Deb Pach,Robert Randall,Steve Worrall,Angie Farrier,Carol Duffy,Michael O&apos;Neill,Liz Hatton,Scott Bedelph</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>ANZ Prim and Sec Calls - Monthly</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$Call__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <endDate>2014-07-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-07-01</startDate>
+    </timeFrameFilter>
+</Report>

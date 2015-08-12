@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Integration Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Integration Requests</value>
+    </caseValues>
+    <fields>
+        <label><!-- Direction --></label>
+        <name>Direction__c</name>
+        <picklistValues>
+            <masterLabel>Inbound</masterLabel>
+            <translation><!-- Inbound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound</masterLabel>
+            <translation><!-- Outbound --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Error Code --></label>
+        <name>Error_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Description --></label>
+        <name>Error_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event --></label>
+        <name>Event__c</name>
+        <picklistValues>
+            <masterLabel>Application Cancelled</masterLabel>
+            <translation><!-- Application Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change of Campus</masterLabel>
+            <translation><!-- Change of Campus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change to Financially Responsible Contact</masterLabel>
+            <translation><!-- Change to Financially Responsible Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Cancelled</masterLabel>
+            <translation><!-- Contract Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enrol Student</masterLabel>
+            <translation><!-- Enrol Student --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modify Contract</masterLabel>
+            <translation><!-- Modify Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modify Order Line Item</masterLabel>
+            <translation><!-- Modify Order Line Item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Order</masterLabel>
+            <translation><!-- New Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Register Student</masterLabel>
+            <translation><!-- Register Student --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resend Request</masterLabel>
+            <translation><!-- Resend Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Student Vetted</masterLabel>
+            <translation><!-- Student Vetted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Geo --></label>
+        <name>Geo__c</name>
+        <picklistValues>
+            <masterLabel>Core</masterLabel>
+            <translation><!-- Core --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Growth</masterLabel>
+            <translation><!-- Growth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North America</masterLabel>
+            <translation><!-- North America --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LoB --></label>
+        <name>LoB__c</name>
+        <picklistValues>
+            <masterLabel>HE</masterLabel>
+            <translation><!-- HE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>K-12</masterLabel>
+            <translation><!-- K-12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional</masterLabel>
+            <translation><!-- Professional --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Market --></label>
+        <name>Market__c</name>
+        <picklistValues>
+            <masterLabel>US</masterLabel>
+            <translation><!-- US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZA</masterLabel>
+            <translation><!-- ZA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Object Id --></label>
+        <name>Object_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object Name --></label>
+        <name>Object_Name__c</name>
+        <picklistValues>
+            <masterLabel>Case</masterLabel>
+            <translation><!-- Case --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opportunity</masterLabel>
+            <translation><!-- Opportunity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Line Item</masterLabel>
+            <translation><!-- Order Line Item --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Object Original --></label>
+        <name>Object_Original__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Functional Error</masterLabel>
+            <translation><!-- Functional Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Queued</masterLabel>
+            <translation><!-- Queued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready For Submission</masterLabel>
+            <translation><!-- Ready For Submission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received</masterLabel>
+            <translation><!-- Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical Error</masterLabel>
+            <translation><!-- Technical Error --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub-Event --></label>
+        <name>Sub_Event__c</name>
+        <picklistValues>
+            <masterLabel>Approval</masterLabel>
+            <translation><!-- Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancellation</masterLabel>
+            <translation><!-- Cancellation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change Module Choice</masterLabel>
+            <translation><!-- Change Module Choice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change Module Status</masterLabel>
+            <translation><!-- Change Module Status --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejection</masterLabel>
+            <translation><!-- Rejection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retake Module</masterLabel>
+            <translation><!-- Retake Module --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- check Responses --></label>
+        <name>check_responses__c</name>
+    </fields>
+    <layouts>
+        <layout>Integration Request Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Direction, Event, Object Name and Status are required. --></errorMessage>
+        <name>C_RequiredInformation</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,5 @@
+<messaging:emailTemplate subject="{!relatedTo.Subject__c}" recipientType="Contact" relatedToType="Outbound_Notification__c">
+<messaging:htmlEmailBody >
+<apex:outputtext value="{!relatedTo.Rich_Body__c}" escape="false"/> 
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

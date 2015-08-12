@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>MGI_Letterhead</letterhead>
+    <name>MGI Registration Payment Confirmation</name>
+    <style>freeForm</style>
+    <subject>Registration Payment Confirmation</subject>
+    <textOnly>Dear {!Outbound_Notification__c.Contact_First_Name__c} {!Outbound_Notification__c.Contact_Last_Name__c}
+
+I hereby confirm that we have received your R800 registration fee. Please note this fee is non-refundable.
+
+To secure your registration for {!Outbound_Notification__c.Current_Date_Year__c}, please submit the following documentation and make the following payment and as soon as possible so that we can process your student number:
+
+• Completed and signed registration forms
+• Signed Repayment Calculator
+• Signed Addendum A
+• Signed Social Indemnity form
+• A copy of student’s ID
+• A copy of sponsor’s ID
+
+Please contact me in order to confirm that I have received all documentation after it has been sent. Faxed and e-mailed documentation will be accepted; however the originals must be submitted upon enrolment on {!Outbound_Notification__c.Academic_Start_Date__c}.
+
+In order to secure the {!Outbound_Notification__c.Earlybird__c} fees, an early-bird deposit is required on or before {!Outbound_Notification__c.Early_Bird_Date__c}. The early-bird deposit, excluding the registration fee, will be deducted from the first month’s payment. Please note however, failure to pay the early-bird deposit will result in the {!Outbound_Notification__c.Academic_Start_Date_Year__c} fees being applicable (estimated increase of 8%-15% in {!Outbound_Notification__c.Current_Date_Year__c}).
+
+If you require any further information please do not hesitate to contact me.
+
+Kind Regards
+{!Outbound_Notification__c.Sender_Name__c}
+{!Outbound_Notification__c.Campus__c}
+{!Outbound_Notification__c.Sender_Email__c}
+
+CTI and MGI are part of Pearson, the world’s leading learning company. Pearson is the corporate owner, not a registered provider nor conferrer of qualifications. CTI and MGI are registered PHEI and offer separate qualifications in South Africa. CTI Education Group (PTY) Ltd. is registered with the Department of Higher Education and Training as a private higher education institution under the Higher Education Act, 101, of 1997. Registration Certificate number: 2004/HE07/004. www.cti.ac.za. Midrand Graduate Institute (PTY) Ltd. T/A MGI is registered with the Department of Higher Education and Training as a private higher education institution under the Higher Education Act, 101, of 1997. Registration Certificate number: 2001/HE07/008. www.mgi.ac.za.</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>OIF_CompletionHandler {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>OIF_CompletionHandler</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_a_new_Record_Integration_Request</name>
+        <label>Create a new Record Integration Request</label>
+        <locationX>143</locationX>
+        <locationY>223</locationY>
+        <inputAssignments>
+            <field>Direction__c</field>
+            <value>
+                <stringValue>Outbound</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Event__c</field>
+            <value>
+                <stringValue>New Customer</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Object_Id__c</field>
+            <value>
+                <stringValue>111111111</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Object_Name__c</field>
+            <value>
+                <stringValue>Contact</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Integration_Request__c</object>
+    </recordCreates>
+    <recordUpdates>
+        <name>Update_Error_Description</name>
+        <label>Update Error Description</label>
+        <locationX>144</locationX>
+        <locationY>100</locationY>
+        <connector>
+            <targetReference>Create_a_new_Record_Integration_Request</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>IntegrationRequestObject.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Error_Description__c</field>
+            <value>
+                <elementReference>IntegrationRequestObject.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Integration_Request__c</object>
+    </recordUpdates>
+    <startElementReference>Update_Error_Description</startElementReference>
+    <variables>
+        <name>IntegrationRequestObject</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Integration_Request__c</objectType>
+    </variables>
+</Flow>

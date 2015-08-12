@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Univ Course Pearson Course</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Univ Course Pearson Courses</value>
+    </caseValues>
+    <fields>
+        <help><!-- Identifies if the association between the University Course and the Pearson Course Structure is Active. --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- This contains the Pearson course structure. --></help>
+        <label><!-- Pearson Course Structure --></label>
+        <name>PearsonCourseStructure__c</name>
+        <relationshipLabel><!-- Univ Course Pearson Courses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Primary --></label>
+        <name>Primary__c</name>
+    </fields>
+    <fields>
+        <help><!-- This contains the University course. --></help>
+        <label><!-- Course --></label>
+        <name>UniversityCourse__c</name>
+        <relationshipLabel><!-- Univ Course Pearson Courses --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>HE UK UniversityCoursePearsonCourseStructure Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Univ Course Pearson Course Structure Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Add_Pearson_Course --></label>
+        <name>Add_Pearson_Course</name>
+    </webLinks>
+</CustomObjectTranslation>

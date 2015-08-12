@@ -1,0 +1,7 @@
+Dear {!Case.Contact}
+
+Your request to cancel your enrolment for {!Case.Products_in_Use__c} has been approved.
+
+Our Finance Team will be in touch regarding any outstanding payments due or refunds due.
+ 
+For reference, please refer to our Terms and Conditions.

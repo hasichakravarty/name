@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Correlation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Correlation</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Account Correlation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DM Identifier --></label>
+        <name>DM_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID Name --></label>
+        <name>External_ID_Name__c</name>
+        <picklistValues>
+            <masterLabel>Current Ocean Learner Number</masterLabel>
+            <translation><!-- Current Ocean Learner Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ocean Learner Number</masterLabel>
+            <translation><!-- Ocean Learner Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchasing Account Number</masterLabel>
+            <translation><!-- Purchasing Account Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sampling Account Number</masterLabel>
+            <translation><!-- Sampling Account Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Socrates ID</masterLabel>
+            <translation><!-- Socrates ID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard Address Number</masterLabel>
+            <translation><!-- Standard Address Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Store Number</masterLabel>
+            <translation><!-- Store Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eVision Learner Number</masterLabel>
+            <translation><!-- eVision Learner Number --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- External System --></label>
+        <name>External_System__c</name>
+        <picklistValues>
+            <masterLabel>Navision</masterLabel>
+            <translation><!-- Navision --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ocean</masterLabel>
+            <translation><!-- Ocean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Socrates</masterLabel>
+            <translation><!-- Socrates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UOPS</masterLabel>
+            <translation><!-- UOPS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eVison</masterLabel>
+            <translation><!-- eVison --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Identifier --></label>
+        <name>Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market --></label>
+        <name>Market__c</name>
+        <picklistValues>
+            <masterLabel>US</masterLabel>
+            <translation><!-- US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZA</masterLabel>
+            <translation><!-- ZA --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Account Correlation</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- To create a record, you must populate all fields --></errorMessage>
+        <name>All_Fields_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

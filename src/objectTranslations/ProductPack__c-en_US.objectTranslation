@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Pack</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Packs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Pack ISBN --></label>
+        <name>Pack_ISBN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Percentage of Price --></label>
+        <name>Percentage_of_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Pack --></label>
+        <name>Product_Pack__c</name>
+        <relationshipLabel><!-- Related Products --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title ISBN --></label>
+        <name>Title_ISBN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+        <relationshipLabel><!-- Available in Product Packs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Family</masterLabel>
+            <translation><!-- Family --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pack Component</masterLabel>
+            <translation><!-- Pack Component --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Product Pack Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

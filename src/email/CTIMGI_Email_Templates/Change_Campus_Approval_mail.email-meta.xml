@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>A mail will be sent to the Contact to inform that the Change Campus request has been approved.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Change Campus Approval mail</name>
+    <style>none</style>
+    <subject>Email notification on Change Campus Approval</subject>
+    <type>text</type>
+</EmailTemplate>

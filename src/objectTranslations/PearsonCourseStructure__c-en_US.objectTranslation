@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Pearson Course Structure</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pearson Course Structure</value>
+    </caseValues>
+    <fields>
+        <help><!-- Indicates if the Pearson course code is active or inactive. --></help>
+        <label><!-- Active Indicator --></label>
+        <name>Active_Indicator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cluster --></label>
+        <name>Cluster__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Period --></label>
+        <name>Current_Period__c</name>
+    </fields>
+    <fields>
+        <label><!-- DataHub Key --></label>
+        <name>DataHub_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discipline --></label>
+        <name>Discipline__c</name>
+    </fields>
+    <fields>
+        <label><!-- GHEPM Course Code --></label>
+        <name>GHEPM_Course_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- A parent must be a higher level in the Pearson Course Structure (E.g Course can&apos;t be be the parent of a Cluster) --></help>
+        <label><!-- Parent Pearson Course Structure --></label>
+        <name>Parent_Pearson_Course_Structure__c</name>
+        <relationshipLabel><!-- Pearson Course Structure --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Contains the code of the Pearson course structure. --></help>
+        <label><!-- Pearson Course Code --></label>
+        <name>Pearson_Course_Structure_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Description for the Pearson course structure. --></help>
+        <label><!-- Description --></label>
+        <name>Pearson_Course_Structure_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prior Period --></label>
+        <name>Prior_Period__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>AU</masterLabel>
+            <translation><!-- AU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NZ</masterLabel>
+            <translation><!-- NZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US</masterLabel>
+            <translation><!-- US --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Describes the type of the record. --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Cluster</masterLabel>
+            <translation><!-- Cluster --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Course</masterLabel>
+            <translation><!-- Course --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discipline</masterLabel>
+            <translation><!-- Discipline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Super Discipline</masterLabel>
+            <translation><!-- Super Discipline --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>CORE Pearson Course Structure Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HK UK Pearson Course Structure Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- This record needs to be linked to a parent course structure. --></errorMessage>
+        <name>VR_HEUK_NeedParentForClusterOrCourse</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A discipline cannot have a parent. --></errorMessage>
+        <name>VR_HEUK_ParentNotNeededForDiscipline</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The parent of a Course should be a Cluster or Discipline and that of a Cluster should be a Discipline. --></errorMessage>
+        <name>VR_HEUK_ValidateParentForClusterOrCourse</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Course</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Courses</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account TYpe abbb --></label>
+        <name>Account_TYpe_abbb__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Courses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account course Level --></label>
+        <name>Account_course_Level__c</name>
+        <picklistValues>
+            <masterLabel>Advanced</masterLabel>
+            <translation><!-- Advanced --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Beginner</masterLabel>
+            <translation><!-- Beginner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elementary</masterLabel>
+            <translation><!-- Elementary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intermediate</masterLabel>
+            <translation><!-- Intermediate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postgraduate</masterLabel>
+            <translation><!-- Postgraduate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Intermediate</masterLabel>
+            <translation><!-- Pre-Intermediate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Undergraduate</masterLabel>
+            <translation><!-- Undergraduate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upper-Intermediate</masterLabel>
+            <translation><!-- Upper-Intermediate --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Adoption Type --></label>
+        <name>Adoption_Type__c</name>
+        <picklistValues>
+            <masterLabel>Committee</masterLabel>
+            <translation><!-- Committee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Individual Choice</masterLabel>
+            <translation><!-- Individual Choice --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Catalog Code --></label>
+        <name>Catalog_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Classifies the university course. --></help>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+        <picklistValues>
+            <masterLabel>Degree</masterLabel>
+            <translation><!-- Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Module</masterLabel>
+            <translation><!-- Module --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Program</masterLabel>
+            <translation><!-- Program --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Course Description --></label>
+        <name>Course_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the course at the university or department. --></help>
+        <label><!-- Course Name --></label>
+        <name>Course_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Course Territory Code(s) --></label>
+        <name>Course_Territory_Code_s__c</name>
+    </fields>
+    <fields>
+        <help><!-- Website that provides more information about the course. --></help>
+        <label><!-- Course URL --></label>
+        <name>Course_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- DM Identifier --></label>
+        <name>DM_Identifier__c</name>
+    </fields>
+    <fields>
+        <help><!-- Course Start date for the fall semester. --></help>
+        <label><!-- Fall Course Start Date --></label>
+        <name>Fall_Course_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Course enrollment for the fall semester. --></help>
+        <label><!-- Fall --></label>
+        <name>Fall_Enrollment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fall Front List --></label>
+        <name>Fall_Front_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- ImportID --></label>
+        <name>ImportID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mass Sampling --></label>
+        <name>Mass_Sampling__c</name>
+    </fields>
+    <fields>
+        <help><!-- Classifies the university course within each category. --></help>
+        <label><!-- Module Type --></label>
+        <name>Module_Type__c</name>
+        <picklistValues>
+            <masterLabel>Core</masterLabel>
+            <translation><!-- Core --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elective</masterLabel>
+            <translation><!-- Elective --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Count --></label>
+        <name>Opportunity_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Account --></label>
+        <name>Parent_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Selling Account --></label>
+        <name>Primary_Selling_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Private aaaa --></label>
+        <name>Private_aaaa__c</name>
+        <picklistValues>
+            <masterLabel>a</masterLabel>
+            <translation><!-- a --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>b</masterLabel>
+            <translation><!-- b --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>c</masterLabel>
+            <translation><!-- c --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Course start date for the spring semester. --></help>
+        <label><!-- Spring Course Start Date --></label>
+        <name>Spring_Course_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Course enrollment for the spring semester. --></help>
+        <label><!-- Spring --></label>
+        <name>Spring_Enrollment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Spring Front List --></label>
+        <name>Spring_Front_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delete</masterLabel>
+            <translation><!-- Delete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Course Enrollment for the Summer Semester --></help>
+        <label><!-- Summer --></label>
+        <name>Summer_Enrollment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temp-RefID --></label>
+        <name>TempRefID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Enrollments --></label>
+        <name>Total_Enrollments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Stores the combination of the ids of the account &amp; university course. --></help>
+        <label><!-- UniversityCourseAccountComboStrId --></label>
+        <name>UniversityCourseAccountComboStrId__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the course at the university or department. --></help>
+        <label><!-- University Course Name --></label>
+        <name>University_Course_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Course Enrollment for the Winter Semester --></help>
+        <label><!-- Winter --></label>
+        <name>Winter_Enrollment__c</name>
+    </fields>
+    <layouts>
+        <layout>Admin Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Enrollments --></label>
+            <section>Enrollments</section>
+        </sections>
+        <sections>
+            <label><!-- System Details --></label>
+            <section>System Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CORE University Course Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HE UK University Course Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NA HE University Course</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Enrollments --></label>
+            <section>Enrollments</section>
+        </sections>
+        <sections>
+            <label><!-- System Details --></label>
+            <section>System Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>University Course Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Course Record Type --></label>
+        <name>Course_Record_Type</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Enrollment value cannot be a negative value. --></errorMessage>
+        <name>Enrollments_cant_be_negative</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- University course already exists against the account. --></errorMessage>
+        <name>VR_HEUK_PreventSameUnivCourseToAccount</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- NewCourse --></label>
+        <name>NewCourse</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Opportunity --></label>
+        <name>New_Opportunity</name>
+    </webLinks>
+</CustomObjectTranslation>

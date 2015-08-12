@@ -1,0 +1,120 @@
+<!-- 
+    Apttus Proposal-Config Integration
+    RepriceQuote
+     
+    @2011-2012 Apttus Inc. All rights reserved.
+
+ -->
+<apex:page standardController="Apttus_Proposal__Proposal__c" 
+		   extensions="Apttus_QPConfig.RepriceQuoteController" 
+           showHeader="true"
+           sidebar="true"
+           cache="false"  
+           tabStyle="Apttus_Proposal__Proposal__c" >	
+    
+    <style>
+        .progressBar {
+            background-color: #f8f8f8;
+            border:1px solid #DDDDDD;
+            height: 19px;
+            width: 250px;
+        }
+        .progress {
+            background-color: #F7B64B;
+            border:1px solid #E78F08;
+            height: 100%;
+            margin: -1px;
+            text-align: center;
+            line-height: 18px;
+        }
+        
+    </style>
+    
+    <apex:sectionHeader title="{!$Label.apttus_qpconfig__RepriceQuote}" />
+		
+    <apex:form id="idRepriceQuote" >
+    
+		<!--  required fields -->
+		<apex:outputText value="{!Apttus_Proposal__Proposal__c.Name}" rendered="false" />
+		<apex:outputText value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__Proposal_Name__c}" rendered="false" />
+		
+		<apex:pageBlock rendered="{!NOT(isInitialized) && NOT(hasErrors)}">
+			<apex:pageBlockButtons location="bottom">
+				<apex:commandButton value="{!$Label.apttus_qpconfig__Continue}" action="{!doRepriceQuote}" />
+				<apex:commandButton value="{!$Label.apttus_qpconfig__Cancel}" action="{!doReturn}" immediate="true" />
+		    </apex:pageBlockButtons>
+		    <apex:pageBlockSection title="{!$Label.apttus_qpconfig__RepriceQuote}" columns="2" collapsible="false">
+				<apex:outputField value="{!Apttus_Proposal__Proposal__c.Name}"/>
+				<apex:outputField value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__Account__c}"/>
+				<apex:outputField value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__Proposal_Name__c}"/>
+				<apex:outputField value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__Description__c}"/>
+				<apex:outputField value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__Primary__c}"/>
+				<apex:outputField value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__Primary_Contact__c}"/>
+				<apex:outputField value="{!Apttus_Proposal__Proposal__c.Apttus_Proposal__Approval_Stage__c}"/>
+		    </apex:pageBlockSection>
+		</apex:pageBlock>
+		
+		<apex:pageBlock id="idRepriceQuoteBlock" mode="edit" rendered="{!isInitialized}" >
+			<apex:pageMessages />
+			
+			<apex:pageBlockButtons location="bottom" >
+				<apex:commandButton action="{!doViewCart}" 
+									value="{!$Label.apttus_qpconfig__Next}" 
+									immediate="true" 
+									disabled="{!NOT(IsJobCompleted)}" />
+				<apex:commandButton action="{!doReturn}" 
+									value="{!$Label.apttus_qpconfig__Return}" 
+									immediate="true" />
+			</apex:pageBlockButtons>
+			
+			<apex:outputPanel rendered="{!NOT(HasErrors)}" >
+				<apex:outputText style="font-weight: bold" value="{!statusText}" />
+			</apex:outputPanel>    	
+			
+			<apex:outputPanel id="idBatchJobMonitorBlock" rendered="{!NOT(HasErrors)}" >
+				<apex:pageBlockSection id="idBatchJobMonitorSection" 
+		    					   	   columns="1" 
+		    					       collapsible="false" >
+		    					   
+			        <apex:pageBlockTable value="{!batchJobs}" 
+			        					 var="jobInfo" 
+			        					 columns="10" 
+			        					 rendered="{!hasBatchJobs}" >
+			        	
+			        	<apex:column headerValue="{!$Label.apttus_qpconfig__JobName}" value="{!jobInfo.jobSO.ApexClass.Name}"  />
+						<apex:column value="{!jobInfo.jobSO.CreatedById}"  />
+						<apex:column value="{!jobInfo.jobSO.CreatedDate}"  />
+						<apex:column value="{!jobInfo.jobSO.Status}"  />
+						<apex:column >
+			                <div class="progressBar">
+			                    <div class="progress" style="width: {!jobInfo.percentComplete}%;">
+			                        {!jobInfo.percentComplete}%
+			                    </div>
+			                </div>
+			            </apex:column>
+			            <apex:column value="{!jobInfo.jobSO.ExtendedStatus}"  />
+			        	<apex:column value="{!jobInfo.jobSO.CompletedDate}"/>
+						<apex:column value="{!jobInfo.jobSO.TotalJobItems}"  />
+			        	<apex:column value="{!jobInfo.jobSO.JobItemsProcessed}"  />
+			        	<apex:column value="{!jobInfo.jobSO.NumberOfErrors}"  />
+			        	
+			        </apex:pageBlockTable>
+			        
+			        <apex:outputText value="{!$Label.apttus_qpconfig__NoRecordsToDisplay}" rendered="{!NOT(hasBatchJobs)}" />
+			    </apex:pageBlockSection>
+	    		
+	    		<apex:actionPoller action="{!doCheckJobStatus}" 
+	    						   reRender="idRepriceQuoteBlock" 
+	    						   interval="5" 
+	    						   enabled="{!actionPollerEnabled}" />		
+	    						    
+	    	</apex:outputPanel>
+	    	
+	    	<apex:actionFunction name="doRepriceQuote" 
+    						 	 action="{!doRepriceQuote}" />  
+    						 
+		</apex:pageBlock>
+		
+	</apex:form>
+	
+</apex:page>

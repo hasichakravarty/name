@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Asset University Course</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Asset University Courses</value>
+    </caseValues>
+    <fields>
+        <help><!-- This contains the Asset. --></help>
+        <label><!-- Product in Use --></label>
+        <name>Asset__c</name>
+        <relationshipLabel><!-- University Courses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Products in Use --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- External_BIU_Number --></label>
+        <name>External_BIU_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Publisher --></label>
+        <name>Publisher__c</name>
+    </fields>
+    <fields>
+        <help><!-- This contains the University Course --></help>
+        <label><!-- University Course --></label>
+        <name>UniversityCourse__c</name>
+        <relationshipLabel><!-- Products in Use --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- University Course Name --></label>
+        <name>University_Course_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Usage --></label>
+        <name>Usage_NA__c</name>
+        <picklistValues>
+            <masterLabel>No Tech Required</masterLabel>
+            <translation><!-- No Tech Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tech Required</masterLabel>
+            <translation><!-- Tech Required --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Usage --></label>
+        <name>Usage__c</name>
+        <picklistValues>
+            <masterLabel>0. No use/not applicable - Digital</masterLabel>
+            <translation><!-- 0. No use/not applicable - Digital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1. Passive use/self-study - Digital</masterLabel>
+            <translation><!-- 1. Passive use/self-study - Digital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2. Adopted/assessment - Digital</masterLabel>
+            <translation><!-- 2. Adopted/assessment - Digital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prescribed - Book/eBook</masterLabel>
+            <translation><!-- Prescribed - Book/eBook --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recommended - Book/eBook</masterLabel>
+            <translation><!-- Recommended - Book/eBook --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Asset University Course Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CORE AssetUniversityCourse Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HE UK AssetUniversityCourse Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

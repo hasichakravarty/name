@@ -1,0 +1,242 @@
+<!-- 
+   @Author : Accenture IDC
+   @name   : oneCRMProductSelectorPopUpPicklist
+   @CreateDate :
+   @Description : Open Popup for Categoy picklist 
+   @Version <1.0>
+   @reference :
+  -->
+  
+<apex:page controller="oneCRMProductSelectorWizardControllerV2" sidebar="false" showheader="false">
+<script>
+    /* copy selected value to parent window */
+        var statusValue = [];
+        function fillIn(name){
+            /* get Id from URL */       
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++){
+                hash = hashes[i].split('=');                
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+                                    
+            if(name.checked == true){           
+                statusValue.push(name.value)
+            }else{              
+                for(var i = 0 ; i< statusValue.length ; i++) {                      
+                    if(statusValue[i] == name.value) {                                     
+                        statusValue.splice(i,i);                                        
+                    }
+                }
+            }
+            
+            var copyToId = vars["namefield"];   
+            
+            var winMain=window.opener;
+            if (null==winMain){
+               winMain=window.parent.opener;
+            }
+            
+            var ele=winMain.document.getElementById(copyToId);      
+            ele.value = statusValue;                 
+        }
+        
+        /* Close window*/   
+        function closeWindow(){
+            var winMain=window.opener;
+            if (null==winMain){
+                winMain=window.parent.opener;
+            }
+            winMain.closeLookupPopup();
+        }   
+</script>
+<apex:form >
+<apex:pageBlock >   
+     <!-- display when category is selected -->
+    <apex:selectCheckboxes value="{!selectedValueFromPopup}" layout="pageDirection" onchange="fillIn(this);">
+        <!--<apex:selectOption itemLabel="NY Times Supplement (NC)"  itemValue="NY Times Supplement (NC)  "/>
+        <apex:selectOption itemLabel="Non-Warehoused Supplement"  itemValue="Non-Warehoused Supplement  "/>
+        <apex:selectOption itemLabel="Companion Website"  itemValue="Companion Website  "/>
+        <apex:selectOption itemLabel="Daedalus"  itemValue="Daedalus  "/>
+        <apex:selectOption itemLabel="Assignment Resource"  itemValue="Assignment Resource  "/>
+        <apex:selectOption itemLabel="eBook+ upgrade (component)"  itemValue="eBook+ upgrade (component)  "/>
+        <apex:selectOption itemLabel="Generic Supplement (NC)"  itemValue="Generic Supplement (NC)  "/>
+        <apex:selectOption itemLabel="Value Pack"  itemValue="Value Pack  "/>
+        <apex:selectOption itemLabel="Student Supplement"  itemValue="Student Supplement  "/>
+        <apex:selectOption itemLabel="Special Item"  itemValue="Special Item  "/>
+        <apex:selectOption itemLabel="Custom Companion Website"  itemValue="Custom Companion Website  "/>
+        <apex:selectOption itemLabel="Discipline Supersite"  itemValue="Discipline Supersite  "/>
+        <apex:selectOption itemLabel="Electronic Book"  itemValue="Electronic Book  "/>
+        <apex:selectOption itemLabel="UK Supplement"  itemValue="UK Supplement  "/>
+        <apex:selectOption itemLabel="TestGen"  itemValue="TestGen  "/>
+        <apex:selectOption itemLabel="Safari"  itemValue="Safari  "/>
+        <apex:selectOption itemLabel="eBook+ (standalone)"  itemValue="eBook+ (standalone)  "/>
+        <apex:selectOption itemLabel="CourseSmart (Review Only)"  itemValue="CourseSmart (Review Only)  "/>
+        <apex:selectOption itemLabel="Instructors Resource Package"  itemValue="Instructors Resource Package  "/>
+        <apex:selectOption itemLabel="Cost Accumulator"  itemValue="Cost Accumulator  "/>
+        <apex:selectOption itemLabel="Special Package"  itemValue="Special Package  "/>
+        <apex:selectOption itemLabel="Premium Website"  itemValue="Premium Website  "/>
+        <apex:selectOption itemLabel="WebCT"  itemValue="WebCT  "/>
+        <apex:selectOption itemLabel="Course Management Resource"  itemValue="Course Management Resource  "/>
+        <apex:selectOption itemLabel="Main Title"  itemValue="Main Title  "/>
+        <apex:selectOption itemLabel="New York Times Supplement"  itemValue="New York Times Supplement  "/>
+        <apex:selectOption itemLabel="Premium Item"  itemValue="Premium Item  "/>
+        <apex:selectOption itemLabel="Blackboard"  itemValue="Blackboard  "/>
+        <apex:selectOption itemLabel="ECollege"  itemValue="ECollege  "/>
+        <apex:selectOption itemLabel="UK Sample"  itemValue="UK Sample  "/>
+        <apex:selectOption itemLabel="CourseSmart Solutions"  itemValue="CourseSmart Solutions  "/>
+        <apex:selectOption itemLabel="Catalog"  itemValue="Catalog  "/>
+        <apex:selectOption itemLabel="Alternate Binding"  itemValue="Alternate Binding  "/>
+        <apex:selectOption itemLabel="Interactive Edition"  itemValue="Interactive Edition  "/>
+        <apex:selectOption itemLabel="CourseSmart"  itemValue="CourseSmart  "/>
+        <apex:selectOption itemLabel="CourseCompass"  itemValue="CourseCompass  "/>
+        <apex:selectOption itemLabel="Course-Specific Generic Supplement"  itemValue="Course-Specific Generic Supplement  "/>
+        <apex:selectOption itemLabel="Assessment Resource"  itemValue="Assessment Resource  "/>
+        <apex:selectOption itemLabel="Instructors Edition"  itemValue="Instructors Edition  "/>
+        <apex:selectOption itemLabel="Generic Supplement"  itemValue="Generic Supplement  "/>
+        <apex:selectOption itemLabel="Online Supplement"  itemValue="Online Supplement  "/>
+        <apex:selectOption itemLabel="UK See Also Titles"  itemValue="UK See Also Titles  "/>
+        <apex:selectOption itemLabel="Presentation Resource"  itemValue="Presentation Resource  "/>
+        <apex:selectOption itemLabel="PearsonChoices"  itemValue="PearsonChoices  "/>
+        <apex:selectOption itemLabel="Instructor Supplement"  itemValue="Instructor Supplement  "/>
+        <apex:selectOption itemLabel="Component Item"  itemValue="Component Item  "/>
+        <apex:selectOption itemLabel="Pearson Place"  itemValue="Pearson Place  "/>
+        <apex:selectOption itemLabel="Text-Specific Website"  itemValue="Text-Specific Website  "/>
+        <apex:selectOption itemLabel="Restricted for sale to 1 school/company"  itemValue="Restricted for sale to 1 school/company  "/>
+        <apex:selectOption itemLabel="PPS Supplement"  itemValue="PPS Supplement  "/>
+        <apex:selectOption itemLabel="Research Resource"  itemValue="Research Resource  "/>
+        <apex:selectOption itemLabel="Electronic Matter"  itemValue="Electronic Matter  "/>
+        <apex:selectOption itemLabel="VangoNotes"  itemValue="VangoNotes  "/>
+        <apex:selectOption itemLabel="MyFinLitLab"  itemValue="MyFinLitLab  "/>
+        <apex:selectOption itemLabel="MyFireFighterLab"  itemValue="MyFireFighterLab  "/>
+        <apex:selectOption itemLabel="MyHistoryLab"  itemValue="MyHistoryLab  "/>
+        <apex:selectOption itemLabel="MyHospitalityKit"  itemValue="MyHospitalityKit  "/>
+        <apex:selectOption itemLabel="MyITLab"  itemValue="MyITLab  "/>
+        <apex:selectOption itemLabel="MyLegalStudiesKit"  itemValue="MyLegalStudiesKit  "/>
+        <apex:selectOption itemLabel="MyMassageTherapyLab"  itemValue="MyMassageTherapyLab  "/>
+        <apex:selectOption itemLabel="MyMusicHistoryKit"  itemValue="MyMusicHistoryKit  "/>
+        <apex:selectOption itemLabel="MyNursingKit"  itemValue="MyNursingKit  "/>
+        <apex:selectOption itemLabel="MyPortugueseLab"  itemValue="MyPortugueseLab  "/>
+        <apex:selectOption itemLabel="MyProfessionalDevelopmentLab"  itemValue="MyProfessionalDevelopmentLab  "/>
+        <apex:selectOption itemLabel="MySocKit"  itemValue="MySocKit  "/>
+        <apex:selectOption itemLabel="MyTradeKit"  itemValue="MyTradeKit  "/>
+        <apex:selectOption itemLabel="MasteringGeography"  itemValue="MasteringGeography  "/>
+        <apex:selectOption itemLabel="MyAnthroKit"  itemValue="MyAnthroKit  "/>
+        <apex:selectOption itemLabel="MyAnthroLibrary"  itemValue="MyAnthroLibrary  "/>
+        <apex:selectOption itemLabel="MyChineseLab"  itemValue="MyChineseLab  "/>
+        <apex:selectOption itemLabel="MyCommunicationsLab"  itemValue="MyCommunicationsLab  "/>
+        <apex:selectOption itemLabel="MyConstructionKit"  itemValue="MyConstructionKit  "/>
+        <apex:selectOption itemLabel="MyCrimeLab"  itemValue="MyCrimeLab  "/>
+        <apex:selectOption itemLabel="MyDevelopmentKit"  itemValue="MyDevelopmentKit  "/>
+        <apex:selectOption itemLabel="MyEdLeadershipLab"  itemValue="MyEdLeadershipLab  "/>
+        <apex:selectOption itemLabel="MyEMSKit"  itemValue="MyEMSKit  "/>
+        <apex:selectOption itemLabel="MyHealthProfessionsLab"  itemValue="MyHealthProfessionsLab  "/>
+        <apex:selectOption itemLabel="MyHelpingLab"  itemValue="MyHelpingLab  "/>
+        <apex:selectOption itemLabel="MyIBLab"  itemValue="MyIBLab  "/>
+        <apex:selectOption itemLabel="MyLegalStudiesLab"  itemValue="MyLegalStudiesLab  "/>
+        <apex:selectOption itemLabel="MyLiteratureKit"  itemValue="MyLiteratureKit  "/>
+        <apex:selectOption itemLabel="MyMarketingLab"  itemValue="MyMarketingLab  "/>
+        <apex:selectOption itemLabel="MyMathLab"  itemValue="MyMathLab  "/>
+        <apex:selectOption itemLabel="MyPhotographyKit"  itemValue="MyPhotographyKit  "/>
+        <apex:selectOption itemLabel="MyPhysicalAssessmentLab"  itemValue="MyPhysicalAssessmentLab  "/>
+        <apex:selectOption itemLabel="MyProfessionalismKit"  itemValue="MyProfessionalismKit  "/>
+        <apex:selectOption itemLabel="MyPsychKit"  itemValue="MyPsychKit  "/>
+        <apex:selectOption itemLabel="MyReadinessTest"  itemValue="MyReadinessTest  "/>
+        <apex:selectOption itemLabel="MySocialWorkKit"  itemValue="MySocialWorkKit  "/>
+        <apex:selectOption itemLabel="MyTechCommKit"  itemValue="MyTechCommKit  "/>
+        <apex:selectOption itemLabel="MyThinkingLab"  itemValue="MyThinkingLab  "/>
+        <apex:selectOption itemLabel="MyWiringLab"  itemValue="MyWiringLab  "/>
+        <apex:selectOption itemLabel="MasteringA&P"  itemValue="MasteringA&P  "/>
+        <apex:selectOption itemLabel="MasteringAstronomy"  itemValue="MasteringAstronomy  "/>
+        <apex:selectOption itemLabel="MasteringChemistry"  itemValue="MasteringChemistry  "/>
+        <apex:selectOption itemLabel="MasteringHealth"  itemValue="MasteringHealth  "/>
+        <apex:selectOption itemLabel="MasteringMeteorology"  itemValue="MasteringMeteorology  "/>
+        <apex:selectOption itemLabel="MyBizLab"  itemValue="MyBizLab  "/>
+        <apex:selectOption itemLabel="MyBizSkillsKit"  itemValue="MyBizSkillsKit  "/>
+        <apex:selectOption itemLabel="MyBLawLab"  itemValue="MyBLawLab  "/>
+        <apex:selectOption itemLabel="MyCommuncationsLab"  itemValue="MyCommuncationsLab  "/>
+        <apex:selectOption itemLabel="MyFinanceKit"  itemValue="MyFinanceKit  "/>
+        <apex:selectOption itemLabel="MyITcertificationLab"  itemValue="MyITcertificationLab  "/>
+        <apex:selectOption itemLabel="MyMassCommLab"  itemValue="MyMassCommLab  "/>
+        <apex:selectOption itemLabel="MyNursingLab"  itemValue="MyNursingLab  "/>
+        <apex:selectOption itemLabel="MyPhilosophyKit"  itemValue="MyPhilosophyKit  "/>
+        <apex:selectOption itemLabel="MySocLab"  itemValue="MySocLab  "/>
+        <apex:selectOption itemLabel="MyVirtualLife"  itemValue="MyVirtualLife  "/>
+        <apex:selectOption itemLabel="MyLab for CourseConnect"  itemValue="MyLab for CourseConnect  "/>
+        <apex:selectOption itemLabel="MasteringGenetics"  itemValue="MasteringGenetics  "/>
+        <apex:selectOption itemLabel="MathXL"  itemValue="MathXL  "/>
+        <apex:selectOption itemLabel="MyAlliedHealthKit"  itemValue="MyAlliedHealthKit  "/>
+        <apex:selectOption itemLabel="MyAnthroLab"  itemValue="MyAnthroLab  "/>
+        <apex:selectOption itemLabel="MyArchitectureKit"  itemValue="MyArchitectureKit  "/>
+        <apex:selectOption itemLabel="MyAutomotiveLab"  itemValue="MyAutomotiveLab  "/>
+        <apex:selectOption itemLabel="MyBusEnglishLab"  itemValue="MyBusEnglishLab  "/>
+        <apex:selectOption itemLabel="MyCounselingLab"  itemValue="MyCounselingLab  "/>
+        <apex:selectOption itemLabel="MyDevelopmentLab"  itemValue="MyDevelopmentLab  "/>
+        <apex:selectOption itemLabel="MyDietAnalysis"  itemValue="MyDietAnalysis  "/>
+        <apex:selectOption itemLabel="MyFamilyLab"  itemValue="MyFamilyLab  "/>
+        <apex:selectOption itemLabel="MyFashionLab"  itemValue="MyFashionLab  "/>
+        <apex:selectOption itemLabel="MyFinanceLab"  itemValue="MyFinanceLab  "/>
+        <apex:selectOption itemLabel="MyFrenchLab"  itemValue="MyFrenchLab  "/>
+        <apex:selectOption itemLabel="MyHVACLab"  itemValue="MyHVACLab  "/>
+        <apex:selectOption itemLabel="MyMAKit"  itemValue="MyMAKit  "/>
+        <apex:selectOption itemLabel="MyMicrobiologyPlace"  itemValue="MyMicrobiologyPlace  "/>
+        <apex:selectOption itemLabel="MyMISLab"  itemValue="MyMISLab  "/>
+        <apex:selectOption itemLabel="MyMusicKit"  itemValue="MyMusicKit  "/>
+        <apex:selectOption itemLabel="MyPhilosophyLab"  itemValue="MyPhilosophyLab  "/>
+        <apex:selectOption itemLabel="MyPhilosophyLibrary"  itemValue="MyPhilosophyLibrary  "/>
+        <apex:selectOption itemLabel="MyPoliSciKit"  itemValue="MyPoliSciKit  "/>
+        <apex:selectOption itemLabel="MyResearchKit"  itemValue="MyResearchKit  "/>
+        <apex:selectOption itemLabel="MyRussianLab"  itemValue="MyRussianLab  "/>
+        <apex:selectOption itemLabel="MySkillsLab"  itemValue="MySkillsLab  "/>
+        <apex:selectOption itemLabel="MySpeechLab"  itemValue="MySpeechLab  "/>
+        <apex:selectOption itemLabel="MyVirtualChild"  itemValue="MyVirtualChild  "/>
+        <apex:selectOption itemLabel="MyWritingLab"  itemValue="MyWritingLab  "/>
+        <apex:selectOption itemLabel="Mastering Plus for CourseConnect"  itemValue="Mastering Plus for CourseConnect  "/>
+        <apex:selectOption itemLabel="MyGraphicsLab"  itemValue="MyGraphicsLab  "/>
+        <apex:selectOption itemLabel="MyCarpentryLab"  itemValue="MyCarpentryLab  "/>
+        <apex:selectOption itemLabel="MyCommunicationLab"  itemValue="MyCommunicationLab  "/>
+        <apex:selectOption itemLabel="MyEthicsKit"  itemValue="MyEthicsKit  "/>
+        <apex:selectOption itemLabel="MyFireKit"  itemValue="MyFireKit  "/>
+        <apex:selectOption itemLabel="MyHistoryLibrary"  itemValue="MyHistoryLibrary  "/>
+        <apex:selectOption itemLabel="MyJazzKit"  itemValue="MyJazzKit  "/>
+        <apex:selectOption itemLabel="MyMachineToolKit"  itemValue="MyMachineToolKit  "/>
+        <apex:selectOption itemLabel="MyManagementLab"  itemValue="MyManagementLab  "/>
+        <apex:selectOption itemLabel="MyMathTest"  itemValue="MyMathTest  "/>
+        <apex:selectOption itemLabel="MyParamedicKit"  itemValue="MyParamedicKit  "/>
+        <apex:selectOption itemLabel="MyReligionLab"  itemValue="MyReligionLab  "/>
+        <apex:selectOption itemLabel="MySpanishKit"  itemValue="MySpanishKit  "/>
+        <apex:selectOption itemLabel="MySpanishLab"  itemValue="MySpanishLab  "/>
+        <apex:selectOption itemLabel="MySpeechKit"  itemValue="MySpeechKit  "/>  
+        <apex:selectOption itemLabel="MyStratLab"  itemValue="MyStratLab  "/>
+        <apex:selectOption itemLabel="Analytics Edition for CourseConnect"  itemValue="Analytics Edition for CourseConnect  "/>
+        <apex:selectOption itemLabel="Institutional Solutions"  itemValue="Institutional Solutions  "/>
+        <apex:selectOption itemLabel="MasteringEnvironmentalScience"  itemValue="MasteringEnvironmentalScience  "/>
+        <apex:selectOption itemLabel="MasteringNutrition"  itemValue="MasteringNutrition  "/>
+        <apex:selectOption itemLabel="MyBCommLab"  itemValue="MyBCommLab  "/>
+        <apex:selectOption itemLabel="MyBradyLab"  itemValue="MyBradyLab  "/>
+        <apex:selectOption itemLabel="MyFamilyKit"  itemValue="MyFamilyKit  "/>
+        <apex:selectOption itemLabel="MyFamilyTherapyLab"  itemValue="MyFamilyTherapyLab  "/>
+        <apex:selectOption itemLabel="MyFitnessLab"  itemValue="MyFitnessLab  "/>
+        <apex:selectOption itemLabel="MyFoundationsLab"  itemValue="MyFoundationsLab  "/>
+        <apex:selectOption itemLabel="MyGreenTradesKit"  itemValue="MyGreenTradesKit  "/>
+        <apex:selectOption itemLabel="MyHealthProfessionsKit"  itemValue="MyHealthProfessionsKit  "/>
+        <apex:selectOption itemLabel="MyHVACKit"  itemValue="MyHVACKit  "/>
+        <apex:selectOption itemLabel="MyInteriorDesignKit"  itemValue="MyInteriorDesignKit  "/>
+        <apex:selectOption itemLabel="MyInteriorDesignLab"  itemValue="MyInteriorDesignLab  "/>
+        <apex:selectOption itemLabel="MyLiteratureLab"  itemValue="MyLiteratureLab  "/>
+        <apex:selectOption itemLabel="MyMeteorologyLab"  itemValue="MyMeteorologyLab  "/>
+        <apex:selectOption itemLabel="MyOMLab"  itemValue="MyOMLab  "/>
+        <apex:selectOption itemLabel="MyReligionKit"  itemValue="MyReligionKit  "/>
+        <apex:selectOption itemLabel="MySearchLab"  itemValue="MySearchLab  "/>
+        <apex:selectOption itemLabel="MyServSafeLab"  itemValue="MyServSafeLab  "/>
+        <apex:selectOption itemLabel="MyTradesKit"  itemValue="MyTradesKit  "/>
+        <apex:selectOption itemLabel="MyVirtualTeen"  itemValue="MyVirtualTeen  "/>     -->
+        <apex:selectOptions value="{!categories}"/>
+    </apex:selectCheckboxes>    
+    <apex:pageblockButtons location="top">
+    <apex:commandButton value="Insert Selected"   onClick="closeWindow();"/>
+    </apex:pageblockButtons>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

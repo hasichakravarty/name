@@ -1,0 +1,10 @@
+<apex:page standardController="Account" extensions="MultipleAccountApprovalController" recordSetVar="accounts" action="{!MultipleAccounts}">
+  <apex:form >
+  <apex:pageblock >
+  <apex:pageMessage summary="The following Account Records have been submitted for approval by user to Join Account Team" severity="info"></apex:pageMessage>
+  
+  <apex:pageBlockTable value="{!selected}" var="act">
+    <apex:column value="{!act.name}"/> 
+  </apex:pageBlockTable> </apex:pageblock>
+  </apex:form>
+</apex:page>

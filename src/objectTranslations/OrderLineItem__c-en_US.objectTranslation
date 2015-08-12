@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Order Line Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Order Line Items</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Order Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Auxiliary Store Id --></label>
+        <name>AuxStoreId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Binding Type --></label>
+        <name>BindingType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Promo Description --></label>
+        <name>CPQ_Promo_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Promo Expiration Date --></label>
+        <name>CPQ_Promo_Expiration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Type --></label>
+        <name>DealType__c</name>
+        <picklistValues>
+            <masterLabel>Conversion</masterLabel>
+            <translation><!-- Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expansion</masterLabel>
+            <translation><!-- Expansion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pilot</masterLabel>
+            <translation><!-- Pilot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade</masterLabel>
+            <translation><!-- Upgrade --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Address --></label>
+        <name>DeliverToAddress__c</name>
+        <relationshipLabel><!-- Order Line Items (Deliver to Address) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Contact --></label>
+        <name>DeliverToContact__c</name>
+        <relationshipLabel><!-- Order Line Items (Deliver to Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Account --></label>
+        <name>Deliver_To_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Address 1 --></label>
+        <name>Deliver_To_Address_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Address 2 --></label>
+        <name>Deliver_To_Address_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Address Postal Code --></label>
+        <name>Deliver_To_Address_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Address State --></label>
+        <name>Deliver_To_Address_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Address City --></label>
+        <name>Deliver_to_Address_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Contact Email --></label>
+        <name>Deliver_to_Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Contact First Name --></label>
+        <name>Deliver_to_Contact_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Contact Last Name --></label>
+        <name>Deliver_to_Contact_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Contact Phone --></label>
+        <name>Deliver_to_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Contact Salutation --></label>
+        <name>Deliver_to_Contact_Salutation__c</name>
+    </fields>
+    <fields>
+        <label><!-- End User/Deliver To Customer Location --></label>
+        <name>Deliver_to_Customer_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount --></label>
+        <name>Discount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discounted Quantity --></label>
+        <name>DiscountedQuantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration Unit of Measure --></label>
+        <name>DurationUOM__c</name>
+        <picklistValues>
+            <masterLabel>MO</masterLabel>
+            <translation><!-- MO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Duration --></label>
+        <name>Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- External_OLI_Number --></label>
+        <name>External_OLI_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Free Shipping --></label>
+        <name>FreeShippingFlag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Id (18-character) --></label>
+        <name>Id_18_character__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Base Instance Number --></label>
+        <name>Install_Base_Instance_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Base Tracked --></label>
+        <name>Install_Base_Tracked__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Address --></label>
+        <name>InvoiceToAddress__c</name>
+        <relationshipLabel><!-- Order Line Items (Invoice to Address) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Contact --></label>
+        <name>InvoiceToContact__c</name>
+        <relationshipLabel><!-- Order Line Items (Invoice to Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Contact Email --></label>
+        <name>Invoice_to_Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Contact First Name --></label>
+        <name>Invoice_to_Contact_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Contact Last Name --></label>
+        <name>Invoice_to_Contact_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Contact Phone --></label>
+        <name>Invoice_to_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Contact Salutation --></label>
+        <name>Invoice_to_Contact_Salutation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice to Customer Location --></label>
+        <name>Invoice_to_Customer_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Active Product --></label>
+        <name>Is_Active_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Item Description --></label>
+        <name>ItemDescription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Item Identifier --></label>
+        <name>ItemIdentifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Item Quantity --></label>
+        <name>ItemQuantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Item Weight Unit of Measure --></label>
+        <name>ItemWeightUOM__c</name>
+        <picklistValues>
+            <masterLabel>grams</masterLabel>
+            <translation><!-- grams --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>lbs</masterLabel>
+            <translation><!-- lbs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ounces</masterLabel>
+            <translation><!-- ounces --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Item Weight --></label>
+        <name>ItemWeight__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line ID --></label>
+        <name>LineId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Number --></label>
+        <name>LineNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line # --></label>
+        <name>LineNumberText__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Total --></label>
+        <name>LineTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Type --></label>
+        <name>MediaType__c</name>
+        <picklistValues>
+            <masterLabel>Book</masterLabel>
+            <translation><!-- Book --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD</masterLabel>
+            <translation><!-- CD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DVD</masterLabel>
+            <translation><!-- DVD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of Students --></label>
+        <name>NumberOfStudents__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>Order__c</name>
+        <relationshipLabel><!-- Order Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ordered Item --></label>
+        <name>Ordered_Item__c</name>
+    </fields>
+    <fields>
+        <label><!-- Price Per Student --></label>
+        <name>PricePerStudent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Price --></label>
+        <name>Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pricebook Entry Id --></label>
+        <name>PricebookEntryId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Processing System Line Item --></label>
+        <name>ProcessingSystemLineItem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Processing System Order ID --></label>
+        <name>ProcessingSystemOrderID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Order Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product for Service --></label>
+        <name>ProductforService__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Reference Type --></label>
+        <name>ServiceReferenceType__c</name>
+        <picklistValues>
+            <masterLabel>Install Base</masterLabel>
+            <translation><!-- Install Base --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Service Contracts Interface Options --></label>
+        <name>Service_Contracts_Interface_Options__c</name>
+        <picklistValues>
+            <masterLabel>NO CONTRACT IMPACT</masterLabel>
+            <translation><!-- NO CONTRACT IMPACT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UPDATE CONTRACT COUNTS ONLY</masterLabel>
+            <translation><!-- UPDATE CONTRACT COUNTS ONLY --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Ship to Address --></label>
+        <name>ShipToAddress__c</name>
+        <relationshipLabel><!-- Order Line Items (Ship to Address) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ship to Contact --></label>
+        <name>ShipToContact__c</name>
+        <relationshipLabel><!-- Order Line Items (Ship to Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ship to Contact Email --></label>
+        <name>Ship_to_Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship to Contact First Name --></label>
+        <name>Ship_to_Contact_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship to Contact Last Name --></label>
+        <name>Ship_to_Contact_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship to Contact Phone --></label>
+        <name>Ship_to_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship to Contact Salutation --></label>
+        <name>Ship_to_Contact_Salutation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship to Customer Location --></label>
+        <name>Ship_to_Customer_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipped Quantity --></label>
+        <name>ShippedQuantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipped Item --></label>
+        <name>Shipped_Item__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Amount --></label>
+        <name>ShippingAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Reason --></label>
+        <name>StatusReason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription End Date --></label>
+        <name>SubscriptionEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription Start Date --></label>
+        <name>SubscriptionStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Amount --></label>
+        <name>TaxAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taxable Percent --></label>
+        <name>TaxablePercent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taxable --></label>
+        <name>Taxable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unit of Measure --></label>
+        <name>UnitOfMeasure__c</name>
+        <picklistValues>
+            <masterLabel>Each</masterLabel>
+            <translation><!-- Each --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Order Line Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Product Details --></label>
+            <section>Product Details</section>
+        </sections>
+        <sections>
+            <label><!-- Shipping Details --></label>
+            <section>Shipping Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- You cannot modify an Order Line Item when the order is Approved --></errorMessage>
+        <name>Cannot_Change_Order_Lines_Approved</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Discount percent cannot exceed 100% --></errorMessage>
+        <name>Cannot_enter_discount_greater_than_100</name>
+    </validationRules>
+</CustomObjectTranslation>

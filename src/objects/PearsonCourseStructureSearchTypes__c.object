@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <description>CORE - contains a list of type values that should not be filtered out of the course page</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Search_Sort_Order__c</fullName>
+        <description>The order that this type of course should appear relative to others on the CourseSearchGlobal page. Lower number indicates higher position</description>
+        <externalId>false</externalId>
+        <inlineHelpText>CORE - The order that this type of course should appear relative to others on the CourseSearchGlobal page. Lower number indicates higher position</inlineHelpText>
+        <label>Search Sort Order</label>
+        <precision>4</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <label>PearsonCourseStructureSearchTypes</label>
+</CustomObject>

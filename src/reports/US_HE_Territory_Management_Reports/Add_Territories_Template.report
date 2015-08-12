@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Territory2Model.Territory2s$DeveloperName</field>
+    </columns>
+    <columns>
+        <field>Territory2Model.Territory2s$Territory_Code__c</field>
+    </columns>
+    <columns>
+        <field>Territory2Model.Territory2s$Territory2Type</field>
+    </columns>
+    <columns>
+        <field>Territory2Model.Territory2s$ParentTerritory2</field>
+    </columns>
+    <columns>
+        <field>Territory2Model.Territory2s$Description</field>
+    </columns>
+    <currency>USD</currency>
+    <format>Tabular</format>
+    <name>Add Territories Template</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Territories_Models_with_or_without_Territories__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Territory2Model$ActivatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

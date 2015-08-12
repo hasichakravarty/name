@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Pearson Choice</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pearson Choices</value>
+    </caseValues>
+    <fields>
+        <label><!-- Access Length --></label>
+        <name>Access_Length__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bookstore ISBN(s) --></label>
+        <name>Bookstore_ISBN_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bookstore Price --></label>
+        <name>Bookstore_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bookstore --></label>
+        <name>Bookstore__c</name>
+        <relationshipLabel><!-- Pearson Choices (Bookstore) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- BrandCalc1 --></label>
+        <name>BrandCalc1__c</name>
+    </fields>
+    <fields>
+        <label><!-- BrandCalc2 --></label>
+        <name>BrandCalc2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Brand --></label>
+        <name>Brand__c</name>
+    </fields>
+    <fields>
+        <label><!-- Includes Pearon eText --></label>
+        <name>Includes_Pearon_eText__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instant Access Price --></label>
+        <name>Instant_Access_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instant Access --></label>
+        <name>Instant_Access__c</name>
+        <relationshipLabel><!-- Pearson Choices (Instant Access) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Master Product --></label>
+        <name>Master_Product__c</name>
+        <relationshipLabel><!-- Pearson Choices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Offer Type --></label>
+        <name>Offer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Platform --></label>
+        <name>Platform__c</name>
+    </fields>
+    <fields>
+        <label><!-- Print Offer Price --></label>
+        <name>Print_Offer_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Print Offer --></label>
+        <name>Print_Offer__c</name>
+        <relationshipLabel><!-- Pearson Choices (Print Offer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Family --></label>
+        <name>Product_Family__c</name>
+        <relationshipLabel><!-- Pearson Choices (Product Family) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sequence --></label>
+        <name>Sequence__c</name>
+    </fields>
+    <fields>
+        <label><!-- eText Offer Price --></label>
+        <name>eText_Offer_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- eText Offer --></label>
+        <name>eText_Offer__c</name>
+        <relationshipLabel><!-- Pearson Choices (eText Offer) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Pearson Choice Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Automated Lead Assignment Notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Pearson_Core_Default</letterhead>
+    <name>Lead Assignment Notification</name>
+    <style>freeForm</style>
+    <subject>You have been assigned a new lead in Salesforce</subject>
+    <textOnly>{!Lead.OwnerFullName} the following lead has been assigned to you:
+
+Name: {!Lead.FirstName} {!Lead.LastName}
+Company: {!Lead.Company}
+Phone: {!Lead.Phone}
+Mobile: {!Lead.MobilePhone}
+Email: {!Lead.Email}
+Discipline: {!Lead.Discipline_of_interest__c}
+
+Click the link below to view the lead.
+
+{!Lead.Link}</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Apttus Quote%2FProposal-Asset Integration</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <description>Apttus Quote/Proposal - Asset Integration integrates Apttus Quote/Proposal Management with Apttus CPQ and Assets. It enables the user to select products or services, configure and price them for simple or highly complex scenarios and produce high quality customer facing quotes and proposals.</description>
+    <namespacePrefix>Apttus_QPAsset</namespacePrefix>
+    <types>
+        <members>AbstractProposalAssetTest</members>
+        <members>ConfigRequestSupport</members>
+        <members>ProposalConfigurationController</members>
+        <members>ProposalConfigurationControllerTest</members>
+        <members>RuntimeContext</members>
+        <members>SOQLConstants</members>
+        <members>SOQLSupport</members>
+        <members>SOQLTest</members>
+        <members>SObjectConstants</members>
+        <members>SObjectMetadata</members>
+        <members>SObjectSupport</members>
+        <members>SObjectTest</members>
+        <members>SystemUtil</members>
+        <members>SystemUtilTest</members>
+        <members>UIPageSupport</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>ProposalConfiguration</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Apttus_Proposal__Proposal__c.ConfigureWithAssets__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>InsufficientPrivileges</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
+    </types>
+    <version>33.0</version>
+</Package>

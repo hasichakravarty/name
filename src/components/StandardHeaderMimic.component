@@ -1,0 +1,38 @@
+<apex:component >
+	<apex:attribute name="imageSrc" description="Relative URL to the image" type="String" required="true"/>
+	<apex:attribute name="smallHeading" description="Small display text" type="String" required="true"/>
+	<apex:attribute name="bigHeading" description="Large display text" type="String" required="true"/>
+	
+    <style>
+        #smallheader{
+            font-size: .9em;
+            font-weight: bold;
+            padding-left: 1px;
+            color: #4A4A56
+        }
+        #bigheader{
+            font-size: 1.8em;
+            font-weight: normal;
+            line-height: 1.1em;
+        }
+        #container{
+            padding: 10px;
+        }
+    </style>
+    
+    <div id="container">
+	    <table>
+	        <tr>
+	            <td rowspan="2"><apex:image value="{!imageSrc}" alt="{!smallHeading}" title="{!smallHeading}"/></td>
+	            <td id="smallheader">
+	                <apex:outputLabel value="{!smallHeading}" />
+	            </td>
+	        </tr>
+	        <tr>
+	            <td id="bigheader">
+	                <apex:outputLabel value="{!bigHeading}" />
+	            </td>
+	        </tr>
+	    </table>
+    </div>
+</apex:component>

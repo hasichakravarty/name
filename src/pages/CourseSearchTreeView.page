@@ -1,0 +1,135 @@
+<apex:page controller="CourseSearchTreeviewController" tabStyle="PearsonCourseStructure__c">
+    <!--Include scripts from the DynaTree static resource-->
+    <apex:includeScript value="{!URLFOR($Resource.DynaTree, 'jquery/jquery.js' )}" />
+    <apex:includeScript value="{!URLFOR($Resource.DynaTree, 'jquery/jquery-ui.custom.js' )}" />
+    <apex:includeScript value="{!URLFOR($Resource.DynaTree, 'jquery/jquery.cookie.js' )}" />
+    <apex:includeScript value="{!URLFOR($Resource.DynaTree, 'src/jquery.dynatree.js' )}" />
+    <!--CSS styling for the treeview-->
+    <apex:stylesheet value="{!URLFOR($Resource.DynaTree, 'src/skin-vista/ui.dynatree.css')}" />
+    
+    <style>
+        #treeWrapper {
+            float: left;
+            width: 49%;
+        }
+        #selectionAndSearch {
+            float: right;
+            width: 49%;
+        }
+        #resetButtonPanel{
+            //background-color: blue;
+            padding-top: 25px;
+            margin-left: 33%;
+        }
+        .italics{
+            font-style: italic;
+        }
+    </style>
+    
+    <script type="text/javascript">
+        $(function(){
+        
+            $("#courseTree").dynatree({
+            
+                <!-- When a node is double clicked,  populate the the hidden fields (nodeTitle, nodeId, nodeType) with the node data-->
+                onDblClick: function(node) {
+                    $('[id$=nodeTitle]').val(node.data.title);
+                    $('[id$=nodeId]').val(node.data.key);
+                    $('[id$=nodeType]').val(node.data.Type);
+                    
+                    <!-- Now we have the data,  call the controller to output our selection -->
+                    storeData();
+                },
+            
+                <!-- When a node is single clicked,  expand it if the click was on the node title-->
+                onClick: function(node, event) {
+                    
+                    if(node.getEventTargetType(event) == 'title'){
+                        node.expand();
+                    }
+                },
+                
+                persist: false,
+                checkbox: false,
+                generateIds: false,
+                selectMode: 2, //Allow the user to select from multiple hierarchies singularly
+                fx: { height: "toggle", duration: 200 },
+                autoCollapse: false,
+                children: {!TreeViewData}
+            });
+        });
+    </script>
+    
+    <apex:form >
+        <apex:messages />
+        
+        <apex:inputhidden value="{!CourseName}" id="nodeTitle"/>
+        <apex:inputhidden value="{!CourseId}" id="nodeId"/>
+        <apex:inputhidden value="{!CourseType}" id="nodeType"/>
+        
+        <apex:actionFunction name="storeData" action="{!StoreCourseData}" rerender="courseSelectionData"/>
+        
+            <c:StandardHeaderMimic imageSRC="/img/icon/custom51_100/globe32.png" smallHeading="Pearson Course Structure" bigHeading="Attach Courses"/>
+            <p> 
+                <apex:outputLabel value="Treeview Search"/> 
+                &nbsp; | &nbsp; 
+                <apex:commandLink value="Standard Search" action="{!LoadGlobalSearchPage}"/> 
+            </p>
+            
+            <div id="treeWrapper">
+               <apex:pageBlock title="Available Courses">
+                   <!-- By wrapping the treeview div in an output panel,  we can provide a scrollbar for the treeview -->
+                   <apex:outputPanel layout="block" style="overflow:auto;height:500px" >
+                       <div id="courseTree"> </div>
+                   </apex:outputPanel>
+               </apex:pageBlock>
+            </div>
+                
+            <div id="selectionAndSearch">
+                
+                <apex:pageBlock title="Existing Courses">
+                    <apex:pageblockTable var="item" value="{!ExistingCourses}">
+                            
+                        <apex:column title="Course Title" value="{!item.Name}">
+                            <apex:facet name="header">Course Name</apex:facet>
+                        </apex:column>
+                        
+                        <apex:column title="Course Type" value="{!item.Type__c}" style="width: 100px">
+                            <apex:facet name="header">Type</apex:facet>
+                        </apex:column>
+                            
+                    </apex:pageblockTable>             
+                </apex:pageBlock>
+                
+                <apex:pageBlock title="Selected Courses">
+                    <apex:pageblockButtons location="bottom">
+                        <apex:commandButton id="btnAttach" value="Attach" action="{!Attach}" />
+                        <apex:commandButton value="Cancel" action="{!Cancel}"/>
+                    </apex:pageblockButtons>
+                    
+                    <apex:outputpanel id="courseSelectionData">
+                        <apex:outputLabel styleClass="italics" value="Select an item from the Available Courses" rendered="{!NOT CourseDataSelected}"/>
+                        <apex:pageblockTable var="item" value="{!SelectedCourses}" rendered="{!CourseDataSelected}">
+                            <apex:column title="Remove" style="width: 50px">
+                                <apex:facet name="header">Remove</apex:facet>
+                                <apex:inputCheckbox value="{!item.isSelected}"/>
+                            </apex:column>
+                            
+                            <apex:column title="Course Title" value="{!item.PearsonCourseStructure.Name}">
+                                <apex:facet name="header">Course Name</apex:facet>
+                            </apex:column>
+                            
+                            <apex:column title="Course Type" value="{!item.PearsonCourseStructure.Type__c}" style="width: 100px">
+                                <apex:facet name="header">Type</apex:facet>
+                            </apex:column>
+                           
+                        </apex:pageblockTable>
+                    
+                        <div id="resetButtonPanel">
+                            <apex:commandButton value="Clear Selected Courses" action="{!RemoveItems}" rendered="{!CourseDataSelected}" rerender="courseSelectionData"/>
+                        </div>
+                    </apex:outputpanel>
+                </apex:pageBlock>
+            </div> <!-- SelectionAndSearch END-->
+    </apex:form>
+</apex:page>

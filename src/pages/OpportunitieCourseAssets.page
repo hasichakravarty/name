@@ -1,0 +1,25 @@
+<apex:page standardController="Opportunity" extensions="OpportunitieCourseAssets" tabStyle="Opportunity">
+<apex:form >
+ <apex:pageblock id="details">
+   <apex:pageBlockTable value="{!CourseAssets}" var="assets" rendered="{!hasAssets}">
+        <apex:column headerValue="Product In Use"><apex:outputLink value="/{!assets.id}" id="Assetlink" target="_parent">{!assets.Name}</apex:outputLink></apex:column>
+        <apex:column value="{!assets.Product_Author__c}"/>
+        <apex:column value="{!assets.Product_Edition__c}"/>
+        <apex:column value="{!assets.Copyright_Year__c}"/>
+        <apex:column value="{!assets.Publisher__c}"/>
+        <apex:column headerValue="Contact Name"><apex:outputLink value="/{!assets.ContactId}" Id="contactlink" target="_parent">{!assets.Contact.Name}</apex:outputLink></apex:column>
+        <apex:column value="{!assets.Usage__c}"/>
+        <apex:column value="{!assets.Rollover__c}"/>
+        <apex:column value="{!assets.Status}"/>
+        <apex:column value="{!assets.InstallDate}"/>
+   </apex:pageBlockTable>
+   <apex:pageblockButtons location="top">
+            <apex:commandButton value="<<" rerender="details" action="{!beginning}" disabled="{!prev}"/>
+            <apex:commandButton value="<" rerender="details" action="{!previous}" disabled="{!prev}"/>
+            <apex:commandButton value=">" rerender="details" action="{!next}" disabled="{!nxt}"/>
+            <apex:commandButton value=">>" rerender="details" action="{!end}" disabled="{!nxt}"/>                                    
+   </apex:pageblockButtons>
+   <apex:outputLabel value="No records to display" rendered="{!(NOT(hasAssets))}" styleClass="noRowsHeader"></apex:outputLabel>
+ </apex:pageblock>
+</apex:form>
+</apex:page>

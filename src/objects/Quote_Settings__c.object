@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Academic_Start_Date_Term_1__c</fullName>
+        <description>Academic Start Date Term 1</description>
+        <externalId>false</externalId>
+        <label>Academic Start Date Term 1</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Academic_Start_Date_Term_2__c</fullName>
+        <description>Academic Start Date Term 2</description>
+        <externalId>false</externalId>
+        <label>Academic Start Date Term 2</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Academic_Start_Date_Term_3__c</fullName>
+        <description>Academic Start Date Term 3</description>
+        <externalId>false</externalId>
+        <label>Academic Start Date Term 3</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Academic_Start_Date_Term_4__c</fullName>
+        <description>Academic Start Date Term 4</description>
+        <externalId>false</externalId>
+        <label>Academic Start Date Term 4</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Administration_Fee_Rate__c</fullName>
+        <description>Administration Fee Rate that will be used on Repayment calculation</description>
+        <externalId>false</externalId>
+        <label>Administration Fee Rate</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Default_Registration_Fee_New_Business__c</fullName>
+        <description>Default Registration Fee (New Business)</description>
+        <externalId>false</externalId>
+        <label>Default Registration Fee (New Business)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Default_Registration_Fee_ReturnBusiness__c</fullName>
+        <description>Default Registration Fee (Returning Business)</description>
+        <externalId>false</externalId>
+        <label>Default Registration Fee(ReturnBusiness)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Early_Bird_Price_List_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Early Bird Price List Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Early_Bird__c</fullName>
+        <description>Early Bird date</description>
+        <externalId>false</externalId>
+        <label>Early Bird</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Earlybird_Securing_Fee_New_Business__c</fullName>
+        <description>Earlybird/Securing Fee (New Business)</description>
+        <externalId>false</externalId>
+        <label>Earlybird/Securing Fee(New Business)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Earlybird_Securing_Fee_Return_Business__c</fullName>
+        <description>Earlybird/Securing Fee (Returning Business)</description>
+        <externalId>false</externalId>
+        <label>Earlybird/Securing Fee (Return Business)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Non_Early_Bird_Price_List_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Non Early Bird Price List Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>CTI MGI Quote Setting</label>
+</CustomObject>

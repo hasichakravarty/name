@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity$Account.Territory_Code_s__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Primary_Selling_Account__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Account</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Selling_Period__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Sales_Support_Activities__r$Name</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Sales_Support_Activities__r$Product__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity$Account.RecordType</column>
+            <operator>equals</operator>
+            <value>Account.Organisation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$Selling_Period__c</column>
+            <operator>equals</operator>
+            <value>Spring 2014,Fall 2014,Spring 2015,Fall 2015,Spring 2016,Fall 2016,Spring 2017,Fall 2017</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$Account.Territory_Code_s__c</column>
+            <operator>contains</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <name>Opps with Pilot Activities by Territory</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunities_with_Pilot_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Opportunity$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Territory_Snapshot__c$Name</field>
+    </columns>
+    <columns>
+        <field>Territory_Snapshot__c$Date_Information_Captured__c</field>
+    </columns>
+    <columns>
+        <field>Territory_Snapshot__c$Territory_Model__c</field>
+    </columns>
+    <columns>
+        <field>Territory_Snapshot__c$Territory_Name__c</field>
+    </columns>
+    <columns>
+        <field>Territory_Snapshot__c$Territory_Type__c</field>
+    </columns>
+    <columns>
+        <field>Territory_Snapshot__c$Territory_Code__c</field>
+    </columns>
+    <columns>
+        <field>Territory_Snapshot__c$Primary_Selling_Account__c</field>
+    </columns>
+    <columns>
+        <field>Territory_Snapshot__c$Account__c</field>
+    </columns>
+    <columns>
+        <field>Territory_Snapshot__c$User_Full_Name__c</field>
+    </columns>
+    <columns>
+        <field>Territory_Snapshot__c$Last_Modified_Date__c</field>
+    </columns>
+    <currency>USD</currency>
+    <format>Tabular</format>
+    <name>US HE Territory Accounts Snapshot</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Territory_Snapshot_with_Accounts__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Territory_Snapshot__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,205 @@
+<apex:page controller="CreateQuoteChain" id="pageID" >
+	<apex:form id="formID">
+		<style type="text/css">
+	        .customPopup {
+	            background-color: white;
+	            border-width: 2px;
+	            border-style: solid;
+	            z-index: 9999;
+	            left: 50%;
+	            padding: 10px;
+	            position: absolute;
+	            width: 500px;
+	            margin-left: -250px;
+	            top: 70px;
+	            height :300px;
+	            overflow-x:auto;
+	            overflow-y:auto;         
+	        }
+	        .popupBackground {
+	            background-color: black;
+	            opacity: 0.10;
+	            filter: alpha(opacity=10);
+	            position: absolute;
+	            width: 100%;
+	            height: 100%;
+	            top: 0;
+	            left: 0;
+	            z-index: 9998;
+	        }
+	        h1 {
+	            font-size: 140%
+	        }
+	        .parentAssetRow {
+	            font-weight: bold;
+	            color: #FFFFFF;
+	            background-color: #c1c1c1;
+	        }
+	    </style>
+		
+		<script>
+			function doCreateCartCall() {
+				var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+				if(hasError == 'false') {
+					doCreateCart();
+				}
+				else {
+					return;
+				}
+			}
+			function doAddLinesCall() {
+				var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+				if(hasError == 'false') {
+					doAddLines();
+				}
+				else {
+					return;
+				}
+			}
+			function doValidateCartCall() {
+				var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+				if(hasError == 'false') {
+					doValidateCart();
+				}
+				else {
+					return;
+				}
+			}
+			function doPriceCartCall() {
+				var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+				if(hasError == 'false') {
+					var pricePending = document.getElementById('{!$Component.pageID:formID:pricePendingID}').value;
+					if(pricePending == 'true') {
+						doPriceCart();
+					}
+					else if (pricePending == 'false') {
+						doFinalize();
+					}
+				}
+				else {
+					return;
+				}
+			}
+			function doRedirectCall() {
+				var hasError = document.getElementById('{!$Component.pageID:formID:hasErrorID}').value;
+				if(hasError == 'false') {
+					doRouteToQuote();
+				}
+				else {
+					return;
+				}
+			}
+		</script>
+		<apex:inputHidden id="hasErrorID" value="{!hasError}" />
+		<apex:inputHidden id="pricePendingID" value="{!pricePending}"/>
+		<apex:pageBlock >
+			<apex:pageMessages id="errorMsgID" escape="false"/> 
+			
+			<apex:pageBlockSection title="Select Account" collapsible="true">
+				<apex:selectList value="{!selectedAccID}" multiselect="false" size="1">
+					<apex:selectOptions value="{!Accounts}"/>
+				</apex:selectList>
+				<apex:commandButton value="Search Opportunity" action="{!searchOppty}"/>
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection title="Select Opportunity" collapsible="true" rendered="{!AND(NOT(newOppty), NOT(ISNULL(selectedAccID)))}">
+				<apex:selectList value="{!selectedOpptyID}" multiselect="false" size="1">
+					<apex:selectOptions value="{!Opptys}"/>
+				</apex:selectList>
+			</apex:pageBlockSection>
+
+			
+			<apex:pageBlockSection title="Select Price List" collapsible="true">
+				<apex:selectList value="{!selectedPriceListID}" multiselect="false" size="1">
+					<apex:selectOptions value="{!PriceLists}"/>
+				</apex:selectList>
+				<apex:commandButton value="Search Products" action="{!searchProducts}"/>
+			</apex:pageBlockSection>
+			<center> 
+	               <apex:actionStatus id="quoteprocessStart" stopText="" rendered="true">
+	                <apex:facet name="start">
+		                <div class="popupBackground"></div>
+		               	<img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Creating Quote ...</span>
+	                </apex:facet>
+	                </apex:actionStatus>
+	         
+	                <apex:actionStatus id="cartprocessStart" stopText="" rendered="true">
+	                <apex:facet name="start">
+		                <div class="popupBackground"></div>
+		               	<img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Creating Cart ...</span>
+	                </apex:facet>
+	                </apex:actionStatus>
+	        
+	                <apex:actionStatus id="addLinesprocessStart" stopText="" rendered="true">
+	                <apex:facet name="start">
+		                <div class="popupBackground"></div>
+		               	<img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Adding Lines to Cart ...</span>
+	                </apex:facet>
+	                </apex:actionStatus>
+	        
+	                <apex:actionStatus id="validateprocessStart" stopText="" rendered="true">
+	                <apex:facet name="start">
+		                <div class="popupBackground"></div>
+		               	<img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Validating Cart ...</span>
+	                </apex:facet>
+	                </apex:actionStatus>
+	        
+	                <apex:actionStatus id="pricingprocessStart" stopText="" rendered="true">
+	                <apex:facet name="start">
+		                <div class="popupBackground"></div>
+		               	<img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Pricing Cart ...</span>
+	                </apex:facet>
+	                </apex:actionStatus>
+	        
+	                <apex:actionStatus id="finalizingprocessStart" stopText="" rendered="true">
+	                <apex:facet name="start">
+		                <div class="popupBackground"></div>
+		               	<img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Finalizing Cart ...</span>
+	                </apex:facet>
+	                </apex:actionStatus>
+	        
+	                <apex:actionStatus id="routingprocessStart" stopText="" rendered="true">
+	                <apex:facet name="start">
+		                <div class="popupBackground"></div>
+		               	<img src="/img/loading32.gif" style="margin-top: 7%;"/><span>Routing to Quote ...</span>
+	                </apex:facet>
+	                </apex:actionStatus>
+	        </center>
+
+			<apex:pageBlockTable value="{!productDOWrapperList}" var="prodDO" id="availableProdLines" rendered="{!hasProducts}">
+       			  <apex:column headerValue="Select" width="5%">
+                        <apex:inputCheckBox value="{!prodDO.isSelected}"/>
+       			  </apex:column>
+
+       			  <apex:column headerValue="Product">
+       			  	<apex:outputLink value="/{!prodDO.prodDOWrapper.ProductId}">
+       			  		<apex:outputText value="{!prodDO.prodDOWrapper.NAME}"/>
+       			  	</apex:outputLink>
+       			  </apex:column>
+ 				  <apex:column headerValue="Product Code" value="{!prodDO.prodDOWrapper.ProductCode}"/>
+ 				  <apex:column headerValue="Quantity" style="width:10%">
+ 				  	<apex:inputText value="{!prodDO.quantity}"/><br/>
+ 				  </apex:column>
+ 				  <apex:column headerValue="Prices">
+ 				  	<apex:pageBlockTable align="left" value="{!prodDO.prodDOWrapper.Prices}" var="priceDO" id="prices" border="-1">
+ 				  		<apex:column value="{!priceDO.ChargeType}"/>
+						<apex:column value="{!priceDO.Value}" />
+					</apex:pageBlockTable>				  
+				  </apex:column>
+			</apex:pageBlockTable>
+		</apex:pageBlock>
+		 
+		<apex:actionFunction action="{!createCart}" name="doCreateCart" onComplete="doAddLinesCall();" rerender="hasErrorID,errorMsgID,pricePendingID" status="cartprocessStart"/>
+		<apex:actionFunction action="{!addLinesToCart}" name="doAddLines" onComplete="doValidateCartCall();" rerender="phasErrorID,errorMsgID,pricePendingID" status="addLinesprocessStart"/>
+		<apex:actionFunction action="{!validateConstraints}" name="doValidateCart" onComplete="doPriceCartCall();" rerender="hasErrorID,errorMsgID,pricePendingID" status="validateprocessStart"/>
+		<apex:actionFunction action="{!priceCart}" name="doPriceCart" onComplete="doPriceCartCall();" rerender="hasErrorID,errorMsgID,pricePendingID" status="pricingprocessStart"/>
+		<apex:actionFunction action="{!finalizeCart}" name="doFinalize" onComplete="doRedirectCall();" rerender="hasErrorID,errorMsgID,pricePendingID" status="finalizingprocessStart"/>
+		<apex:actionFunction action="{!routeToQuote}" name="doRouteToQuote" rerender="hasErrorID,errorMsgID,pricePendingID" status="routingprocessStart"/>
+		 
+		<apex:outputPanel id="panel1">
+			<apex:commandButton action="{!createQuote}" value="Next" onComplete="doCreateCartCall();" rerender="hasErrorID,errorMsgID,pricePendingID" status="quoteprocessStart"/>
+		</apex:outputPanel>
+		
+ 		
+      </apex:form>
+</apex:page>

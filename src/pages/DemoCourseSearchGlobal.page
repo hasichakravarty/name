@@ -1,0 +1,149 @@
+<apex:page controller="DemoCourseSearchGlobalController" tabStyle="Apttus_Config2__ClassificationHierarchy__c">
+    <!-- 
+         Include the jquery library in the DynaTree static resource so we can attempt to intercept 
+         the user hitting enter
+    
+    <apex:includeScript value="{!URLFOR($Resource.DynaTree, 'jquery/jquery.js' )}" />
+   --> 
+    <style>
+        .dataEntryField{
+            width: 150px;
+        }
+        
+        #searchPanel{
+            padding-top: 10px;
+            float: left;
+            width: 49%;
+        }
+        
+        #existingCoursePanel{
+            padding-top: 10px;
+            float: right;
+            width: 49%;
+        }
+    </style>
+    
+  <!--  <script>
+        $(document).ready(function(){
+        
+            //this supposed to fire the serch button click event if the user hits enter
+            //However,  if theres any other button on the page,  the click event is overridden
+            //and if that button has its own actions,  they are carried out...
+            $('[id$=searchTerm]').keypress(function(event){
+                //alert(event.keyCode);
+                if(event.keyCode == 13){
+                    //disable the other button first
+                    //which works until you enable it,  where upon it fires the events for that button...
+                    //$('[id$=cancel]').prop("disabled", true);
+                    //$('[id$=search]').click();
+                    //alert('hi');
+                }
+            });
+        });
+        
+    </script>
+    -->
+    
+    <apex:form >
+        <c:StandardHeaderMimic imageSRC="/img/icon/custom51_100/globe32.png" smallHeading="Pearson Course Structure" bigHeading="Attach Courses"/>
+        <p> 
+            <apex:commandLink value="{!ReturnLinkTitle}" action="{!ReturnToCaller}"/> 
+            &nbsp; | &nbsp; 
+           <!-- <apex:commandLink value="Treeview Search" action="{!LoadTreeviewSearchPage}"/> 
+            &nbsp; | &nbsp; 
+           --> <apex:outputLabel value="Standard Search"/> 
+        </p>
+        
+        
+        
+        <div id="searchPanel">
+            <apex:messages />
+        
+            <apex:pageBlock id="searchCriteria" title="Enter Search Criteria">
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton id="search" value="Search" action="{!SearchCourses}" rerender="results, searchCriteria"/>
+                </apex:pageBlockButtons>
+                <apex:actionFunction action="{!SearchCourses}" name="refreshSearchResults" reRender="results, searchCriteria"/>
+                <apex:pageblockSection showHeader="False" columns="1">
+                
+                    <apex:pageBlockSectionItem >
+                        <apex:outputlabel value="Pearson Course Code"/>
+                        <apex:inputText id="searchTerm" value="{!CourseCode}" styleClass="dataEntryField" onkeypress="if (event.keyCode == 13) {refreshSearchResults();return false;}" />
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputlabel value="Pearson Course Name / Description"/>
+                        <apex:inputText id="searchTerm" value="{!CourseName}" styleClass="dataEntryField" onkeypress="if (event.keyCode == 13) {refreshSearchResults();return false;}" />
+                    </apex:pageBlockSectionItem>
+                    
+                    <!--<apex:pageBlockSectionItem >
+                        <apex:outputlabel value="Pearson Course Type"/>
+                        <apex:selectList value="{!CourseType}" size="1" styleClass="dataEntryField">
+                            <apex:selectOptions value="{!PearsonCourseStructureTypes}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+                  -->  
+                </apex:pageblockSection>
+                
+            </apex:pageBlock>
+        </div>
+        
+        <div id="existingCoursePanel">
+            <apex:pageBlock title="Existing Courses">
+                <apex:pageblockTable var="item" value="{!ExistingCourses}">
+                        
+                    <apex:column title="Course Title" value="{!item.Name}">
+                        <apex:facet name="header">Course Name</apex:facet>
+                    </apex:column>
+                    
+                    <!-- Commented As per justin Change by Kyama-->
+                   <!-- <apex:column title="Course Type" value="{!item.Type__c}" style="width: 100px">
+                        <apex:facet name="header">Type</apex:facet>
+                    </apex:column>-->
+                    
+                    <!-- Added By Kyama For Display For Pearson Course code Column -->
+                    <apex:column title="Pearson Course Code" value="{!item.Pearson_Course_Structure_Code__c}" style="width: 100px">
+                        <apex:facet name="header">Course Code</apex:facet>
+                    </apex:column>
+                        
+                </apex:pageblockTable> 
+            </apex:pageBlock>
+        </div>
+        
+        
+        <apex:outputPanel id="results">
+            <apex:pageBlock title="Search Results" rendered="{!ShowResults}">
+              <apex:pageMessages rendered="{!pearsonCourseCodeError}"></apex:pageMessages>
+
+                <apex:pageblockButtons location="bottom">
+                    <apex:commandButton value="Attach" action="{!Attach}"/>
+                </apex:pageblockButtons>
+
+                <!--
+                    If you add a new Apttus_Config2__ClassificationHierarchy__c.Type__c,  to display the new data you need to do the following:
+                    1. Copy one of the <c:DemoCourseSearchGlobalSearchResult lines from below and past it to the location you want it to appear in
+                    2. Set the title parameter to a plural of the new Type__c
+                    3. Set the inputData parm to a new property on the controller that matches the following structure 'Type__c'SearchResults
+                    4. Set the key parm to Type__c
+                
+                <c:DemoCourseSearchGlobalSearchResult inputData="{!DisciplineSearchResults}" thetitle="Disciplines" thepageController="{!this}" thekey="Discipline" />
+                <c:DemoCourseSearchGlobalSearchResult inputData="{!ClusterSearchResults}" thetitle="Clusters" thepageController="{!this}" thekey="Cluster" />
+                <c:DemoCourseSearchGlobalSearchResult inputData="{!CourseSearchResults}" thetitle="Courses" thepageController="{!this}" thekey="Course" />
+                -->
+                
+                <!--
+                    Iterates over every type of result we have so code doesn't need to change as new data is pumped into sfdc.
+                -->
+                <apex:repeat value="{!allResults}" var="result">
+                    <c:DemoCourseSearchGlobalSearchResult inputData="{!result.resultSet}" thetitle="{!result.ResultType}" thepageController="{!this}" thekey="{!result.ResultType}" />
+                </apex:repeat>
+
+            </apex:pageBlock>
+            
+            <apex:pageBlock title="{!UserMessageTitle}" rendered="{!ShowUserMessage}">
+                {!UserMessage}
+            </apex:pageBlock>
+        </apex:outputPanel>
+        
+     </apex:form>
+</apex:page>

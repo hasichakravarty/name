@@ -1,0 +1,3 @@
+<!-- page Called from a formula field on proposal Sync to Opportunity button.-->
+<apex:page controller="Sync_Quote_to_Opportunity" action="{!Copy_Proposal_to_Oppty}">
+</apex:page>

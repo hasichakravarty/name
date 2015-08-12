@@ -1,0 +1,274 @@
+<apex:page controller="MyDynamicCategoryController">
+
+<!-- download the jstree from jstree.com and upload the dist directory as a static resource -->
+  <apex:includeScript value="{!URLFOR($Resource.KPjquery,'jquery-ui-1.7.2/jquery-1.3.2.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.KPjstree,'vakata-jstree-cc08849/dist/libs/jquery.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.KPjstree,'vakata-jstree-cc08849/dist/jstree.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.KPjstree,'vakata-jstree-cc08849/dist/jstree.min.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.KPjstree,'vakata-jstree-cc08849/dist/themes/default/style.min.css')}"/>
+
+<!-- 
+Change the remoteObjectModel name="Account and 
+remoteObjectField name="ParentId" to use a different
+Object and Lookup field on this page, if desired.
+-->
+<apex:remoteObjects >
+    <!--<apex:remoteObjectModel jsShortHand="sfNodeUser" name="User" fields="Id,Name,Price_List__c">
+    </apex:remoteObjectModel>     -->
+    <apex:remoteObjectModel jsShortHand="sfNode" name="Apttus_Config2__ClassificationHierarchy__c" fields="Id,Name">
+        <apex:remoteObjectField name="Apttus_Config2__AncestorId__c" jsShorthand="Parent" />
+        <apex:remoteObjectField name="Apttus_Config2__HierarchyId__c" jsShorthand="ParentCat" />
+    </apex:remoteObjectModel>
+    <!--<apex:remoteObjectModel jsShortHand="sfNodepriceCat" name="Apttus_Config2__PriceListCategory__c" fields="Id,Name,Apttus_Config2__HierarchyId__c">
+        <apex:remoteObjectField name="PriceListName__c" jsShorthand="PriceParent" />
+    </apex:remoteObjectModel> -->
+    <!--<apex:remoteObjectModel jsShortHand="sfNodeprice" name="Apttus_Config2__PriceList__c" fields="Id,Name">        
+    </apex:remoteObjectModel> -->
+   
+</apex:remoteObjects>
+
+<script>
+    //var sUserPrice='';    
+    var j$=jQuery.noConflict();      
+    j$(document).ready(function(){
+        alert('Inside jquery script');        
+        j$('#jstree').jstree({
+            "plugins": ["themes", "contextmenu", "dnd"],
+            "core" : {
+                  themes: {"stripes": true},
+                  check_callback : true,
+                  animation : 0,
+                  data : function (node, cb) {     
+                      //alert(this.name);
+                      loadNodes(this, node, cb);
+                  }
+              },
+             contextmenu : {
+                 "items" : function (node) {
+                     return { 
+                         "view" : {
+                              label: "View Record",
+                              action: function(obj) {
+                                  window.open("/" + node.id);
+                              }
+                          },
+                          "rename" : {
+                              label: "Rename", 
+                              action: function(obj) { 
+                                  j$('#jstree').jstree(true).edit(node)
+                              }
+                          }, 
+                          "create" : {
+                              label: "Create New", 
+                              action: function() { 
+                                  createNode(node);
+                              }
+                          },
+                          "delete" : {
+                              label: "Delete",
+                              action: function() {
+                                 if ( confirm("Really delete " + node.text + "?") ) {
+                                     deleteNode(node);
+                                 }
+                              },
+                              separator_before: true
+                          }
+                     }}}
+    });//JSTREE constructor
+    j$('#jstree').on("select_node.jstree", function(event, data) {
+        var sId=data.node.id;        
+        alert(sId.substring(0,3));
+        //var sfNode = new SObjectModel.sfNode();    
+        alert('Before init:'+data.node.children_d.length);
+        //j$('#jstree').toggle_node(data.node);
+        var tree = j$('#jstree').jstree(true);
+        //tree.edit(data.node);
+        //alert(tree.name);
+        // var newNode={id: data.node.id,text: data.node.name,children: true};
+        //var id = tree.create_node(data.node, newNode, "last", null, true);
+          if (tree.is_closed(data.node)) {
+                                  alert('node is closed');
+                                  tree.open_node(data.node, function() {
+                                      //tree.deselect_all(true);
+                                      tree.edit(data.node);
+                                  });
+                              } else {
+                                  alert('node is open');
+                                  //tree.deselect_all(true);
+                                  tree.edit(data.node);
+                              }          
+        /* if (sId.substring(0,3) == 'a1c'){
+	    	alert('Inside 1st level category pull');            
+            var spId='';
+            sfNode.retrieve(
+                  {where: {ParentCat: {eq: data.node.id},
+                           Parent: {eq: spId}}, 
+                   limit: 100 }, 
+                  function(err, records) {
+                      if (err) { displayErr(err);} 
+                      else{
+                          alert(records.length);
+                          var nodes = [];
+                          records.forEach(function(record) {
+                              var newNode = {
+                                  id: sfNode.get("Id"), 
+                                  text: sfNode.get("Name"),
+                                  children: true
+                              }; 
+                              
+                              var tree = j$('#jstree').jstree(true);
+                              //alert('tree length'+tree.length);
+                              var id = tree.create_node(data.node, newNode, "last", null, true);
+                              //alert(id+';'+parent.name);
+                              if (tree.is_closed(parent)) {
+                                  alert('node is closed');
+                                  tree.open_node(parent, function() {
+                                      tree.deselect_all(true);
+                                      tree.edit(id);
+                                  });
+                              } else {
+                                  alert('node is open');
+                                  tree.deselect_all(true);
+                                  tree.edit(id);
+                              }    
+                              
+                          });    
+                          //cb.call(tree, nodes);
+                      }//end else
+                  }//end fn
+            );//end if retrieve            
+	    } else {
+            alert('Inside OTHER THAN 1st level category pull');               
+            sfNode.retrieve(
+                  {where: {Parent: {eq: data.node.id}}, 
+                  limit: 100 }, 
+                  function(err, records) {
+                      if (err) { displayErr(err); } 
+                      else{
+                          var nodes = [];
+                          records.forEach(function(record) {
+                              var newNode = {
+                                  id: sfNode.get("Id"), 
+                                  text: sfNode.get("Name"),
+                                  children: true
+                              }; 
+                              var tree = j$('#jstree').jstree(true);
+                              var id = tree.create_node(data.node, newNode, "last", null, true);
+                              
+                              if (tree.is_closed(data.node)) {
+                                  tree.open_node(data.node, function() {
+                                      tree.deselect_all(true);
+                                      tree.edit(id);
+                                  });
+                              } else {
+                                  tree.deselect_all(true);
+                                  tree.edit(id);
+                              }      
+                              cb.call(tree, nodes);
+                          });                          
+                      }//end record else
+                  }//end fn
+            );    //end else retrieve        
+        }//end else   
+        //alert('After init:'+);
+        */
+      });    
+      
+    });   //end doc ready     
+
+    function loadNodes(tree, node, cb) {
+        alert('Inside loadNodes {!sUserPlist}');
+        var nodeId = node.id == "#" ? "" : node.id;     
+        var sfNode = new SObjectModel.sfNode(); 
+        var spId="";           
+        if (nodeId == ""){       
+          alert('inside blank');
+          var catId=[];
+          var cat=["Education","Math & Science"];
+          var tmp='{!sCategory}'.toString();
+          var tmpId='{!sCategoryId}'.toString();
+          var ctrcat=tmp.substring(1,tmp.length-1);
+          ctrcat=ctrcat.replace(/,\s/g,',');
+          cat=ctrcat.split(',');
+          ctrcat=tmpId.substring(1,tmpId.length-1);
+	      ctrcat=ctrcat.replace(/,\s/g,',');
+	      catId=ctrcat.split(',');     
+          var nodes = []; 
+		  for(var i=0;i<catId.length;i++){
+	              nodes.push({
+	              id: catId[i],
+	              text: cat[i],
+	              children: true
+	              });           
+	      }
+        //alert('Load Nodes'+tree.length);
+	      cb.call(tree, nodes);
+       }
+       else{
+           if (nodeId.substring(0,3) == 'a1c'){
+           	alert('Not blank');    
+            alert(nodeId);
+			sfNode.retrieve(
+                  {where: {ParentCat: {eq: nodeId},
+                           Parent: {eq: spId}}, 
+                   limit: 100 }, 
+                  function(err, records) {
+                      if (err) { displayErr(err);} 
+                      else{
+                          alert(records.length);
+                          var nodes = [];
+                          records.forEach(function(record) { 
+                          	nodes.push({ 
+                          	id: record.get("Id"),
+                          	text: record.get("Name"),
+                          	children: true
+                      		});
+                          });
+                          alert('After Init:'+ nodes.length);
+                          cb.call(tree, nodes);
+                          redraw(true);
+                      }
+                      
+                  });//retrieve               
+           } else{
+            alert('Not blank');    
+            alert(nodeId);
+ 
+           }
+       }
+     }	
+      
+
+      function getPath(id) {
+          if (id == "#") {
+             return "";
+          }
+          return j$('#jstree').jstree(true).get_path({id: id}, "/");
+      }
+      
+      function displayPath(nodeId) {
+          j$('#path').text("Path: /" + getPath(nodeId));
+      }
+          
+      function displayMsg(msg) {
+          j$('#msg').text(msg);
+      }
+      
+      function displayErr(err) {
+          displayMsg("Error: " + err);
+      }                          
+</script>
+
+<h1>Nodes</h1>
+
+<div id="msg"></div>
+<div id="path"></div>
+
+<div id="jstree">
+    <ul>
+        <!--<li>            
+        </li>-->
+    </ul>
+</div>
+
+</apex:page>

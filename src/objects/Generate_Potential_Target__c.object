@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Course_Creator</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Action__c</fullName>
+        <externalId>true</externalId>
+        <label>Action</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Adoption_Type__c</fullName>
+        <description>created for mapping</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Course__r.Adoption_Type__c)</formula>
+        <label>Adoption Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Author__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product__r.Author__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Author</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Catalog_Code_Course_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course__r.Catalog_Code__c &amp;  Course__r.Name</formula>
+        <label>Catalog Code/ Course Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Copyright_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product__r.Copyright_Year__c</formula>
+        <label>Copyright Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Course__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Course</label>
+        <referenceTo>UniversityCourse__c</referenceTo>
+        <relationshipName>Course</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fall_Frontlist__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course__r.Fall_Front_List__c</formula>
+        <label>Fall Frontlist</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Fall__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course__r.Fall_Enrollment__c</formula>
+        <label>Fall</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Next_Edition_Currency__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Product__r.Next_Edition__r.CurrencyIsoCode)</formula>
+        <label>Next Edition Currency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Next_Edition__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product__r.Next_Edition__r.Id</formula>
+        <label>Next Edition</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Existing Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rollover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Takeaway</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PCC_c__c</fullName>
+        <externalId>false</externalId>
+        <label>PCC(Primary)+Pearson CourseName(Primary)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Selling_Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course__r.Primary_Selling_Account__c</formula>
+        <label>Primary Selling Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Processed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Processed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Product_In_Use_Publisher__c</fullName>
+        <externalId>false</externalId>
+        <label>Product In Use Publisher</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_In_Use__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product In Use</label>
+        <referenceTo>Asset</referenceTo>
+        <relationshipName>Potential_Targets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipName>Generate_Potential_Targets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Publisher__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product__r.Publisher__c</formula>
+        <label>Publisher</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Selling_Period_Course_Name__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>Selling Period+Course Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Spring_Frontlist__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course__r.Spring_Front_List__c</formula>
+        <label>Spring Frontlist</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Spring__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course__r.Spring_Enrollment__c</formula>
+        <label>Spring</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opportunity Created</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Validation In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Validation Failed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Summer__c</fullName>
+        <description>Created for mapping</description>
+        <externalId>false</externalId>
+        <formula>Course__r.Summer_Enrollment__c</formula>
+        <label>Summer</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TakeAway_Multiple_Frontlist__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>TakeAway Multiple Frontlist</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TakeAway_Product_Family__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Potential Targets (Product Family)</relationshipLabel>
+        <relationshipName>Potential_Targets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Winter__c</fullName>
+        <description>created for mapping</description>
+        <externalId>false</externalId>
+        <formula>Course__r.Winter_Enrollment__c</formula>
+        <label>Winter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Potential Target</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Primary_Selling_Account__c</columns>
+        <columns>Account__c</columns>
+        <columns>Course__c</columns>
+        <columns>Fall__c</columns>
+        <columns>Spring__c</columns>
+        <columns>Author__c</columns>
+        <columns>Product_In_Use__c</columns>
+        <columns>Copyright_Year__c</columns>
+        <columns>Publisher__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>PCC_c__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Existing_Business_Opportunity</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Primary_Selling_Account__c</columns>
+        <columns>Account__c</columns>
+        <columns>Course__c</columns>
+        <columns>PCC_c__c</columns>
+        <columns>Fall__c</columns>
+        <columns>Spring__c</columns>
+        <columns>Author__c</columns>
+        <columns>Product_In_Use__c</columns>
+        <columns>Copyright_Year__c</columns>
+        <columns>Publisher__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Opportunity_Type__c</field>
+            <operation>equals</operation>
+            <value>Existing Business</value>
+        </filters>
+        <label>Existing Business Opportunity</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Rollover_Opportunity</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Primary_Selling_Account__c</columns>
+        <columns>Account__c</columns>
+        <columns>Course__c</columns>
+        <columns>PCC_c__c</columns>
+        <columns>Fall__c</columns>
+        <columns>Spring__c</columns>
+        <columns>Author__c</columns>
+        <columns>Product_In_Use__c</columns>
+        <columns>Copyright_Year__c</columns>
+        <columns>Publisher__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Opportunity_Type__c</field>
+            <operation>equals</operation>
+            <value>Rollover</value>
+        </filters>
+        <label>Rollover Opportunity</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Takeaway_Opportunity</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Primary_Selling_Account__c</columns>
+        <columns>Account__c</columns>
+        <columns>Course__c</columns>
+        <columns>PCC_c__c</columns>
+        <columns>Fall__c</columns>
+        <columns>Spring__c</columns>
+        <columns>Author__c</columns>
+        <columns>Product_In_Use__c</columns>
+        <columns>Copyright_Year__c</columns>
+        <columns>Publisher__c</columns>
+        <columns>Fall_Frontlist__c</columns>
+        <columns>Spring_Frontlist__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Opportunity_Type__c</field>
+            <operation>equals</operation>
+            <value>Takeaway</value>
+        </filters>
+        <label>Takeaway Opportunity</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>PT-{00000}</displayFormat>
+        <label>Potential Target</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Potential Targets</pluralLabel>
+    <searchLayouts>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <listViewButtons>Generate_Potential_Targets</listViewButtons>
+        <listViewButtons>Generate_Opportunities</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Generate_Opportunities</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Generate Opportunities</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)}
+var selectedRecord = {!GETRECORDIDS($ObjectType.Generate_Potential_Target__c)};
+var updateRecords = []; 
+if(selectedRecord[0]==null){
+   alert(&apos;Select Record for creating Opportunities&apos;);
+}
+else{
+    for (var selId=0; selId &lt;selectedRecord.length; selId++) {
+             var update_Target = new sforce.SObject(&quot;Generate_Potential_Target__c&quot;); 
+	     update_Target.Id = selectedRecord[selId];  
+             //alert(&quot;Product:&quot;+update_Target.Product__c);
+             update_Target.Action__c = &quot;Create&quot;;
+             update_Target.Status__c = &quot;In Progress&quot;;
+	     updateRecords.push(update_Target); 
+
+   }
+	result = sforce.connection.update(updateRecords);
+ListViewport.instances[get(&apos;fcf&apos;)].refreshList();
+    //document.location.reload(true); 
+}
+
+function get(name) { 
+    if (name = (new RegExp(&apos;[?&amp;]&apos; + encodeURIComponent(name) + 
+        &apos;=([^&amp;]*)&apos;)).exec(location.search)) { 
+        return decodeURIComponent(name[1]); 
+    } 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Potential_Targets</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Generate Potential Targets</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)} 
+var buttonAction = sforce.apex.execute(&quot;PS_GeneratePotentialTargets&quot;, &quot;createPotentialTargets&quot;,{});
+if(buttonAction)
+ListViewport.instances[get(&apos;fcf&apos;)].refreshList();
+else
+   alert(&apos;Error in Processing&apos;);
+
+function get(name) { 
+    if (name = (new RegExp(&apos;[?&amp;]&apos; + encodeURIComponent(name) + 
+        &apos;=([^&amp;]*)&apos;)).exec(location.search)) { 
+        return decodeURIComponent(name[1]); 
+    }
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Test</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Test</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/14.0/apex.js&quot;)} 
+var selectedRecord = {!GETRECORDIDS($ObjectType.Generate_Potential_Target__c)}; 
+var updateRecords = []; 
+if(selectedRecord[0]==null){ 
+alert(&apos;Select Record for creating Opportunities&apos;); 
+} 
+else{ 
+var soqlQ=&quot;SELECT id,product__c FROM generate_potential_target__c WHERE Id in (&apos;&quot;+selectedRecord+&quot;&apos;)&quot;; 
+//alert(soqlQ);
+var customObj = sforce.connection.query(soqlQ);
+var soqlRes = customObj.getArray(&quot;records&quot;);
+alert(soqlRes);
+//alert(soqlRes.length);
+for (var selId=0; selId &lt; soqlRes.length ; selId++) { 
+alert(soqlRes[selId]);
+//alert(record.product__c);
+if (soqlRes[selId].product__c != null &amp;&amp; soqlRes[selId].product__c != &apos;&apos;){
+var update_Target = new sforce.SObject(&quot;Generate_Potential_Target__c&quot;); 
+update_Target.Id = soqlRes[selId].id; 
+//alert(&quot;Product:&quot;+update_Target.Product__c); 
+update_Target.Action__c = &quot;Create&quot;; 
+update_Target.Status__c = &quot;In Progress&quot;; 
+updateRecords.push(update_Target); }
+
+} 
+result = sforce.connection.update(updateRecords); 
+ListViewport.instances[get(&apos;fcf&apos;)].refreshList(); 
+//document.location.reload(true); 
+} 
+
+function get(name) { 
+if (name = (new RegExp(&apos;[?&amp;]&apos; + encodeURIComponent(name) + 
+&apos;=([^&amp;]*)&apos;)).exec(location.search)) { 
+return decodeURIComponent(name[1]); 
+} 
+}</url>
+    </webLinks>
+</CustomObject>

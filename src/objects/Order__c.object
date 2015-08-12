@@ -1,0 +1,1473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>CORE adopted from ICOM - Object to track Orders - integration with Bookmaster</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Orders</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>CancelAfterDate__c</fullName>
+        <description>From Canonical XSD</description>
+        <externalId>false</externalId>
+        <label>Cancel After Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DeliverToAddress__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>From Oracle: Deliver to Customer Location</description>
+        <externalId>false</externalId>
+        <label>End User/Deliver To Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+            <errorMessage>Selected Deliver To Address is not an active address for the selected Account</errorMessage>
+            <filterItems>
+                <field>$Source.Account__c</field>
+                <operation>equals</operation>
+                <valueField>Account_Addresses__c.Account__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Account_Addresses__c.ERP_Address_Status__c</field>
+                <operation>equals</operation>
+                <value>ACTIVE</value>
+            </filterItems>
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>Pearson Integration, System Administrator</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account_Addresses__c</referenceTo>
+        <relationshipName>Orders_Deliver_To</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DeliverToContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>From Oracle requirements</description>
+        <externalId>false</externalId>
+        <label>End User/Deliver To Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Orders2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DiscountAmount__c</fullName>
+        <description>From Canonical XSD: Total Discount</description>
+        <externalId>false</externalId>
+        <label>Discount Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DoNotShipBeforeDate__c</fullName>
+        <description>From Canonical XSD</description>
+        <externalId>false</externalId>
+        <label>Do Not Ship Before Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DoNotSplit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>From Canonical XSD</description>
+        <externalId>false</externalId>
+        <label>Do Not Split</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>External_Order_Number__c</fullName>
+        <externalId>true</externalId>
+        <label>External Order Number</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FinancialAccountNumber__c</fullName>
+        <externalId>false</externalId>
+        <formula>InvoiceToAddress__r.ERP_Account_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Financial Account Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GratisOrderCOGSAccount__c</fullName>
+        <description>From Oracle requirements: GRATIS_COGS = Used to charge &quot;sample&quot; orders to a specific cost center. When populated, the Center.ER entered into this field is used in the COGS account generation.</description>
+        <externalId>false</externalId>
+        <label>Gratis Order COGS Account</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Id_18_character__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID( Id )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Id (18-character)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inactive_Products__c</fullName>
+        <externalId>false</externalId>
+        <label>Inactive Products</label>
+        <summaryFilterItems>
+            <field>OrderLineItem__c.Is_Active_Product__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryForeignKey>OrderLineItem__c.Order__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Instruction_Alert__c</fullName>
+        <description>Visual prompt if Order Instructions are noted for the related Account</description>
+        <externalId>false</externalId>
+        <formula>IF( Order_Instructions__c = NULL , IMAGE(&quot;/img/msg_icons/confirm32.png&quot;,&quot;Green&quot;), IMAGE(&quot;/img/msg_icons/warning32.png&quot;,&quot;Orange&quot;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Instruction Alert</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InvoiceNotes__c</fullName>
+        <description>From Oracle requirements</description>
+        <externalId>false</externalId>
+        <label>Invoice Notes</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InvoiceToAddress__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>From Oracle Stored Procedure Input Fields: Invoice to Customer Location</description>
+        <externalId>false</externalId>
+        <label>Invoice to Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+            <errorMessage>Selected Invoice To Address is not an active address for the selected Account</errorMessage>
+            <filterItems>
+                <field>Account_Addresses__c.Account__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Account__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Account_Addresses__c.ERP_Address_Status__c</field>
+                <operation>equals</operation>
+                <value>ACTIVE</value>
+            </filterItems>
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>Pearson Integration, System Administrator</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account_Addresses__c</referenceTo>
+        <relationshipName>Orders_Invoice_To</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>InvoiceToContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>From Oracle requirements</description>
+        <externalId>false</externalId>
+        <label>Invoice to Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_To_Address_Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>InvoiceToAddress__r.Account__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Invoice To Address Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_To_Address_State__c</fullName>
+        <externalId>false</externalId>
+        <formula>InvoiceToAddress__r.State__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Invoice To Address State</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LineItemCount__c</fullName>
+        <externalId>false</externalId>
+        <label>Line Item Count</label>
+        <summaryForeignKey>OrderLineItem__c.Order__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Manual_Order_Fulfilled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>HE Only -  The Pearson Customer Experience Representative will check the “Manual Order Fulfilled” box on the order once it has been fully completed/delivered according to the ERP (Bookmaster) system.</inlineHelpText>
+        <label>Manual Order Fulfilled</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OrderContactInfo__c</fullName>
+        <description>From Oracle requirements: Free form text capturing the ordered by contact name, phone, email, etc. (Used when there is no requirement to reference contacts stored in Oracle ERP)</description>
+        <externalId>false</externalId>
+        <label>Order Contact Info</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OrderId__c</fullName>
+        <description>From Canonical XSD: Unique internal order number</description>
+        <externalId>false</externalId>
+        <label>Order Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OrderNumber__c</fullName>
+        <description>From Canonical XSD: ERP Order Number; some ERPs allow order number to be externally supplied.</description>
+        <externalId>false</externalId>
+        <label>ERP Order Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OrderSource__c</fullName>
+        <description>From Canonical XSD: Code indicating source of order eg web, edi, phone, fax</description>
+        <externalId>false</externalId>
+        <label>Order Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>web</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>edi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>OrderSubTotal__c</fullName>
+        <description>From Canonical XSD: Order Total before shipping, discount or tax</description>
+        <externalId>false</externalId>
+        <label>Order Subtotal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OrderType__c</fullName>
+        <description>From Canonical XSD: Order type (enumeration)</description>
+        <externalId>false</externalId>
+        <label>Order Type</label>
+        <picklist>
+            <controllingField>TargetSystem__c</controllingField>
+            <picklistValues>
+                <fullName>Sample</fullName>
+                <controllingFieldValues>HED</controllingFieldValues>
+                <controllingFieldValues>K12</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Normal Sale</fullName>
+                <controllingFieldValues>HED</controllingFieldValues>
+                <controllingFieldValues>K12</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Schools Inspection</fullName>
+                <controllingFieldValues>K12</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Schools Direct</fullName>
+                <controllingFieldValues>K12</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Order_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Order_Instructions__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Order Instructions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ordered_Item_Rollup__c</fullName>
+        <description>Counts Line Items that don&apos;t have a blank Ordered Item field.  If this does not match the Line Item Rollup, validation fails.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Counts Line Items that don&apos;t have a blank Ordered Item field.  If this does not match the Line Item Rollup, validation fails.</inlineHelpText>
+        <label>Ordered Item Rollup</label>
+        <summaryFilterItems>
+            <field>OrderLineItem__c.Ordered_Item__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </summaryFilterItems>
+        <summaryForeignKey>OrderLineItem__c.Order__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>OverrideDeliverToAddressLine1__c</fullName>
+        <externalId>false</externalId>
+        <label>Override DeliverTo Address Line 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OverrideDeliverToAddressLine2__c</fullName>
+        <externalId>false</externalId>
+        <label>Override DeliverTo Address Line 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OverrideDeliverToAddressLine3__c</fullName>
+        <externalId>false</externalId>
+        <label>Override DeliverTo Address Line 3</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OverrideDeliverToAddressLine4__c</fullName>
+        <externalId>false</externalId>
+        <label>Override DeliverTo Address Line 4</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OverrideDeliverToAddress__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Override Deliver To Address</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OverrideDeliverToCity__c</fullName>
+        <externalId>false</externalId>
+        <label>Override DeliverTo City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OverrideDeliverToCountry__c</fullName>
+        <externalId>false</externalId>
+        <label>Override DeliverTo Country</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OverrideDeliverToState__c</fullName>
+        <externalId>false</externalId>
+        <label>Override Deliver To State</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OverrideDeliverToZipCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Override Deliver To Zip Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PONumber__c</fullName>
+        <description>From Canonical XSD: Customer-supplied order number</description>
+        <externalId>false</externalId>
+        <label>Purchase Order Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PackingInstructions__c</fullName>
+        <description>From Oracle requirements</description>
+        <externalId>false</externalId>
+        <label>Packing Instructions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preferred_Delivery_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Delivery Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PurchaseDate__c</fullName>
+        <description>From Canonical XSD: Purchasing Date of an Order</description>
+        <externalId>false</externalId>
+        <label>Purchase Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RushFlag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>From Canonical XSD: Status for Rush processing of Order</description>
+        <externalId>false</externalId>
+        <label>Rush Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SalesChannel__c</fullName>
+        <description>From Oracle requirements</description>
+        <externalId>false</externalId>
+        <label>Sales Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>NCSLearn Eastern Region</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NCSLearn Western Region</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Salesperson_Name__c</fullName>
+        <description>From Oracle requirements: SALESREP_NAME = If Salesperson Username is not passed, then stored procedure will lookup salesperson in Oracle using Last Name, First Name</description>
+        <externalId>false</externalId>
+        <formula>Salesperson__r.FirstName &amp; &quot; &quot; &amp;  Salesperson__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Salesperson Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Salesperson__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>From Oracle requirements</description>
+        <externalId>false</externalId>
+        <label>Salesperson</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ShipConfirmationEmail__c</fullName>
+        <description>From Oracle requirements: SHIP_CONFIRM_EMAIL = Enter an email address to send shipment confirmation emails.</description>
+        <externalId>false</externalId>
+        <label>Ship Confirmation Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ShipToAddress__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>From Oracle Stored Procedure Input Fields: Ship To Customer Location</description>
+        <externalId>false</externalId>
+        <label>Ship to Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+            <errorMessage>Selected Ship To Address is not an active address for the selected Account</errorMessage>
+            <filterItems>
+                <field>$Source.Account__c</field>
+                <operation>equals</operation>
+                <valueField>Account_Addresses__c.Account__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Account_Addresses__c.ERP_Address_Status__c</field>
+                <operation>equals</operation>
+                <value>ACTIVE</value>
+            </filterItems>
+            <filterItems>
+                <field>$Profile.Name</field>
+                <operation>equals</operation>
+                <value>Pearson Integration, System Administrator</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account_Addresses__c</referenceTo>
+        <relationshipName>Orders_Ship_To</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ShipToContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>From Oracle requirements</description>
+        <externalId>false</externalId>
+        <label>Ship to Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Orders1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ship_to_Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>ShipToAddress__r.Account__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ship to Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ShipmentPriority__c</fullName>
+        <description>From Oracle Requirements</description>
+        <externalId>false</externalId>
+        <label>Shipment Priority</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Urgent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Key Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard Priority</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ShippingAmount__c</fullName>
+        <description>From Canonical XSD</description>
+        <externalId>false</externalId>
+        <label>Shipping Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ShippingInstructions__c</fullName>
+        <description>From Oracle Requirements</description>
+        <externalId>false</externalId>
+        <label>Shipping Instructions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ShippingMethod__c</fullName>
+        <description>From Canonical XSD: Shipping method. Typically a code indicating a combination of Carrier and Service Level e.g. Fed Ex Ground</description>
+        <externalId>false</externalId>
+        <label>Shipping Method</label>
+        <picklist>
+            <controllingField>Status__c</controllingField>
+            <picklistValues>
+                <fullName>Best Method of Shipment</fullName>
+                <controllingFieldValues>Approved</controllingFieldValues>
+                <controllingFieldValues>New</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hand Delivered</fullName>
+                <controllingFieldValues>Hand Delivered</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Overnight Shipment</fullName>
+                <controllingFieldValues>Approved</controllingFieldValues>
+                <controllingFieldValues>New</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australia Post</fullName>
+                <controllingFieldValues>Approved</controllingFieldValues>
+                <controllingFieldValues>New</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SoldToContact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>From Oracle Requirements</description>
+        <externalId>false</externalId>
+        <label>Sold To Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Orders_Sold_To</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Special_Order_Handling__c</fullName>
+        <description>Includes: 
+Non-standard billing terms  
+Special invoice language (match customer PO)
+Commit orders 
+Supporting documentation with invoice 
+Expense billing 
+Future product delivery 
+Credit card payment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Includes: 
+Non-standard billing terms  
+Special invoice language (match customer PO)
+Commit orders 
+Supporting documentation with invoice 
+Expense billing 
+Future product delivery 
+Credit card payment
+Promotion codes</inlineHelpText>
+        <label>Special Order Information</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>StatusReason__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>&apos;New&apos; is the status for order that have not been completed yet
+&apos;Approved&apos; is the status you should select when you want to trigger the sending of the order to Bookmaster</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hand Delivered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Need Approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>StoreId__c</fullName>
+        <description>From Canonical XSD: StoreFrontGroup ID of an Order</description>
+        <externalId>false</externalId>
+        <label>Store Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SupplierId__c</fullName>
+        <externalId>false</externalId>
+        <label>Supplier Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TargetSystem__c</fullName>
+        <externalId>false</externalId>
+        <label>Target System</label>
+        <picklist>
+            <picklistValues>
+                <fullName>K12</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HED</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TaxExemptId__c</fullName>
+        <description>From Canonical XSD: Tax exemption id used in this transaction. This is associated with a specific person/org, but can only be one for the whole order.</description>
+        <externalId>false</externalId>
+        <label>Tax Exempt Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalSalesAmount__c</fullName>
+        <description>From Canonical XSD: Total sales amount including Sub total sales amount and Tax amount of an order</description>
+        <externalId>false</externalId>
+        <label>Total Sales Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TotalTaxAmount__c</fullName>
+        <description>From Canonical XSD: Total of all taxes of all types</description>
+        <externalId>false</externalId>
+        <label>Total Tax Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TransactionNotificationEmail__c</fullName>
+        <description>From Oracle requirements: INVOICE_EMAIL = Enter an email address to send a copy of the invoice electronically</description>
+        <externalId>false</externalId>
+        <label>Transaction Notification Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <label>Order</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Order Number</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Orders</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Approved_Order</fullName>
+        <active>true</active>
+        <label>Approved Order</label>
+        <picklistValues>
+            <picklist>OrderSource__c</picklist>
+            <values>
+                <fullName>edi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OrderType__c</picklist>
+            <values>
+                <fullName>Normal Sale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sample</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schools Direct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schools Inspection</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesChannel__c</picklist>
+            <values>
+                <fullName>NCSLearn Eastern Region</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NCSLearn Western Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ShipmentPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Key Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard Priority</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urgent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ShippingMethod__c</picklist>
+            <values>
+                <fullName>Australia Post</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Best Method of Shipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hand Delivered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overnight Shipment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hand Delivered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TargetSystem__c</picklist>
+            <values>
+                <fullName>HED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>K12</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Order</fullName>
+        <active>true</active>
+        <label>Order</label>
+        <picklistValues>
+            <picklist>OrderSource__c</picklist>
+            <values>
+                <fullName>edi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OrderType__c</picklist>
+            <values>
+                <fullName>Normal Sale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sample</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schools Direct</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schools Inspection</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SalesChannel__c</picklist>
+            <values>
+                <fullName>NCSLearn Eastern Region</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NCSLearn Western Region</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ShipmentPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Key Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard Priority</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urgent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ShippingMethod__c</picklist>
+            <values>
+                <fullName>Australia Post</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Best Method of Shipment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hand Delivered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overnight Shipment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hand Delivered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TargetSystem__c</picklist>
+            <values>
+                <fullName>HED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>K12</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Salesperson__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Salesperson__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Account__c</lookupFilterFields>
+        <lookupFilterFields>Status__c</lookupFilterFields>
+        <lookupFilterFields>Salesperson__c</lookupFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Salesperson__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Salesperson__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Order_Approval_Only_If_Active_Products</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR( 
+AND(
+LineItemCount__c==0, 
+ISPICKVAL(Status__c,&apos;Approved&apos;)
+),
+AND( 
+Inactive_Products__c &gt; 0, 
+ISPICKVAL(Status__c,&apos;Approved&apos;) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Please ensure an active product has been added to the order, and all inactive products removed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Order_Approval_only_if_BookmasterAccount</fullName>
+        <active>true</active>
+        <description>CORE - The order can only be approved if the Account is in Bookmaster.</description>
+        <errorConditionFormula>IF(
+      AND(
+            ISPICKVAL(TargetSystem__c,&apos;HED&apos;),
+            ISPICKVAL(OrderType__c,&apos;Sample&apos;),
+            OR(
+                  Account__r.RecordType.Name = &apos;Higher Education&apos;,
+                  Account__r.RecordType.Name = &apos;Non Integrated&apos;
+            )
+      ),
+      FALSE,
+      AND(
+            OR (ISBLANK(Account__r.External_Account_Number__c), Account__r.Account_Status__c != &apos;A&apos;),
+            ISPICKVAL(Status__c,&apos;Approved&apos;),
+            OR(
+                  Account__r.BillingCountry == &apos;Australia&apos;,
+                  Account__r.BillingCountry == &apos;New Zealand&apos;
+            )
+      )
+)</errorConditionFormula>
+        <errorDisplayField>Account__c</errorDisplayField>
+        <errorMessage>The Account must have a Bookmaster Account Number and be Active to have an Approved Order. Please ensure the Account is in Bookmaster and the Account Status is A.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Order_NO_Approval_HE_Non_Samples</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (
+ISPICKVAL(Status__c, &apos;Approved&apos;) , 
+ISPICKVAL (TargetSystem__c, &apos;HED&apos;), 
+ISPICKVAL (OrderType__c, &apos;Normal Sale&apos;)
+)</errorConditionFormula>
+        <errorMessage>An HE Normal Sale Order cannot be set to &apos;Approved&apos;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Order_PO_Number_To_Long</fullName>
+        <active>true</active>
+        <description>Order PO Number can not exceed 30 chars</description>
+        <errorConditionFormula>AND(NOT(ISBLANK( PONumber__c )), LEN( PONumber__c ) &gt; 30)</errorConditionFormula>
+        <errorDisplayField>PONumber__c</errorDisplayField>
+        <errorMessage>The Purchase Order Number can not exceed 30 characters</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_Address_Override_Fields</fullName>
+        <active>true</active>
+        <description>Ensure that override Address Line 1, City, State, Country and Zip are populated if Address Override = true</description>
+        <errorConditionFormula>AND(
+	OverrideDeliverToAddress__c,
+	OR(
+		ISBLANK(OverrideDeliverToAddressLine1__c),
+		ISBLANK(OverrideDeliverToCity__c),
+		ISBLANK(OverrideDeliverToCountry__c),
+		ISBLANK(OverrideDeliverToState__c),
+		ISBLANK(OverrideDeliverToZipCode__c)
+	)
+)</errorConditionFormula>
+        <errorMessage>If choosing to override the deliver to address, please populate the Override Deliver Address Line 1, Override Deliver to City, Override Deliver to Country, Override Deliver to State and Override Deliver to Zip Code fields.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Oasis</fullName>
+        <availability>online</availability>
+        <description>Link to Oasis product inventory system</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Oasis</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>www.google.com</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>TYPE</field>
+    </columns>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE_CODE</field>
+    </columns>
+    <currency>AUD</currency>
+    <description>For Inside Sales calls for masterclasses</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Low_Grade__c</column>
+            <operator>equals</operator>
+            <value>K,01,02,03,04,05,06,1,2,3,4,5,6</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.High_Grade__c</column>
+            <operator>equals</operator>
+            <value>07,08,09,10,11,12,7,8,9</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>VIC, NSW, ACT schools</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

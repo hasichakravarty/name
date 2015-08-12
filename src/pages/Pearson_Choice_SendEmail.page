@@ -1,0 +1,71 @@
+<apex:page controller="SendEmailInstructor" tabstyle="Opportunity">
+<apex:form >
+ <apex:pagemessages />
+ <apex:pageblock title="Send Email">
+  <apex:pageblockButtons >
+      <apex:commandButton action="{!sendEmail}" value="Send Email"/>
+      <apex:commandButton action="{!cancel}" value="Cancel"/>
+  </apex:pageblockButtons> 
+  
+  <apex:pageblocksection columns="1" title="Edit Email">
+  
+  
+   <apex:pageblocksectionItem rendered="{!if(mailsent==true,true,false)}">
+     To:<apex:inputText value="{!primaryContact}" disabled="true" size="33" />
+  </apex:pageblocksectionItem>
+  
+   <apex:pageblocksectionItem rendered="{!if(mailsent==false,true,false)}">
+     To:<apex:inputText value="{!primaryContact}" disabled="false" size="33" />
+  </apex:pageblocksectionItem>
+  
+  
+  <apex:pageblocksectionItem rendered="{!if(mailsent==false,true,false)}">
+    Additional To:    
+     <apex:inputTextArea value="{!additionalEmailAddress}" rows="3" cols="40" disabled="false"/>
+    </apex:pageblocksectionItem>
+    
+   <apex:pageblocksectionItem rendered="{!if(mailsent==true,true,false)}">
+    Additional To:    
+     <apex:inputTextArea value="{!additionalEmailAddress}" rows="3" cols="40" disabled="true"/>
+    </apex:pageblocksectionItem> 
+    
+    
+  <apex:pageblocksectionItem rendered="{!if(mailsent==false,true,false)}">
+  Subject:  
+  <apex:inputText disabled="false"  value="{!subject}" size="85"/>   
+  </apex:pageblocksectionItem>
+
+<apex:pageblocksectionItem rendered="{!if(mailsent==true,true,false)}">
+  Subject:  
+  <apex:inputText disabled="true"  value="{!subject}" size="85"/>   
+  </apex:pageblocksectionItem>
+  
+
+  <apex:pageblocksectionItem rendered="{!if(mailsent==false,true,false)}">
+  Body:  
+  <apex:inputTextarea value="{!emailBody1}" richText="true" cols="10" rows="25" disabled="false"/>
+ </apex:pageblocksectionItem>
+  
+ 
+<apex:pageblocksectionItem rendered="{!if(mailsent==true,true,false)}">
+  Body:  
+  <apex:inputTextarea value="{!emailBody1}" richText="true" cols="10" rows="25" disabled="true"/>
+ </apex:pageblocksectionItem> 
+ 
+   
+ <!-- <apex:pageblocksectionItem >
+  Notify Sender:  
+  <apex:inputCheckbox value="{!notifySender}"/> 
+  </apex:pageblocksectionItem>-->
+  </apex:pageblocksection>  
+  
+ </apex:pageblock>
+ <apex:pageBlock >
+          <apex:pageBlockSection title="New Attachment(s)" columns="1">
+            <apex:pageblocksectionItem >         
+            New Attachment: <apex:inputFile value="{!documentbody}" filename="{!documentname}"/>
+            </apex:pageblocksectionItem>             
+           </apex:pageBlockSection>
+       </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Submit_Next_Integration_Request</name>
+        <label>Submit Next Integration Request</label>
+        <locationX>281</locationX>
+        <locationY>113</locationY>
+        <actionName>IntegrationFrameworkOuboundQueue</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>CompletedIntReqList</name>
+            <value>
+                <elementReference>IntegrationRequestObject</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>NextSubmittedIntegrationRequest</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <interviewLabel>OIF_CompletionHandler {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>OIF_CompletionHandler</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Submit_Next_Integration_Request</startElementReference>
+    <variables>
+        <name>IntegrationRequestObject</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Integration_Request__c</objectType>
+    </variables>
+    <variables>
+        <name>NextSubmittedIntegrationRequest</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Integration_Request__c</objectType>
+    </variables>
+</Flow>
